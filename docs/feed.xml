@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lee Turner</title>
+    <link>http://localhost:8820</link>
+    <atom:link href="http://localhost:8820/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Welcome to the website of Lee Turner</description>
+    <language>en-US</language>
+    <pubDate>Sun, 21 Jan 2018 22:59:07 +0000</pubDate>
+    <lastBuildDate>Sun, 21 Jan 2018 22:59:07 +0000</lastBuildDate>
+
+    <item>
+      <title>Do You Bake Or Fry?</title>
+      <link>http://localhost:8820/blog/2018/01/do-you-bake-or-fry.html</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">blog/2018/01/do-you-bake-or-fry.html</guid>
+      	<description>
+	&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Before I go much further, I thought it was probably worth me putting down a few notes about my technology choices for this site.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In term of website development, I have had experience of quite a few different content management systems such as &lt;a href=&quot;http://b2evolution.net&quot;&gt;b2Evolution&lt;/a&gt; and more recently &lt;a href=&quot;http://wordpress.org&quot;&gt;Wordpress&lt;/a&gt;.  I have developed plugins and templates for b2Evolution as well as contributing code to the core product back in the day.  I have put more sites together in Wordpress than I care to remember - most of my clients used Wordpress in some form or other while I was working in the paid traffic/SEO industry.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Content management systems like b2Evolution and Wordpress have become commonly know as &apos;&lt;em&gt;frying&lt;/em&gt;&apos; your site - all of your content is hidden away in a database somewhere and the CMS code takes a request from a browser, translates that into a request on the database to pull out the content and wrap it up with your chosen theme to produce your site.  There is absolutely nothing wrong with this&amp;#8230;&amp;#8203;. in fact it works very well.  You can get a good looking site up and running very quickly and it is probably going to be able to do everything you need it to do.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;On the flip side of &apos;&lt;em&gt;frying&lt;/em&gt;&apos; is &apos;&lt;em&gt;baking&lt;/em&gt;&apos;.  This is where your content is stored in text files using a simple markup like &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; or &lt;a href=&quot;http://asciidoctor.org&quot;&gt;AsciiDoc&lt;/a&gt;.  You run your content through an application that bakes it together with a template to produce a static site.  By static site I mean a pure html based website that can be run from any web server or hard drive.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I have dabbled with blog aware static site generators since reading an article on &lt;a href=&quot;http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html&quot;&gt;Blogging Like a Hacker&lt;/a&gt; using &lt;a href=&quot;https://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; and &lt;a href=&quot;https://octopress.org&quot;&gt;Octopress&lt;/a&gt; to put a few sites together.  The problem I have always had is that I needed the sites to serve a purpose and I didn&amp;#8217;t have the time to devote to understanding everything I needed to know to get the best out of the static site.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;why_bake&quot;&gt;Why Bake ?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There are many pro&amp;#8217;s and con&amp;#8217;s to static site generators and they aren&amp;#8217;t suitable for everyone or every use case.  There has been plenty written about the benefits of static sites but the ones that appeal to me the most are:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Flexibility&lt;/strong&gt; - the content I write is stored in plain text files.  This means I can write it in a &lt;a href=&quot;http://www.vim.org&quot;&gt;text editor&lt;/a&gt; of &lt;a href=&quot;http://sublimetext.com&quot;&gt;my choosing&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Security&lt;/strong&gt; - the output of running a static site generator is a static site - html, css, javascript etc.  There isn&amp;#8217;t a whole lot you can hack with a static site.  If you have ever had to clean up a hacked Wordpress site you will know that it is no easy job - content inserted into the database, rouge code inserted into the php files, additional files added to your hosting account&amp;#8230;&amp;#8203;. the list goes on.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Performance&lt;/strong&gt; - as discussed above, a &apos;&lt;em&gt;frying&lt;/em&gt;&apos; based content management system has multiple resources that it is managing all of which are limited.  There are only a limited number of database requests that the CMS can make at any one time and therefore, if your site is getting a reasonable amount of traffic you will have to consider some kind of caching solution.  A &apos;&lt;em&gt;baked&lt;/em&gt;&apos; site doesn&amp;#8217;t have these limitations&amp;#8230;&amp;#8203;.. it is just a static site which can be cached by your browsers standard browser cache.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Reliability&lt;/strong&gt; - Similar to the performance point above, with all the moving parts of a a &apos;&lt;em&gt;frying&lt;/em&gt;&apos; based CMS there are so many things that can go wrong - problems connecting to the database, issues with conflicting plugins, problems when upgrading the CMS or the plugins.  Static sites have none of these problems.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Version Control&lt;/strong&gt; - even though some content management systems try to provide some level of version control for your content, that content is still stored in a database which is inherently harder to version control in its entirety.  With a static site you can store all of your content in a version control system such at git, which not only provides you with first class version control but serves as an effective backup as well.  It makes sense that developers who use these tools on a daily basis are drawn to static sites.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;why_bake_now&quot;&gt;Why Bake Now ?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So I guess the question has to be why am I now choosing to put this site together using static site generation instead of a standard CMS that I am more familiar with?  I think the main difference this time round is that for me, the website is a project in and of itself, which was never the case before.  I plan to use it to learn a few things I have had on my radar for a little while and also to get involved in an open source project or two.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This site will be the perfect outlet for all of those things and doesn&amp;#8217;t have to serve any other purpose than for me to document what I am playing with.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;what_do_you_bake_with&quot;&gt;What Do You Bake With ?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This leaves just one thing to discuss.  What am I going to use to generate this site  There are many more static site generators available now than when I first played with Jekyl and Octopress.  You only have to look at &lt;a href=&quot;https://www.staticgen.com&quot;&gt;StaticGen&lt;/a&gt; to see that Jekyll is still the granddaddy of them all, but there are now others out there that are gaining traction.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As I am primarily a Java developer I was looking for a good solid open source static site generator written in Java so I could get involved in driving the project forward.  There are a few Java based site generators out there but by far the most complete is &lt;a href=&quot;http://www.jbake.org&quot;&gt;jBake&lt;/a&gt;.  This is the tool I have chosen to build my site with.  This site isn&amp;#8217;t yet up and running, even as I type this post.  This is mostly due to the fact that I am looking into converting a new template to use with my site (more on this in future posts), but I am playing around with it as I type so hopefully I will have something up and running soon.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Jbake is by no means perfect.  One of the big things it is missing is a plugin system which would allow people to extend the functionality of jBake while the site is being baked.  I am hoping that this is something that will be worked on soon and something I am looking forward to getting involved with.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So that is it.  This post lays the foundation of what I am using to build the site and I am sure there will be many more related posts as I dig deeper and get more involved in the project.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:8820/blog/2018/01/hello-world.html</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">blog/2018/01/hello-world.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Well, it has been quite a while since I&amp;#8217;ve had a personal site up and running but given I am back in the dev world full-time, now seemed like a good time to kick one off again.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;At the moment I have no idea where this site is going to go but at the very least it will be a place for me to document what I am working on and the things I am playing around with - more for my reference than anything else but hopefully there might be some use for others as well.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It will very much be targeted towards my primary developer stack so things like Java, Spring, Spring Boot, J2EE and maybe a bit of mobile dev thrown in for good measure.  All with a little sprinkling of TDD, BDD, Agile and Scrum.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Welcome along for the ride :)&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+
+  </channel> 
+</rss>
