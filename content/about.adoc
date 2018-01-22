@@ -1,0 +1,15 @@
+= About
+Lee Turner
+2018-01-18
+:jbake-type: page
+:jbake-status: published
+:idprefix:
+
+
+I am an experienced professional developer with a passion for quality software. My natural style is to delve into the detail and really understand what the business needs. With experience in java, the spring framework, spring boot, the full J2EE suite along with php and cakephp frameworks, I have an extensive toolkit to draw from. I have significant experience in test-driven and behaviour-driven development as well as stringent source and release management processes. I am comfortable working either as part of a bigger development team or as a solo developer.
+
+I am constantly learning and extending my skills. I contribute to open-source projects, blog about software development. I am skilled in both server-side and front-end technologies and experienced with agile practices such as scrum, pair programming and continuous integration.
+
+I have worked on projects for the NHS, as well as major banks and building societies in the UK. In 2007 I took on the responsibility of caring for his son and built up a new business to enable him to run this from home.
+
+
