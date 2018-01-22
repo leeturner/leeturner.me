@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lee Turner</title>
-    <link>http://localhost:8820</link>
-    <atom:link href="http://localhost:8820/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://leeturner.me</link>
+    <atom:link href="http://leeturner.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>Welcome to the website of Lee Turner</description>
     <language>en-US</language>
-    <pubDate>Sun, 21 Jan 2018 22:59:07 +0000</pubDate>
-    <lastBuildDate>Sun, 21 Jan 2018 22:59:07 +0000</lastBuildDate>
+    <pubDate>Mon, 22 Jan 2018 18:41:46 +0000</pubDate>
+    <lastBuildDate>Mon, 22 Jan 2018 18:41:46 +0000</lastBuildDate>
 
     <item>
       <title>Do You Bake Or Fry?</title>
-      <link>http://localhost:8820/blog/2018/01/do-you-bake-or-fry.html</link>
+      <link>http://leeturner.me/blog/2018/01/do-you-bake-or-fry.html</link>
       <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2018/01/do-you-bake-or-fry.html</guid>
       	<description>
@@ -93,7 +93,7 @@
     </item>
     <item>
       <title>Hello World</title>
-      <link>http://localhost:8820/blog/2018/01/hello-world.html</link>
+      <link>http://leeturner.me/blog/2018/01/hello-world.html</link>
       <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2018/01/hello-world.html</guid>
       	<description>
