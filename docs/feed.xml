@@ -6,8 +6,8 @@
     <atom:link href="http://leeturner.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>Welcome to the website of Lee Turner</description>
     <language>en-US</language>
-    <pubDate>Mon, 12 Feb 2018 22:43:00 +0000</pubDate>
-    <lastBuildDate>Mon, 12 Feb 2018 22:43:00 +0000</lastBuildDate>
+    <pubDate>Mon, 12 Feb 2018 22:56:41 +0000</pubDate>
+    <lastBuildDate>Mon, 12 Feb 2018 22:56:41 +0000</lastBuildDate>
 
     <item>
       <title>Continuous Feedback With TDD &amp;amp; Auto Running Tests</title>

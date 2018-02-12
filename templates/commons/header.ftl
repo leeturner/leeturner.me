@@ -3,9 +3,8 @@
     <meta charset="utf-8"/>
     <title><#if (content.title)??><#escape x as x?xml>${content.title} - </#escape></#if>${config.site_title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="${content.summary!config.site_description}">
     <meta name="author" content="${content.author!config.site_author}">
-    <meta name="keywords" content="">
     <meta name="generator" content="JBake">
     
     <#if (config.google_webmaster?has_content)>
