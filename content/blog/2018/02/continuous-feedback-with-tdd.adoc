@@ -25,7 +25,7 @@ I went home that evening and dug a little deeper.  I eventually came across a fe
 
 Toggle auto-test basically runs your test suite for you when it recognised a change in your code.  This is exactly what we were looking for and it was there in IntelliJ all this time.  Toggle auto-test is one of those little buttons tucked away down the side of the 'Run' or 'Debug' panels - click this and magical things start to happen :)
 
-image::toggle-auto-test-intellij.png[Toggle Auto-Test In IntelliJ]
+image::/blog/2018/02/toggle-auto-test-intellij.png[Toggle Auto-Test In IntelliJ]
 
 == Setting Up Toggle Auto-Test
 
