@@ -17,6 +17,15 @@
     	<meta name="alexaVerifyID" content="${config.alexa_id}" />
     </#if>
     
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115883229-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-115883229-1');
+    </script>
 
 
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="${config.site_title}" />
