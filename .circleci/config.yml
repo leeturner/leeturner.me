@@ -6,7 +6,7 @@ machine:
 dependencies:
   pre:
     - curl -s "https://get.sdkman.io" | bash
-    - sdk install jbake 2.5.1
+    - sdk install jbake 2.6.1
 
 test:
   override:
