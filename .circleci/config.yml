@@ -1,0 +1,24 @@
+machine:
+  pre:
+    - git config --global user.name "CircleCI"
+    - git config --global user.email "circleci@circleci.com"
+
+dependencies:
+  pre:
+    - curl -s "https://get.sdkman.io" | bash
+    - sdk install jbake 2.5.1
+
+test:
+  override:
+    - sdk version
+    - sdk current jbake
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - rm -rf docs/*
+      - jbake -b . ./docs
+      - git add docs
+      - git commit --message "Generated site on $(date) [ci skip]"
+      - git push origin master
