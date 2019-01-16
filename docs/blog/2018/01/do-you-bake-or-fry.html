@@ -101,69 +101,79 @@
     <li class="stumbleupon-share"><a target="_blank" href="http://www.stumbleupon.com/submit?url=http://leeturner.me/blog/2018/01/do-you-bake-or-fry.html&amp;title=Do You Bake Or Fry?"><i class="fa fa-stumbleupon fa-lg"></i></a></li>
 </ul>
 
-       <div id="preamble"> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>Before I go much further, I thought it was probably worth me putting down a few notes about my technology choices for this site.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>In term of website development, I have had experience of quite a few different content management systems such as <a href="http://b2evolution.net">b2Evolution</a> and more recently <a href="http://wordpress.org">Wordpress</a>. I have developed plugins and templates for b2Evolution as well as contributing code to the core product back in the day. I have put more sites together in Wordpress than I care to remember - most of my clients used Wordpress in some form or other while I was working in the paid traffic/SEO industry.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Content management systems like b2Evolution and Wordpress have become commonly know as '<em>frying</em>' your site - all of your content is hidden away in a database somewhere and the CMS code takes a request from a browser, translates that into a request on the database to pull out the content and wrap it up with your chosen theme to produce your site. There is absolutely nothing wrong with this…​. in fact it works very well. You can get a good looking site up and running very quickly and it is probably going to be able to do everything you need it to do.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>On the flip side of '<em>frying</em>' is '<em>baking</em>'. This is where your content is stored in text files using a simple markup like <a href="https://daringfireball.net/projects/markdown/">Markdown</a> or <a href="http://asciidoctor.org">AsciiDoc</a>. You run your content through an application that bakes it together with a template to produce a static site. By static site I mean a pure html based website that can be run from any web server or hard drive.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>I have dabbled with blog aware static site generators since reading an article on <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">Blogging Like a Hacker</a> using <a href="https://jekyllrb.com">Jekyll</a> and <a href="https://octopress.org">Octopress</a> to put a few sites together. The problem I have always had is that I needed the sites to serve a purpose and I didn’t have the time to devote to understanding everything I needed to know to get the best out of the static site.</p> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="why_bake">Why Bake ?</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>There are many pro’s and con’s to static site generators and they aren’t suitable for everyone or every use case. There has been plenty written about the benefits of static sites but the ones that appeal to me the most are:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p><strong>Flexibility</strong> - the content I write is stored in plain text files. This means I can write it in a <a href="http://www.vim.org">text editor</a> of <a href="http://sublimetext.com">my choosing</a>.</p> </li> 
-    <li> <p><strong>Security</strong> - the output of running a static site generator is a static site - html, css, javascript etc. There isn’t a whole lot you can hack with a static site. If you have ever had to clean up a hacked Wordpress site you will know that it is no easy job - content inserted into the database, rogue code inserted into the php files, additional files added to your hosting account…​. the list goes on.</p> </li> 
-    <li> <p><strong>Performance</strong> - as discussed above, a '<em>frying</em>' based content management system has multiple resources that it is managing all of which are limited. There are only a limited number of database requests that the CMS can make at any one time and therefore, if your site is getting a reasonable amount of traffic you will have to consider some kind of caching solution. A '<em>baked</em>' site doesn’t have these limitations…​.. it is just a static site which can be cached by your browsers standard browser cache.</p> </li> 
-    <li> <p><strong>Reliability</strong> - Similar to the performance point above, with all the moving parts of a a '<em>frying</em>' based CMS there are so many things that can go wrong - problems connecting to the database, issues with conflicting plugins, problems when upgrading the CMS or the plugins. Static sites have none of these problems.</p> </li> 
-    <li> <p><strong>Version Control</strong> - even though some content management systems try to provide some level of version control for your content, that content is still stored in a database which is inherently harder to version control in its entirety. With a static site you can store all of your content in a version control system such as git, which not only provides you with first class version control but serves as an effective backup as well. It makes sense that developers who use these tools on a daily basis are drawn to static sites.</p> </li> 
-   </ul> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="why_bake_now">Why Bake Now ?</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>So I guess the question has to be why am I now choosing to put this site together using static site generation instead of a standard CMS that I am more familiar with? I think the main difference this time round is that for me, the website is a project in and of itself, which was never the case before. I plan to use it to learn a few things I have had on my radar for a little while and also to get involved in an open source project or two.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>This site will be the perfect outlet for all of those things and doesn’t have to serve any other purpose than for me to document what I am playing with.</p> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="what_do_you_bake_with">What Do You Bake With ?</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>This leaves just one thing to discuss. What am I going to use to generate this site? There are many more static site generators available now than when I first played with Jekyl and Octopress. You only have to look at <a href="https://www.staticgen.com">StaticGen</a> to see that Jekyll is still the granddaddy of them all, but there are now others out there that are gaining traction.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>As I am primarily a Java developer I was looking for a good solid open source static site generator written in Java so I could get involved in driving the project forward. There are a few Java based site generators out there but by far the most complete is <a href="http://www.jbake.org">jBake</a>. This is the tool I have chosen to build my site with. This site isn’t yet up and running, even as I type this post. This is mostly due to the fact that I am looking into converting a new template to use with my site (more on this in future posts), but I am playing around with it as I type so hopefully I will have something up and running soon.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Jbake is by no means perfect. One of the big things it is missing is a plugin system which would allow people to extend the functionality of jBake while the site is being baked. I am hoping that this is something that will be worked on soon and something I am looking forward to getting involved with.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>So that is it. This post lays the foundation of what I am using to build the site and I am sure there will be many more related posts as I dig deeper and get more involved in the project.</p> 
-  </div> 
- </div> 
+       <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before I go much further, I thought it was probably worth me putting down a few notes about my technology choices for this site.</p>
+</div>
+<div class="paragraph">
+<p>In term of website development, I have had experience of quite a few different content management systems such as <a href="http://b2evolution.net">b2Evolution</a> and more recently <a href="http://wordpress.org">Wordpress</a>.  I have developed plugins and templates for b2Evolution as well as contributing code to the core product back in the day.  I have put more sites together in Wordpress than I care to remember - most of my clients used Wordpress in some form or other while I was working in the paid traffic/SEO industry.</p>
+</div>
+<div class="paragraph">
+<p>Content management systems like b2Evolution and Wordpress have become commonly know as '<em>frying</em>' your site - all of your content is hidden away in a database somewhere and the CMS code takes a request from a browser, translates that into a request on the database to pull out the content and wrap it up with your chosen theme to produce your site.  There is absolutely nothing wrong with this&#8230;&#8203;. in fact it works very well.  You can get a good looking site up and running very quickly and it is probably going to be able to do everything you need it to do.</p>
+</div>
+<div class="paragraph">
+<p>On the flip side of '<em>frying</em>' is '<em>baking</em>'.  This is where your content is stored in text files using a simple markup like <a href="https://daringfireball.net/projects/markdown/">Markdown</a> or <a href="http://asciidoctor.org">AsciiDoc</a>.  You run your content through an application that bakes it together with a template to produce a static site.  By static site I mean a pure html based website that can be run from any web server or hard drive.</p>
+</div>
+<div class="paragraph">
+<p>I have dabbled with blog aware static site generators since reading an article on <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">Blogging Like a Hacker</a> using <a href="https://jekyllrb.com">Jekyll</a> and <a href="https://octopress.org">Octopress</a> to put a few sites together.  The problem I have always had is that I needed the sites to serve a purpose and I didn&#8217;t have the time to devote to understanding everything I needed to know to get the best out of the static site.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="why_bake">Why Bake ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are many pro&#8217;s and con&#8217;s to static site generators and they aren&#8217;t suitable for everyone or every use case.  There has been plenty written about the benefits of static sites but the ones that appeal to me the most are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Flexibility</strong> - the content I write is stored in plain text files.  This means I can write it in a <a href="http://www.vim.org">text editor</a> of <a href="http://sublimetext.com">my choosing</a>.</p>
+</li>
+<li>
+<p><strong>Security</strong> - the output of running a static site generator is a static site - html, css, javascript etc.  There isn&#8217;t a whole lot you can hack with a static site.  If you have ever had to clean up a hacked Wordpress site you will know that it is no easy job - content inserted into the database, rogue code inserted into the php files, additional files added to your hosting account&#8230;&#8203;. the list goes on.</p>
+</li>
+<li>
+<p><strong>Performance</strong> - as discussed above, a '<em>frying</em>' based content management system has multiple resources that it is managing all of which are limited.  There are only a limited number of database requests that the CMS can make at any one time and therefore, if your site is getting a reasonable amount of traffic you will have to consider some kind of caching solution.  A '<em>baked</em>' site doesn&#8217;t have these limitations&#8230;&#8203;.. it is just a static site which can be cached by your browsers standard browser cache.</p>
+</li>
+<li>
+<p><strong>Reliability</strong> - Similar to the performance point above, with all the moving parts of a a '<em>frying</em>' based CMS there are so many things that can go wrong - problems connecting to the database, issues with conflicting plugins, problems when upgrading the CMS or the plugins.  Static sites have none of these problems.</p>
+</li>
+<li>
+<p><strong>Version Control</strong> - even though some content management systems try to provide some level of version control for your content, that content is still stored in a database which is inherently harder to version control in its entirety.  With a static site you can store all of your content in a version control system such as git, which not only provides you with first class version control but serves as an effective backup as well.  It makes sense that developers who use these tools on a daily basis are drawn to static sites.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="why_bake_now">Why Bake Now ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>So I guess the question has to be why am I now choosing to put this site together using static site generation instead of a standard CMS that I am more familiar with?  I think the main difference this time round is that for me, the website is a project in and of itself, which was never the case before.  I plan to use it to learn a few things I have had on my radar for a little while and also to get involved in an open source project or two.</p>
+</div>
+<div class="paragraph">
+<p>This site will be the perfect outlet for all of those things and doesn&#8217;t have to serve any other purpose than for me to document what I am playing with.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what_do_you_bake_with">What Do You Bake With ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This leaves just one thing to discuss.  What am I going to use to generate this site?  There are many more static site generators available now than when I first played with Jekyl and Octopress.  You only have to look at <a href="https://www.staticgen.com">StaticGen</a> to see that Jekyll is still the granddaddy of them all, but there are now others out there that are gaining traction.</p>
+</div>
+<div class="paragraph">
+<p>As I am primarily a Java developer I was looking for a good solid open source static site generator written in Java so I could get involved in driving the project forward.  There are a few Java based site generators out there but by far the most complete is <a href="http://www.jbake.org">jBake</a>.  This is the tool I have chosen to build my site with.  This site isn&#8217;t yet up and running, even as I type this post.  This is mostly due to the fact that I am looking into converting a new template to use with my site (more on this in future posts), but I am playing around with it as I type so hopefully I will have something up and running soon.</p>
+</div>
+<div class="paragraph">
+<p>Jbake is by no means perfect.  One of the big things it is missing is a plugin system which would allow people to extend the functionality of jBake while the site is being baked.  I am hoping that this is something that will be worked on soon and something I am looking forward to getting involved with.</p>
+</div>
+<div class="paragraph">
+<p>So that is it.  This post lays the foundation of what I am using to build the site and I am sure there will be many more related posts as I dig deeper and get more involved in the project.</p>
+</div>
+</div>
 </div>
        
     </div>
@@ -250,7 +260,8 @@
     <div class="col-md-11 col-md-offset-1 card">
         <h5>Recent Posts</h5>
         <ul class="list-unstyled posts-recent">
-                            <li><a href="../../../blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html">Oracle MOOC: Java Virtual Machine Troubleshooting (2018)</a></li>
+                            <li><a href="../../../blog/2019/01/hello-world-erm-again.html">Hello World&#8230;&#8203;. erm again</a></li>
+                <li><a href="../../../blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html">Oracle MOOC: Java Virtual Machine Troubleshooting (2018)</a></li>
                 <li><a href="../../../blog/2018/02/continuous-feedback-with-tdd.html">Continuous Feedback With TDD &amp; Auto Running Tests</a></li>
                 <li><a href="../../../blog/2018/01/do-you-bake-or-fry.html">Do You Bake Or Fry?</a></li>
                 <li><a href="../../../blog/2018/01/hello-world.html">Hello World</a></li>
