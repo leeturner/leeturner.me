@@ -6,9 +6,137 @@
     <atom:link href="http://leeturner.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>Welcome to the website of Lee Turner</description>
     <language>en-US</language>
-    <pubDate>Wed, 16 Jan 2019 21:30:30 +0000</pubDate>
-    <lastBuildDate>Wed, 16 Jan 2019 21:30:30 +0000</lastBuildDate>
+    <pubDate>Thu, 17 Jan 2019 23:49:11 +0000</pubDate>
+    <lastBuildDate>Thu, 17 Jan 2019 23:49:11 +0000</lastBuildDate>
 
+    <item>
+      <title>Tooling Up - Implementing test &amp;amp;&amp;amp; commit || revert (TCR) In IntelliJ</title>
+      <link>http://leeturner.me/blog/2019/01/tooling-up-tcr-intellij.html</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">blog/2019/01/tooling-up-tcr-intellij.html</guid>
+      	<description>
+	&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Like many others, I have been reading about the new programming workflow introduced by &lt;a href=&quot;https://twitter.com/KentBeck&quot;&gt;Kent Beck&lt;/a&gt; called &lt;a href=&quot;https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864&quot;&gt;test &amp;amp;&amp;amp; commit || revert&lt;/a&gt; (TCR)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;When I first heard about it I had much the same response as Kent - why the hell would you want to do something like that?  That can&amp;#8217;t possibly work, my tests don&amp;#8217;t always pass when I am experimenting - I would lose my code if I did this.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;so_what_is_test_commit_revert_anyway&quot;&gt;So what is test &amp;amp;&amp;amp; commit || revert anyway?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The concept is extremely simple.  When your tests run successfully your code is committed, if your tests fail for any reason, your code is automatically reverted back to the state where the tests last passed.  Yes, this means that you can (and probably will) lose code - especially in the beginning when you are still playing around with this.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The easiest way to get your head around it is to watch it in action.  Take a look at this video by Kent Beck &lt;a href=&quot;https://www.youtube.com/watch?v=ZrHBVTCbcE0&quot;&gt;demonstrating TCR&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So, what&amp;#8217;s the point ?  The idea is to make everything smaller - the amount of code you write between green test runs, your iterations around the test/dev/commit cycle and bigger problems broken down into smaller parts.  Of course, writing tests is a given here because it is what the whole workflow is based on but they don&amp;#8217;t always have to come first.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Most of the TCR implementations I have seen so far have been like in the video linked above, a single file implementation where the tests and the code are in the same file.  The problem I had is that I don&amp;#8217;t work like that.  I am a Java developer so most of my projects are based on Maven where the &apos;code&apos; and the tests are kept in separate directories.  I also use IntelliJ as my main IDE so I wanted something that worked in that environment and not have to use a different editor and/or keep switching to the commandline.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;On the flip side I didn&amp;#8217;t want to invest too much time in tooling up while I was still only playing with the workflow.  I effectively wanted as little as I could get away with so I could get up and running.  I then found another video by Kent Beck where he walks you through his &lt;a href=&quot;https://www.youtube.com/watch?v=IIKndRX5qHw&quot;&gt;minimal TCR setup in VS Code&lt;/a&gt;.  That video ultimately gave me all I needed to set this up in IntelliJ.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;my_minimal_tcr_implementation_in_intellij&quot;&gt;My minimal TCR implementation in IntelliJ&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The first step was to find a way to get feedback on the success or failure of a test run.  As I said above, most of my day to day coding is done using Java and maven.  I can easily run my test suite using mavan on the command line so this is where I started looking first.  Well, it turns out that the maven command line (mvn) returns different status codes based on the success or failure of your tests.  This means I can run &lt;em&gt;mvn test&lt;/em&gt; on a project where the tests all pass and see the following:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.509 s
+[INFO] Finished at: 2019-01-17T21:54:57Z
+[INFO] Final Memory: 11M/309M
+[INFO] ------------------------------------------------------------------------
+&amp;gt;  night-fever git:(master) echo $?
+0&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And on a project where there are failing tests and see this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;[ERROR] Tests run: 42, Failures: 1, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.085 s
+[INFO] Finished at: 2019-01-17T22:03:32Z
+[INFO] Final Memory: 11M/309M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project nightfever: There are test failures.
+
+&amp;gt;  night-fever git:(master) echo $?
+1&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This means I can now use that status code to chain together a command much like the one Kent Beck uses in his VS Code video:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;mvn test &amp;amp;&amp;amp; git commit -am working || git reset --hard&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;OK, good start, I now have a command line TCR implementation working with maven.  Next step, how do I execute this from within IntelliJ?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;My first try at this was to setup an &lt;em&gt;external tool&lt;/em&gt; within IntelliJ.  This wasn&amp;#8217;t as easy as it sounds due to IntelliJ only accepting one command along with parameters.  There was also no way to chain multiple external tools together.  After a little bit of Googling I found an IntelliJ support article that talked about calling bash directly and passing the commands you want to call as a parameter.  The external tool edit window looks like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/blog/2019/01/intellij-external-tool-edit.png&quot; alt=&quot;IntelliJ External Tool Edit Screen&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This worked pretty well, as you can see from the screen shot you can even set it to synchronise the files after execution of the tool so IntelliJ picks up any reverts that might have happened.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That in and of itself would probably be enough for a minimal TCR implementation inside IntelliJ.  However, there are other options along the same theme which might work better for you depending on how you prefer to code.  There is a plugin written by Jet Brains called &lt;a href=&quot;https://www.jetbrains.com/help/idea/using-file-watchers.html&quot;&gt;File Watchers&lt;/a&gt; that allows you to automatically run a command when you change or save a file. This is how I ultimately had this setup:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/blog/2019/01/intellij-file-watcher-edit.png&quot; alt=&quot;IntelliJ File Watcher Edit Screen&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You will notice that I un-ticked the option &lt;em&gt;Auto-save edited files to trigger the watcher&lt;/em&gt;.  I turned that off so the File Watcher starts upon save (File | Save All) or when you move the focus from IntelliJ IDEA (on frame deactivation).  The main reason being that I didn&amp;#8217;t want the File Watcher to kick in when I was part way through a change and IntelliJ decided to auto-save the file.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;what_next&quot;&gt;What Next ?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;All of the above works really well but it obviously has some downsides.  I am effectively running the whole test suite via maven and although this ran pretty fast on my machine with a relatively small project, it would really slow things down when the project grew to any reasonable size.  That would make this solution effectively unusable at that point.  Thankfully IntelliJ was quite quick at syncing with the file system when a revert happened so hopefully that won&amp;#8217;t be a problem moving forwards.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;My ultimate solution would be to have this type of functionality integrated with the Run/Debug test runner inside IntelliJ.  I could then use my standard keyboard shortcuts to run individual test methods, a whole test class or a whole test suite and it would trigger the test &amp;amp;&amp;amp; commit || revert workflow based on the results in a much more integrated way.  I imagine this would require a plugin to make this happen.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I&amp;#8217;ll be continuing to play with TCR to see how far I can stretch it and whether is it applicable to all types of projects.  That is the topic for another article though.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
     <item>
       <title>Hello World&amp;#8230;&amp;#8203;. erm again</title>
       <link>http://leeturner.me/blog/2019/01/hello-world-erm-again.html</link>

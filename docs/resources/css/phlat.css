@@ -122,6 +122,8 @@ body {
 }
 
 .content-card img {
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 100%;
 }
 
@@ -256,7 +258,6 @@ pre {
     border-radius: 0px;
     padding: 10px;
     border: none;
-    background-color: #282b2e;
 }
 
 pre code {
