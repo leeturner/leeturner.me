@@ -2,16 +2,208 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lee Turner</title>
-    <link>http://leeturner.me</link>
-    <atom:link href="http://leeturner.me/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:8820</link>
+    <atom:link href="http://localhost:8820/feed.xml" rel="self" type="application/rss+xml" />
     <description>Welcome to the website of Lee Turner</description>
     <language>en-US</language>
-    <pubDate>Thu, 17 Jan 2019 23:49:11 +0000</pubDate>
-    <lastBuildDate>Thu, 17 Jan 2019 23:49:11 +0000</lastBuildDate>
+    <pubDate>Sun, 10 Feb 2019 22:29:58 +0000</pubDate>
+    <lastBuildDate>Sun, 10 Feb 2019 22:29:58 +0000</lastBuildDate>
 
     <item>
+      <title>Building a Camel Case @DisplayNameGenerator For JUnit 5</title>
+      <link>http://localhost:8820/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html</link>
+      <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html</guid>
+      	<description>
+	&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I think it is fair to say that &lt;a href=&quot;https://junit.org&quot;&gt;JUnit&lt;/a&gt; has been my go to unit testing framework for quite a while.  I have used &lt;a href=&quot;https://testng.org/&quot;&gt;TestNG&lt;/a&gt; on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This was solidified even further with the release of JUnit 5.  I won&amp;#8217;t go into any detail here of what the major differences are between version 4 and 5 because there are loads of great articles on the web about this already.  However, some of my favourites are:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;New asserts - especially assertThrows()&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Assumptions&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;More readable test descriptions with the @DisplayName annotation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tags&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Parameterised Tests&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dynamic Tests (although I need to delve into this one a little more)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;the_displayname_annotation&quot;&gt;The @DisplayName Annotation&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The &lt;code&gt;@DisplayName&lt;/code&gt; annotation seemed like a great idea - you add the annotation with a more readable description to your test class or methods and that gets displayed instead of the default class or method name in your test runner.  Something like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@DisplayName(&quot;Tests that when updating your password, the two passwords submitted must match&quot;)
+@Test
+public void testWhenAnUpdatePasswordRequestIsSubmittedTheTwoPasswordsMustMatch{} {
+	// test goes here
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It was fun for a while but it quickly became a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  However, all of this might change with the latest JUnit 5.4 release and the new &lt;code&gt;@DisplayNameGenerator&lt;/code&gt; API.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you follow along on Twitter, you will have heard of the new &lt;code&gt;@DisplayNameGenerator&lt;/code&gt; API before the 5.4 release.  Basically it would allow JUnit to determine a nice display name for your classes and tests from your class and method names without having to add the &lt;code&gt;@DisplayName&lt;/code&gt; annotation.  Seemed like the best of both worlds to me.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;When the &lt;a href=&quot;https://twitter.com/junitteam/status/1093621376978747393&quot;&gt;5.4 release announcement was made on twitter&lt;/a&gt; I setup a quick project and dived right in, but there was one big problem.  The only &lt;code&gt;@DisplayNameGenerator&lt;/code&gt; provided in release 5.4 is a &lt;a href=&quot;https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/DisplayNameGenerator.ReplaceUnderscores.html&quot;&gt;ReplaceUnderscores&lt;/a&gt; Generator which as you can imagine replaces the underscores in your class and method names with a space.  For example, the following:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+public class Password_Reset_Tests {
+    @Test
+    public void test_When_An_Update_Password_Request_Is_Submitted_The_Two_Passwords_Must_Match{} {
+      // test goes here
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Will output:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;+-- Password Reset Test
+	+-- test When An Update Password Request Is Submitted The Two Passwords Must Match&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;All well and good if you use underscores in your class and method names.  I tend to be more of a camel case kind of guy.  Underscores never really did it for me so this wasn&amp;#8217;t going to work out of the box.  The nice thing here is that the JUnit team give a &lt;a href=&quot;https://junit.org/junit5/docs/5.4.0/user-guide/index.html#writing-tests-display-name-generator&quot;&gt;really good example&lt;/a&gt; of implementing a new &lt;code&gt;DisplayNameGenerator&lt;/code&gt; so I borrowed the code from their user guide and has a play with a new camel case generator.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;All of the code discussed here can be found in &lt;a href=&quot;https://github.com/leeturner/junit5-camel-case-emoji-display-name-generator&quot;&gt;this github repo&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;a_camel_case_displaynamegenerator&quot;&gt;A Camel Case @DisplayNameGenerator&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;On the face of it putting a space before every capital letter in a class or method name isn&amp;#8217;t that hard.  It can all be achieved with a simple &lt;code&gt;replaceAll&lt;/code&gt; regex.  Something like this which extends the &lt;code&gt;DisplayNameGenerator.Standard&lt;/code&gt; built into JUnit 5.4:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;static class ReplaceCamelCase extends DisplayNameGenerator.Standard {
+    public ReplaceCamelCase() {
+    }
+
+    public String generateDisplayNameForClass(Class&amp;lt;?&amp;gt; testClass) {
+        return this.replaceCapitals(super.generateDisplayNameForClass(testClass));
+    }
+
+    public String generateDisplayNameForNestedClass(Class&amp;lt;?&amp;gt; nestedClass) {
+        return this.replaceCapitals(super.generateDisplayNameForNestedClass(nestedClass));
+    }
+
+    public String generateDisplayNameForMethod(Class&amp;lt;?&amp;gt; testClass, Method testMethod) {
+        return this.replaceCapitals(testMethod.getName());
+    }
+
+    private String replaceCapitals(String name) {
+        name = name.replaceAll(&quot;([A-Z])&quot;, &quot; $1&quot;);
+        return name;
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This works for the most part but you very quickly see the benefit of having a single character that you need to replace like in the &lt;code&gt;ReplaceUnderscores&lt;/code&gt;.  For example, the above implementation doesn&amp;#8217;t take into account numbers and will fail to put a space where you would expect one.  For example, this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Test
+void ifItIsDivisibleBy4ButNotBy100() {
+	/// test goes here
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Would render:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;+-- if It Is Divisible By4 But Not By100&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Not particularly ideal.  We also need to cater for numbers and not just individual numbers, we have to look for sequences of numbers and assume they are intended to be together.  Simple enough with another regex:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;static class ReplaceCamelCase extends DisplayNameGenerator.Standard {
+    public ReplaceCamelCase() {
+    }
+
+    public String generateDisplayNameForClass(Class&amp;lt;?&amp;gt; testClass) {
+        return this.replaceCapitals(super.generateDisplayNameForClass(testClass));
+    }
+
+    public String generateDisplayNameForNestedClass(Class&amp;lt;?&amp;gt; nestedClass) {
+        return this.replaceCapitals(super.generateDisplayNameForNestedClass(nestedClass));
+    }
+
+    public String generateDisplayNameForMethod(Class&amp;lt;?&amp;gt; testClass, Method testMethod) {
+        return this.replaceCapitals(testMethod.getName());
+    }
+
+    private String replaceCapitals(String name) {
+        name = name.replaceAll(&quot;([A-Z])&quot;, &quot; $1&quot;);
+        name = name.replaceAll(&quot;([0-9].)&quot;, &quot; $1&quot;);
+        return name;
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;All in all this simple camel case &lt;code&gt;DisplayNameGenerator&lt;/code&gt; works pretty well and generates something like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/blog/2019/02/junit5-ReplaceCamelCase.png&quot; alt=&quot;Replace Camel Case Junit 5 Display Name Generator&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I will be playing around with this further to see if there are any other scenarios It doesn&amp;#8217;t cater for and updating accordingly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;one_step_too_far&quot;&gt;One Step Too Far&amp;#8230;&amp;#8203;&amp;#8230;&amp;#8203;&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I am going to leave this here for posterity&amp;#8217;s sake.  I am not proud of it&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
       <title>Tooling Up - Implementing test &amp;amp;&amp;amp; commit || revert (TCR) In IntelliJ</title>
-      <link>http://leeturner.me/blog/2019/01/tooling-up-tcr-intellij.html</link>
+      <link>http://localhost:8820/blog/2019/01/tooling-up-tcr-intellij.html</link>
       <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2019/01/tooling-up-tcr-intellij.html</guid>
       	<description>
@@ -139,7 +331,7 @@
     </item>
     <item>
       <title>Hello World&amp;#8230;&amp;#8203;. erm again</title>
-      <link>http://leeturner.me/blog/2019/01/hello-world-erm-again.html</link>
+      <link>http://localhost:8820/blog/2019/01/hello-world-erm-again.html</link>
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2019/01/hello-world-erm-again.html</guid>
       	<description>
@@ -190,7 +382,7 @@
     </item>
     <item>
       <title>Oracle MOOC: Java Virtual Machine Troubleshooting (2018)</title>
-      <link>http://leeturner.me/blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html</link>
+      <link>http://localhost:8820/blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html</link>
       <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html</guid>
       	<description>
@@ -231,7 +423,7 @@
     </item>
     <item>
       <title>Continuous Feedback With TDD &amp;amp; Auto Running Tests</title>
-      <link>http://leeturner.me/blog/2018/02/continuous-feedback-with-tdd.html</link>
+      <link>http://localhost:8820/blog/2018/02/continuous-feedback-with-tdd.html</link>
       <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2018/02/continuous-feedback-with-tdd.html</guid>
       	<description>
@@ -322,7 +514,7 @@
     </item>
     <item>
       <title>Do You Bake Or Fry?</title>
-      <link>http://leeturner.me/blog/2018/01/do-you-bake-or-fry.html</link>
+      <link>http://localhost:8820/blog/2018/01/do-you-bake-or-fry.html</link>
       <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2018/01/do-you-bake-or-fry.html</guid>
       	<description>
@@ -404,7 +596,7 @@
     </item>
     <item>
       <title>Hello World</title>
-      <link>http://leeturner.me/blog/2018/01/hello-world.html</link>
+      <link>http://localhost:8820/blog/2018/01/hello-world.html</link>
       <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2018/01/hello-world.html</guid>
       	<description>
