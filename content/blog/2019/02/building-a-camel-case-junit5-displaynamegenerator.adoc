@@ -140,5 +140,43 @@ I will be playing around with this further to see if there are any other scenari
 
 == One Step Too Far......
 
-I am going to leave this here for posterity's sake.  I am not proud of it
+I am going to leave this here for posterity's sake.  I am not proud of it but once I thought of it I couldn't help myself :)
+
+One of the new things JUnit 5 allows is link:https://twitter.com/sam_brannen/status/660595585288970240?lang=en[emoji in your test names].  This also applies to the `@DisplayName` annotation.  All I will say is that it doesn't take a great leap to extend the `ReplaceUnderscores` or `ReplaceCamelCase` Generators with one that replaces certain words with emoji.  Here is a little proof of concept using the example from the JUnit user guide:
+
+[source,java]
+----
+static class ReplaceCamelCaseEmojis extends ReplaceCamelCase {
+    public ReplaceCamelCaseEmojis() {
+    }
+
+    public String generateDisplayNameForClass(Class<?> testClass) {
+        return this.replaceWithEmojis(super.generateDisplayNameForClass(testClass));
+    }
+
+    public String generateDisplayNameForNestedClass(Class<?> nestedClass) {
+        return this.replaceWithEmojis(super.generateDisplayNameForNestedClass(nestedClass));
+    }
+
+    public String generateDisplayNameForMethod(Class<?> testClass, Method testMethod) {
+        return this.replaceWithEmojis(super.generateDisplayNameForMethod(testClass, testMethod));
+    }
+
+    private String replaceWithEmojis(String name) {
+        name = name.replaceAll("Camel|camel", "\uD83D\uDC2B");
+        name = name.replaceAll("Case|case", "\uD83D\uDCBC");
+        name = name.replaceAll("Display|display", "\uD83D\uDCBB");
+        name = name.replaceAll("Divisible|divisible", "\u2797");
+        name = name.replaceAll("Year|year", "\uD83D\uDCC5");
+        name = name.replaceAll("100", "\uD83D\uDCAF");
+        return name;
+    }
+}
+----
+
+This generates something like this:
+
+image::/blog/2019/02/junit5-ReplaceCamelCaseEmoji.png[Replace Camel Case Junit 5 Display Name Generator]
+
+You are very welcome :)
 

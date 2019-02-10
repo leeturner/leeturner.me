@@ -1,0 +1,514 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Building a Camel Case @DisplayNameGenerator For JUnit 5 - Lee Turner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I am loving the new JUnit 5 features and the @DisplayName annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new @DisplayNameGenerator API all of that will change.">
+    <meta name="author" content="Lee Turner">
+    <meta name="generator" content="JBake">
+    
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115883229-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-115883229-1');
+    </script>
+
+
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="Lee Turner" />
+    <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../resources/css/highlightjs-themes/androidstudio.css" />
+    <link rel="stylesheet" href="../../../resources/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../../resources/css/phlat.css" />
+    <link rel="stylesheet" href="../../../resources/css/phlat-custom.css" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+  	
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lee Turner</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+    			<li>
+                    <a href=" http://leeturner.me">
+                       
+                            <i class="fa fa-home">&nbsp;</i>Home
+                        
+                    </a>
+            	</li>
+    			<li>
+                    <a href=" ../../../archive.html">
+                       
+                            <i class="fa fa-archive">&nbsp;</i>Archive
+                        
+                    </a>
+            	</li>
+    			<li>
+                    <a href=" ../../../feed.xml">
+                       
+                            <i class="fa fa-rss">&nbsp;</i>Subscribe
+                        
+                    </a>
+            	</li>
+            </ul>
+        </div>
+    </div>
+</nav>  	
+  
+	
+	<div id="top" class="container">
+		<div class="row" id="content-main">
+		    <div class="col-md-8">
+<div class="row">
+    <div class="col-md-12 content-card">
+        <h1>Building a Camel Case @DisplayNameGenerator For JUnit 5</h1>
+            
+            <ul class="list-inline meta">
+                <li><i class="fa fa-calendar"></i>February, 10 2019</li>
+                <li><i class="fa fa-user"></i>Lee Turner</li>
+	            	<li><i class="fa fa-tag"></i><a href="/tags/testing.html">testing</a></li>
+	            	<li><i class="fa fa-tag"></i><a href="/tags/junit.html">junit</a></li>
+            </ul>
+            
+
+<ul class="list-inline share" style="margin-top: 15px; margin-left: 0px">
+    <li class="facebook-share"><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://leeturner.me/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html"><i class="fa fa-facebook fa-lg"></i></a></li>
+    <li class="googleplus-share"><a target="_blank" href="https://plus.google.com/share?url=http://leeturner.me/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html"><i class="fa fa-google-plus fa-lg"></i></a></li>
+    <li class="twitter-share"><a target="_blank" href="https://twitter.com/share?url=http://leeturner.me/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html&amp;text=Building a Camel Case @DisplayNameGenerator For JUnit 5&via=leeturner"><i class="fa fa-twitter fa-lg"></i></a></li>
+    <li class="reddit-share"><a target="_blank" href="http://reddit.com/submit?url=http://leeturner.me/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html&amp;title=Building a Camel Case @DisplayNameGenerator For JUnit 5"><i class="fa fa-reddit fa-lg"></i></a></li>
+    <li class="linkedin-share"><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=http://leeturner.me/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html"><i class="fa fa-linkedin fa-lg"></i></a></li>
+    <li class="stumbleupon-share"><a target="_blank" href="http://www.stumbleupon.com/submit?url=http://leeturner.me/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html&amp;title=Building a Camel Case @DisplayNameGenerator For JUnit 5"><i class="fa fa-stumbleupon fa-lg"></i></a></li>
+</ul>
+
+       <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>I think it is fair to say that <a href="https://junit.org">JUnit</a> has been my go to unit testing framework for quite a while.  I have used <a href="https://testng.org/">TestNG</a> on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.</p>
+</div>
+<div class="paragraph">
+<p>This was solidified even further with the release of JUnit 5.  I won&#8217;t go into any detail here of what the major differences are between version 4 and 5 because there are loads of great articles on the web about this already.  However, some of my favourites are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>New asserts - especially assertThrows()</p>
+</li>
+<li>
+<p>Assumptions</p>
+</li>
+<li>
+<p>More readable test descriptions with the @DisplayName annotation</p>
+</li>
+<li>
+<p>Tags</p>
+</li>
+<li>
+<p>Parameterised Tests</p>
+</li>
+<li>
+<p>Dynamic Tests (although I need to delve into this one a little more)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="the_displayname_annotation">The @DisplayName Annotation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>@DisplayName</code> annotation seemed like a great idea - you add the annotation with a more readable description to your test class or methods and that gets displayed instead of the default class or method name in your test runner.  Something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@DisplayName("Tests that when updating your password, the two passwords submitted must match")
+@Test
+public void testWhenAnUpdatePasswordRequestIsSubmittedTheTwoPasswordsMustMatch{} {
+	// test goes here
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It was fun for a while but it quickly became a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  However, all of this might change with the latest JUnit 5.4 release and the new <code>@DisplayNameGenerator</code> API.</p>
+</div>
+<div class="paragraph">
+<p>If you follow along on Twitter, you will have heard of the new <code>@DisplayNameGenerator</code> API before the 5.4 release.  Basically it would allow JUnit to determine a nice display name for your classes and tests from your class and method names without having to add the <code>@DisplayName</code> annotation.  Seemed like the best of both worlds to me.</p>
+</div>
+<div class="paragraph">
+<p>When the <a href="https://twitter.com/junitteam/status/1093621376978747393">5.4 release announcement was made on twitter</a> I setup a quick project and dived right in, but there was one big problem.  The only <code>@DisplayNameGenerator</code> provided in release 5.4 is a <a href="https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/DisplayNameGenerator.ReplaceUnderscores.html">ReplaceUnderscores</a> Generator which as you can imagine replaces the underscores in your class and method names with a space.  For example, the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+public class Password_Reset_Tests {
+    @Test
+    public void test_When_An_Update_Password_Request_Is_Submitted_The_Two_Passwords_Must_Match{} {
+      // test goes here
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Will output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>+-- Password Reset Test
+	+-- test When An Update Password Request Is Submitted The Two Passwords Must Match</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All well and good if you use underscores in your class and method names.  I tend to be more of a camel case kind of guy.  Underscores never really did it for me so this wasn&#8217;t going to work out of the box.  The nice thing here is that the JUnit team give a <a href="https://junit.org/junit5/docs/5.4.0/user-guide/index.html#writing-tests-display-name-generator">really good example</a> of implementing a new <code>DisplayNameGenerator</code> so I borrowed the code from their user guide and has a play with a new camel case generator.</p>
+</div>
+<div class="paragraph">
+<p>All of the code discussed here can be found in <a href="https://github.com/leeturner/junit5-camel-case-emoji-display-name-generator">this github repo</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="a_camel_case_displaynamegenerator">A Camel Case @DisplayNameGenerator</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>On the face of it putting a space before every capital letter in a class or method name isn&#8217;t that hard.  It can all be achieved with a simple <code>replaceAll</code> regex.  Something like this which extends the <code>DisplayNameGenerator.Standard</code> built into JUnit 5.4:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">static class ReplaceCamelCase extends DisplayNameGenerator.Standard {
+    public ReplaceCamelCase() {
+    }
+
+    public String generateDisplayNameForClass(Class&lt;?&gt; testClass) {
+        return this.replaceCapitals(super.generateDisplayNameForClass(testClass));
+    }
+
+    public String generateDisplayNameForNestedClass(Class&lt;?&gt; nestedClass) {
+        return this.replaceCapitals(super.generateDisplayNameForNestedClass(nestedClass));
+    }
+
+    public String generateDisplayNameForMethod(Class&lt;?&gt; testClass, Method testMethod) {
+        return this.replaceCapitals(testMethod.getName());
+    }
+
+    private String replaceCapitals(String name) {
+        name = name.replaceAll("([A-Z])", " $1");
+        return name;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This works for the most part but you very quickly see the benefit of having a single character that you need to replace like in the <code>ReplaceUnderscores</code>.  For example, the above implementation doesn&#8217;t take into account numbers and will fail to put a space where you would expect one.  For example, this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
+void ifItIsDivisibleBy4ButNotBy100() {
+	/// test goes here
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Would render:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>+-- if It Is Divisible By4 But Not By100</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Not particularly ideal.  We also need to cater for numbers and not just individual numbers, we have to look for sequences of numbers and assume they are intended to be together.  Simple enough with another regex:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">static class ReplaceCamelCase extends DisplayNameGenerator.Standard {
+    public ReplaceCamelCase() {
+    }
+
+    public String generateDisplayNameForClass(Class&lt;?&gt; testClass) {
+        return this.replaceCapitals(super.generateDisplayNameForClass(testClass));
+    }
+
+    public String generateDisplayNameForNestedClass(Class&lt;?&gt; nestedClass) {
+        return this.replaceCapitals(super.generateDisplayNameForNestedClass(nestedClass));
+    }
+
+    public String generateDisplayNameForMethod(Class&lt;?&gt; testClass, Method testMethod) {
+        return this.replaceCapitals(testMethod.getName());
+    }
+
+    private String replaceCapitals(String name) {
+        name = name.replaceAll("([A-Z])", " $1");
+        name = name.replaceAll("([0-9].)", " $1");
+        return name;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All in all this simple camel case <code>DisplayNameGenerator</code> works pretty well and generates something like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/blog/2019/02/junit5-ReplaceCamelCase.png" alt="Replace Camel Case Junit 5 Display Name Generator">
+</div>
+</div>
+<div class="paragraph">
+<p>I will be playing around with this further to see if there are any other scenarios It doesn&#8217;t cater for and updating accordingly.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="one_step_too_far">One Step Too Far&#8230;&#8203;&#8230;&#8203;</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I am going to leave this here for posterity&#8217;s sake.  I am not proud of it but once I thought of it I couldn&#8217;t help myself :)</p>
+</div>
+<div class="paragraph">
+<p>One of the new things JUnit 5 allows is <a href="https://twitter.com/sam_brannen/status/660595585288970240?lang=en">emoji in your test names</a>.  This also applies to the <code>@DisplayName</code> annotation.  All I will say is that it doesn&#8217;t take a great leap to extend the <code>ReplaceUnderscores</code> or <code>ReplaceCamelCase</code> Generators with one that replaces certain words with emoji.  Here is a little proof of concept using the example from the JUnit user guide:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">static class ReplaceCamelCaseEmojis extends ReplaceCamelCase {
+    public ReplaceCamelCaseEmojis() {
+    }
+
+    public String generateDisplayNameForClass(Class&lt;?&gt; testClass) {
+        return this.replaceWithEmojis(super.generateDisplayNameForClass(testClass));
+    }
+
+    public String generateDisplayNameForNestedClass(Class&lt;?&gt; nestedClass) {
+        return this.replaceWithEmojis(super.generateDisplayNameForNestedClass(nestedClass));
+    }
+
+    public String generateDisplayNameForMethod(Class&lt;?&gt; testClass, Method testMethod) {
+        return this.replaceWithEmojis(super.generateDisplayNameForMethod(testClass, testMethod));
+    }
+
+    private String replaceWithEmojis(String name) {
+        name = name.replaceAll("Camel|camel", "\uD83D\uDC2B");
+        name = name.replaceAll("Case|case", "\uD83D\uDCBC");
+        name = name.replaceAll("Display|display", "\uD83D\uDCBB");
+        name = name.replaceAll("Divisible|divisible", "\u2797");
+        name = name.replaceAll("Year|year", "\uD83D\uDCC5");
+        name = name.replaceAll("100", "\uD83D\uDCAF");
+        return name;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This generates something like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/blog/2019/02/junit5-ReplaceCamelCaseEmoji.png" alt="Replace Camel Case Junit 5 Display Name Generator">
+</div>
+</div>
+<div class="paragraph">
+<p>You are very welcome :)</p>
+</div>
+</div>
+</div>
+       
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+        	
+            <div class="col-md-4" style="text-align: left; padding-left: 0px">
+            	                <a href="../../../blog/2019/01/tooling-up-tcr-intellij.html" 
+                class="btn btn-default"  role="button" style="border-radius: 0px;"> <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ</a>
+            </div>
+            
+            <div class="col-md-4 col-md-offset-4" style="text-align: right; padding-right: 0px">
+            </div>
+        </div>
+    </div>
+</div>
+	<div class="row">
+        <div class="col-md-12 content-card">
+            <div id="disqus_thread"></div>
+            <script>
+                (function() {
+                    if (window.location.hostname == "localhost") {
+                        document.write("Disqus comments are unavailable while serving on localhost or 127.0.0.1");
+                        return;
+                    }
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    var disqus_shortname = 'leeturner-me';
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+		    </div>
+	        <div class="col-md-4">
+<div class="row">
+    <div class="col-md-11 col-md-offset-1 card">
+        <h5>Search</h5>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+            <div class="input-group">
+                <input class="form-control" type="search" name="q" />
+                <span class="input-group-btn">
+                    <button class="btn btn-custom" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+            <input type="hidden" name="q" value="site:http://leeturner.me">
+        </form>
+    </div>
+</div>
+<div class="row">
+	<div class="col-md-11 col-md-offset-1 card intro">
+		<div class="logo">
+			<a href="/about.html"><img src="http://leeturner.me/resources/img/main/icon.jpg"
+			alt="Lee Turner"
+				class="img-responsive img-circle" style="margin: 0 auto;"></a>
+		</div>
+		<br>
+		<div class="col-md-12 text-center">
+			<div class="header">
+				<a href="/about.html">Lee Turner</a>
+			</div>
+			<div class="summary">
+				<p>Welcome to the lab - the place I write about my code experiments</p>
+<div class='demopadding'>
+	
+			<div class='icon social gh'><a href="//github.com/leeturner" target="_blank" title="Github"><i class="fa fa-github"></i></a></div>
+		<div class='icon social tw'><a target="_blank" href="//twitter.com/leeturner"><i class="fa fa-twitter"></i></a></div>
+	
+		<div class='icon social in'><a href="//linkedin.com/in/turnerlee" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></div>
+	
+
+	
+</div> 	
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+    <div class="col-md-11 col-md-offset-1 card">
+        <h5>Recent Posts</h5>
+        <ul class="list-unstyled posts-recent">
+                            <li><a href="../../../blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html">Building a Camel Case @DisplayNameGenerator For JUnit 5</a></li>
+                <li><a href="../../../blog/2019/01/tooling-up-tcr-intellij.html">Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ</a></li>
+                <li><a href="../../../blog/2019/01/hello-world-erm-again.html">Hello World&#8230;&#8203;. erm again</a></li>
+                <li><a href="../../../blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html">Oracle MOOC: Java Virtual Machine Troubleshooting (2018)</a></li>
+                <li><a href="../../../blog/2018/02/continuous-feedback-with-tdd.html">Continuous Feedback With TDD &amp; Auto Running Tests</a></li>
+        </ul>
+    </div>
+</div>
+	
+        <div class="row">
+            <div class="col-md-11 col-md-offset-1 content-card card">
+                <h5>Tags</h5>
+                <ul class="list-inline tags" style="margin-top: 15px; margin-left: 0px">
+							            	<li style=""><a href="/tags/jvm.html">jvm</a></li>
+		            	<li style=""><a href="/tags/jbake.html">jbake</a></li>
+		            	<li style=""><a href="/tags/tooling.html">tooling</a></li>
+		            	<li style=""><a href="/tags/junit.html">junit</a></li>
+		            	<li style=""><a href="/tags/tcr.html">tcr</a></li>
+		            	<li style=""><a href="/tags/mooc.html">mooc</a></li>
+		            	<li style=""><a href="/tags/wordpress.html">wordpress</a></li>
+		            	<li style=""><a href="/tags/testing.html">testing</a></li>
+		            	<li style=""><a href="/tags/hello-world.html">hello-world</a></li>
+		            	<li style=""><a href="/tags/intellij.html">intellij</a></li>
+		            	<li style=""><a href="/tags/jekyll.html">jekyll</a></li>
+		            	<li style=""><a href="/tags/reference.html">reference</a></li>
+		            	<li style=""><a href="/tags/java.html">java</a></li>
+		            	<li style=""><a href="/tags/tdd.html">tdd</a></li>
+		            	<li style=""><a href="/tags/static-sites.html">static-sites</a></li>
+		            	<li style=""><a href="/tags/b2evolution.html">b2evolution</a></li>
+		    	</ul>
+            </div>
+        </div>
+
+	        </div>
+	    </div>
+	</div>
+
+	
+
+	<footer class="footer">
+	    <div class="container">
+	        <div class="row">
+	        	
+<div class="col-md-8 col-xs-6">
+    <ul class="list-inline links">
+       		<li>
+	        <a href=" ../../../privacy.html">
+	           
+	                <i class="fa fa-lock">&nbsp;</i>Privacy Policy
+	            
+	        </a>
+		</li>
+		<li>
+	        <a href=" ../../../about.html">
+	           
+	                <i class="fa fa-user">&nbsp;</i>About Me
+	            
+	        </a>
+		</li>
+    </ul>
+</div>
+	        </div>
+	        <div class="row">
+	            <div class="col-md-12">
+	                <p>
+	                    <a href="https://github.com/manikmagar/jbake-phlat-theme">JBake Phlat Theme</a> Ported by <a href="https://twitter.com/manikmagar">Manik Magar</a>.
+	                </p>
+	            </div>
+	        </div>
+	    </div>
+	</footer>
+
+	<div id="back-to-top" class="hidden">
+	    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+	        <i class="glyphicon glyphicon-chevron-up"></i> Back to Top
+	    </a>
+	</div>
+
+	
+
+	<script src="../../../resources/js/jquery-2.2.1.min.js"></script>
+	<script src="../../../resources/js/bootstrap.min.js"></script>
+	<script src="../../../resources/js/highlight.min.js"></script>
+	<script src="../../../resources/js/readingTime.js"></script>
+
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script>
+	    if(($(window).height() + 100) < $(document).height()) {
+	        $('#back-to-top').removeClass('hidden').affix({
+	            offset: {
+	                top: 100
+	            }
+	        });
+	    }
+	</script>
+			<script id="dsq-count-scr" src="//leeturner-me.disqus.com/count.js" async></script>
+		<!-- This is called by default since this theme uses highlight.js -->
+		<script>hljs.initHighlightingOnLoad();</script>
+		<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+
+  </body>
+</html>

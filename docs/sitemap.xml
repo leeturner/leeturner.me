@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>http://localhost:8820/privacy.html</loc>
+        <loc>http://leeturner.me/privacy.html</loc>
         <lastmod>2018-01-18</lastmod>
     </url>
     <url>
-        <loc>http://localhost:8820/about.html</loc>
+        <loc>http://leeturner.me/about.html</loc>
         <lastmod>2018-01-18</lastmod>
     </url>
     <url>
-        <loc>http://localhost:8820/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html</loc>
+        <loc>http://leeturner.me/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html</loc>
         <lastmod>2019-02-10</lastmod>
     </url>
     <url>
-        <loc>http://localhost:8820/blog/2019/01/tooling-up-tcr-intellij.html</loc>
+        <loc>http://leeturner.me/blog/2019/01/tooling-up-tcr-intellij.html</loc>
         <lastmod>2019-01-17</lastmod>
     </url>
     <url>
-        <loc>http://localhost:8820/blog/2019/01/hello-world-erm-again.html</loc>
+        <loc>http://leeturner.me/blog/2019/01/hello-world-erm-again.html</loc>
         <lastmod>2019-01-16</lastmod>
     </url>
     <url>
-        <loc>http://localhost:8820/blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html</loc>
+        <loc>http://leeturner.me/blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html</loc>
         <lastmod>2018-02-25</lastmod>
     </url>
     <url>
-        <loc>http://localhost:8820/blog/2018/02/continuous-feedback-with-tdd.html</loc>
+        <loc>http://leeturner.me/blog/2018/02/continuous-feedback-with-tdd.html</loc>
         <lastmod>2018-02-12</lastmod>
     </url>
     <url>
-        <loc>http://localhost:8820/blog/2018/01/do-you-bake-or-fry.html</loc>
+        <loc>http://leeturner.me/blog/2018/01/do-you-bake-or-fry.html</loc>
         <lastmod>2018-01-20</lastmod>
     </url>
     <url>
-        <loc>http://localhost:8820/blog/2018/01/hello-world.html</loc>
+        <loc>http://leeturner.me/blog/2018/01/hello-world.html</loc>
         <lastmod>2018-01-18</lastmod>
     </url>
 </urlset>

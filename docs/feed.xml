@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lee Turner</title>
-    <link>http://localhost:8820</link>
-    <atom:link href="http://localhost:8820/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://leeturner.me</link>
+    <atom:link href="http://leeturner.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>Welcome to the website of Lee Turner</description>
     <language>en-US</language>
-    <pubDate>Sun, 10 Feb 2019 22:29:58 +0000</pubDate>
-    <lastBuildDate>Sun, 10 Feb 2019 22:29:58 +0000</lastBuildDate>
+    <pubDate>Sun, 10 Feb 2019 22:40:46 +0000</pubDate>
+    <lastBuildDate>Sun, 10 Feb 2019 22:40:46 +0000</lastBuildDate>
 
     <item>
       <title>Building a Camel Case @DisplayNameGenerator For JUnit 5</title>
-      <link>http://localhost:8820/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html</link>
+      <link>http://leeturner.me/blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html</link>
       <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html</guid>
       	<description>
@@ -195,7 +195,51 @@ void ifItIsDivisibleBy4ButNotBy100() {
 &lt;h2 id=&quot;one_step_too_far&quot;&gt;One Step Too Far&amp;#8230;&amp;#8203;&amp;#8230;&amp;#8203;&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;I am going to leave this here for posterity&amp;#8217;s sake.  I am not proud of it&lt;/p&gt;
+&lt;p&gt;I am going to leave this here for posterity&amp;#8217;s sake.  I am not proud of it but once I thought of it I couldn&amp;#8217;t help myself :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;One of the new things JUnit 5 allows is &lt;a href=&quot;https://twitter.com/sam_brannen/status/660595585288970240?lang=en&quot;&gt;emoji in your test names&lt;/a&gt;.  This also applies to the &lt;code&gt;@DisplayName&lt;/code&gt; annotation.  All I will say is that it doesn&amp;#8217;t take a great leap to extend the &lt;code&gt;ReplaceUnderscores&lt;/code&gt; or &lt;code&gt;ReplaceCamelCase&lt;/code&gt; Generators with one that replaces certain words with emoji.  Here is a little proof of concept using the example from the JUnit user guide:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;static class ReplaceCamelCaseEmojis extends ReplaceCamelCase {
+    public ReplaceCamelCaseEmojis() {
+    }
+
+    public String generateDisplayNameForClass(Class&amp;lt;?&amp;gt; testClass) {
+        return this.replaceWithEmojis(super.generateDisplayNameForClass(testClass));
+    }
+
+    public String generateDisplayNameForNestedClass(Class&amp;lt;?&amp;gt; nestedClass) {
+        return this.replaceWithEmojis(super.generateDisplayNameForNestedClass(nestedClass));
+    }
+
+    public String generateDisplayNameForMethod(Class&amp;lt;?&amp;gt; testClass, Method testMethod) {
+        return this.replaceWithEmojis(super.generateDisplayNameForMethod(testClass, testMethod));
+    }
+
+    private String replaceWithEmojis(String name) {
+        name = name.replaceAll(&quot;Camel|camel&quot;, &quot;\uD83D\uDC2B&quot;);
+        name = name.replaceAll(&quot;Case|case&quot;, &quot;\uD83D\uDCBC&quot;);
+        name = name.replaceAll(&quot;Display|display&quot;, &quot;\uD83D\uDCBB&quot;);
+        name = name.replaceAll(&quot;Divisible|divisible&quot;, &quot;\u2797&quot;);
+        name = name.replaceAll(&quot;Year|year&quot;, &quot;\uD83D\uDCC5&quot;);
+        name = name.replaceAll(&quot;100&quot;, &quot;\uD83D\uDCAF&quot;);
+        return name;
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This generates something like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/blog/2019/02/junit5-ReplaceCamelCaseEmoji.png&quot; alt=&quot;Replace Camel Case Junit 5 Display Name Generator&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You are very welcome :)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -203,7 +247,7 @@ void ifItIsDivisibleBy4ButNotBy100() {
     </item>
     <item>
       <title>Tooling Up - Implementing test &amp;amp;&amp;amp; commit || revert (TCR) In IntelliJ</title>
-      <link>http://localhost:8820/blog/2019/01/tooling-up-tcr-intellij.html</link>
+      <link>http://leeturner.me/blog/2019/01/tooling-up-tcr-intellij.html</link>
       <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2019/01/tooling-up-tcr-intellij.html</guid>
       	<description>
@@ -331,7 +375,7 @@ void ifItIsDivisibleBy4ButNotBy100() {
     </item>
     <item>
       <title>Hello World&amp;#8230;&amp;#8203;. erm again</title>
-      <link>http://localhost:8820/blog/2019/01/hello-world-erm-again.html</link>
+      <link>http://leeturner.me/blog/2019/01/hello-world-erm-again.html</link>
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2019/01/hello-world-erm-again.html</guid>
       	<description>
@@ -382,7 +426,7 @@ void ifItIsDivisibleBy4ButNotBy100() {
     </item>
     <item>
       <title>Oracle MOOC: Java Virtual Machine Troubleshooting (2018)</title>
-      <link>http://localhost:8820/blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html</link>
+      <link>http://leeturner.me/blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html</link>
       <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html</guid>
       	<description>
@@ -423,7 +467,7 @@ void ifItIsDivisibleBy4ButNotBy100() {
     </item>
     <item>
       <title>Continuous Feedback With TDD &amp;amp; Auto Running Tests</title>
-      <link>http://localhost:8820/blog/2018/02/continuous-feedback-with-tdd.html</link>
+      <link>http://leeturner.me/blog/2018/02/continuous-feedback-with-tdd.html</link>
       <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2018/02/continuous-feedback-with-tdd.html</guid>
       	<description>
@@ -514,7 +558,7 @@ void ifItIsDivisibleBy4ButNotBy100() {
     </item>
     <item>
       <title>Do You Bake Or Fry?</title>
-      <link>http://localhost:8820/blog/2018/01/do-you-bake-or-fry.html</link>
+      <link>http://leeturner.me/blog/2018/01/do-you-bake-or-fry.html</link>
       <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2018/01/do-you-bake-or-fry.html</guid>
       	<description>
@@ -596,7 +640,7 @@ void ifItIsDivisibleBy4ButNotBy100() {
     </item>
     <item>
       <title>Hello World</title>
-      <link>http://localhost:8820/blog/2018/01/hello-world.html</link>
+      <link>http://leeturner.me/blog/2018/01/hello-world.html</link>
       <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/2018/01/hello-world.html</guid>
       	<description>
