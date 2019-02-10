@@ -1,0 +1,68 @@
+= Building a Camel Case @DisplayNameGenerator For JUnit 5
+Lee Turner
+2019-02-10
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: testing, junit
+:jbake-summary: I am loving the new JUnit 5 features and the `@DisplayName` annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new `@DisplayNameGenerator` API all of that will change.
+:idprefix:
+
+I think it is fair to say that JUnit has been my go to unit testing framework for quite a while.  I have used TestNG on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.
+
+This was solidified even further with the release of JUnit 5.  I won't go into any detail here of what the major differences are between version 4 and 5 because there are loads of great articles on the web about this already.  However, some of my favourites are:
+
+* New asserts - especially assertThrows()
+* Assumptions
+* More readable test descriptions with the @DisplayName annotation
+* Tags
+* Parameterised Tests
+* Dynamic Tests (although I need to delve into this one a little more)
+
+== The @DisplayName Annotation
+
+The `@DisplayName` annotation seemed like a great idea - you add the annotation with a more readable description to your test class or methods and that gets displayed instead of the default class or method name in your test runner.  Something like this:
+
+[source,java]
+----
+@DisplayName("Tests that when updating your password, the two passwords submitted must match")
+@Test
+public void testWhenAnUpdatePasswordRequestIsSubmittedTheTwoPasswordsMustMatch{} {
+	// test goes here
+}
+----
+
+It was fun for a while but it quickly became a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  However, all of this might change with the latest JUnit 5.4 release and the new `@DisplayNameGenerator` API.
+
+If you follow along on Twitter, you will have heard of the new `@DisplayNameGenerator` API before the 5.4 release.  Basically it would allow JUnit to determine a nice display name for your classes and tests from your class and method names without having to add the `@DisplayName` annotation.  Seemed like the best of both worlds to me.
+
+When the link:https://twitter.com/junitteam/status/1093621376978747393[announcement was made on twitter] I setup a quick project and dived right in but there was one big problem.  The only `@DisplayNameGenerator` provided in release 5.4 is a link:https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/DisplayNameGenerator.ReplaceUnderscores.html[ReplaceUnderscores] DisplayNameGenerator which as you can imagine replaces the underscores in your class and method names with a space.  The follow:
+
+[source,java]
+----
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+public class Password_Reset_Tests {
+    @Test
+    public void test_When_An_Update_Password_Request_Is_Submitted_The_Two_Passwords_Must_Match{} {
+      // test goes here
+    }
+}
+----
+
+Will output:
+
+----
++-- Password Reset Test
+	+-- test When An Update Password Request Is Submitted The Two Passwords Must Match
+----
+
+All well and good if you use underscores in your class and method names.  I tend to be more of a camel case kind of guy really.  Underscores never really did it for me so this wasn't going to be the big revelation I was hoping for.
+
+
+
+
+
+
+
+
+
+
