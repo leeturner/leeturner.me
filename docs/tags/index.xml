@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Lee Turner</title>
+    <link>https://leeturner.me/tags/</link>
+    <description>Recent content in Tags on Lee Turner</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Feb 2019 22:09:08 +0000</lastBuildDate>
+    
+	<atom:link href="https://leeturner.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>junit</title>
+      <link>https://leeturner.me/tags/junit/</link>
+      <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/junit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tdd</title>
+      <link>https://leeturner.me/tags/tdd/</link>
+      <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/tdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>https://leeturner.me/tags/testing/</link>
+      <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>intellij</title>
+      <link>https://leeturner.me/tags/intellij/</link>
+      <pubDate>Thu, 17 Jan 2019 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/intellij/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tcr</title>
+      <link>https://leeturner.me/tags/tcr/</link>
+      <pubDate>Thu, 17 Jan 2019 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/tcr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tooling</title>
+      <link>https://leeturner.me/tags/tooling/</link>
+      <pubDate>Thu, 17 Jan 2019 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/tooling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hello-world</title>
+      <link>https://leeturner.me/tags/hello-world/</link>
+      <pubDate>Wed, 16 Jan 2019 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/hello-world/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://leeturner.me/tags/java/</link>
+      <pubDate>Sun, 25 Feb 2018 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jvm</title>
+      <link>https://leeturner.me/tags/jvm/</link>
+      <pubDate>Sun, 25 Feb 2018 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/jvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mooc</title>
+      <link>https://leeturner.me/tags/mooc/</link>
+      <pubDate>Sun, 25 Feb 2018 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/mooc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reference</title>
+      <link>https://leeturner.me/tags/reference/</link>
+      <pubDate>Mon, 12 Feb 2018 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/reference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>b2evolution</title>
+      <link>https://leeturner.me/tags/b2evolution/</link>
+      <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/b2evolution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jbake</title>
+      <link>https://leeturner.me/tags/jbake/</link>
+      <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/jbake/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jekyll</title>
+      <link>https://leeturner.me/tags/jekyll/</link>
+      <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>static-sites</title>
+      <link>https://leeturner.me/tags/static-sites/</link>
+      <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/static-sites/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wordpress</title>
+      <link>https://leeturner.me/tags/wordpress/</link>
+      <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/tags/wordpress/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

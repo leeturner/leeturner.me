@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>intellij on Lee Turner</title>
+    <link>https://leeturner.me/tags/intellij/</link>
+    <description>Recent content in intellij on Lee Turner</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Jan 2019 22:09:08 +0000</lastBuildDate>
+    
+	<atom:link href="https://leeturner.me/tags/intellij/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ</title>
+      <link>https://leeturner.me/posts/tooling-up-tcr-intellij/</link>
+      <pubDate>Thu, 17 Jan 2019 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/posts/tooling-up-tcr-intellij/</guid>
+      <description>Like many others, I have been reading about the new programming workflow introduced by Kent Beck called test &amp;amp;&amp;amp; commit || revert (TCR)
+When I first heard about it I had much the same response as Kent - why the hell would you want to do something like that? That can&#39;t possibly work, my tests don&#39;t always pass when I am experimenting - I would lose my code if I did this.</description>
+    </item>
+    
+    <item>
+      <title>Continuous Feedback With TDD &amp; Auto Running Tests</title>
+      <link>https://leeturner.me/posts/continuous-feedback-with-tdd/</link>
+      <pubDate>Mon, 12 Feb 2018 22:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/posts/continuous-feedback-with-tdd/</guid>
+      <description>This is the first of my &amp;lsquo;reference&amp;rsquo; posts which pretty much means I am writing about it here so I don&#39;t forget about it in the future.
+This post it about configuring your dev environment to provide you with continuous feedback while writing your code. All of this came about after a conversation with another developer on my team about how to setup IntelliJ to run tests automatically. We were looking at plugins such as Infinitest but it all seemed a little clunky and crashed every so often.</description>
+    </item>
+    
+  </channel>
+</rss>
