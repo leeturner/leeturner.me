@@ -7,7 +7,7 @@ metaDataFormat = "yaml"
 defaultContentLanguage = "en"
 sectionPagesMenu = "main"
 Paginate = 6 # this is set low for demonstrating with dummy content. Set to a higher number
-googleAnalytics = ""
+googleAnalytics = "UA-115883229-1"
 enableRobotsTXT = true
 disqusShortname = "leeturner-me"
 
