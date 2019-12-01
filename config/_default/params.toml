@@ -1,0 +1,12 @@
+[params]
+favicon = "favicon.ico"
+description = "Welcome to the lab - the place I write about my code experiments"
+twitter = "https://twitter.com/leeturner"
+github = "https://github.com/leeturner"
+linkedin = "https://linkedin.com/in/turnerlee"
+
+# choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
+background_color_class = "bg-black"
+featured_image = "/images/default-hero.jpg"
+custom_css = ["css/custom.css"]
+recent_posts_number = 2
