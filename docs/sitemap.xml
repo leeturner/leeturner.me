@@ -3,197 +3,204 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://leeturner.me/</loc>
-    <lastmod>2019-02-10T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/posts/building-a-camel-case-junit5-displaynamegenerator/</loc>
-    <lastmod>2019-02-10T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/junit/</loc>
-    <lastmod>2019-02-10T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/posts/</loc>
-    <lastmod>2019-02-10T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/</loc>
-    <lastmod>2019-02-10T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/tdd/</loc>
-    <lastmod>2019-02-10T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/testing/</loc>
-    <lastmod>2019-02-10T22:09:08+00:00</lastmod>
+    <loc>https://leeturner.me/posts/copying-the-branch-name-in-intellij/</loc>
+    <lastmod>2020-04-12T18:09:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/tags/intellij/</loc>
-    <lastmod>2019-01-17T22:09:08+00:00</lastmod>
+    <lastmod>2020-04-12T18:09:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://leeturner.me/tags/tcr/</loc>
-    <lastmod>2019-01-17T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/tooling/</loc>
-    <lastmod>2019-01-17T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/posts/tooling-up-tcr-intellij/</loc>
-    <lastmod>2019-01-17T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/posts/hello-world-erm-again/</loc>
-    <lastmod>2019-01-16T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/hello-world/</loc>
-    <lastmod>2019-01-16T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/java/</loc>
-    <lastmod>2018-02-25T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/jvm/</loc>
-    <lastmod>2018-02-25T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/mooc/</loc>
-    <lastmod>2018-02-25T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/posts/oracle-mooc-java-virtual-machine-troubleshooting/</loc>
-    <lastmod>2018-02-25T22:09:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/posts/continuous-feedback-with-tdd/</loc>
-    <lastmod>2018-02-12T22:09:08+00:00</lastmod>
+    <loc>https://leeturner.me/posts/</loc>
+    <lastmod>2020-04-12T18:09:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/tags/reference/</loc>
-    <lastmod>2018-02-12T22:09:08+00:00</lastmod>
+    <lastmod>2020-04-12T18:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/</loc>
+    <lastmod>2020-04-12T18:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/posts/building-a-camel-case-junit5-displaynamegenerator/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/junit/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/tdd/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/testing/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/tcr/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/tooling/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/posts/tooling-up-tcr-intellij/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/posts/hello-world-erm-again/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/hello-world/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/java/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/jvm/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/mooc/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/posts/oracle-mooc-java-virtual-machine-troubleshooting/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/posts/continuous-feedback-with-tdd/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/tags/b2evolution/</loc>
-    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/posts/do-you-bake-or-fry/</loc>
-    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/tags/jbake/</loc>
-    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/tags/jekyll/</loc>
-    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/tags/static-sites/</loc>
-    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/tags/wordpress/</loc>
-    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/about/</loc>
-    <lastmod>2018-01-18T22:09:08+00:00</lastmod>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/posts/hello-world/</loc>
-    <lastmod>2018-01-18T22:09:08+00:00</lastmod>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://leeturner.me/privacy/</loc>
-    <lastmod>2018-01-18T22:09:08+00:00</lastmod>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/</loc>
+    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

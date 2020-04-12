@@ -6,10 +6,20 @@
     <description>Recent content in reference on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Feb 2018 22:09:08 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2020 18:09:08 +0000</lastBuildDate>
     
 	<atom:link href="https://leeturner.me/tags/reference/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Copying A Branch Name In Intellij</title>
+      <link>https://leeturner.me/posts/copying-the-branch-name-in-intellij/</link>
+      <pubDate>Sun, 12 Apr 2020 18:09:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/posts/copying-the-branch-name-in-intellij/</guid>
+      <description>How many times do you need to use the name of the branch you are currently working on ? Entering the name of the branch into your CI/CD system to deploy your feature branch into a staging environment, sending the name over email or internal messaging app to a co-worker who you are pair-programming with&amp;hellip;
+I seem to need to do this quite frequently over the course of a working week, and the place I always go to get the branch name is Intellij.</description>
+    </item>
     
     <item>
       <title>Continuous Feedback With TDD &amp; Auto Running Tests</title>
@@ -17,7 +27,7 @@
       <pubDate>Mon, 12 Feb 2018 22:09:08 +0000</pubDate>
       
       <guid>https://leeturner.me/posts/continuous-feedback-with-tdd/</guid>
-      <description>This is the first of my &amp;lsquo;reference&amp;rsquo; posts which pretty much means I am writing about it here so I don&#39;t forget about it in the future.
+      <description>This is the first of my &amp;lsquo;reference&amp;rsquo; posts which pretty much means I am writing about it here so I don&amp;rsquo;t forget about it in the future.
 This post it about configuring your dev environment to provide you with continuous feedback while writing your code. All of this came about after a conversation with another developer on my team about how to setup IntelliJ to run tests automatically. We were looking at plugins such as Infinitest but it all seemed a little clunky and crashed every so often.</description>
     </item>
     

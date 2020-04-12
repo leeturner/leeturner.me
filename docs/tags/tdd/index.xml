@@ -27,7 +27,7 @@ This was solidified even further with the release of JUnit 5.</description>
       <pubDate>Mon, 12 Feb 2018 22:09:08 +0000</pubDate>
       
       <guid>https://leeturner.me/posts/continuous-feedback-with-tdd/</guid>
-      <description>This is the first of my &amp;lsquo;reference&amp;rsquo; posts which pretty much means I am writing about it here so I don&#39;t forget about it in the future.
+      <description>This is the first of my &amp;lsquo;reference&amp;rsquo; posts which pretty much means I am writing about it here so I don&amp;rsquo;t forget about it in the future.
 This post it about configuring your dev environment to provide you with continuous feedback while writing your code. All of this came about after a conversation with another developer on my team about how to setup IntelliJ to run tests automatically. We were looking at plugins such as Infinitest but it all seemed a little clunky and crashed every so often.</description>
     </item>
     
