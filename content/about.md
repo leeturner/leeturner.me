@@ -13,7 +13,7 @@ I am constantly learning and extending my skills. I contribute to open-source pr
 
 I have worked on projects for the NHS, as well as major banks and building societies in the UK.  In 2007 I took on the responsibility of caring for his son and foundered a new digital marketing business to enable him to run this from home. 
 
-I have recently setup the [Brighton Kotlin Meetup](https://BrightonKotlin.com) - a group for Kotlin users, enthusiasts and learners from beginners to experts, and anyone wanting to get involved with the Kotlin/JVM ecosystem.
+I am the founder of the [Brighton Kotlin Meetup](https://BrightonKotlin.com) - a group for Kotlin users, enthusiasts and learners from beginners to experts, and anyone wanting to get involved with the Kotlin/JVM ecosystem.
 
 My specialties are in Java/Kotlin microservice architectures, test-driven development, agile software development, Spring and Spring Boot. 
 

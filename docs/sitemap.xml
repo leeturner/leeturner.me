@@ -3,6 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://leeturner.me/tags/bookmarks/</loc>
+    <lastmod>2020-06-07T13:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/posts/geek-reads-1/</loc>
+    <lastmod>2020-06-07T13:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/posts/</loc>
+    <lastmod>2020-06-07T13:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/</loc>
+    <lastmod>2020-06-07T13:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://leeturner.me/posts/copying-the-branch-name-in-intellij/</loc>
     <lastmod>2020-04-12T19:54:41+01:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -17,21 +45,7 @@
   </url>
   
   <url>
-    <loc>https://leeturner.me/posts/</loc>
-    <lastmod>2020-04-12T19:54:41+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://leeturner.me/tags/reference/</loc>
-    <lastmod>2020-04-12T19:54:41+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/</loc>
     <lastmod>2020-04-12T19:54:41+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

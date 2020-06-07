@@ -34,4 +34,4 @@ linkedin = "https://linkedin.com/in/turnerlee"
 background_color_class = "bg-black"
 featured_image = "/images/default-hero.jpg"
 custom_css = ["css/custom.css"]
-recent_posts_number = 2
+recent_posts_number = 5

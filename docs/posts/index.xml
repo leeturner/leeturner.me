@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Apr 2020 18:09:08 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2020 13:20:08 +0000</lastBuildDate>
     
 	<atom:link href="https://leeturner.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Geek Reads 1</title>
+      <link>https://leeturner.me/posts/geek-reads-1/</link>
+      <pubDate>Sun, 07 Jun 2020 13:20:08 +0000</pubDate>
+      
+      <guid>https://leeturner.me/posts/geek-reads-1/</guid>
+      <description>Geek Reads are a selection of the articles, tools and announcements I have found interesting while browsing the interwebs, I save all of these in my pinboard account and gather them up periodically and post them here.
+The Ultimate Kotlin Tutorials for Beginners | CalliCoder A wide range of kotlin tutorials
+yolossn/Prometheus-Basics: A beginner friendly introduction to prometheus 🔥 A beginner friendly introduction to prometheus
+GitOps Days 2020 – conference for DevOps, Kubernetes, and Microservices Whether you’ve been wanting to learn about GitOps for the first time or you need help to convince your teams to understand the benefits of GitOps, this event is for you!</description>
+    </item>
     
     <item>
       <title>Copying A Branch Name In Intellij</title>
