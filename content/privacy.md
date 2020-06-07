@@ -1,6 +1,5 @@
 ---
 title: Privacy Policy
-date: 2018-01-18T22:09:08Z
 description: leeturner.me Privacy Policy
 menu: footer
 author: Lee Turner 
