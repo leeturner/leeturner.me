@@ -95,16 +95,6 @@ In term of website development, I have had experience of quite a few different c
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://leeturner.me/about/</link>
-      <pubDate>Thu, 18 Jan 2018 22:09:08 +0000</pubDate>
-      
-      <guid>https://leeturner.me/about/</guid>
-      <description>I am an experienced professional developer with a passion for quality software. I have experience in java, kotlin, spring and spring boot along with the full J2EE suite which all gives me an extensive toolkit to draw from. I have significant experience in test-driven development and stringent source and release management processes. I am comfortable working either as part of a bigger development team or as a solo developer.
-I am constantly learning and extending my skills.</description>
-    </item>
-    
-    <item>
       <title>Hello World</title>
       <link>https://leeturner.me/posts/hello-world/</link>
       <pubDate>Thu, 18 Jan 2018 22:09:08 +0000</pubDate>
@@ -115,15 +105,34 @@ At the moment I have no idea where this site is going to go but at the very leas
     </item>
     
     <item>
+      <title>About</title>
+      <link>https://leeturner.me/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://leeturner.me/about/</guid>
+      <description>I am an experienced professional developer with a passion for quality software. I am currently working at Crunch as their Lead Backend Developer. I have experience in java, kotlin, spring and spring boot along with the full J2EE suite which all gives me an extensive toolkit to draw from. I have significant experience in test-driven development and stringent source and release management processes. I am comfortable working either as part of a bigger development team or as a solo developer.</description>
+    </item>
+    
+    <item>
       <title>Privacy Policy</title>
       <link>https://leeturner.me/privacy/</link>
-      <pubDate>Thu, 18 Jan 2018 22:09:08 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://leeturner.me/privacy/</guid>
       <description>We are committed to safeguarding and preserving the privacy of our visitors. This Privacy Policy explains what happens to any personal data that you provide to us, or that we collect from you whilst you visit our site.
 We do update this Policy from time to time so please do review this Policy regularly.
 Information We Collect
 In running and maintaining our website we may collect and process the following data about you:</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://leeturner.me/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://leeturner.me/projects/</guid>
+      <description>Here you can find a collection of side projects I have built for myself or others. Your mileage might vary, but you are welcome to dig in and have a play if they are useful to you.
+pinboard2markdown pinboard2markdown is a command line tool written in Kotlin and Spring Boot that communicates with the pinboard.in api to retrieve a selection of bookmarks that are tagged with a specified tag. It then converts those bookmarks to markdown and outputs them to the terminal.</description>
     </item>
     
   </channel>
