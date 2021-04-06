@@ -3,6 +3,69 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://leeturner.me/tags/blinky/</loc>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/blinkytape/</loc>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/posts/blinkytape-junit-testwatcher/</loc>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/junit/</loc>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/junit5/</loc>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/kotlin/</loc>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/posts/</loc>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/</loc>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://leeturner.me/tags/testwatcher/</loc>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://leeturner.me/tags/bookmarks/</loc>
     <lastmod>2020-06-07T14:53:46+01:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -11,20 +74,6 @@
   
   <url>
     <loc>https://leeturner.me/posts/geek-reads-1/</loc>
-    <lastmod>2020-06-07T14:53:46+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/posts/</loc>
-    <lastmod>2020-06-07T14:53:46+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/</loc>
     <lastmod>2020-06-07T14:53:46+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -53,13 +102,6 @@
   
   <url>
     <loc>https://leeturner.me/posts/building-a-camel-case-junit5-displaynamegenerator/</loc>
-    <lastmod>2019-12-01T12:21:41+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://leeturner.me/tags/junit/</loc>
     <lastmod>2019-12-01T12:21:41+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -221,7 +263,7 @@
   
   <url>
     <loc>https://leeturner.me/projects/</loc>
-    <lastmod>2020-06-07T17:38:33+01:00</lastmod>
+    <lastmod>2021-04-06T21:50:08+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
