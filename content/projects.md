@@ -14,3 +14,8 @@ Because I built this for myself it isn't yet packaged up as a command line tool 
 I use this tool to build regular newsletters for the backend developers at [Crunch](https://medium.com/@crunchtech) and to generate my [Geek Reads](/tags/bookmarks/) posts
 
 <a class="github-button" href="https://github.com/leeturner/pinboard2markdown/" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/pinboard2markdown on GitHub">View the project on GitHub</a>
+
+### BlinkyTapeTestWatcher
+[BlinkyTapeTestWatcher](https://github.com/leeturner/BlinkyTapeTestWatcher) is a [Kotlin](https://kotlinlang.org) based implementation of the [Junit 5](https://junit.org/junit5/) [TestWatcher API](https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html) that hooks up your tests to a BlinkyTape LED strip 
+
+<a class="github-button" href="https://github.com/leeturner/BlinkyTapeTestWatcher" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/BlinkyTapeTestWatcher on GitHub">View the project on GitHub</a>
