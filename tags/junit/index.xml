@@ -2,27 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>junit on Lee Turner</title>
-    <link>https://leeturner.me/tags/junit/</link>
+    <link>/tags/junit/</link>
     <description>Recent content in junit on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Apr 2021 10:20:08 +0000</lastBuildDate><atom:link href="https://leeturner.me/tags/junit/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>2021 Lee Turner</copyright>
+    <lastBuildDate>Tue, 06 Apr 2021 10:20:08 +0000</lastBuildDate><atom:link href="/tags/junit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BlinkyTape JUnit Testwatcher API Implementation</title>
-      <link>https://leeturner.me/posts/blinkytape-junit-testwatcher/</link>
+      <link>/posts/blinkytape-junit-testwatcher/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/posts/blinkytape-junit-testwatcher/</guid>
+      <guid>/posts/blinkytape-junit-testwatcher/</guid>
       <description>Every so often I like to have a play around with a part of Junit  that I haven&amp;rsquo;t used before, and I recently decided to look into the TestWatcher API.
 I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</description>
     </item>
     
     <item>
       <title>Building a Camel Case @DisplayNameGenerator For JUnit 5</title>
-      <link>https://leeturner.me/posts/building-a-camel-case-junit5-displaynamegenerator/</link>
+      <link>/posts/building-a-camel-case-junit5-displaynamegenerator/</link>
       <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/posts/building-a-camel-case-junit5-displaynamegenerator/</guid>
+      <guid>/posts/building-a-camel-case-junit5-displaynamegenerator/</guid>
       <description>I think it is fair to say that JUnit has been my go to unit testing framework for quite a while. I have used TestNG on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.
 This was solidified even further with the release of JUnit 5.</description>
     </item>

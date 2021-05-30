@@ -1,205 +1,367 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Lee Turner</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Welcome to the lab - the place I write about my code experiments">
-    <meta name="generator" content="Hugo 0.83.1" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-
-  
-  
-    <link rel="stylesheet" href="/ananke/dist/main.css_5c99d70a7725bacd4c701e995b969fea.css" >
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" />
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 
+    <style>
+     * {
+         -moz-box-sizing:border-box;
+         -webkit-box-sizing:border-box;
+         box-sizing:border-box;
+     }
 
-  <link rel="stylesheet" href="/css/custom.css">
+     html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+     abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+     small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+     fieldset, form, label, legend, caption, article, aside, canvas, details, figcaption, figure,  footer, header, hgroup,
+     menu, nav, section, summary, time, mark, audio, video {
+         margin:0;
+         padding:0;
+         border:0;
+         outline:0;
+         vertical-align:baseline;
+         background:transparent;
+     }
+
+     article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+         display: block;
+     }
+
+     html {
+         font-size: 16px;
+         line-height: 24px;
+         width:100%;
+         height:100%;
+         -webkit-text-size-adjust: 100%;
+         -ms-text-size-adjust: 100%;
+         overflow-y:scroll;
+         overflow-x:hidden;
+     }
+
+     img {
+         vertical-align:middle;
+         max-width: 100%;
+         height: auto;
+         border: 0;
+         -ms-interpolation-mode: bicubic;
+     }
+
+     body {
+         min-height:100%;
+         -webkit-font-smoothing: subpixel-antialiased;
+     }
+
+     .clearfix {
+	       clear:both;
+	       zoom: 1;
+     }
+     .clearfix:before, .clearfix:after {
+         content: "\0020";
+         display: block;
+         height: 0;
+         visibility: hidden;
+     }
+     .clearfix:after {
+         clear: both;
+     }
+    </style>
+    <style>
+  .plain.error-page-wrapper {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color:#6355bc;
+    padding:0 5%;
+    position:relative;
+  }
+
+  .plain.error-page-wrapper .content-container {
+    -webkit-transition: left .5s ease-out, opacity .5s ease-out;
+    -moz-transition: left .5s ease-out, opacity .5s ease-out;
+    -ms-transition: left .5s ease-out, opacity .5s ease-out;
+    -o-transition: left .5s ease-out, opacity .5s ease-out;
+    transition: left .5s ease-out, opacity .5s ease-out;
+    max-width:400px;
+    position:relative;
+    left:-30px;
+    opacity:0;
+  }
+
+  .plain.error-page-wrapper .content-container.in {
+    left: 0px;
+    opacity:1;
+  }
+
+  .plain.error-page-wrapper .head-line {
+    transition: color .2s linear;
+    font-size:48px;
+    line-height:60px;
+    color:rgba(255,255,255,.2);
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+  }
+  .plain.error-page-wrapper .subheader {
+    transition: color .2s linear;
+    font-size:36px;
+    line-height:46px;
+    color:#fff;
+  }
+  .plain.error-page-wrapper hr {
+    height:1px;
+    background-color: rgba(255,255,255,.2);
+    border:none;
+    width:250px;
+    margin:35px 0;
+  }
+  .plain.error-page-wrapper .context {
+    transition: color .2s linear;
+    font-size:18px;
+    line-height:27px;
+    color:#fff;
+  }
+  .plain.error-page-wrapper .context p {
+    margin:0;
+  }
+  .plain.error-page-wrapper .context p:nth-child(n+2) {
+    margin-top:12px;
+  }
+  .plain.error-page-wrapper .buttons-container {
+    margin-top: 45px;
+    overflow: hidden;
+  }
+  .plain.error-page-wrapper .buttons-container a {
+    transition: color .2s linear, border-color .2s linear;
+    font-size:14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color:#fff;
+    border:2px solid white;
+    border-radius: 99px;
+    padding:8px 30px 9px;
+    display: inline-block;
+    float:left;
+  }
+  .plain.error-page-wrapper .buttons-container a:hover {
+    background-color:rgba(255,255,255,.05);
+  }
+  .plain.error-page-wrapper .buttons-container a:first-child {
+    margin-right:25px;
+  }
+
+  @media screen and (max-width: 485px) {
+    .plain.error-page-wrapper .header {
+      font-size:36px;
+     }
+    .plain.error-page-wrapper .subheader {
+      font-size:27px;
+      line-height:38px;
+     }
+    .plain.error-page-wrapper hr {
+      width:185px;
+      margin:25px 0;
+     }
+
+    .plain.error-page-wrapper .context {
+      font-size:16px;
+      line-height: 24px;
+     }
+    .plain.error-page-wrapper .buttons-container {
+      margin-top:35px;
+    }
+
+    .plain.error-page-wrapper .buttons-container a {
+      font-size:13px;
+      padding:8px 0 7px;
+      width:45%;
+      text-align: center;
+    }
+    .plain.error-page-wrapper .buttons-container a:first-child {
+      margin-right:10%;
+    }
+  }
+</style>
+    <style>
+
+    .background-color {
+      background-color: rgba(244, 244, 244, 1) !important;
+    }
 
 
-    
-      
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    .primary-text-color {
+      color: rgba(171, 171, 171, 1) !important;
+    }
 
+    .secondary-text-color {
+      color: rgba(0, 0, 0, 1) !important;
+    }
 
-    
+    .sign-text-color {
+      color: #FFBA00 !important;
+    }
 
-    
-    
-    <meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="Welcome to the lab - the place I write about my code experiments" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://leeturner.me/404.html" />
+    .sign-frame-color {
+      color: #343C3F;
+    }
 
-<meta itemprop="name" content="404 Page not found">
-<meta itemprop="description" content="Welcome to the lab - the place I write about my code experiments"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content="Welcome to the lab - the place I write about my code experiments"/>
+    .pane {
+      background-color: #FFFFFF !important;
+    }
 
-	
+    .border-button {
+      color: rgba(46, 186, 174, 1) !important;
+      border-color: rgba(46, 186, 174, 1) !important;
+    }
+    .button {
+      background-color: rgba(46, 186, 174, 1) !important;
+      color: #FFFFFF !important;
+    }
+
+    .shadow {
+      box-shadow: 0 0 60px #000000;
+    }
+
+</style>
   </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        Lee Turner
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-        <ul class="pl0 mr3">
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/about/" title="About page">
-              About
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
-              Posts
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/projects/" title="Projects page">
-              Projects
-            </a>
-          </li>
-          
-        </ul>
-      
-      
-
-
-
-
-<a href="https://twitter.com/leeturner" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
-  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-</span></a>
-
-
-
-
-<a href="https://linkedin.com/in/turnerlee" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
-  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-</span></a>
-
-
-<a href="https://github.com/leeturner" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
-  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
-</svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-</span></a>
-
-
-
-
-
-
-
-
-    </div>
-  </div>
-</nav>
-
-    </div>
-  </header>
-
-
-    <main class="pb7" role="main">
-      
-    <article class="center cf pv5 measure-wide-l">
-      <h1>
-        This is not the page you were looking for
-      </h1>
-    </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://leeturner.me" >
-    &copy;  Lee Turner 2021 
-  </a>
-    <div>
-
-
-
-
-<a href="https://twitter.com/leeturner" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
-  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-</span></a>
-
-
-
-
-<a href="https://linkedin.com/in/turnerlee" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
-  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-</span></a>
-
-
-<a href="https://github.com/leeturner" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
-  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
-</svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-</span></a>
-
-
-
-
-
-
-
+  <body class="plain error-page-wrapper background-color background-image">
+    <div class="content-container">
+	<div class="head-line secondary-text-color">
+		404
+	</div>
+	<div class="subheader primary-text-color">
+		Oops, the page you're <br>
+		looking for does not exist.
+	</div>
+	<hr>
+	<div class="clearfix"></div>
+	<div class="context primary-text-color">
+		
+    <p>
+      You may want to head back to the homepage.<br />
+      If you think something is broken, report a problem.
+    </p>
+	</div>
+	<div class="buttons-container">
+		<a class="border-button" href="/">Go To Homepage</a>
+		<a class="border-button" href="mailto:">Report A Problem</a>
+	</div>
 </div>
-  </div>
-</footer>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<script id="twitter-wjs" type="text/javascript" async defer src="//platform.twitter.com/widgets.js"></script>
+
+    <script>
+     function ErrorPage(container, pageType, templateName) {
+       this.$container = $(container);
+       this.$contentContainer = this.$container.find(templateName == 'sign' ? '.sign-container' : '.content-container');
+       this.pageType = pageType;
+       this.templateName = templateName;
+     }
+
+     ErrorPage.prototype.centerContent = function () {
+       var containerHeight = this.$container.outerHeight()
+         , contentContainerHeight = this.$contentContainer.outerHeight()
+         , top = (containerHeight - contentContainerHeight) / 2
+         , offset = this.templateName == 'sign' ? -100 : 0;
+
+       this.$contentContainer.css('top', top + offset);
+     };
+
+     ErrorPage.prototype.initialize = function () {
+       var self = this;
+
+       this.centerContent();
+       this.$container.on('resize', function (e) {
+         e.preventDefault();
+         e.stopPropagation();
+         self.centerContent();
+       });
+
+       
+       if (this.templateName == 'plain') {
+         window.setTimeout(function () {
+           self.$contentContainer.addClass('in');
+         }, 500);
+       }
+
+       
+       if (this.templateName == 'sign') {
+         $('.sign-container').animate({textIndent : 0}, {
+           step : function (now) {
+             $(this).css({
+               transform : 'rotate(' + now + 'deg)',
+               'transform-origin' : 'top center'
+             });
+           },
+           duration : 1000,
+           easing : 'easeOutBounce'
+         });
+       }
+     };
+
+
+     ErrorPage.prototype.createTimeRangeTag = function(start, end) {
+       return (
+         '<time utime=' + start + ' simple_format="MMM DD, YYYY HH:mm">' + start + '</time> - <time utime=' + end + ' simple_format="MMM DD, YYYY HH:mm">' + end + '</time>.'
+       )
+     };
+
+
+     ErrorPage.prototype.handleStatusFetchSuccess = function (pageType, data) {
+       if (pageType == '503') {
+         $('#replace-with-fetched-data').html(data.status.description);
+       } else {
+         if (!!data.scheduled_maintenances.length) {
+           var maint = data.scheduled_maintenances[0];
+           $('#replace-with-fetched-data').html(this.createTimeRangeTag(maint.scheduled_for, maint.scheduled_until));
+           $.fn.localizeTime();
+         }
+         else {
+           $('#replace-with-fetched-data').html('<em>(there are no active scheduled maintenances)</em>');
+         }
+       }
+     };
+
+
+     ErrorPage.prototype.handleStatusFetchFail = function (pageType) {
+       $('#replace-with-fetched-data').html('<em>(enter a valid StatusPage.io url)</em>');
+     };
+
+
+     ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
+       
+       if (!pageUrl || !pageType || pageType == '404') return;
+
+       var url = ''
+         , self = this;
+
+       if (pageType == '503') {
+         url = pageUrl + '/api/v2/status.json';
+       }
+       else {
+         url = pageUrl + '/api/v2/scheduled-maintenances/active.json';
+       }
+
+       $.ajax({
+         type : "GET",
+         url : url,
+       }).success(function (data, status) {
+         
+         self.handleStatusFetchSuccess(pageType, data);
+       }).fail(function (xhr, msg) {
+         
+         self.handleStatusFetchFail(pageType);
+       });
+
+     };
+     var ep = new ErrorPage('body', "404", "plain");
+     ep.initialize();
+
+     
+     $(window).on('resize', function() {
+       $('body').trigger('resize')
+     });
+
+    </script>
+
 
   </body>
 </html>

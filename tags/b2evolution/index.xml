@@ -2,17 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>b2evolution on Lee Turner</title>
-    <link>https://leeturner.me/tags/b2evolution/</link>
+    <link>/tags/b2evolution/</link>
     <description>Recent content in b2evolution on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jan 2018 22:09:08 +0000</lastBuildDate><atom:link href="https://leeturner.me/tags/b2evolution/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>2021 Lee Turner</copyright>
+    <lastBuildDate>Sat, 20 Jan 2018 22:09:08 +0000</lastBuildDate><atom:link href="/tags/b2evolution/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Do You Bake or Fry</title>
-      <link>https://leeturner.me/posts/do-you-bake-or-fry/</link>
+      <link>/posts/do-you-bake-or-fry/</link>
       <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/posts/do-you-bake-or-fry/</guid>
+      <guid>/posts/do-you-bake-or-fry/</guid>
       <description>Before I go much further, I thought it was probably worth me putting down a few notes about my technology choices for this site.
 In term of website development, I have had experience of quite a few different content management systems such as b2Evolution and more recently Wordpress. I have developed plugins and templates for b2Evolution as well as contributing code to the core product back in the day. I have put more sites together in Wordpress than I care to remember - most of my clients used Wordpress in some form or other while I was working in the paid traffic/SEO industry.</description>
     </item>

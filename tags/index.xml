@@ -2,206 +2,207 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Lee Turner</title>
-    <link>https://leeturner.me/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Apr 2021 10:20:08 +0000</lastBuildDate><atom:link href="https://leeturner.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>2021 Lee Turner</copyright>
+    <lastBuildDate>Tue, 06 Apr 2021 10:20:08 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>blinky</title>
-      <link>https://leeturner.me/tags/blinky/</link>
+      <link>/tags/blinky/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/blinky/</guid>
+      <guid>/tags/blinky/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blinkytape</title>
-      <link>https://leeturner.me/tags/blinkytape/</link>
+      <link>/tags/blinkytape/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/blinkytape/</guid>
+      <guid>/tags/blinkytape/</guid>
       <description></description>
     </item>
     
     <item>
       <title>junit</title>
-      <link>https://leeturner.me/tags/junit/</link>
+      <link>/tags/junit/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/junit/</guid>
+      <guid>/tags/junit/</guid>
       <description></description>
     </item>
     
     <item>
       <title>junit5</title>
-      <link>https://leeturner.me/tags/junit5/</link>
+      <link>/tags/junit5/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/junit5/</guid>
+      <guid>/tags/junit5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kotlin</title>
-      <link>https://leeturner.me/tags/kotlin/</link>
+      <link>/tags/kotlin/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/kotlin/</guid>
+      <guid>/tags/kotlin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>testwatcher</title>
-      <link>https://leeturner.me/tags/testwatcher/</link>
+      <link>/tags/testwatcher/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/testwatcher/</guid>
+      <guid>/tags/testwatcher/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bookmarks</title>
-      <link>https://leeturner.me/tags/bookmarks/</link>
+      <link>/tags/bookmarks/</link>
       <pubDate>Sun, 07 Jun 2020 13:20:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/bookmarks/</guid>
+      <guid>/tags/bookmarks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>intellij</title>
-      <link>https://leeturner.me/tags/intellij/</link>
+      <link>/tags/intellij/</link>
       <pubDate>Sun, 12 Apr 2020 18:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/intellij/</guid>
+      <guid>/tags/intellij/</guid>
       <description></description>
     </item>
     
     <item>
       <title>reference</title>
-      <link>https://leeturner.me/tags/reference/</link>
+      <link>/tags/reference/</link>
       <pubDate>Sun, 12 Apr 2020 18:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/reference/</guid>
+      <guid>/tags/reference/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tdd</title>
-      <link>https://leeturner.me/tags/tdd/</link>
+      <link>/tags/tdd/</link>
       <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/tdd/</guid>
+      <guid>/tags/tdd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>testing</title>
-      <link>https://leeturner.me/tags/testing/</link>
+      <link>/tags/testing/</link>
       <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/testing/</guid>
+      <guid>/tags/testing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tcr</title>
-      <link>https://leeturner.me/tags/tcr/</link>
+      <link>/tags/tcr/</link>
       <pubDate>Thu, 17 Jan 2019 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/tcr/</guid>
+      <guid>/tags/tcr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tooling</title>
-      <link>https://leeturner.me/tags/tooling/</link>
+      <link>/tags/tooling/</link>
       <pubDate>Thu, 17 Jan 2019 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/tooling/</guid>
+      <guid>/tags/tooling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hello-world</title>
-      <link>https://leeturner.me/tags/hello-world/</link>
+      <link>/tags/hello-world/</link>
       <pubDate>Wed, 16 Jan 2019 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/hello-world/</guid>
+      <guid>/tags/hello-world/</guid>
       <description></description>
     </item>
     
     <item>
       <title>java</title>
-      <link>https://leeturner.me/tags/java/</link>
+      <link>/tags/java/</link>
       <pubDate>Sun, 25 Feb 2018 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/java/</guid>
+      <guid>/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jvm</title>
-      <link>https://leeturner.me/tags/jvm/</link>
+      <link>/tags/jvm/</link>
       <pubDate>Sun, 25 Feb 2018 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/jvm/</guid>
+      <guid>/tags/jvm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mooc</title>
-      <link>https://leeturner.me/tags/mooc/</link>
+      <link>/tags/mooc/</link>
       <pubDate>Sun, 25 Feb 2018 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/mooc/</guid>
+      <guid>/tags/mooc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>b2evolution</title>
-      <link>https://leeturner.me/tags/b2evolution/</link>
+      <link>/tags/b2evolution/</link>
       <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/b2evolution/</guid>
+      <guid>/tags/b2evolution/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jbake</title>
-      <link>https://leeturner.me/tags/jbake/</link>
+      <link>/tags/jbake/</link>
       <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/jbake/</guid>
+      <guid>/tags/jbake/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jekyll</title>
-      <link>https://leeturner.me/tags/jekyll/</link>
+      <link>/tags/jekyll/</link>
       <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/jekyll/</guid>
+      <guid>/tags/jekyll/</guid>
       <description></description>
     </item>
     
     <item>
       <title>static-sites</title>
-      <link>https://leeturner.me/tags/static-sites/</link>
+      <link>/tags/static-sites/</link>
       <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/static-sites/</guid>
+      <guid>/tags/static-sites/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wordpress</title>
-      <link>https://leeturner.me/tags/wordpress/</link>
+      <link>/tags/wordpress/</link>
       <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
       
-      <guid>https://leeturner.me/tags/wordpress/</guid>
+      <guid>/tags/wordpress/</guid>
       <description></description>
     </item>
     
