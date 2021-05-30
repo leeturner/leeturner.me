@@ -21,8 +21,8 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2021",
-        "datePublished": "2021-04-06 10:20:08 \u002b0000 UTC",
-        "dateModified" : "2021-04-06 10:20:08 \u002b0000 UTC",
+        "datePublished": "2021-05-01 10:20:08 \u002b0000 UTC",
+        "dateModified" : "2021-05-01 10:20:08 \u002b0000 UTC",
         "url" : "\/",
         "wordCount" : "0",
         "keywords" : [ "Blog" ]
@@ -268,6 +268,42 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-05-01'>
+                                    May 1, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/hugo-progression-framework/" class="image featured">
+            <img src="/images/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-screenshot.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/posts/blinkytape-junit-testwatcher/">BlinkyTape JUnit Testwatcher API Implementation</a></h3>
                                 
                                 <time class="published" datetime=
@@ -410,42 +446,6 @@ if (!doNotTrack) {
 
                         </article>
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/tooling-up-tcr-intellij/">Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-01-17'>
-                                    January 17, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/tooling-up-tcr-intellij/" class="image featured">
-            <img src="/images/blog/2019-01-17-tooling-up-tcr-intellij/tools-1209764_640.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
 
                 
                     <a href=
@@ -468,21 +468,21 @@ if (!doNotTrack) {
   <header>
     <div class="title">
         
-            <h2><a href="/posts/blinkytape-junit-testwatcher/">BlinkyTape JUnit Testwatcher API Implementation</a></h2>
+            <h2><a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a></h2>
         
         
-            <p>This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip.</p>
+            <p>A hugo template to create Monzo style progression frameworks</p>
         
     </div>
     <div class="meta">
         
 
         <time class="published"
-            datetime='2021-04-06'>
-            April 6, 2021</time>
+            datetime='2021-05-01'>
+            May 1, 2021</time>
         <span class="author">Lee Turner</span>
         
-            <p>3 minute read</p>
+            <p>7 minute read</p>
         
         
     </div>
@@ -542,85 +542,161 @@ if (!doNotTrack) {
         
         
 
-        <a href="/posts/blinkytape-junit-testwatcher/" class="image featured">
-            <img src="/images/blog/2021-04-06-blinkytape-junit-testwatcher/junit-blinkytape.png" alt="">
+        <a href="/posts/hugo-progression-framework/" class="image featured">
+            <img src="/images/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-screenshot.png" alt="">
         </a>
     
 
 
   <div id="content">
-    <p><a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Every so often</a> I like to have a play around with a part of <a href="https://junit.org"> Junit </a> that I haven&rsquo;t used before, and I recently decided to look into the <a href="https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html">TestWatcher API</a>.</p>
-<p>I have to admit that I have been meaning to play with this for quite a while now&hellip;. I just haven&rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</p>
-<p>Stretched across the back of the desk in front of me is a <a href="https://shop.blinkinlabs.com/collections/frontpage/products/blinkytape-basic_"> BlinkyTape </a> attached to my usb hub.  Most of the time the BlinkyTape is just used for a bit of subtle lighting behind my monitor but while looking into the Junit TestWatcher API, it suddenly hit me&hellip;. maybe I could combine the two.</p>
-<p>I already had a <a href="https://github.com/leeturner/night-fever">bit of code</a> to interact directly with the BlinkyTape so all I needed to do was figure out how to tracks the success, failure or whether a test is disabled.  If I could do that I could then turn the BlinkyTape green, red or orange.</p>
-<p>I put together a simple Kotlin implementation of the TestWatcher API that adds a test result status to a list:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BlinkyTapeTestWatcher</span> : TestWatcher, AfterAllCallback {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> testResultsStatus = mutableListOf&lt;TestResultStatus&gt;()
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testDisabled</span>(context: ExtensionContext, reason: Optional&lt;String&gt;) {
-        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.DISABLED)
-    }
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testSuccessful</span>(context: ExtensionContext) {
-        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.SUCCESS)
-    }
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testAborted</span>(context: ExtensionContext, cause: Throwable?) {
-        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.ABORTED)
-    }
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testFailed</span>(context: ExtensionContext, cause: Throwable?) {
-        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.FAILED)
-    }
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">afterAll</span>(extensionContext: ExtensionContext) {
-        <span style="color:#75715e">// first lets check to see if we have any test failures so we can leave the blinky tape as red
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.FAILED }) {
-            <span style="color:#66d9ef">this</span>.renderFrame(RED_BLINKY_TAPE_FRAME)
-            <span style="color:#66d9ef">return</span>
-        }
-
-        <span style="color:#75715e">// if no test failures then we can take a look to see if there are any disabled tests.  If there are then
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// we can set the blinky tape to orange
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.DISABLED }) {
-            <span style="color:#66d9ef">this</span>.renderFrame(ORANGE_BLINKY_TAPE_FRAME)
-            <span style="color:#66d9ef">return</span>
-        }
-
-        <span style="color:#75715e">// if no failures or disabled tests then we can set the blinky tape to green
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.SUCCESS }) {
-            <span style="color:#66d9ef">this</span>.renderFrame(GREEN_BLINKY_TAPE_FRAME)
-            <span style="color:#66d9ef">return</span>
-        }
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">renderFrame</span>(frame: BlinkyTapeFrame) {
-        <span style="color:#66d9ef">val</span> controller = BlinkyTapeController()
-        controller.renderFrame(frame)
-        controller.close()
-    }
-
-    <span style="color:#66d9ef">companion</span> <span style="color:#66d9ef">object</span> {
-        <span style="color:#66d9ef">val</span> ORANGE_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.ORANGE)
-        <span style="color:#66d9ef">val</span> RED_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.RED)
-        <span style="color:#66d9ef">val</span> GREEN_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.GREEN)
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">enum</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestResultStatus</span> {
-        SUCCESS, ABORTED, FAILED, DISABLED
-    }
-}
-</code></pre></div><p>The <code>BlinkyTapeTestWatcher</code> class also implements the <code>AfterAllCallback</code> interface allows us to override a method called <code>afterAll</code> that is executed when all the tests have finished.</p>
-<p>The <code>afterAll</code> method performs 3 checks:</p>
-<ol>
-<li>If any of the tests have failed it renders the BlinkyTape as all red</li>
-<li>If non of the tests have failed but there were disabled tests it renders the BlinkyTape as all orange</li>
-<li>If all of the tests pass then it renders the BlinkyTape as all green</li>
-</ol>
-<p>All in all it seemed to work out pretty well.  I uploaded the repo to github if you wanted to play around with this yourself - <a href="https://github.com/leeturner/BlinkyTapeTestWatcher">https://github.com/leeturner/BlinkyTapeTestWatcher</a></p>
-<p>I uploaded a short video of this in action:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xzw-NS8ua_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p>I was introduced to progression frameworks last year when I came across the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
+<p>I really like the idea that people within an organisation have a tool to help them grow and hone their strengths along with organisations ensuring they are in good shape, and their employees are happy.</p>
+<p>The Monzo progression framework is built using the Gatsby static site builder which makes the frameworks easy to build and track via source control. I have never used Gatsby, but I do have some investment in the Hugo static site builder, and we also use that at <a href="https://crunchtech.medium.com/">Crunch</a>, so I thought I would see if I could put a hugo template together that can render progression frameworks in the same data format as Monzo.</p>
+<p>I am definitely no frontend developer but as an initial proof of concept this works pretty well.</p>
+<h2 id="what-are-progression-frameworks-">What Are Progression Frameworks ?</h2>
+<p>First off it is probably a good idea to define what a progression framework is.  A progression framework (or ‘competency matrix’, ‘career ladder’, ‘career pathway’) is a tool to help people within an organisation understand where they currently are and how to progress and grow in their work.  It also helps an organisation map people&rsquo;s competencies (their skills and knowledge) to compensation (how they&rsquo;re rewarded for them financially).</p>
+<p>When done right, a tool like this helps employees to grow and hone their strengths, and helps managers ensure that their organisations are in good shape and their employees happy.</p>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><a href="https://monzo.com/blog/2019/01/07/progression">https://monzo.com/blog/2019/01/07/progression</a></li>
+<li><a href="https://github.com/monzo/progression-framework">https://github.com/monzo/progression-framework</a></li>
+<li><a href="https://www.progression.fyi/">https://www.progression.fyi/</a></li>
+</ul>
+<h2 id="how-to-build-your-progression-framework-with-hugo-progression">How To Build Your Progression Framework With Hugo Progression</h2>
+<p>Hugo Progression is a <a href="https://gohugo.io/">Hugo</a> template that can render progression frameworks using the same data format as the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
+<p><img src="/images/blog/2021-05-01-progression-framework-in-hugo/hugo-framework.gif" alt="Hugo Progression Screenshot" title="Hugo Progression Screenshot"></p>
+<p>A full demo of this template can be found at the <a href="https://hugo-progression.com/">Hugo Progression Demo Site</a></p>
+<h3 id="1-installation">1) Installation</h3>
+<p>Navigate to your themes folder in your Hugo site and use the following commands:</p>
+<pre><code>cd themes/
+git clone https://github.com/leeturner/hugo-progression.git
+</code></pre><p>If you don&rsquo;t want to clone the theme you can add it as a git submodule. Inside the folder of your Hugo site run:</p>
+<pre><code>git submodule add https://github.com/leeturner/hugo-progression.git themes/hugo-progression
+</code></pre><p>For more information read the <a href="https://gohugo.io/overview/installing/">official setup guide</a> of Hugo.</p>
+<h3 id="2-setup-your-framework-data--content">2) Setup Your Framework Data &amp; Content</h3>
+<p>Due to some restrictions in what data <code>hugo</code> allows in the markdown front matter (see section 2.3) along with how you reference data files in <code>hugo</code>, an individual framework needs to consist of 3 things:</p>
+<ul>
+<li>a markdown page that contains the homepage of the framework</li>
+<li>a data <code>yml</code> file containing the content for each level of the framework</li>
+<li>a hugo html partial that links the above together.</li>
+</ul>
+<pre><code>+-----------+       +------------+       +------------+          +-------------+
+| Markdown  |       |    html    |       |  data yml  |          | Individual  |
+|   file    |------&gt;|   partial  |------&gt;|    file    |     =    | Progression |
+|           |       |            |       |            |          |  Framework  |
++-----------+       +------------+       +------------+          +-------------+
+</code></pre><h4 id="21-create-your-framework-data-files">2.1) Create Your Framework Data Files</h4>
+<p>In this step we will create the <code>hugo</code> data file that contains the data for the different areas and levels for an individual framework.  These data files are <code>yml</code> and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">topics</span>:
+  - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;communication&#34;</span>
+    <span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;💬 Communication&#34;</span>
+    <span style="color:#f92672">content</span>:
+      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">1</span>
+        <span style="color:#f92672">criteria</span>:
+          - <span style="color:#e6db74">&#34;Provides regular status updates to their mentor/buddy&#34;</span>
+          - <span style="color:#e6db74">&#34;Points out syntactical improvements in code reviews&#34;</span>
+          - <span style="color:#e6db74">&#34;Writes PR descriptions that provide basic context for the change&#34;</span>
+          - <span style="color:#e6db74">&#34;Seeks guidance from other engineers, rather than answers&#34;</span>
+      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">2</span>
+        <span style="color:#f92672">criteria</span>:
+          - <span style="color:#e6db74">&#34;Proactively communicates to their team what they are working on, why, how it&#39;s going and what help they need&#34;</span>
+          - <span style="color:#e6db74">&#34;Accepts feedback graciously&#34;</span>
+          - <span style="color:#e6db74">&#34;Gives feedback to peers when asked&#34;</span>
+        <span style="color:#f92672">exampleCriteria</span>:
+          - <span style="color:#f92672">criteria</span>: <span style="color:#e6db74">&#34;Provides helpful and actionable feedback in code reviews in an empathetic manner&#34;</span>
+            <span style="color:#f92672">examples</span>:
+              - <span style="color:#e6db74">&#34;Take a look at the levelling up your code reviews talk for some ideas&#34;</span>
+          - <span style="color:#f92672">criteria</span>: <span style="color:#e6db74">&#34;Writes PR descriptions that provide context and provide rationale for significant decisions&#34;</span>
+            <span style="color:#f92672">examples</span>:
+              - <span style="color:#e6db74">&#34;I decided to X instead of Y here, I also considered Z but for these reasons I went with X&#34;</span>
+  - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;impact&#34;</span>
+    <span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;💥 Impact&#34;</span>
+    <span style="color:#f92672">content</span>:
+      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">1</span>
+        <span style="color:#f92672">criteria</span>:
+          - <span style="color:#e6db74">&#34;Delivers assigned tasks, working with a more senior team member, and able to take PR feedback to improve their work&#34;</span>
+      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">2</span>
+        <span style="color:#f92672">criteria</span>:
+          - <span style="color:#e6db74">&#34;Delivers assigned tasks that meet expected criteria&#34;</span>
+          - <span style="color:#e6db74">&#34;Works for the team, focuses on tasks that contribute to team goals&#34;</span>
+          - <span style="color:#e6db74">&#34;Tries to unblock themselves first before seeking help&#34;</span>
+          - <span style="color:#e6db74">&#34;Manages their own time effectively, prioritises their workload well, on time for meetings, aware when blocking others and unblocks&#34;</span>
+          - <span style="color:#e6db74">&#34;Helps the team, does what needs doing&#34;</span>
+          - <span style="color:#e6db74">&#34;Breaks down small/medium problems into iterative steps&#34;</span>
+</code></pre></div><p>These framework data files need to be placed in the <code>data</code> folder for your <code>hugo</code> site.  They can be structured into sub-folders if you wish:</p>
+<pre><code>data
+  frameworks
+    engineering
+      backend.yml
+      data.yml
+      mobile.yml
+      qualityanalyst.yml
+      web.yml
+    operations
+      opsindividualcontributor.yml
+      opsleadership.yml
+    generic.yml
+    marketing.yml
+    people.yml
+    product.yml
+</code></pre><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/data/frameworks">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<h4 id="22-create-the-markdown-page-with-front-matter--content-for-the-framework-homepage">2.2) Create The Markdown Page With Front Matter &amp; Content For The Framework Homepage</h4>
+<p>For any of the frameworks to appear in your <code>hugo</code> site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any <code>hugo</code> site, these markdown files live in the <code>content</code> folder.  The front matter can contain all the usual <code>hugo</code> fields along with a couple of special fields specific to <code>hugo-progression</code>.  See the example below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+title: 🛠️ Backend Engineering Framework
+linktitle: 🛠️ Backend
+description: Backend engineering progression framework
+menu:
+  main:
+    parent: engineering
+levels: 6
+datafilepartial: engineering/backend-partial.html
+---
+</code></pre></div><p>The two fields that are specific to <code>hugo-progression</code> are <code>levels</code> and <code>datafilepartial</code>.  The <code>levels</code> field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework <code>yml</code> data file.  This will also determine how many levels are created in the menu when the site is generated:</p>
+<p><img src="/images/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-levels.png" alt="Hugo Progression Levels" title="Hugo Progression Levels"></p>
+<p>The <code>datafilepartial</code> field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step</p>
+<p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/content">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<h4 id="23-create-the-html-partial">2.3) Create The HTML Partial</h4>
+<p>Because <code>hugo</code> won&rsquo;t allow us to specify a data file in the front matter of a markdown file we have to create a simple <code>hugo</code> html partial file for each framework data file to get around this.  If you want to understand more about this restriction in <code>hugo</code> take a look at this article by <a href="https://michele.io/">Michele Titolo</a> which helped me understand how to work around it - <a href="https://michele.io/content-data-hugo/">https://michele.io/content-data-hugo/</a></p>
+<p>I have tried to take out all the common elements make sure the html partial files are as small as possible, and the below example is as small as I could get it.</p>
+<pre><code class="language-gotemplate" data-lang="gotemplate">{{ $this_parent_index := .parent_index}}
+{{ range .site_data.frameworks.engineering.backend.topics }}
+{{ partial &quot;topic-by-level.html&quot; (dict &quot;context&quot; . &quot;parent_index&quot; $this_parent_index) }}
+{{ end }}
+</code></pre><p>As you can see, the one line that is specific to the data file is the <code>range</code> line:</p>
+<pre><code class="language-gotemplate" data-lang="gotemplate">{{ range .site_data.frameworks.engineering.backend.topics }}
+</code></pre><p>This line will change for each of the html partial files but all the rest will stay the same.  The path to the <code>topics</code> effectively matches the folder structure you used when you created your data files. To keep things consistent I store my html partials in the same directory structure as my data files:</p>
+<pre><code>layouts
+  partials
+    engineering
+      backend-partial.html
+      data-partial.html
+      mobile-partial.html
+      qualityanalyst-partial.html
+      web-partial.html
+    operations
+      opsindividualcontributor-partial.html
+      opsleadership-partial.html
+    generic-partial.html
+    marketing-partial.html
+    people-partial.html
+    product-partial.html
+</code></pre><p>Once you have created your html partial file that references the framework data file, make sure you are correctly referencing the html partial in your markdown file as in the example above:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+datafilepartial: engineering/backend-partial.html
+---
+</code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<h3 id="3-nearly-finished">3) Nearly finished</h3>
+<p>In order to see your site in action, run Hugo&rsquo;s built-in local server.</p>
+<p><code>$ hugo server</code></p>
+<p>Now enter <a href="http://localhost:1313/"><code>localhost:1313</code></a> in the address bar of your browser.</p>
+<h2 id="production">Production</h2>
+<p>To run in production, run <code>HUGO_ENV=production</code> before your build command. For example:</p>
+<pre><code>HUGO_ENV=production hugo
+</code></pre><p>Note: The above command will not work on Windows. If you are running a Windows OS, use the below command:</p>
+<pre><code>set HUGO_ENV=production
+hugo
+</code></pre><p>This hugo template is by no means perfect - largely due to me not being a frontend developer, but it works well enough to be useful for people who use Hugo and want to invest in a progression framework.  If you would like to get involved, fork the project and create a pull request.  It would be great to have more people contribute to this project.</p>
 
   </div>
 
@@ -639,22 +715,16 @@ if (!doNotTrack) {
                 <i class="fa fa-tags"></i>
                 
                 
-                <li><a class="article-category-link" href="/tags/kotlin">kotlin</a></li>
+                <li><a class="article-category-link" href="/tags/monzo">monzo</a></li>
                 
                 
-                <li><a class="article-category-link" href="/tags/junit">junit</a></li>
+                <li><a class="article-category-link" href="/tags/framework">framework</a></li>
                 
                 
-                <li><a class="article-category-link" href="/tags/blinkytape">blinkytape</a></li>
+                <li><a class="article-category-link" href="/tags/hugo">hugo</a></li>
                 
                 
-                <li><a class="article-category-link" href="/tags/blinky">blinky</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/junit5">junit5</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/testwatcher">testwatcher</a></li>
+                <li><a class="article-category-link" href="/tags/progression">progression</a></li>
                 
             
         
@@ -692,8 +762,8 @@ if (!doNotTrack) {
 
 <ul class="actions pagination">
     
-        <li><a href="/posts/geek-reads-1/"
-                class="button big previous">Geek Reads 1</a></li>
+        <li><a href="/posts/blinkytape-junit-testwatcher/"
+                class="button big previous">BlinkyTape JUnit Testwatcher API Implementation</a></li>
     
 
     
@@ -877,6 +947,44 @@ if (!doNotTrack) {
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a>
+              </h3>
+              
+              <time class="published" datetime='2021-05-01'>
+                May 1, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/hugo-progression-framework/" class="image featured">
+            <img src="/images/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-screenshot.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/posts/blinkytape-junit-testwatcher/">BlinkyTape JUnit Testwatcher API Implementation</a>
               </h3>
               
@@ -1020,44 +1128,6 @@ if (!doNotTrack) {
 
         <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
             <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/tooling-up-tcr-intellij/">Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ</a>
-              </h3>
-              
-              <time class="published" datetime='2019-01-17'>
-                January 17, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/tooling-up-tcr-intellij/" class="image featured">
-            <img src="/images/blog/2019-01-17-tooling-up-tcr-intellij/tools-1209764_640.jpg" alt="">
         </a>
     
 

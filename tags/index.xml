@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2021 Lee Turner</copyright>
-    <lastBuildDate>Tue, 06 Apr 2021 10:20:08 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 May 2021 10:20:08 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>framework</title>
+      <link>/tags/framework/</link>
+      <pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/framework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>/tags/hugo/</link>
+      <pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monzo</title>
+      <link>/tags/monzo/</link>
+      <pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/monzo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>progression</title>
+      <link>/tags/progression/</link>
+      <pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/progression/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>blinky</title>
       <link>/tags/blinky/</link>
