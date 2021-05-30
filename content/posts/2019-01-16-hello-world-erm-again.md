@@ -3,7 +3,11 @@ title: Hello World.... erm again
 date: 2019-01-16T22:09:08Z
 description:  Nearly a year to the day that I posted my original Hello World post..... oh dear.
 slug: hello-world-erm-again
+featured: hello-world.png
+featuredalt: Hello World.... erm again
+featuredpath: /images/blog/2019-01-16-hello-world-erm-again
 author: Lee Turner
+type: post
 tags:
 - hello-world
 aliases:

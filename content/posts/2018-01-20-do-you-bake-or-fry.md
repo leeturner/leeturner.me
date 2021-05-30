@@ -3,7 +3,10 @@ title: Do You Bake or Fry
 date: 2018-01-20T22:09:08Z
 description: A quick discussion on the pros and cons of a static versus dynamic website.  I also give a little bit of an insight as to why I am using a static site and what I am using to bake it with.
 slug: do-you-bake-or-fry
-toc: true
+type: post
+featured: dough-923037_640.jpg
+featuredalt: Do You Bake or Fry
+featuredpath: /images/blog/2018-01-20-do-you-bake-or-fry
 author: Lee Turner 
 tags:
 - static-sites
@@ -49,3 +52,5 @@ As I am primarily a Java developer I was looking for a good solid open source st
 Jbake is by no means perfect.  One of the big things it is missing is a plugin system which would allow people to extend the functionality of jBake while the site is being baked.  I am hoping that this is something that will be worked on soon and something I am looking forward to getting involved with.
 
 So that is it.  This post lays the foundation of what I am using to build the site and I am sure there will be many more related posts as I dig deeper and get more involved in the project.                
+
+Image by [Ales Krivec](https://pixabay.com/users/dreamypixel-6094827/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=923037) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=923037)
