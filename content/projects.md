@@ -11,7 +11,7 @@ Hugo Progression is a [Hugo](https://gohugo.io/) template that can render progre
 <a class="github-button" href="https://github.com/leeturner/hugo-progression" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/hugo-progression on GitHub">View the project on GitHub</a>
 
 ## BlinkyTapeTestWatcher
-[BlinkyTapeTestWatcher](https://github.com/leeturner/BlinkyTapeTestWatcher) is a [Kotlin](https://kotlinlang.org) based implementation of the [Junit 5](https://junit.org/junit5/) [TestWatcher API](https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html) that hooks up your tests to a BlinkyTape LED strip
+[BlinkyTapeTestWatcher](https://github.com/leeturner/BlinkyTapeTestWatcher) is a [Kotlin](https://kotlinlang.org) based implementation of the [Junit 5](https://junit.org/junit5/) [TestWatcher API](https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html) that hooks up your tests to a BlinkyTape LED strip - find out more information in this [blog post](/posts/blinkytape-junit-testwatcher/)
 
 <a class="github-button" href="https://github.com/leeturner/BlinkyTapeTestWatcher" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/BlinkyTapeTestWatcher on GitHub">View the project on GitHub</a>
 
