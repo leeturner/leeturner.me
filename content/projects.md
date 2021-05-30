@@ -5,6 +5,16 @@ author: Lee Turner
 ---
 Here you can find a collection of side projects I have built for myself or others.  Your mileage might vary, but you are welcome to dig in and have a play if they are useful to you.
 
+## Hugo Progression Framework
+Hugo Progression is a [Hugo](https://gohugo.io/) template that can render progression frameworks using the same data format as the [Monzo progression framework](https://github.com/monzo/progression-framework) - find out more information in this [blog post](/posts/progression-framework-hugo/)
+
+<a class="github-button" href="https://github.com/leeturner/hugo-progression" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/hugo-progression on GitHub">View the project on GitHub</a>
+
+## BlinkyTapeTestWatcher
+[BlinkyTapeTestWatcher](https://github.com/leeturner/BlinkyTapeTestWatcher) is a [Kotlin](https://kotlinlang.org) based implementation of the [Junit 5](https://junit.org/junit5/) [TestWatcher API](https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html) that hooks up your tests to a BlinkyTape LED strip
+
+<a class="github-button" href="https://github.com/leeturner/BlinkyTapeTestWatcher" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/BlinkyTapeTestWatcher on GitHub">View the project on GitHub</a>
+
 ## pinboard2markdown
 [pinboard2markdown](https://github.com/leeturner/pinboard2markdown) is a command line tool written in [Kotlin](https://kotlinlang.org) and [Spring Boot](https://start.spring.io) that communicates with the [pinboard.in api](https://pinboard.in/api/) to retrieve a selection of bookmarks that are tagged with a specified tag.  It then converts those bookmarks to markdown and outputs them to the terminal.
 
@@ -14,7 +24,3 @@ I use this tool to build regular newsletters for the backend developers at [Crun
 
 <a class="github-button" href="https://github.com/leeturner/pinboard2markdown/" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/pinboard2markdown on GitHub">View the project on GitHub</a>
 
-## BlinkyTapeTestWatcher
-[BlinkyTapeTestWatcher](https://github.com/leeturner/BlinkyTapeTestWatcher) is a [Kotlin](https://kotlinlang.org) based implementation of the [Junit 5](https://junit.org/junit5/) [TestWatcher API](https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html) that hooks up your tests to a BlinkyTape LED strip 
-
-<a class="github-button" href="https://github.com/leeturner/BlinkyTapeTestWatcher" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/BlinkyTapeTestWatcher on GitHub">View the project on GitHub</a>
