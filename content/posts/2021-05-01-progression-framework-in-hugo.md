@@ -2,7 +2,7 @@
 title: Creating a Progression Framework in Hugo
 date: 2021-05-01T10:20:08Z
 description: A hugo template to create Monzo style progression frameworks
-slug: progression-framework-hugo
+slug: hugo-progression-framework
 toc: true
 featured: hugo-progression-screenshot.png
 featuredalt: Creating a Progression Framework in Hugo

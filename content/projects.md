@@ -6,7 +6,7 @@ author: Lee Turner
 Here you can find a collection of side projects I have built for myself or others.  Your mileage might vary, but you are welcome to dig in and have a play if they are useful to you.
 
 ## Hugo Progression Framework
-Hugo Progression is a [Hugo](https://gohugo.io/) template that can render progression frameworks using the same data format as the [Monzo progression framework](https://github.com/monzo/progression-framework) - find out more information in this [blog post](/posts/progression-framework-hugo/)
+Hugo Progression is a [Hugo](https://gohugo.io/) template that can render progression frameworks using the same data format as the [Monzo progression framework](https://github.com/monzo/progression-framework) - find out more information in this [blog post](/posts/hugo-progression-framework/)
 
 <a class="github-button" href="https://github.com/leeturner/hugo-progression" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/hugo-progression on GitHub">View the project on GitHub</a>
 
