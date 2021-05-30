@@ -1,7 +1,6 @@
 ---
 title: Privacy Policy
 description: leeturner.me Privacy Policy
-menu: footer
 author: Lee Turner 
 aliases:
 - /privacy.html

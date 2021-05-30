@@ -4,6 +4,10 @@ date: 2019-01-17T22:09:08Z
 description: This post shows how I implemented a minimal test && commit || revert inside InelliJ - and when I say minimal I mean minimal.
 slug: tooling-up-tcr-intellij
 toc: true
+type: post
+featured: tools-1209764_640.jpg
+featuredalt: Tooling Up - Implementing test && commit || revert (TCR) In IntelliJ
+featuredpath: /images/blog/2019-01-17-tooling-up-tcr-intellij
 author: Lee Turner 
 tags:
 - tooling
@@ -90,3 +94,5 @@ All of the above works really well but it obviously has some downsides.  I am ef
 My ultimate solution would be to have this type of functionality integrated with the Run/Debug test runner inside IntelliJ.  I could then use my standard keyboard shortcuts to run individual test methods, a whole test class or a whole test suite and it would trigger the test && commit || revert workflow based on the results in a much more integrated way.  I imagine this would require a plugin to make this happen.
 
 I'll be continuing to play with TCR to see how far I can stretch it and whether is it applicable to all types of projects.  That is the topic for another article though.
+
+Image by [Free-Photos](https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1209764) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1209764)

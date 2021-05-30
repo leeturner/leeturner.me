@@ -4,6 +4,10 @@ date: 2019-02-10T22:09:08Z
 description: I am loving the new JUnit 5 features and the @DisplayName annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new @DisplayNameGenerator API all of that will change.
 slug: building-a-camel-case-junit5-displaynamegenerator
 toc: true
+type: post
+featured: junit5-ReplaceCamelCaseEmoji.png
+featuredalt: Building a Camel Case @DisplayNameGenerator For JUnit 5
+featuredpath: /images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator/
 author: Lee Turner 
 tags:
 - tdd

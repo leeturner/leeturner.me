@@ -4,6 +4,10 @@ date: 2018-01-18T22:09:08Z
 description: The customary first post.  Nothing much to see here..... move along :)
 slug: hello-world
 author: Lee Turner
+featured: hello-world.png
+featuredalt: Hello World
+featuredpath: /images/blog/2018-01-18-hello-world
+type: post
 tags:
 - hello-world
 aliases:
