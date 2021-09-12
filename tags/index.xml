@@ -7,7 +7,61 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2021 Lee Turner</copyright>
-    <lastBuildDate>Sat, 01 May 2021 10:20:08 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Sep 2021 10:20:08 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>junit</title>
+      <link>/tags/junit/</link>
+      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/junit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mockmvc</title>
+      <link>/tags/mockmvc/</link>
+      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/mockmvc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reference</title>
+      <link>/tags/reference/</link>
+      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/reference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring</title>
+      <link>/tags/spring/</link>
+      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring boot</title>
+      <link>/tags/spring-boot/</link>
+      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/spring-boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>/tags/testing/</link>
+      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/testing/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>framework</title>
       <link>/tags/framework/</link>
@@ -63,15 +117,6 @@
     </item>
     
     <item>
-      <title>junit</title>
-      <link>/tags/junit/</link>
-      <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-      
-      <guid>/tags/junit/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>junit5</title>
       <link>/tags/junit5/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
@@ -117,29 +162,11 @@
     </item>
     
     <item>
-      <title>reference</title>
-      <link>/tags/reference/</link>
-      <pubDate>Sun, 12 Apr 2020 18:09:08 +0000</pubDate>
-      
-      <guid>/tags/reference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>tdd</title>
       <link>/tags/tdd/</link>
       <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
       
       <guid>/tags/tdd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>testing</title>
-      <link>/tags/testing/</link>
-      <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
-      
-      <guid>/tags/testing/</guid>
       <description></description>
     </item>
     

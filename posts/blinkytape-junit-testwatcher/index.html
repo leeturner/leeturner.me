@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.83.1" />
+        <meta name="generator" content="Hugo 0.88.1" />
         
   
     
@@ -71,8 +71,8 @@
 <meta property="og:description" content="This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/blinkytape-junit-testwatcher/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-06T10:20:08&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-30T10:55:59&#43;01:00" />
+<meta property="article:published_time" content="2021-04-06T10:20:08+00:00" />
+<meta property="article:modified_time" content="2021-05-30T10:55:59+01:00" />
 
 
         <meta property="og:image" content="//images/logo.png">
@@ -80,8 +80,8 @@
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
         <meta itemprop="name" content="BlinkyTape JUnit Testwatcher API Implementation">
-<meta itemprop="description" content="This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip."><meta itemprop="datePublished" content="2021-04-06T10:20:08&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-30T10:55:59&#43;01:00" />
+<meta itemprop="description" content="This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip."><meta itemprop="datePublished" content="2021-04-06T10:20:08+00:00" />
+<meta itemprop="dateModified" content="2021-05-30T10:55:59+01:00" />
 <meta itemprop="wordCount" content="511">
 <meta itemprop="keywords" content="kotlin,junit,blinkytape,blinky,junit5,testwatcher," />
         
@@ -273,6 +273,42 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-09-12'>
+                                    September 12, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a></h3>
                                 
                                 <time class="published" datetime=
@@ -409,42 +445,6 @@ if (!doNotTrack) {
 
         <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
             <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Building a Camel Case @DisplayNameGenerator For JUnit 5</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-02-10'>
-                                    February 10, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
-            <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
         </a>
     
 
@@ -597,7 +597,7 @@ if (!doNotTrack) {
 <p>Stretched across the back of the desk in front of me is a <a href="https://shop.blinkinlabs.com/collections/frontpage/products/blinkytape-basic_"> BlinkyTape </a> attached to my usb hub.  Most of the time the BlinkyTape is just used for a bit of subtle lighting behind my monitor but while looking into the Junit TestWatcher API, it suddenly hit me&hellip;. maybe I could combine the two.</p>
 <p>I already had a <a href="https://github.com/leeturner/night-fever">bit of code</a> to interact directly with the BlinkyTape so all I needed to do was figure out how to tracks the success, failure or whether a test is disabled.  If I could do that I could then turn the BlinkyTape green, red or orange.</p>
 <p>I put together a simple Kotlin implementation of the TestWatcher API that adds a test result status to a list:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BlinkyTapeTestWatcher</span> : TestWatcher, AfterAllCallback {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BlinkyTapeTestWatcher</span> : TestWatcher, AfterAllCallback {
 
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> testResultsStatus = mutableListOf&lt;TestResultStatus&gt;()
 
@@ -885,6 +885,44 @@ if (!doNotTrack) {
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a>
+              </h3>
+              
+              <time class="published" datetime='2021-09-12'>
+                September 12, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a>
               </h3>
               
@@ -1028,44 +1066,6 @@ if (!doNotTrack) {
 
         <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
             <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Building a Camel Case @DisplayNameGenerator For JUnit 5</a>
-              </h3>
-              
-              <time class="published" datetime='2019-02-10'>
-                February 10, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
-            <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
         </a>
     
 

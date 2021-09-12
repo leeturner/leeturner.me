@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2021 Lee Turner</copyright>
-    <lastBuildDate>Sat, 01 May 2021 10:20:08 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Sep 2021 10:20:08 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Outputting the result of a mockMvc call</title>
+      <link>/posts/outputting-result-of-mockmvc/</link>
+      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
+      
+      <guid>/posts/outputting-result-of-mockmvc/</guid>
+      <description>This post falls into the category of something I always forget and need to Google.
+When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging. This can be done by adding a MockMvcResultsHandlers.print() call to the chain like in the following example.
+This:
+@Test void getStatementsThrowABadRequestWhenCookiesNotPresent() throws Exception { mockMvc.perform(get(&amp;#34;/statements&amp;#34;) .headers(getHeaders()) .cookie(getCookies()) .contentType(MediaType.APPLICATION_JSON)); .</description>
+    </item>
+    
     <item>
       <title>Creating a Progression Framework in Hugo</title>
       <link>/posts/hugo-progression-framework/</link>
@@ -129,7 +141,7 @@ At the moment I have no idea where this site is going to go but at the very leas
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>I am an experienced professional developer with a passion for quality software. I am currently working at Crunch as their Lead Backend Developer. I have experience in java, kotlin, spring and spring boot along with the full J2EE suite which all gives me an extensive toolkit to draw from. I have significant experience in test-driven development and stringent source and release management processes. I am comfortable working either as part of a bigger development team or as a solo developer.</description>
+      <description>I am an experienced software engineer with over 20 years experience working on large scale software implementations and have a passion for well crafted, pragmatically tested software. I am currently working at Crunch as their Lead Backend Developer and have significant experience in Java, Kotlin and Spring Boot along with test-driven development and stringent source and release management processes. I am also experienced with agile practices such as scrum, pair programming and continuous integration.</description>
     </item>
     
     <item>
@@ -138,9 +150,8 @@ At the moment I have no idea where this site is going to go but at the very leas
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/brighton-kotlin/</guid>
-      <description>Welcome to the Brighton Kotlin meetup group. This group is for Kotlin users, enthusiasts and learners from beginners to experts, and anyone wanting to get involved with the Kotlin/JVM ecosystem.
-We plan to have regular meetups, presentations and talks, and are always interested in hearing what people want to know about, so please let us know.
-Visit our Meetup Page and sign up to come along to our next event or follow us on Twitter for all the latest news.</description>
+      <description>Welcome to the Brighton Kotlin meetup group. I set up this group in 2019 for Kotlin users, enthusiasts and learners from beginners to experts, and anyone wanting to get involved with the Kotlin/JVM ecosystem in the local Brighton area. Due to COVID-19, we decided to move the meetups online in 2021 and are now enjoying speakers from further afield than Brighton which has been great for the local community.
+We have regular meetups, presentations and talks, and are always interested in hearing what people want to know about, so please let us know.</description>
     </item>
     
     <item>

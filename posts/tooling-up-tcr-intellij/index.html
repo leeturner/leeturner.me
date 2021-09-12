@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.83.1" />
+        <meta name="generator" content="Hugo 0.88.1" />
         
   
     
@@ -71,8 +71,8 @@
 <meta property="og:description" content="This post shows how I implemented a minimal test &amp;&amp; commit || revert inside InelliJ - and when I say minimal I mean minimal." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/tooling-up-tcr-intellij/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-01-17T22:09:08&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-30T10:55:59&#43;01:00" />
+<meta property="article:published_time" content="2019-01-17T22:09:08+00:00" />
+<meta property="article:modified_time" content="2021-05-30T10:55:59+01:00" />
 
 
         <meta property="og:image" content="//images/logo.png">
@@ -80,8 +80,8 @@
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
         <meta itemprop="name" content="Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ">
-<meta itemprop="description" content="This post shows how I implemented a minimal test &amp;&amp; commit || revert inside InelliJ - and when I say minimal I mean minimal."><meta itemprop="datePublished" content="2019-01-17T22:09:08&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-30T10:55:59&#43;01:00" />
+<meta itemprop="description" content="This post shows how I implemented a minimal test &amp;&amp; commit || revert inside InelliJ - and when I say minimal I mean minimal."><meta itemprop="datePublished" content="2019-01-17T22:09:08+00:00" />
+<meta itemprop="dateModified" content="2021-05-30T10:55:59+01:00" />
 <meta itemprop="wordCount" content="1132">
 <meta itemprop="keywords" content="tooling,tcr,intellij," />
         
@@ -273,6 +273,42 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-09-12'>
+                                    September 12, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a></h3>
                                 
                                 <time class="published" datetime=
@@ -409,42 +445,6 @@ if (!doNotTrack) {
 
         <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
             <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Building a Camel Case @DisplayNameGenerator For JUnit 5</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-02-10'>
-                                    February 10, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
-            <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
         </a>
     
 
@@ -602,7 +602,7 @@ if (!doNotTrack) {
 <p>On the flip side I didn&rsquo;t want to invest too much time in tooling up while I was still only playing with the workflow.  I effectively wanted as little as I could get away with so I could get up and running.  I then found another video by Kent Beck where he walks you through his <a href="https://www.youtube.com/watch?v=IIKndRX5qHw">minimal TCR setup in VS Code</a>.  That video ultimately gave me all I needed to set this up in IntelliJ.</p>
 <h2 id="my-minimal-tcr-implementation-in-intellij">My minimal TCR implementation in IntelliJ</h2>
 <p>The first step was to find a way to get feedback on the success or failure of a test run.  As I said above, most of my day to day coding is done using Java and maven.  I can easily run my test suite using mavan on the command line so this is where I started looking first.  Well, it turns out that the maven command line (mvn) returns different status codes based on the success or failure of your tests.  This means I can run <em>mvn test</em> on a project where the tests all pass and see the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Tests run: 42, Failures: 0, Errors: 0, Skipped: <span style="color:#ae81ff">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Tests run: 42, Failures: 0, Errors: 0, Skipped: <span style="color:#ae81ff">0</span>
 <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span>
 <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
 <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> BUILD SUCCESS
@@ -614,7 +614,7 @@ if (!doNotTrack) {
 &gt;  night-fever git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> echo $?
 <span style="color:#ae81ff">0</span>
 </code></pre></div><p>And on a project where there are failing tests and see this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>ERROR<span style="color:#f92672">]</span> Tests run: 42, Failures: 1, Errors: 0, Skipped: <span style="color:#ae81ff">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>ERROR<span style="color:#f92672">]</span> Tests run: 42, Failures: 1, Errors: 0, Skipped: <span style="color:#ae81ff">0</span>
 <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span>
 <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
 <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> BUILD FAILURE
@@ -628,7 +628,7 @@ if (!doNotTrack) {
 &gt;  night-fever git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> echo $?
 <span style="color:#ae81ff">1</span>
 </code></pre></div><p>This means I can now use that status code to chain together a command much like the one Kent Beck uses in his VS Code video:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn test <span style="color:#f92672">&amp;&amp;</span> git commit -am working <span style="color:#f92672">||</span> git reset --hard
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn test <span style="color:#f92672">&amp;&amp;</span> git commit -am working <span style="color:#f92672">||</span> git reset --hard
 </code></pre></div><p>OK, good start, I now have a command line TCR implementation working with maven.  Next step, how do I execute this from within IntelliJ?</p>
 <p>My first try at this was to setup an <em>external tool</em> within IntelliJ.  This wasn&rsquo;t as easy as it sounds due to IntelliJ only accepting one command along with parameters.  There was also no way to chain multiple external tools together.  After a little bit of Googling I found an IntelliJ support article that talked about calling bash directly and passing the commands you want to call as a parameter.  The external tool edit window looks like this:</p>
 <p><img src="/images/blog/2019-01-17-tooling-up-tcr-intellij/intellij-external-tool-edit.png" alt="IntelliJ External Tool Edit Screen"></p>
@@ -853,6 +853,44 @@ if (!doNotTrack) {
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a>
+              </h3>
+              
+              <time class="published" datetime='2021-09-12'>
+                September 12, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a>
               </h3>
               
@@ -996,44 +1034,6 @@ if (!doNotTrack) {
 
         <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
             <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Building a Camel Case @DisplayNameGenerator For JUnit 5</a>
-              </h3>
-              
-              <time class="published" datetime='2019-02-10'>
-                February 10, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
-            <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
         </a>
     
 

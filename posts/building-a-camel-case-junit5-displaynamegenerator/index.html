@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.83.1" />
+        <meta name="generator" content="Hugo 0.88.1" />
         
   
     
@@ -71,8 +71,8 @@
 <meta property="og:description" content="I am loving the new JUnit 5 features and the @DisplayName annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new @DisplayNameGenerator API all of that will change." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/building-a-camel-case-junit5-displaynamegenerator/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-02-10T22:09:08&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-30T10:55:59&#43;01:00" />
+<meta property="article:published_time" content="2019-02-10T22:09:08+00:00" />
+<meta property="article:modified_time" content="2021-05-30T10:55:59+01:00" />
 
 
         <meta property="og:image" content="//images/logo.png">
@@ -80,8 +80,8 @@
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
         <meta itemprop="name" content="Building a Camel Case @DisplayNameGenerator For JUnit 5">
-<meta itemprop="description" content="I am loving the new JUnit 5 features and the @DisplayName annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new @DisplayNameGenerator API all of that will change."><meta itemprop="datePublished" content="2019-02-10T22:09:08&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-30T10:55:59&#43;01:00" />
+<meta itemprop="description" content="I am loving the new JUnit 5 features and the @DisplayName annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new @DisplayNameGenerator API all of that will change."><meta itemprop="datePublished" content="2019-02-10T22:09:08+00:00" />
+<meta itemprop="dateModified" content="2021-05-30T10:55:59+01:00" />
 <meta itemprop="wordCount" content="974">
 <meta itemprop="keywords" content="tdd,testing,junit," />
         
@@ -273,6 +273,42 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-09-12'>
+                                    September 12, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a></h3>
                                 
                                 <time class="published" datetime=
@@ -409,42 +445,6 @@ if (!doNotTrack) {
 
         <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
             <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Building a Camel Case @DisplayNameGenerator For JUnit 5</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-02-10'>
-                                    February 10, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
-            <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
         </a>
     
 
@@ -604,7 +604,7 @@ if (!doNotTrack) {
 </ul>
 <h2 id="the-displayname-annotation">The @DisplayName Annotation</h2>
 <p>The <code>@DisplayName</code> annotation seemed like a great idea - you add the annotation with a more readable description to your test class or methods and that gets displayed instead of the default class or method name in your test runner.  Something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@DisplayName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tests that when updating your password, the two passwords submitted must match&#34;</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@DisplayName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tests that when updating your password, the two passwords submitted must match&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#a6e22e">@Test</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> testWhenAnUpdatePasswordRequestIsSubmittedTheTwoPasswordsMustMatch<span style="color:#f92672">{}</span> <span style="color:#f92672">{</span>
 	<span style="color:#75715e">// test goes here
@@ -612,7 +612,7 @@ if (!doNotTrack) {
 </code></pre></div><p>It was fun for a while but it quickly became a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  However, all of this might change with the latest JUnit 5.4 release and the new <code>@DisplayNameGenerator</code> API.</p>
 <p>If you follow along on Twitter, you will have heard of the new <code>@DisplayNameGenerator</code> API before the 5.4 release.  Basically it would allow JUnit to determine a nice display name for your classes and tests from your class and method names without having to add the <code>@DisplayName</code> annotation.  Seemed like the best of both worlds to me.</p>
 <p>When the <a href="https://twitter.com/junitteam/status/1093621376978747393">5.4 release announcement was made on twitter</a> I setup a quick project and dived right in, but there was one big problem.  The only <code>@DisplayNameGenerator</code> provided in release 5.4 is a <a href="https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/DisplayNameGenerator.ReplaceUnderscores.html">ReplaceUnderscores</a> Generator which as you can imagine replaces the underscores in your class and method names with a space.  For example, the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@DisplayNameGeneration</span><span style="color:#f92672">(</span>DisplayNameGenerator<span style="color:#f92672">.</span><span style="color:#a6e22e">ReplaceUnderscores</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@DisplayNameGeneration</span><span style="color:#f92672">(</span>DisplayNameGenerator<span style="color:#f92672">.</span><span style="color:#a6e22e">ReplaceUnderscores</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Password_Reset_Tests</span> <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Test</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> test_When_An_Update_Password_Request_Is_Submitted_The_Two_Passwords_Must_Match<span style="color:#f92672">{}</span> <span style="color:#f92672">{</span>
@@ -620,13 +620,13 @@ if (!doNotTrack) {
 </span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>Will output:</p>
-<pre><code>+-- Password Reset Test
+<pre tabindex="0"><code>+-- Password Reset Test
 	+-- test When An Update Password Request Is Submitted The Two Passwords Must Match
 </code></pre><p>All well and good if you use underscores in your class and method names.  I tend to be more of a camel case kind of guy.  Underscores never really did it for me so this wasn&rsquo;t going to work out of the box.  The nice thing here is that the JUnit team give a <a href="https://junit.org/junit5/docs/5.4.0/user-guide/index.html#writing-tests-display-name-generator">really good example</a> of implementing a new <code>DisplayNameGenerator</code> so I borrowed the code from their user guide and has a play with a new camel case generator.</p>
 <p>All of the code discussed here can be found in <a href="https://github.com/leeturner/junit5-camel-case-emoji-display-name-generator">this github repo</a>.</p>
 <h2 id="a-camel-case-displaynamegenerator">A Camel Case @DisplayNameGenerator</h2>
 <p>On the face of it putting a space before every capital letter in a class or method name isn&rsquo;t that hard.  It can all be achieved with a simple <code>replaceAll</code> regex.  Something like this which extends the <code>DisplayNameGenerator.Standard</code> built into JUnit 5.4:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReplaceCamelCase</span> <span style="color:#66d9ef">extends</span> DisplayNameGenerator<span style="color:#f92672">.</span><span style="color:#a6e22e">Standard</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReplaceCamelCase</span> <span style="color:#66d9ef">extends</span> DisplayNameGenerator<span style="color:#f92672">.</span><span style="color:#a6e22e">Standard</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ReplaceCamelCase</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     <span style="color:#f92672">}</span>
 
@@ -648,14 +648,14 @@ if (!doNotTrack) {
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>This works for the most part but you very quickly see the benefit of having a single character that you need to replace like in the <code>ReplaceUnderscores</code>.  For example, the above implementation doesn&rsquo;t take into account numbers and will fail to put a space where you would expect one.  For example, this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ifItIsDivisibleBy4ButNotBy100</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 	<span style="color:#75715e">/// test goes here
 </span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
 </code></pre></div><p>Would render:</p>
-<pre><code>+-- if It Is Divisible By4 But Not By100
+<pre tabindex="0"><code>+-- if It Is Divisible By4 But Not By100
 </code></pre><p>Not particularly ideal.  We also need to cater for numbers and not just individual numbers, we have to look for sequences of numbers and assume they are intended to be together.  Simple enough with another regex:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReplaceCamelCase</span> <span style="color:#66d9ef">extends</span> DisplayNameGenerator<span style="color:#f92672">.</span><span style="color:#a6e22e">Standard</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReplaceCamelCase</span> <span style="color:#66d9ef">extends</span> DisplayNameGenerator<span style="color:#f92672">.</span><span style="color:#a6e22e">Standard</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ReplaceCamelCase</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     <span style="color:#f92672">}</span>
 
@@ -683,7 +683,7 @@ if (!doNotTrack) {
 <h2 id="one-step-too-far">One Step Too Far&hellip;&hellip;</h2>
 <p>I am going to leave this here for posterity&rsquo;s sake.  I am not proud of it but once I thought of it I couldn&rsquo;t help myself :)</p>
 <p>One of the new things JUnit 5 allows is <a href="https://twitter.com/sam_brannen/status/660595585288970240?lang=en">emoji in your test names</a>.  This also applies to the <code>@DisplayName</code> annotation.  All I will say is that it doesn&rsquo;t take a great leap to extend the <code>ReplaceUnderscores</code> or <code>ReplaceCamelCase</code> Generators with one that replaces certain words with emoji.  Here is a little proof of concept using the example from the JUnit user guide:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReplaceCamelCaseEmojis</span> <span style="color:#66d9ef">extends</span> ReplaceCamelCase <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReplaceCamelCaseEmojis</span> <span style="color:#66d9ef">extends</span> ReplaceCamelCase <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ReplaceCamelCaseEmojis</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     <span style="color:#f92672">}</span>
 
@@ -924,6 +924,44 @@ if (!doNotTrack) {
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a>
+              </h3>
+              
+              <time class="published" datetime='2021-09-12'>
+                September 12, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a>
               </h3>
               
@@ -1067,44 +1105,6 @@ if (!doNotTrack) {
 
         <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
             <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Building a Camel Case @DisplayNameGenerator For JUnit 5</a>
-              </h3>
-              
-              <time class="published" datetime='2019-02-10'>
-                February 10, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
-            <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
         </a>
     
 

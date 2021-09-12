@@ -21,8 +21,8 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2021",
-        "datePublished": "2021-05-01 10:20:08 \u002b0000 UTC",
-        "dateModified" : "2021-05-01 10:20:08 \u002b0000 UTC",
+        "datePublished": "2021-09-12 10:20:08 \u002b0000 UTC",
+        "dateModified" : "2021-09-12 10:20:08 \u002b0000 UTC",
         "url" : "\/",
         "wordCount" : "0",
         "keywords" : [ "Blog" ]
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.83.1" />
+        <meta name="generator" content="Hugo 0.88.1" />
         
   
     
@@ -268,6 +268,42 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-09-12'>
+                                    September 12, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a></h3>
                                 
                                 <time class="published" datetime=
@@ -410,42 +446,6 @@ if (!doNotTrack) {
 
                         </article>
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Building a Camel Case @DisplayNameGenerator For JUnit 5</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-02-10'>
-                                    February 10, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
-            <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
 
                 
                     <a href=
@@ -468,21 +468,21 @@ if (!doNotTrack) {
   <header>
     <div class="title">
         
-            <h2><a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a></h2>
+            <h2><a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a></h2>
         
         
-            <p>A hugo template to create Monzo style progression frameworks</p>
+            <p>How to output the result of a mockmvc call to help with debugging</p>
         
     </div>
     <div class="meta">
         
 
         <time class="published"
-            datetime='2021-05-01'>
-            May 1, 2021</time>
+            datetime='2021-09-12'>
+            September 12, 2021</time>
         <span class="author">Lee Turner</span>
         
-            <p>7 minute read</p>
+            <p>1 minute read</p>
         
         
     </div>
@@ -542,161 +542,41 @@ if (!doNotTrack) {
         
         
 
-        <a href="/posts/hugo-progression-framework/" class="image featured">
-            <img src="/images/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-screenshot.png" alt="">
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
         </a>
     
 
 
   <div id="content">
-    <p>I was introduced to progression frameworks last year when I came across the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
-<p>I really like the idea that people within an organisation have a tool to help them grow and hone their strengths along with organisations ensuring they are in good shape, and their employees are happy.</p>
-<p>The Monzo progression framework is built using the Gatsby static site builder which makes the frameworks easy to build and track via source control. I have never used Gatsby, but I do have some investment in the Hugo static site builder, and we also use that at <a href="https://crunchtech.medium.com/">Crunch</a>, so I thought I would see if I could put a hugo template together that can render progression frameworks in the same data format as Monzo.</p>
-<p>I am definitely no frontend developer but as an initial proof of concept this works pretty well.</p>
-<h2 id="what-are-progression-frameworks-">What Are Progression Frameworks ?</h2>
-<p>First off it is probably a good idea to define what a progression framework is.  A progression framework (or ‘competency matrix’, ‘career ladder’, ‘career pathway’) is a tool to help people within an organisation understand where they currently are and how to progress and grow in their work.  It also helps an organisation map people&rsquo;s competencies (their skills and knowledge) to compensation (how they&rsquo;re rewarded for them financially).</p>
-<p>When done right, a tool like this helps employees to grow and hone their strengths, and helps managers ensure that their organisations are in good shape and their employees happy.</p>
-<h3 id="resources">Resources</h3>
-<ul>
-<li><a href="https://monzo.com/blog/2019/01/07/progression">https://monzo.com/blog/2019/01/07/progression</a></li>
-<li><a href="https://github.com/monzo/progression-framework">https://github.com/monzo/progression-framework</a></li>
-<li><a href="https://www.progression.fyi/">https://www.progression.fyi/</a></li>
-</ul>
-<h2 id="how-to-build-your-progression-framework-with-hugo-progression">How To Build Your Progression Framework With Hugo Progression</h2>
-<p>Hugo Progression is a <a href="https://gohugo.io/">Hugo</a> template that can render progression frameworks using the same data format as the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
-<p><img src="/images/blog/2021-05-01-progression-framework-in-hugo/hugo-framework.gif" alt="Hugo Progression Screenshot" title="Hugo Progression Screenshot"></p>
-<p>A full demo of this template can be found at the <a href="https://hugo-progression.com/">Hugo Progression Demo Site</a></p>
-<h3 id="1-installation">1) Installation</h3>
-<p>Navigate to your themes folder in your Hugo site and use the following commands:</p>
-<pre><code>cd themes/
-git clone https://github.com/leeturner/hugo-progression.git
-</code></pre><p>If you don&rsquo;t want to clone the theme you can add it as a git submodule. Inside the folder of your Hugo site run:</p>
-<pre><code>git submodule add https://github.com/leeturner/hugo-progression.git themes/hugo-progression
-</code></pre><p>For more information read the <a href="https://gohugo.io/overview/installing/">official setup guide</a> of Hugo.</p>
-<h3 id="2-setup-your-framework-data--content">2) Setup Your Framework Data &amp; Content</h3>
-<p>Due to some restrictions in what data <code>hugo</code> allows in the markdown front matter (see section 2.3) along with how you reference data files in <code>hugo</code>, an individual framework needs to consist of 3 things:</p>
-<ul>
-<li>a markdown page that contains the homepage of the framework</li>
-<li>a data <code>yml</code> file containing the content for each level of the framework</li>
-<li>a hugo html partial that links the above together.</li>
-</ul>
-<pre><code>+-----------+       +------------+       +------------+          +-------------+
-| Markdown  |       |    html    |       |  data yml  |          | Individual  |
-|   file    |------&gt;|   partial  |------&gt;|    file    |     =    | Progression |
-|           |       |            |       |            |          |  Framework  |
-+-----------+       +------------+       +------------+          +-------------+
-</code></pre><h4 id="21-create-your-framework-data-files">2.1) Create Your Framework Data Files</h4>
-<p>In this step we will create the <code>hugo</code> data file that contains the data for the different areas and levels for an individual framework.  These data files are <code>yml</code> and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">topics</span>:
-  - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;communication&#34;</span>
-    <span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;💬 Communication&#34;</span>
-    <span style="color:#f92672">content</span>:
-      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">1</span>
-        <span style="color:#f92672">criteria</span>:
-          - <span style="color:#e6db74">&#34;Provides regular status updates to their mentor/buddy&#34;</span>
-          - <span style="color:#e6db74">&#34;Points out syntactical improvements in code reviews&#34;</span>
-          - <span style="color:#e6db74">&#34;Writes PR descriptions that provide basic context for the change&#34;</span>
-          - <span style="color:#e6db74">&#34;Seeks guidance from other engineers, rather than answers&#34;</span>
-      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">2</span>
-        <span style="color:#f92672">criteria</span>:
-          - <span style="color:#e6db74">&#34;Proactively communicates to their team what they are working on, why, how it&#39;s going and what help they need&#34;</span>
-          - <span style="color:#e6db74">&#34;Accepts feedback graciously&#34;</span>
-          - <span style="color:#e6db74">&#34;Gives feedback to peers when asked&#34;</span>
-        <span style="color:#f92672">exampleCriteria</span>:
-          - <span style="color:#f92672">criteria</span>: <span style="color:#e6db74">&#34;Provides helpful and actionable feedback in code reviews in an empathetic manner&#34;</span>
-            <span style="color:#f92672">examples</span>:
-              - <span style="color:#e6db74">&#34;Take a look at the levelling up your code reviews talk for some ideas&#34;</span>
-          - <span style="color:#f92672">criteria</span>: <span style="color:#e6db74">&#34;Writes PR descriptions that provide context and provide rationale for significant decisions&#34;</span>
-            <span style="color:#f92672">examples</span>:
-              - <span style="color:#e6db74">&#34;I decided to X instead of Y here, I also considered Z but for these reasons I went with X&#34;</span>
-  - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;impact&#34;</span>
-    <span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;💥 Impact&#34;</span>
-    <span style="color:#f92672">content</span>:
-      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">1</span>
-        <span style="color:#f92672">criteria</span>:
-          - <span style="color:#e6db74">&#34;Delivers assigned tasks, working with a more senior team member, and able to take PR feedback to improve their work&#34;</span>
-      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">2</span>
-        <span style="color:#f92672">criteria</span>:
-          - <span style="color:#e6db74">&#34;Delivers assigned tasks that meet expected criteria&#34;</span>
-          - <span style="color:#e6db74">&#34;Works for the team, focuses on tasks that contribute to team goals&#34;</span>
-          - <span style="color:#e6db74">&#34;Tries to unblock themselves first before seeking help&#34;</span>
-          - <span style="color:#e6db74">&#34;Manages their own time effectively, prioritises their workload well, on time for meetings, aware when blocking others and unblocks&#34;</span>
-          - <span style="color:#e6db74">&#34;Helps the team, does what needs doing&#34;</span>
-          - <span style="color:#e6db74">&#34;Breaks down small/medium problems into iterative steps&#34;</span>
-</code></pre></div><p>These framework data files need to be placed in the <code>data</code> folder for your <code>hugo</code> site.  They can be structured into sub-folders if you wish:</p>
-<pre><code>data
-  frameworks
-    engineering
-      backend.yml
-      data.yml
-      mobile.yml
-      qualityanalyst.yml
-      web.yml
-    operations
-      opsindividualcontributor.yml
-      opsleadership.yml
-    generic.yml
-    marketing.yml
-    people.yml
-    product.yml
-</code></pre><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/data/frameworks">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
-<h4 id="22-create-the-markdown-page-with-front-matter--content-for-the-framework-homepage">2.2) Create The Markdown Page With Front Matter &amp; Content For The Framework Homepage</h4>
-<p>For any of the frameworks to appear in your <code>hugo</code> site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any <code>hugo</code> site, these markdown files live in the <code>content</code> folder.  The front matter can contain all the usual <code>hugo</code> fields along with a couple of special fields specific to <code>hugo-progression</code>.  See the example below:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
-title: 🛠️ Backend Engineering Framework
-linktitle: 🛠️ Backend
-description: Backend engineering progression framework
-menu:
-  main:
-    parent: engineering
-levels: 6
-datafilepartial: engineering/backend-partial.html
----
-</code></pre></div><p>The two fields that are specific to <code>hugo-progression</code> are <code>levels</code> and <code>datafilepartial</code>.  The <code>levels</code> field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework <code>yml</code> data file.  This will also determine how many levels are created in the menu when the site is generated:</p>
-<p><img src="/images/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-levels.png" alt="Hugo Progression Levels" title="Hugo Progression Levels"></p>
-<p>The <code>datafilepartial</code> field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step</p>
-<p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/content">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
-<h4 id="23-create-the-html-partial">2.3) Create The HTML Partial</h4>
-<p>Because <code>hugo</code> won&rsquo;t allow us to specify a data file in the front matter of a markdown file we have to create a simple <code>hugo</code> html partial file for each framework data file to get around this.  If you want to understand more about this restriction in <code>hugo</code> take a look at this article by <a href="https://michele.io/">Michele Titolo</a> which helped me understand how to work around it - <a href="https://michele.io/content-data-hugo/">https://michele.io/content-data-hugo/</a></p>
-<p>I have tried to take out all the common elements make sure the html partial files are as small as possible, and the below example is as small as I could get it.</p>
-<pre><code class="language-gotemplate" data-lang="gotemplate">{{ $this_parent_index := .parent_index}}
-{{ range .site_data.frameworks.engineering.backend.topics }}
-{{ partial &quot;topic-by-level.html&quot; (dict &quot;context&quot; . &quot;parent_index&quot; $this_parent_index) }}
-{{ end }}
-</code></pre><p>As you can see, the one line that is specific to the data file is the <code>range</code> line:</p>
-<pre><code class="language-gotemplate" data-lang="gotemplate">{{ range .site_data.frameworks.engineering.backend.topics }}
-</code></pre><p>This line will change for each of the html partial files but all the rest will stay the same.  The path to the <code>topics</code> effectively matches the folder structure you used when you created your data files. To keep things consistent I store my html partials in the same directory structure as my data files:</p>
-<pre><code>layouts
-  partials
-    engineering
-      backend-partial.html
-      data-partial.html
-      mobile-partial.html
-      qualityanalyst-partial.html
-      web-partial.html
-    operations
-      opsindividualcontributor-partial.html
-      opsleadership-partial.html
-    generic-partial.html
-    marketing-partial.html
-    people-partial.html
-    product-partial.html
-</code></pre><p>Once you have created your html partial file that references the framework data file, make sure you are correctly referencing the html partial in your markdown file as in the example above:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
-datafilepartial: engineering/backend-partial.html
----
-</code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
-<h3 id="3-nearly-finished">3) Nearly finished</h3>
-<p>In order to see your site in action, run Hugo&rsquo;s built-in local server.</p>
-<p><code>$ hugo server</code></p>
-<p>Now enter <a href="http://localhost:1313/"><code>localhost:1313</code></a> in the address bar of your browser.</p>
-<h2 id="production">Production</h2>
-<p>To run in production, run <code>HUGO_ENV=production</code> before your build command. For example:</p>
-<pre><code>HUGO_ENV=production hugo
-</code></pre><p>Note: The above command will not work on Windows. If you are running a Windows OS, use the below command:</p>
-<pre><code>set HUGO_ENV=production
-hugo
-</code></pre><p>This hugo template is by no means perfect - largely due to me not being a frontend developer, but it works well enough to be useful for people who use Hugo and want to invest in a progression framework.  If you would like to get involved, fork the project and create a pull request.  It would be great to have more people contribute to this project.</p>
+    <p>This post falls into the category of something I always forget and need to Google.</p>
+<p>When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging.  This can be done by adding a <code>MockMvcResultsHandlers.print()</code> call to the chain like in the following example.</p>
+<p>This:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>  
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getStatementsThrowABadRequestWhenCookiesNotPresent</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>  
+   mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/statements&#34;</span><span style="color:#f92672">)</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">(</span>getHeaders<span style="color:#f92672">())</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">cookie</span><span style="color:#f92672">(</span>getCookies<span style="color:#f92672">())</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON</span><span style="color:#f92672">));</span>
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isBadRequest</span><span style="color:#f92672">())</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.status&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>400<span style="color:#f92672">)))</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.type&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;BAD_REQUEST&#34;</span><span style="color:#f92672">)))</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.errors.length()&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>0<span style="color:#f92672">)));</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Becomes this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>  
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getStatementsThrowABadRequestWhenCookiesNotPresent</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>  
+   mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/statements&#34;</span><span style="color:#f92672">)</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">(</span>getHeaders<span style="color:#f92672">())</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">cookie</span><span style="color:#f92672">(</span>getCookies<span style="color:#f92672">())</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON</span><span style="color:#f92672">));</span>
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isBadRequest</span><span style="color:#f92672">())</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.status&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>400<span style="color:#f92672">)))</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.type&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;BAD_REQUEST&#34;</span><span style="color:#f92672">)))</span>  
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.errors.length()&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>0<span style="color:#f92672">)))</span>
+	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andDo</span><span style="color:#f92672">(</span>MockMvcResultHandlers<span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Along with all the other output from the test, there will be the <code>json</code> response from the call to the endpoint.</p>
 
   </div>
 
@@ -715,16 +595,22 @@ hugo
                 <i class="fa fa-tags"></i>
                 
                 
-                <li><a class="article-category-link" href="/tags/monzo">monzo</a></li>
+                <li><a class="article-category-link" href="/tags/spring">spring</a></li>
                 
                 
-                <li><a class="article-category-link" href="/tags/framework">framework</a></li>
+                <li><a class="article-category-link" href="/tags/spring-boot">spring boot</a></li>
                 
                 
-                <li><a class="article-category-link" href="/tags/hugo">hugo</a></li>
+                <li><a class="article-category-link" href="/tags/mockmvc">mockmvc</a></li>
                 
                 
-                <li><a class="article-category-link" href="/tags/progression">progression</a></li>
+                <li><a class="article-category-link" href="/tags/testing">testing</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/junit">junit</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/reference">reference</a></li>
                 
             
         
@@ -762,8 +648,8 @@ hugo
 
 <ul class="actions pagination">
     
-        <li><a href="/posts/blinkytape-junit-testwatcher/"
-                class="button big previous">BlinkyTape JUnit Testwatcher API Implementation</a></li>
+        <li><a href="/posts/hugo-progression-framework/"
+                class="button big previous">Creating a Progression Framework in Hugo</a></li>
     
 
     
@@ -947,6 +833,44 @@ hugo
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a>
+              </h3>
+              
+              <time class="published" datetime='2021-09-12'>
+                September 12, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a>
               </h3>
               
@@ -1090,44 +1014,6 @@ hugo
 
         <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
             <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Building a Camel Case @DisplayNameGenerator For JUnit 5</a>
-              </h3>
-              
-              <time class="published" datetime='2019-02-10'>
-                February 10, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
-            <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
         </a>
     
 

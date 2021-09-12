@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.83.1" />
+        <meta name="generator" content="Hugo 0.88.1" />
         
   
     
@@ -71,8 +71,8 @@
 <meta property="og:description" content="A hugo template to create Monzo style progression frameworks" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/hugo-progression-framework/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-05-01T10:20:08&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-30T12:54:40&#43;01:00" />
+<meta property="article:published_time" content="2021-05-01T10:20:08+00:00" />
+<meta property="article:modified_time" content="2021-05-30T12:54:40+01:00" />
 
 
         <meta property="og:image" content="//images/logo.png">
@@ -80,8 +80,8 @@
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
         <meta itemprop="name" content="Creating a Progression Framework in Hugo">
-<meta itemprop="description" content="A hugo template to create Monzo style progression frameworks"><meta itemprop="datePublished" content="2021-05-01T10:20:08&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-30T12:54:40&#43;01:00" />
+<meta itemprop="description" content="A hugo template to create Monzo style progression frameworks"><meta itemprop="datePublished" content="2021-05-01T10:20:08+00:00" />
+<meta itemprop="dateModified" content="2021-05-30T12:54:40+01:00" />
 <meta itemprop="wordCount" content="1439">
 <meta itemprop="keywords" content="monzo,framework,hugo,progression," />
         
@@ -273,6 +273,42 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2021-09-12'>
+                                    September 12, 2021</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a></h3>
                                 
                                 <time class="published" datetime=
@@ -409,42 +445,6 @@ if (!doNotTrack) {
 
         <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
             <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Building a Camel Case @DisplayNameGenerator For JUnit 5</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-02-10'>
-                                    February 10, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
-            <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
         </a>
     
 
@@ -611,10 +611,10 @@ if (!doNotTrack) {
 <p>A full demo of this template can be found at the <a href="https://hugo-progression.com/">Hugo Progression Demo Site</a></p>
 <h3 id="1-installation">1) Installation</h3>
 <p>Navigate to your themes folder in your Hugo site and use the following commands:</p>
-<pre><code>cd themes/
+<pre tabindex="0"><code>cd themes/
 git clone https://github.com/leeturner/hugo-progression.git
 </code></pre><p>If you don&rsquo;t want to clone the theme you can add it as a git submodule. Inside the folder of your Hugo site run:</p>
-<pre><code>git submodule add https://github.com/leeturner/hugo-progression.git themes/hugo-progression
+<pre tabindex="0"><code>git submodule add https://github.com/leeturner/hugo-progression.git themes/hugo-progression
 </code></pre><p>For more information read the <a href="https://gohugo.io/overview/installing/">official setup guide</a> of Hugo.</p>
 <h3 id="2-setup-your-framework-data--content">2) Setup Your Framework Data &amp; Content</h3>
 <p>Due to some restrictions in what data <code>hugo</code> allows in the markdown front matter (see section 2.3) along with how you reference data files in <code>hugo</code>, an individual framework needs to consist of 3 things:</p>
@@ -623,14 +623,14 @@ git clone https://github.com/leeturner/hugo-progression.git
 <li>a data <code>yml</code> file containing the content for each level of the framework</li>
 <li>a hugo html partial that links the above together.</li>
 </ul>
-<pre><code>+-----------+       +------------+       +------------+          +-------------+
+<pre tabindex="0"><code>+-----------+       +------------+       +------------+          +-------------+
 | Markdown  |       |    html    |       |  data yml  |          | Individual  |
 |   file    |------&gt;|   partial  |------&gt;|    file    |     =    | Progression |
 |           |       |            |       |            |          |  Framework  |
 +-----------+       +------------+       +------------+          +-------------+
 </code></pre><h4 id="21-create-your-framework-data-files">2.1) Create Your Framework Data Files</h4>
 <p>In this step we will create the <code>hugo</code> data file that contains the data for the different areas and levels for an individual framework.  These data files are <code>yml</code> and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">topics</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">topics</span>:
   - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;communication&#34;</span>
     <span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;💬 Communication&#34;</span>
     <span style="color:#f92672">content</span>:
@@ -667,7 +667,7 @@ git clone https://github.com/leeturner/hugo-progression.git
           - <span style="color:#e6db74">&#34;Helps the team, does what needs doing&#34;</span>
           - <span style="color:#e6db74">&#34;Breaks down small/medium problems into iterative steps&#34;</span>
 </code></pre></div><p>These framework data files need to be placed in the <code>data</code> folder for your <code>hugo</code> site.  They can be structured into sub-folders if you wish:</p>
-<pre><code>data
+<pre tabindex="0"><code>data
   frameworks
     engineering
       backend.yml
@@ -685,7 +685,7 @@ git clone https://github.com/leeturner/hugo-progression.git
 </code></pre><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/data/frameworks">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
 <h4 id="22-create-the-markdown-page-with-front-matter--content-for-the-framework-homepage">2.2) Create The Markdown Page With Front Matter &amp; Content For The Framework Homepage</h4>
 <p>For any of the frameworks to appear in your <code>hugo</code> site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any <code>hugo</code> site, these markdown files live in the <code>content</code> folder.  The front matter can contain all the usual <code>hugo</code> fields along with a couple of special fields specific to <code>hugo-progression</code>.  See the example below:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
 title: 🛠️ Backend Engineering Framework
 linktitle: 🛠️ Backend
 description: Backend engineering progression framework
@@ -702,14 +702,14 @@ datafilepartial: engineering/backend-partial.html
 <h4 id="23-create-the-html-partial">2.3) Create The HTML Partial</h4>
 <p>Because <code>hugo</code> won&rsquo;t allow us to specify a data file in the front matter of a markdown file we have to create a simple <code>hugo</code> html partial file for each framework data file to get around this.  If you want to understand more about this restriction in <code>hugo</code> take a look at this article by <a href="https://michele.io/">Michele Titolo</a> which helped me understand how to work around it - <a href="https://michele.io/content-data-hugo/">https://michele.io/content-data-hugo/</a></p>
 <p>I have tried to take out all the common elements make sure the html partial files are as small as possible, and the below example is as small as I could get it.</p>
-<pre><code class="language-gotemplate" data-lang="gotemplate">{{ $this_parent_index := .parent_index}}
+<pre tabindex="0"><code class="language-gotemplate" data-lang="gotemplate">{{ $this_parent_index := .parent_index}}
 {{ range .site_data.frameworks.engineering.backend.topics }}
 {{ partial &quot;topic-by-level.html&quot; (dict &quot;context&quot; . &quot;parent_index&quot; $this_parent_index) }}
 {{ end }}
 </code></pre><p>As you can see, the one line that is specific to the data file is the <code>range</code> line:</p>
-<pre><code class="language-gotemplate" data-lang="gotemplate">{{ range .site_data.frameworks.engineering.backend.topics }}
+<pre tabindex="0"><code class="language-gotemplate" data-lang="gotemplate">{{ range .site_data.frameworks.engineering.backend.topics }}
 </code></pre><p>This line will change for each of the html partial files but all the rest will stay the same.  The path to the <code>topics</code> effectively matches the folder structure you used when you created your data files. To keep things consistent I store my html partials in the same directory structure as my data files:</p>
-<pre><code>layouts
+<pre tabindex="0"><code>layouts
   partials
     engineering
       backend-partial.html
@@ -725,7 +725,7 @@ datafilepartial: engineering/backend-partial.html
     people-partial.html
     product-partial.html
 </code></pre><p>Once you have created your html partial file that references the framework data file, make sure you are correctly referencing the html partial in your markdown file as in the example above:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
 datafilepartial: engineering/backend-partial.html
 ---
 </code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
@@ -735,9 +735,9 @@ datafilepartial: engineering/backend-partial.html
 <p>Now enter <a href="http://localhost:1313/"><code>localhost:1313</code></a> in the address bar of your browser.</p>
 <h2 id="production">Production</h2>
 <p>To run in production, run <code>HUGO_ENV=production</code> before your build command. For example:</p>
-<pre><code>HUGO_ENV=production hugo
+<pre tabindex="0"><code>HUGO_ENV=production hugo
 </code></pre><p>Note: The above command will not work on Windows. If you are running a Windows OS, use the below command:</p>
-<pre><code>set HUGO_ENV=production
+<pre tabindex="0"><code>set HUGO_ENV=production
 hugo
 </code></pre><p>This hugo template is by no means perfect - largely due to me not being a frontend developer, but it works well enough to be useful for people who use Hugo and want to invest in a progression framework.  If you would like to get involved, fork the project and create a pull request.  It would be great to have more people contribute to this project.</p>
 
@@ -809,6 +809,9 @@ hugo
                 class="button big previous">BlinkyTape JUnit Testwatcher API Implementation</a></li>
     
 
+    
+        <li><a href="/posts/outputting-result-of-mockmvc/"
+                class="button big next">Outputting the result of a mockMvc call</a></li>
     
 </ul>
 
@@ -948,6 +951,44 @@ hugo
           
         
 
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a>
+              </h3>
+              
+              <time class="published" datetime='2021-09-12'>
+                September 12, 2021
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
+            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
+        </a>
+    
+
+
+          </article>
         
           <article class="mini-post">
             <header>
@@ -1095,44 +1136,6 @@ hugo
 
         <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
             <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Building a Camel Case @DisplayNameGenerator For JUnit 5</a>
-              </h3>
-              
-              <time class="published" datetime='2019-02-10'>
-                February 10, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/building-a-camel-case-junit5-displaynamegenerator/" class="image featured">
-            <img src="/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator//junit5-ReplaceCamelCaseEmoji.png" alt="">
         </a>
     
 
