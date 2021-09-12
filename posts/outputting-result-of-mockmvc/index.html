@@ -24,7 +24,7 @@
         "datePublished": "2021-09-12 10:20:08 \u002b0000 UTC",
         "dateModified" : "2021-09-12 10:20:08 \u002b0000 UTC",
         "url" : "\/posts\/outputting-result-of-mockmvc\/",
-        "wordCount" : "120",
+        "wordCount" : "119",
         "keywords" : [ "spring","spring boot","mockmvc","testing","junit","reference","Blog" ]
     }
     </script>
@@ -72,7 +72,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/outputting-result-of-mockmvc/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-09-12T10:20:08+00:00" />
-<meta property="article:modified_time" content="2021-09-12T14:16:22+01:00" />
+<meta property="article:modified_time" content="2021-09-12T14:25:33+01:00" />
 
 
         <meta property="og:image" content="//images/logo.png">
@@ -81,8 +81,8 @@
         <meta property="og:image:height" content="512">
         <meta itemprop="name" content="Outputting the result of a mockMvc call">
 <meta itemprop="description" content="How to output the result of a mockmvc call to help with debugging"><meta itemprop="datePublished" content="2021-09-12T10:20:08+00:00" />
-<meta itemprop="dateModified" content="2021-09-12T14:16:22+01:00" />
-<meta itemprop="wordCount" content="120">
+<meta itemprop="dateModified" content="2021-09-12T14:25:33+01:00" />
+<meta itemprop="wordCount" content="119">
 <meta itemprop="keywords" content="spring,spring boot,mockmvc,testing,junit,reference," />
         
 
@@ -593,7 +593,7 @@ if (!doNotTrack) {
 
   <div id="content">
     <p>This post falls into the category of something I always forget and need to Google.</p>
-<p>When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging.  This can be done by adding a <code>MockMvcResultsHandlers.print()</code> call to the chain like in the following example.</p>
+<p>When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging.  This can be done by adding <code>MockMvcResultsHandlers.print()</code> to the call chain like in the following example.</p>
 <p>This:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>  
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getStatementsThrowABadRequestWhenCookiesNotPresent</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>  
