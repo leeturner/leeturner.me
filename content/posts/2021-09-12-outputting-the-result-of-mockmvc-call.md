@@ -20,7 +20,7 @@ tags:
 
 This post falls into the category of something I always forget and need to Google.  
 
-When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging.  This can be done by adding a `MockMvcResultsHandlers.print()` call to the chain like in the following example.
+When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging.  This can be done by adding `MockMvcResultsHandlers.print()` to the call chain like in the following example.
 
 This:
 
