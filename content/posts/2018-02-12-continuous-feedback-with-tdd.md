@@ -6,7 +6,7 @@ slug: continuous-feedback-with-tdd
 toc: true
 featured: board-2450236_640.jpg
 featuredalt: Continuous Feedback With TDD & Auto Running Tests
-featuredpath: /images/blog/2018-02-12-continuous-feedback-with-tdd
+featuredpath: /images/blog/common
 type: post
 author: Lee Turner 
 tags:
