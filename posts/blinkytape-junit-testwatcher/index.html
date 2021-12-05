@@ -1,597 +1,64 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
 
-<html>
-    <head>
-        <script type="application/ld+json">
-    {
-        "@context" : "http://schema.org",
-        "@type" : "BlogPosting",
-        "mainEntityOfPage": {
-             "@type": "WebPage",
-             "@id": "\/"
-        },
-        "articleSection" : "posts",
-        "name" : "BlinkyTape JUnit Testwatcher API Implementation",
-        "headline" : "BlinkyTape JUnit Testwatcher API Implementation",
-        "description" : "This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip.",
-        "inLanguage" : "en",
-        "author" : "",
-        "creator" : "",
-        "publisher": "",
-        "accountablePerson" : "",
-        "copyrightHolder" : "",
-        "copyrightYear" : "2021",
-        "datePublished": "2021-04-06 10:20:08 \u002b0000 UTC",
-        "dateModified" : "2021-04-06 10:20:08 \u002b0000 UTC",
-        "url" : "\/posts\/blinkytape-junit-testwatcher\/",
-        "wordCount" : "511",
-        "keywords" : [ "kotlin","junit","blinkytape","blinky","junit5","testwatcher","Blog" ]
-    }
-    </script>
-        
-            
-                <title>BlinkyTape JUnit Testwatcher API Implementation</title>
-            
-        
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.88.1" />
-        
-  
-    
-  
+<meta name="description" content="Lead Backend Developer at Crunch, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
 
-  
 
-  <link rel="apple-touch-icon-precomposed" href='/favicon/apple-touch-icon-precomposed.png'>
-  <link rel="icon" href='/favicon/favicon.png'>
-  
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content='/favicon/mstile.png'>
-  <meta name="application-name" content="Lee Turner">
-  <meta name="msapplication-tooltip" content="Welcome to the lab - the place I write about my code experiments">
-  <meta name="msapplication-config" content='/favicon/ieconfig.xml'>
+<title>
+  BlinkyTape JUnit Testwatcher API Implementation - Lee Turner  
+</title>
+
+
+<meta name="author" content="Lee Turner">
+
+
+<meta name="generator" content="Hugo 0.89.4" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 
-        
-            <meta name="author" content="Lee Turner">
-        
-        
-            <meta name="description" content="This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip.">
-        
 
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="BlinkyTape JUnit Testwatcher API Implementation"/>
-<meta name="twitter:description" content="This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip."/>
-<meta name="twitter:site" content="@leeturner"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicon/manifest.json">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
 
-        <meta property="og:title" content="BlinkyTape JUnit Testwatcher API Implementation" />
-<meta property="og:description" content="This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/blinkytape-junit-testwatcher/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-06T10:20:08+00:00" />
-<meta property="article:modified_time" content="2021-05-30T10:55:59+01:00" />
+</head>
+<body lang="en-us">
+<div class="container">
 
 
-        <meta property="og:image" content="//images/logo.png">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="512">
-        <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="BlinkyTape JUnit Testwatcher API Implementation">
-<meta itemprop="description" content="This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip."><meta itemprop="datePublished" content="2021-04-06T10:20:08+00:00" />
-<meta itemprop="dateModified" content="2021-05-30T10:55:59+01:00" />
-<meta itemprop="wordCount" content="511">
-<meta itemprop="keywords" content="kotlin,junit,blinkytape,blinky,junit5,testwatcher," />
-        
-
-        
-            
-        
-
-        
-        
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
-            <link rel="stylesheet" href="/css/main.css">
-            <link rel="stylesheet" href="/css/add-on.css">
-            <link rel="stylesheet" href="/css/academicons.min.css">
-        
-
-        
-            
-                
-            
-                
-                    <link rel="stylesheet" href="/css/custom.css">
-                
-            
-        
-
-
-  
-    
-    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-  
-
-
-      
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-115883229-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-    </head>
-    <body>
-
-      
-      <div id="wrapper">
-
-    
-    
-<header id="header">
-    
-      <h1><a href="/">Lee Turner</a></h1>
-    
-
-    <nav class="links">
-        <ul>
-            
-                <li>
-                    <a href="/">
-                            <i class="fa fa-home">&nbsp;</i>Home
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/about/">
-                            <i class="fa fa-id-card-o">&nbsp;</i>About
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/posts/">
-                            <i class="fa fa-rss-square">&nbsp;</i>Posts
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/projects/">
-                            <i class="fa fa-newspaper-o">&nbsp;</i>Projects
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/brighton-kotlin">
-                            <i class="fa fa-meetup">&nbsp;</i>Brighton Kotlin
-                    </a>
-                </li>
-            
-        </ul>
-    </nav>
-    <nav class="main">
-        <ul>
-            
-            <li id="share-nav" class="share-menu" style="display:none;">
-                <a class="fa-share-alt" href="#share-menu">Share</a>
-            </li>
-            
-            <li class="search">
-                <a class="fa-search" href="#search">Search</a>
-                <form id="search" method="get" action="//google.com/search">
-                    <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="/">
-                </form>
-            </li>
-            <li class="menu">
-                <a class="fa-bars" href="#menu">Menu</a>
-            </li>
-        </ul>
-    </nav>
+<header class="text-left title">
+  <h1 class="title">BlinkyTape JUnit Testwatcher API Implementation</h1>
 </header>
-
-
-<section id="menu">
-
-    
-        <section>
-            <form class="search" method="get" action="//google.com/search">
-                <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="/">
-            </form>
-        </section>
-
-    
-        <section>
-            <ul class="links">
-                
-                    <li>
-                        <a href="/">
-                            <h3>
-                                <i class="fa fa-home">&nbsp;</i>Home
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/about/">
-                            <h3>
-                                <i class="fa fa-id-card-o">&nbsp;</i>About
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/posts/">
-                            <h3>
-                                <i class="fa fa-rss-square">&nbsp;</i>Posts
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/projects/">
-                            <h3>
-                                <i class="fa fa-newspaper-o">&nbsp;</i>Projects
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/brighton-kotlin">
-                            <h3>
-                                <i class="fa fa-meetup">&nbsp;</i>Brighton Kotlin
-                            </h3>
-                        </a>
-                    </li>
-                
-            </ul>
-        </section>
-
-    
-        <section class="recent-posts">
-            <div class="mini-posts">
-                <header>
-                    <h3>Recent Posts</h3>
-                </header>
-                
-
-                
-                    
-                
-
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2021-09-12'>
-                                    September 12, 2021</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
+<section id="category-pane" class="meta">
   
-
-
-        
-        
-        
-
-        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
-            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2021-05-01'>
-                                    May 1, 2021</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+        PUBLISHED ON APR 6, 2021 
+      
+    </h6>
+  </div>
   
-
-
-        
-        
-        
-
-        <a href="/posts/hugo-progression-framework/" class="image featured">
-            <img src="/images/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-screenshot.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/blinkytape-junit-testwatcher/">BlinkyTape JUnit Testwatcher API Implementation</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2021-04-06'>
-                                    April 6, 2021</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/blinkytape-junit-testwatcher/" class="image featured">
-            <img src="/images/blog/2021-04-06-blinkytape-junit-testwatcher/junit-blinkytape.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/geek-reads-1/">Geek Reads 1</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2020-06-07'>
-                                    June 7, 2020</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/geek-reads-1/" class="image featured">
-            <img src="/images//geekreads.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/posts/copying-the-branch-name-in-intellij/">Copying A Branch Name In Intellij</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2020-04-12'>
-                                    April 12, 2020</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
-            <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-
-                
-                    <a href=
-                        
-                            /posts/
-                        
-                        class="button">View more posts</a>
-                
-            </div>
-        </section>
-
-    
-        
 </section>
-
-    <section id="share-menu">
-    <section id="social-share-nav">
-        <ul class="links">
-            <header>
-                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
-            </header>
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </ul>
-    </section>
-</section>
-
-    
-    <div id="main">
-        
-        
-        <article class="post">
-  <header>
-    <div class="title">
-        
-            <h1><a href="/posts/blinkytape-junit-testwatcher/">BlinkyTape JUnit Testwatcher API Implementation</a></h1>
-            
-        
-        
-            <p>This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip.</p>
-        
-    </div>
-    <div class="meta">
-        
-
-        <time class="published"
-            datetime='2021-04-06'>
-            April 6, 2021</time>
-        <span class="author">Lee Turner</span>
-        
-            <p>3 minute read</p>
-        
-        
-    </div>
-</header>
-
-
-  
-    <section id="social-share">
-      <ul class="icons">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ul>
-    </section>
-  
-
-  
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/blinkytape-junit-testwatcher/" class="image featured">
-            <img src="/images/blog/2021-04-06-blinkytape-junit-testwatcher/junit-blinkytape.png" alt="">
-        </a>
-    
-
-
-  <div id="content">
+<section id="content-pane" class="">
+  <div class="col-md-12 text-justify content">
     <p><a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Every so often</a> I like to have a play around with a part of <a href="https://junit.org"> Junit </a> that I haven&rsquo;t used before, and I recently decided to look into the <a href="https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html">TestWatcher API</a>.</p>
 <p>I have to admit that I have been meaning to play with this for quite a while now&hellip;. I just haven&rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</p>
 <p>Stretched across the back of the desk in front of me is a <a href="https://shop.blinkinlabs.com/collections/frontpage/products/blinkytape-basic_"> BlinkyTape </a> attached to my usb hub.  Most of the time the BlinkyTape is just used for a bit of subtle lighting behind my monitor but while looking into the Junit TestWatcher API, it suddenly hit me&hellip;. maybe I could combine the two.</p>
@@ -666,51 +133,40 @@ if (!doNotTrack) {
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xzw-NS8ua_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   </div>
+</section>
+<section id="tag-pane" class="meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+      
+      TAGS:
+      
+      
+      <a class="meta" href="/tags/blinky">BLINKY</a>, 
+      
+      <a class="meta" href="/tags/blinkytape">BLINKYTAPE</a>, 
+      
+      <a class="meta" href="/tags/junit">JUNIT</a>, 
+      
+      <a class="meta" href="/tags/junit5">JUNIT5</a>, 
+      
+      <a class="meta" href="/tags/kotlin">KOTLIN</a>, 
+      
+      <a class="meta" href="/tags/testwatcher">TESTWATCHER</a>
+      
+      
+      
+    </h6>
+  </div>
+  
+</section>
 
-  <footer>
-    <ul class="stats">
-  <li class="categories">
-    <ul>
-        
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-        
-            
-            
-                <i class="fa fa-tags"></i>
-                
-                
-                <li><a class="article-category-link" href="/tags/kotlin">kotlin</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/junit">junit</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/blinkytape">blinkytape</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/blinky">blinky</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/junit5">junit5</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/testwatcher">testwatcher</a></li>
-                
-            
-        
-    </ul>
-  </li>
-</ul>
 
-  </footer>
 
-</article>
 
-    <article class="post">
-        <div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
 <script type="application/javascript">
     var disqus_config = function () {
     
@@ -730,540 +186,73 @@ if (!doNotTrack) {
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    </article>
 
 
-<ul class="actions pagination">
+
+
+<section id="main-menu-pane" class="text-center main-menu">
+  <ul>
     
-        <li><a href="/posts/geek-reads-1/"
-                class="button big previous">Geek Reads 1</a></li>
+    <li><a class="menu-item" href="/">Home</a></li>
     
-
+    <li><a class="menu-item" href="/about/">About</a></li>
     
-        <li><a href="/posts/hugo-progression-framework/"
-                class="button big next">Creating a Progression Framework in Hugo</a></li>
+    <li><a class="menu-item" href="https://leeturner.tech">Resume</a></li>
     
-</ul>
-
-
-    </div>
+    <li><a class="menu-item" href="/posts/">Posts</a></li>
     
-<section id="sidebar">
-
-  
-  <section id="intro">
+    <li><a class="menu-item" href="/projects/">Projects</a></li>
     
+    <li><a class="menu-item" href="/brighton-kotlin">Brighton Kotlin</a></li>
     
-      
-        <a href='/' class="logo"><img src="/images/avatar.jpg" alt="Lee Turner" /></a>
-      
-    
-    
-      <header>
-        <h2>Lee Turner</h2>
-        <p>Welcome to the lab - the place I write about my code experiments</p>
-      </header>
-    
-    
-      <ul class="icons">
-        
-          
-    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-
-
-        
-        
-<li><a href="//meetup.com/Brighton-Kotlin" target="_blank" title="Meetup" class="fa fa-meetup"></a></li>
-
-
-
-  <li><a href="//github.com/leeturner" target="_blank" title="GitHub" class="fa fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//linkedin.com/in/turnerlee" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//youtube.com//channel/UCpdN6W_x0jIJmJlBP9icORw" target="_blank" title="YouTube" class="fa fa-youtube"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//instagram.com/lturner" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
-
-
-
-
-
-  <li><a href="//twitter.com/leeturner" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ul>
-    
-  </section>
-
-  
-  <section class="recent-posts">
-    <div class="mini-posts">
-      <header>
-        <h3>Recent Posts</h3>
-      </header>
-      <div class="posts-container">
-        
-
-        
-          
-        
-
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/outputting-result-of-mockmvc/">Outputting the result of a mockMvc call</a>
-              </h3>
-              
-              <time class="published" datetime='2021-09-12'>
-                September 12, 2021
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/outputting-result-of-mockmvc/" class="image featured">
-            <img src="/images/blog/common/board-2450236_640.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/hugo-progression-framework/">Creating a Progression Framework in Hugo</a>
-              </h3>
-              
-              <time class="published" datetime='2021-05-01'>
-                May 1, 2021
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/hugo-progression-framework/" class="image featured">
-            <img src="/images/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-screenshot.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/blinkytape-junit-testwatcher/">BlinkyTape JUnit Testwatcher API Implementation</a>
-              </h3>
-              
-              <time class="published" datetime='2021-04-06'>
-                April 6, 2021
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/blinkytape-junit-testwatcher/" class="image featured">
-            <img src="/images/blog/2021-04-06-blinkytape-junit-testwatcher/junit-blinkytape.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/geek-reads-1/">Geek Reads 1</a>
-              </h3>
-              
-              <time class="published" datetime='2020-06-07'>
-                June 7, 2020
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/geek-reads-1/" class="image featured">
-            <img src="/images//geekreads.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/posts/copying-the-branch-name-in-intellij/">Copying A Branch Name In Intellij</a>
-              </h3>
-              
-              <time class="published" datetime='2020-04-12'>
-                April 12, 2020
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/posts/copying-the-branch-name-in-intellij/" class="image featured">
-            <img src="/images/blog/2020-04-12-copying-the-branch-name-in-intellij/ij-branch.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-      </div>
-
-      
-        <a href=
-          
-            /posts/
-          
-        class="button">View more posts</a>
-      
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-  
-    <section id="mini-bio">
-      <h3>About</h3>
-      <p>This is the personal site of Lee Turner</p>
-      <a href="/about/" class="button">Learn More</a>
-    </section>
-  
-
-  
-  <section id="footer">
-    
-      <ul class="icons">
-        
-          
-    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-
-
-        
-        
-<li><a href="//meetup.com/Brighton-Kotlin" target="_blank" title="Meetup" class="fa fa-meetup"></a></li>
-
-
-
-  <li><a href="//github.com/leeturner" target="_blank" title="GitHub" class="fa fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//linkedin.com/in/turnerlee" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//youtube.com//channel/UCpdN6W_x0jIJmJlBP9icORw" target="_blank" title="YouTube" class="fa fa-youtube"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//instagram.com/lturner" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
-
-
-
-
-
-  <li><a href="//twitter.com/leeturner" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ul>
-    
-    <p class="copyright">
-      
-        2021 Lee Turner
-      .
-      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
-    </p>
-  </section>
+  </ul>
 </section>
 
-    </div>
-    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
-    
 
-    
-      
-    
 
-    
-      
-      
-      
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
-        
-        
-        
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
-        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-      
-    
-    
-    
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-      <script src="/js/util.js"></script>
-      <script src="/js/main.js"></script>
-      <script src="/js/backToTop.js"></script>
-    
 
-    
+<footer class="text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2021. Lee Turner | <a href="/privacy">Privacy Policy</a></h6>
+  
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.89.4</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  
       
-        
-      
-        
-          <script src="https://buttons.github.io/buttons.js"></script>
-        
-      
-        
-          <script src="https://platform.twitter.com/widgets.js"></script>
-        
-      
-    
+  
+</footer>
 
-    
-    <script>hljs.initHighlightingOnLoad();</script>
-      <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+  
+
+<script type="text/javascript">
+  hljs.highlightAll();
 </script>
 
 
-  </body>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-115883229-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://buttons.github.io/buttons.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/custom.js"></script>
+</body>
 </html>
+
 

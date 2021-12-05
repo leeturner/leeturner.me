@@ -6,7 +6,6 @@
     <description>Recent content in spring on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>2021 Lee Turner</copyright>
     <lastBuildDate>Sun, 12 Sep 2021 10:20:08 +0000</lastBuildDate><atom:link href="/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Outputting the result of a mockMvc call</title>
@@ -17,7 +16,7 @@
       <description>This post falls into the category of something I always forget and need to Google.
 When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging. This can be done by adding MockMvcResultsHandlers.print() to the call chain like in the following example.
 This:
-@Test void getStatementsThrowABadRequestWhenCookiesNotPresent() throws Exception { mockMvc.perform(get(&amp;#34;/statements&amp;#34;) .headers(getHeaders()) .cookie(getCookies()) .contentType(MediaType.APPLICATION_JSON)); .andExpect(status().isBadRequest()) .</description>
+@Test void getStatementsThrowABadRequestWhenCookiesNotPresent() throws Exception { mockMvc.perform(get(&amp;#34;/statements&amp;#34;) .headers(getHeaders()) .cookie(getCookies()) .contentType(MediaType.APPLICATION_JSON)) .andExpect(status().isBadRequest()) .</description>
     </item>
     
   </channel>

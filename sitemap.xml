@@ -3,149 +3,145 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/tags/junit/</loc>
-    <lastmod>2021-09-12T14:25:33+01:00</lastmod>
+    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2021-09-12T14:25:33+01:00</lastmod>
+    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/mockmvc/</loc>
-    <lastmod>2021-09-12T14:25:33+01:00</lastmod>
+    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/posts/outputting-result-of-mockmvc/</loc>
-    <lastmod>2021-09-12T14:25:33+01:00</lastmod>
+    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2021-09-12T14:25:33+01:00</lastmod>
+    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/reference/</loc>
-    <lastmod>2021-09-12T14:25:33+01:00</lastmod>
+    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/spring/</loc>
-    <lastmod>2021-09-12T14:25:33+01:00</lastmod>
+    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/spring-boot/</loc>
-    <lastmod>2021-09-12T14:25:33+01:00</lastmod>
+    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2021-09-12T14:25:33+01:00</lastmod>
+    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/testing/</loc>
-    <lastmod>2021-09-12T14:25:33+01:00</lastmod>
+    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/posts/hugo-progression-framework/</loc>
-    <lastmod>2021-05-30T12:54:40+01:00</lastmod>
+    <lastmod>2021-05-01T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/framework/</loc>
-    <lastmod>2021-05-30T12:54:40+01:00</lastmod>
+    <lastmod>2021-05-01T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/hugo/</loc>
-    <lastmod>2021-05-30T12:54:40+01:00</lastmod>
+    <lastmod>2021-05-01T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/monzo/</loc>
-    <lastmod>2021-05-30T12:54:40+01:00</lastmod>
+    <lastmod>2021-05-01T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/progression/</loc>
-    <lastmod>2021-05-30T12:54:40+01:00</lastmod>
+    <lastmod>2021-05-01T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/blinky/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/blinkytape/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/posts/blinkytape-junit-testwatcher/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/junit5/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/kotlin/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/testwatcher/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/bookmarks/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2020-06-07T13:20:08+00:00</lastmod>
   </url><url>
     <loc>/posts/geek-reads-1/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2020-06-07T13:20:08+00:00</lastmod>
   </url><url>
     <loc>/posts/copying-the-branch-name-in-intellij/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2020-04-12T18:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/intellij/</loc>
-    <lastmod>2021-09-12T14:16:22+01:00</lastmod>
+    <lastmod>2020-04-12T18:09:08+00:00</lastmod>
   </url><url>
     <loc>/posts/building-a-camel-case-junit5-displaynamegenerator/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2019-02-10T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/tdd/</loc>
-    <lastmod>2021-09-12T14:16:22+01:00</lastmod>
+    <lastmod>2019-02-10T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/tcr/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2019-01-17T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/tooling/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2019-01-17T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/posts/tooling-up-tcr-intellij/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2019-01-17T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/posts/hello-world-erm-again/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2019-01-16T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/hello-world/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2019-01-16T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/java/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-02-25T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/jvm/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-02-25T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/mooc/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-02-25T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/posts/oracle-mooc-java-virtual-machine-troubleshooting/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-02-25T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/posts/continuous-feedback-with-tdd/</loc>
-    <lastmod>2021-09-12T14:16:22+01:00</lastmod>
+    <lastmod>2018-02-12T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/b2evolution/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/posts/do-you-bake-or-fry/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/jbake/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/jekyll/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/static-sites/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/tags/wordpress/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-01-20T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/posts/hello-world/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
+    <lastmod>2018-01-18T22:09:08+00:00</lastmod>
   </url><url>
     <loc>/about/</loc>
-    <lastmod>2021-09-12T14:15:04+01:00</lastmod>
   </url><url>
     <loc>/brighton-kotlin/</loc>
-    <lastmod>2021-09-12T14:15:04+01:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
   </url><url>
     <loc>/privacy/</loc>
-    <lastmod>2021-05-30T10:55:59+01:00</lastmod>
   </url><url>
     <loc>/projects/</loc>
-    <lastmod>2021-05-30T13:03:02+01:00</lastmod>
   </url>
 </urlset>
