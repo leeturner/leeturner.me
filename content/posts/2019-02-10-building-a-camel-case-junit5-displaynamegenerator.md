@@ -3,11 +3,7 @@ title: Building a Camel Case @DisplayNameGenerator For JUnit 5
 date: 2019-02-10T22:09:08Z
 description: I am loving the new JUnit 5 features and the @DisplayName annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new @DisplayNameGenerator API all of that will change.
 slug: building-a-camel-case-junit5-displaynamegenerator
-toc: true
 type: post
-featured: junit5-ReplaceCamelCaseEmoji.png
-featuredalt: Building a Camel Case @DisplayNameGenerator For JUnit 5
-featuredpath: /images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator/
 author: Lee Turner 
 tags:
 - tdd
@@ -138,7 +134,7 @@ static class ReplaceCamelCase extends DisplayNameGenerator.Standard {
 
 All in all this simple camel case `DisplayNameGenerator` works pretty well and generates something like this:
 
-![Replace Camel Case Junit 5 Display Name Generator](/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator/junit5-ReplaceCamelCase.png)
+![Replace Camel Case Junit 5 Display Name Generator](/img/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator/junit5-ReplaceCamelCase.png)
 
 I will be playing around with this further to see if there are any other scenarios It doesn't cater for and updating accordingly.
 
@@ -179,7 +175,7 @@ static class ReplaceCamelCaseEmojis extends ReplaceCamelCase {
 
 This generates something like this:
 
-![Replace Camel Case Junit 5 Display Name Generator](/images/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator/junit5-ReplaceCamelCaseEmoji.png)
+![Replace Camel Case Junit 5 Display Name Generator](/img/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator/junit5-ReplaceCamelCaseEmoji.png)
 
 You are very welcome :)
 

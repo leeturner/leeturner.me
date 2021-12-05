@@ -3,10 +3,6 @@ title: Creating a Progression Framework in Hugo
 date: 2021-05-01T10:20:08Z
 description: A hugo template to create Monzo style progression frameworks
 slug: hugo-progression-framework
-toc: true
-featured: hugo-progression-screenshot.png
-featuredalt: Creating a Progression Framework in Hugo
-featuredpath: /images/blog/2021-05-01-progression-framework-in-hugo
 type: post
 author: Lee Turner
 tags:
@@ -39,7 +35,7 @@ When done right, a tool like this helps employees to grow and hone their strengt
 
 Hugo Progression is a [Hugo](https://gohugo.io/) template that can render progression frameworks using the same data format as the [Monzo progression framework](https://github.com/monzo/progression-framework)
 
-![Hugo Progression Screenshot](/images/blog/2021-05-01-progression-framework-in-hugo/hugo-framework.gif "Hugo Progression Screenshot")
+![Hugo Progression Screenshot](/img/blog/2021-05-01-progression-framework-in-hugo/hugo-framework.gif "Hugo Progression Screenshot")
 
 A full demo of this template can be found at the [Hugo Progression Demo Site](https://hugo-progression.com/)
 
@@ -160,7 +156,7 @@ datafilepartial: engineering/backend-partial.html
 
 The two fields that are specific to `hugo-progression` are `levels` and `datafilepartial`.  The `levels` field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework `yml` data file.  This will also determine how many levels are created in the menu when the site is generated:
 
-![Hugo Progression Levels](/images/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-levels.png "Hugo Progression Levels")
+![Hugo Progression Levels](/img/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-levels.png "Hugo Progression Levels")
 
 The `datafilepartial` field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step
 

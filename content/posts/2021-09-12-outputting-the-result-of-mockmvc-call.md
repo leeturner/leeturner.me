@@ -4,9 +4,6 @@ date: 2021-09-12T10:20:08Z
 description: How to output the result of a mockmvc call to help with debugging
 slug: outputting-result-of-mockmvc
 toc: true
-featured: board-2450236_640.jpg
-featuredalt: Outputting the result of a mockMvc call
-featuredpath: /images/blog/common
 type: post
 author: Lee Turner
 tags:
@@ -30,7 +27,7 @@ void getStatementsThrowABadRequestWhenCookiesNotPresent() throws Exception {
    mockMvc.perform(get("/statements")  
 	 .headers(getHeaders())  
 	 .cookie(getCookies())  
-	 .contentType(MediaType.APPLICATION_JSON));
+	 .contentType(MediaType.APPLICATION_JSON))
 	 .andExpect(status().isBadRequest())  
 	 .andExpect(jsonPath("$.status", is(400)))  
 	 .andExpect(jsonPath("$.type", is("BAD_REQUEST")))  
