@@ -4,9 +4,6 @@ date: 2018-02-12T22:09:08Z
 description: Listen to your code and evolve your design using TDD and auto running tests.
 slug: continuous-feedback-with-tdd
 toc: true
-featured: board-2450236_640.jpg
-featuredalt: Continuous Feedback With TDD & Auto Running Tests
-featuredpath: /images/blog/common
 type: post
 author: Lee Turner 
 tags:
@@ -34,7 +31,7 @@ I went home that evening and dug a little deeper.  I eventually came across a fe
 
 Toggle auto-test basically runs your test suite for you when it recognised a change in your code.  This is exactly what we were looking for and it was there in IntelliJ all this time.  Toggle auto-test is one of those little buttons tucked away down the side of the 'Run' or 'Debug' panels - click this and magical things start to happen :)
 
-![Toggle Auto-Test In IntelliJ](/images/blog/2018-02-12-continuous-feedback-with-tdd/toggle-auto-test-intellij.png)
+![Toggle Auto-Test In IntelliJ](/img/blog/2018-02-12-continuous-feedback-with-tdd/toggle-auto-test-intellij.png)
 
 ## Setting Up Toggle Auto-Test
 
@@ -53,5 +50,3 @@ All in all this has been a positive change to my development cycle and I will be
 I think one of the reasons I might not have spotted this button before is because unfortunately it isn't accessible via keyboard only shortcuts.  I don't use the mouse much while developing as it slows me down but the toggle auto-test feature isn't accessible via a keyboard shortcut or and Action command.
 
 Hopefully they will add this in a future release.  I have logged an [feature improvement](https://youtrack.jetbrains.com/issue/IDEA-186112) in the IntelliJ tracker so who knows.
-
-Image by [Gerd Altmann](https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2450236) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2450236)

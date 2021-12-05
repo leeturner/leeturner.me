@@ -5,9 +5,6 @@ description: This post shows how I implemented a minimal test && commit || rever
 slug: tooling-up-tcr-intellij
 toc: true
 type: post
-featured: tools-1209764_640.jpg
-featuredalt: Tooling Up - Implementing test && commit || revert (TCR) In IntelliJ
-featuredpath: /images/blog/2019-01-17-tooling-up-tcr-intellij
 author: Lee Turner 
 tags:
 - tooling
@@ -77,13 +74,13 @@ OK, good start, I now have a command line TCR implementation working with maven.
 
 My first try at this was to setup an *external tool* within IntelliJ.  This wasn't as easy as it sounds due to IntelliJ only accepting one command along with parameters.  There was also no way to chain multiple external tools together.  After a little bit of Googling I found an IntelliJ support article that talked about calling bash directly and passing the commands you want to call as a parameter.  The external tool edit window looks like this:
 
-![IntelliJ External Tool Edit Screen](/images/blog/2019-01-17-tooling-up-tcr-intellij/intellij-external-tool-edit.png)
+![IntelliJ External Tool Edit Screen](/img/blog/2019-01-17-tooling-up-tcr-intellij/intellij-external-tool-edit.png)
 
 This worked pretty well, as you can see from the screen shot you can even set it to synchronise the files after execution of the tool so IntelliJ picks up any reverts that might have happened.
 
 That in and of itself would probably be enough for a minimal TCR implementation inside IntelliJ.  However, there are other options along the same theme which might work better for you depending on how you prefer to code.  There is a plugin written by Jet Brains called [File Watchers](https://www.jetbrains.com/help/idea/using-file-watchers.html) that allows you to automatically run a command when you change or save a file. This is how I ultimately had this setup:
 
-![IntelliJ File Watcher Edit Screen](/images/blog/2019-01-17-tooling-up-tcr-intellij/intellij-file-watcher-edit.png)
+![IntelliJ File Watcher Edit Screen](/img/blog/2019-01-17-tooling-up-tcr-intellij/intellij-file-watcher-edit.png)
 
 You will notice that I un-ticked the option *Auto-save edited files to trigger the watcher*.  I turned that off so the File Watcher starts upon save (File | Save All) or when you move the focus from IntelliJ IDEA (on frame deactivation).  The main reason being that I didn't want the File Watcher to kick in when I was part way through a change and IntelliJ decided to auto-save the file.
 
@@ -94,5 +91,3 @@ All of the above works really well but it obviously has some downsides.  I am ef
 My ultimate solution would be to have this type of functionality integrated with the Run/Debug test runner inside IntelliJ.  I could then use my standard keyboard shortcuts to run individual test methods, a whole test class or a whole test suite and it would trigger the test && commit || revert workflow based on the results in a much more integrated way.  I imagine this would require a plugin to make this happen.
 
 I'll be continuing to play with TCR to see how far I can stretch it and whether is it applicable to all types of projects.  That is the topic for another article though.
-
-Image by [Free-Photos](https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1209764) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1209764)

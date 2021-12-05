@@ -1,3 +1,29 @@
+body {
+    line-height: 1.7 !important;
+}
+a {
+    color: #1da1f2 !important;
+}
+
+.main-menu ul {
+    list-style: none;
+    display: inline;
+}
+
+.main-menu ul li {
+    display: inline;
+    padding: 10px;
+}
+
+.menu-item {
+    color: #1da1f2 !important;
+}
+
+.container {
+    max-width: 1140px;
+}
+
 .avatar {
     float: right;
+    padding: 20px;
 }

@@ -4,9 +4,6 @@ date: 2020-04-12T18:09:08Z
 description: How many times do you need to use the name of the branch you are currently working on?  Up until now I didn't know an easy way to copy the name into the clipboard
 slug: copying-the-branch-name-in-intellij
 toc: false
-featured: ij-branch.png
-featuredalt: Copying A Branch Name In Intellij
-featuredpath: /images/blog/2020-04-12-copying-the-branch-name-in-intellij
 type: post
 author: Lee Turner 
 tags:
@@ -25,4 +22,4 @@ I instantly tried it out, and it worked perfectly.  I wish I had known this over
 
 Here is how it works:
 
-![Copying The Branch Name In IntelliJ](/images/blog/2020-04-12-copying-the-branch-name-in-intellij/copy-branch-name.gif)
+![Copying The Branch Name In IntelliJ](/img/blog/2020-04-12-copying-the-branch-name-in-intellij/copy-branch-name.gif)

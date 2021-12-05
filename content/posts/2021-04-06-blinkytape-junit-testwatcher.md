@@ -3,10 +3,6 @@ title: BlinkyTape JUnit Testwatcher API Implementation
 date: 2021-04-06T10:20:08Z
 description: This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip.
 slug: blinkytape-junit-testwatcher
-toc: true
-featured: junit-blinkytape.png
-featuredalt: BlinkyTape JUnit Testwatcher API Implementation
-featuredpath: /images/blog/2021-04-06-blinkytape-junit-testwatcher
 type: post
 author: Lee Turner
 tags:

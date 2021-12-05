@@ -1,233 +1,101 @@
 baseURL = "/"
 languageCode = "en-us"
+builddrafts = false
+canonifyurls = false
 title = "Lee Turner"
-theme = "hugo-future-imperfect"
-paginate = 6
+author = "Lee Turner"
+theme = "hugo-goa"
 googleAnalytics = "UA-115883229-1"
 enableRobotsTXT = true
 disqusShortname = "leeturner-me"
-enableGitInfo = true
-copyright = "2021 Lee Turner"
 
 [markup.goldmark.renderer]
 unsafe = true
 
-[permalinks]
-post = "/blog/:title/"
-
+#[permalinks]
+#post = "/blog/:title/"
+#
 [params]
-# Sets the meta tag description
-description          = "Welcome to the lab - the place I write about my code experiments"
-# Sets the navbarTitle that appears in the top left of the navigation bar
-navbarTitle          = "Lee Turner"
-# Sets where "View More Posts" links
-viewMorePostLink     = "/posts/"
+author = "Lee Turner"
+intro = "This is the personal site of Lee Turner"
+authorimage = "avatar.jpg"
+dateformat = "Jan 2, 2006"
+description = "Lead Backend Developer at [Crunch](https://medium.com/@crunchtech), [Snyk Ambassador](https://snyk.io/snyk-ambassadors/), Hacker of code. Appsec enthusiast. Runs [Brighton Kotlin](https://brightonkotlin.com) & Brighton JUG"
+toc = false
 
-# Optional Params
-# Sets navbarTitle to match the section of the website
-dynamicTitles        = false
-# Sets RSS icons to appear on the sidebar with the social media buttons
-rssAppearAtTop       = true
-rssAppearAtBottom    = true
-# Sets Social Media icons to appear on the sidebar
-socialAppearAtTop    = true
-socialAppearAtBottom = true
-# Sets Categories to sort by number of posts instead of alphabetical
-categoriesByCount    = true
-# set to show or to hide categories in the sidebar
-showSidebarCategories = false
-# Sets Estimated Reading Time to appear in post headers
-includeReadingTime   = true
-# Sets the Favicon and Version for the site. Default support is for
-# apple-touch-icon-precomposed.png, favicon.png, favicon.ico, and mstile.png.
-# These are stored in the favicon folder. See the following for more information:
-# https://github.com/audreyr/favicon-cheat-sheet
-loadFavicon          = true
-faviconVersion       = ""
-# Sets Social Share links to appear on posts
-socialShare          = true
-# Sets specific share to appear on posts (default behavior is to appear)
-socialShareTwitter   = false
-socialShareGoogleplus = false
-socialShareFacebook  = false
-socialShareReddit    = false
-socialShareLinkedin  = false
-socialShareStumbleupon = false
-socialSharePinterest = false
-socialShareEmail     = false
+## Site Meta Settings
+[params.meta]
+description = "Lead Backend Developer at Crunch, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin & Brighton JUG"
 
-# Load custom CSS or JavaScript files. The variable is an array so that you
-# can load multiple files if necessary. You can also load the standard theme
-# files by adding the value, "default".
-# customCSS            = ["default", "/path/to/file"]
-# customJS             = ["default", "/path/to/file"]
-customCSS            = ["default", "/css/custom.css"]
-customJS             = ["default", "https://buttons.github.io/buttons.js", "https://platform.twitter.com/widgets.js"]
+## Social Accounts
+[params.social]
+github = "leeturner"
+instagram = "lturner"
+#xing = "<username>"
+linkedin = "turnerlee"
+twitter = "leeturner"
+#facebook = "<username>"
+#google = "<username>"
+#googlescholar = "<account_id>"
+#stackoverflow = "<username>"
+#lastfm = "<username>"
+#goodreads = "<username>"
+#gitlab = "<username>"
+#bitbucket = "<username>"
+#fivehundredpx = "<username>"
+#flickr = "<username>"
+#foursquare = "<username>"
+#hackernews = "<username>"
+#kickstarter = "<username>"
+#patreon = "<username>"
+#pintrest = "<username>"
+#steam = "<username>"
+#reddit = "<username>"
+#snapchat = "<username>"
+youtube = "/UCpdN6W_x0jIJmJlBP9icORw"
 
-# options for highlight.js (version, additional languages, and theme)
-disable_highlight = false # set to true to disable Highlight
-highlightjsVersion = "9.11.0"
-highlightjsCDN = "//cdn.bootcss.com"
-highlightjsLang = ["r", "yaml", "css"]
-highlightjsTheme = "github"
-MathJaxCDN = "//cdn.bootcss.com"
-MathJaxVersion = "2.7.1"
-
-# Disqus will take priority over Staticman (github.com/eduardoboucas/staticman)
-# due to its ease of use. Feel free to check out both and decide what you would
-# prefer to use. See Staticman.yml for additional settings.
-[params.staticman]
-# Sets Statiman to be active
-staticman = false
-# Sets the location for Staticman to connect to
-username  = ""
-repo      = ""
-branch    = ""
-
-[params.staticman.recaptcha]
-sitekey = "SITE_KEY"
-secret  = "ENCRYPTED_SECRET"
-
-# These are optional params related to the sidebar. They are recommended, but not
-# required for proper functionality. HTML is supported within the params.
-[params.intro]
-header    = "Lee Turner"
-paragraph = "Welcome to the lab - the place I write about my code experiments"
-about     = "This is the personal site of Lee Turner"
-
-# This appears at the top of the sidebar above params.intro.header.
-# A width of less than 100px is recommended from a design perspective.
-[params.intro.pic]
-src       = "/images/avatar.jpg"
-# Sets Image to be a cirlce
-circle    = false
-# Sets Image to be Future Imperfect's hexagon
-imperfect = true
-width     = ""
-alt       = "Lee Turner"
-
-[params.postAmount]
-# Sets the number of recent posts to show in the sidebar. The default value is 5.
-sidebar = 5
+## Extras
+[params.extra]
+copyright = "© 2021. Lee Turner | [Privacy Policy](/privacy)"
+poweredby = true
+highlightjs = true
+socialmarkup = true
+displayrssicon = false
 
 # Sets the menu items in the navigation bar
 # Identifier prepends a Font Awesome icon to the menu item
 [[menu.main]]
 name = "Home"
 url = "/"
-identifier = "fa fa-home"
+identifier = "home"
 weight = 1
 
 [[menu.main]]
 name = "About"
 url = "/about/"
-identifier = "fa fa-id-card-o"
+identifier = "about"
 weight = 2
+
+[[menu.main]]
+name = "Resume"
+url = "https://leeturner.tech"
+identifier = "resume"
+weight = 3
 
 [[menu.main]]
 name = "Posts"
 url = "/posts/"
-identifier = "fa fa-rss-square"
-weight = 3
+identifier = "posts"
+weight = 4
 
 [[menu.main]]
 name = "Projects"
 url = "/projects/"
-identifier = "fa fa-newspaper-o"
-weight = 4
+identifier = "projects"
+weight = 5
 
 [[menu.main]]
 name = "Brighton Kotlin"
 url = "/brighton-kotlin"
-identifier = "fa fa-meetup"
-weight = 5
-
-# Sets Social Media icons to appear and link to your account. Value should be your
-# username unless otherwise noted. These are the icons affected by socialAppearAtTop
-# and socialAppearAtBottom.
-[social]
-meetup          = "Brighton-Kotlin"
-# Coding Communities
-github           = "leeturner"
-gitlab           = ""
-stackoverflow    = "" # User Number
-bitbucket        = ""
-jsfiddle         = ""
-codepen          = ""
-# Visual Art Communities
-deviantart       = ""
-flickr           = ""
-behance          = ""
-dribbble         = ""
-# Publishing Communities
-wordpress        = ""
-medium           = ""
-# Professional/Business Oriented Communities
-linkedin         = "turnerlee"
-linkedin_company = ""
-foursquare       = ""
-xing             = ""
-slideshare       = ""
-# Social Networks
-facebook         = ""
-googleplus       = ""
-reddit           = ""
-quora            = ""
-youtube          = "/channel/UCpdN6W_x0jIJmJlBP9icORw"
-vimeo            = ""
-whatsapp         = "" # WhatsApp Number
-# WeChat and QQ need testing.
-wechat         = ""
-qq             = "" # User ID Number
-instagram        = "lturner"
-tumblr           = ""
-twitter          = "leeturner"
-skype            = ""
-snapchat         = ""
-pinterest        = ""
-telegram         = ""
-vine             = ""
-googlescholar    = ""
-orcid            = ""
-researchgate     = ""
-# Email
-email            = ""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#[taxonomies]
-#tag = "tags"
-#
-#[sitemap]
-#changefreq = "monthly"
-#priority = 0.5
-#filename = "sitemap.xml"
-
-#[params]
-#favicon = "favicon.ico"
-#description = "Welcome to the lab - the place I write about my code experiments"
-#twitter = "https://twitter.com/leeturner"
-#github = "https://github.com/leeturner"
-#linkedin = "https://linkedin.com/in/turnerlee"
-
-# choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
-#background_color_class = "bg-black"
-#featured_image = "/images/default-hero.jpg"
-#custom_css = ["css/custom.css"]
-#recent_posts_number = 5
+identifier = "brighton-kotlin"
+weight = 6

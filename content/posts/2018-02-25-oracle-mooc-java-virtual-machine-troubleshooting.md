@@ -4,9 +4,6 @@ date: 2018-02-25T22:09:08Z
 description: ts been a while since I have completed one of the Oracle MOOC (Massive Open Online Courses).  This one on troubleshooting the JVM and OutOfMemoryErrors was particularly good.
 slug: oracle-mooc-java-virtual-machine-troubleshooting
 author: Lee Turner
-featured: oracle.png
-featuredalt: Oracle MOOC - Java Virtual Machine Troubleshooting (2018)
-featuredpath: /images/blog/2018-02-25-oracle-mooc-java-virtual-machine-troubleshooting
 type: post
 tags:
 - java
@@ -17,7 +14,7 @@ aliases:
 ---
 Its been a while since I have completed one of the Oracle MOOC (Massive Open Online Courses).  This one on troubleshooting the JVM and OutOfMemoryErrors was particularly good.
 
-![JVM Troubleshooting Orcale MOOC](/images/blog/2018-02-25-oracle-mooc-java-virtual-machine-troubleshooting/completion-award-for-oracle-mooc-java-virtual-machine-troubleshooting-2018.png)
+![JVM Troubleshooting Orcale MOOC](/img/blog/2018-02-25-oracle-mooc-java-virtual-machine-troubleshooting/completion-award-for-oracle-mooc-java-virtual-machine-troubleshooting-2018.png)
 
 This Oracle MOOC was run by Poonam Parhar, currently a JVM Sustaining Engineer at Oracle where her primary responsibility is to resolve customer escalated problems against JRockit and HotSpot JVMs
 
