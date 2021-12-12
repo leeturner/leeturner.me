@@ -16,7 +16,7 @@ unsafe = true
 #post = "/blog/:title/"
 #
 [params]
-author = "Lee Turner"
+author = "Hi, I'm Lee Turner 👋"
 intro = "This is the personal site of Lee Turner"
 authorimage = "avatar.jpg"
 dateformat = "Jan 2, 2006"

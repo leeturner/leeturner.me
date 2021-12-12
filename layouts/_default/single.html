@@ -1,5 +1,7 @@
 {{ partial "header.html" . }}
 
+{{ partial "main_menu.html" . }}
+
 {{ partial "content.html" . }}
 
 {{ if ne .Params.showcomments false }}
@@ -7,8 +9,6 @@
 {{ template "_internal/disqus.html" . }}
 
 {{ end }}
-
-{{ partial "main_menu.html" . }}
 
 {{ partial "footer.html" . }}
 
