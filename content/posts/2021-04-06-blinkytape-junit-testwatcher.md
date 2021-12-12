@@ -94,6 +94,6 @@ The `afterAll` method performs 3 checks:
 
 All in all it seemed to work out pretty well.  I uploaded the repo to github if you wanted to play around with this yourself - https://github.com/leeturner/BlinkyTapeTestWatcher
 
-I uploaded a short video of this in action:
+I uploaded a short video of this in action to twitter:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xzw-NS8ua_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Had a play with the <a href="https://twitter.com/junitteam?ref_src=twsrc%5Etfw">@junitteam</a> TestWatcher API today. Hooked it up to my Blinky Tape LED strip for a visual representation of my test status. Green for all tests passing, red for any failures and orange for all passing but some tests disabled. <a href="https://t.co/PezJ0PGb1V">pic.twitter.com/PezJ0PGb1V</a></p>&mdash; Lee Turner (@leeturner) <a href="https://twitter.com/leeturner/status/1371143550348505093?ref_src=twsrc%5Etfw">March 14, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
