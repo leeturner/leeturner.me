@@ -27,3 +27,11 @@ a {
     float: right;
     padding: 20px;
 }
+
+.author {
+    padding-top: 20px;
+}
+
+.footer {
+    padding-top: 40px
+}
