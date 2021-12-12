@@ -5,6 +5,11 @@ a {
     color: #1da1f2 !important;
 }
 
+#social-pane a {
+    padding: 10px;
+    font-size: 2em;
+}
+
 .main-menu ul {
     list-style: none;
     display: inline;
