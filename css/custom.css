@@ -5,6 +5,11 @@ a {
     color: #1da1f2 !important;
 }
 
+#social-pane a {
+    padding: 10px;
+    font-size: 2em;
+}
+
 .main-menu ul {
     list-style: none;
     display: inline;
@@ -26,4 +31,12 @@ a {
 .avatar {
     float: right;
     padding: 20px;
+}
+
+.author {
+    padding-top: 20px;
+}
+
+.footer {
+    padding-top: 40px
 }
