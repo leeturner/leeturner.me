@@ -1,8 +1,8 @@
 ---
 title: Overriding a Parent Dependency in Maven
 date: 2022-01-08T10:20:08Z
-description: How to override a parent dependency in maven
-slug: overriding-a-dependency-in-maven.md
+description: How to override a parent dependency in maven and use Snyk to validate
+slug: overriding-a-dependency-in-maven
 toc: true
 type: post
 author: Lee Turner
@@ -13,6 +13,8 @@ tags:
 - spring boot
 - dependency 
 - snyk
+aliases:
+- /posts/overriding-a-dependency-in-maven.md/
 ---
 
 This weekend I am spending some time taking a look at my [Snyk Dashboard](https://snyk.io) and upgrading a few dependencies in old projects
