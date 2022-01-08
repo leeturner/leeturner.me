@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>maven on Lee Turner</title>
+    <link>/tags/maven/</link>
+    <description>Recent content in maven on Lee Turner</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Jan 2022 10:20:08 +0000</lastBuildDate><atom:link href="/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overriding a Parent Dependency in Maven</title>
+      <link>/posts/overriding-a-dependency-in-maven.md/</link>
+      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
+      
+      <guid>/posts/overriding-a-dependency-in-maven.md/</guid>
+      <description>This weekend I am spending some time taking a look at my Snyk Dashboard and upgrading a few dependencies in old projects
+The main thing I wanted to take a look at was the recent RCE (Remote Code Execution) vulnerability that was disclosed in the h2 database. This is a similar JNDI exploit to the one that impacted Log4j in December last year (called Log4Shell). You can read more about Log4Shell on the Snyk resources page and find details of the recent h2 RCE on the Snyk Vulnerability Database</description>
+    </item>
+    
+  </channel>
+</rss>

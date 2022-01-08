@@ -6,7 +6,61 @@
     <description>Recent content in Tags on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Sep 2021 10:20:08 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Jan 2022 10:20:08 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dependency</title>
+      <link>/tags/dependency/</link>
+      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/dependency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maven</title>
+      <link>/tags/maven/</link>
+      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mvn</title>
+      <link>/tags/mvn/</link>
+      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/mvn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>snyk</title>
+      <link>/tags/snyk/</link>
+      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/snyk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring</title>
+      <link>/tags/spring/</link>
+      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring boot</title>
+      <link>/tags/spring-boot/</link>
+      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/spring-boot/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>junit</title>
       <link>/tags/junit/</link>
@@ -31,24 +85,6 @@
       <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
       
       <guid>/tags/reference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spring</title>
-      <link>/tags/spring/</link>
-      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
-      
-      <guid>/tags/spring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spring boot</title>
-      <link>/tags/spring-boot/</link>
-      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
-      
-      <guid>/tags/spring-boot/</guid>
       <description></description>
     </item>
     

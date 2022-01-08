@@ -2,10 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/junit/</loc>
-    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
+    <loc>/tags/dependency/</loc>
+    <lastmod>2022-01-08T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/</loc>
+    <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+  </url><url>
+    <loc>/tags/maven/</loc>
+    <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+  </url><url>
+    <loc>/tags/mvn/</loc>
+    <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+  </url><url>
+    <loc>/posts/overriding-a-dependency-in-maven.md/</loc>
+    <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+  </url><url>
+    <loc>/tags/snyk/</loc>
+    <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+  </url><url>
+    <loc>/tags/spring/</loc>
+    <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+  </url><url>
+    <loc>/tags/spring-boot/</loc>
+    <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+  </url><url>
+    <loc>/tags/junit/</loc>
     <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/mockmvc/</loc>
@@ -14,19 +41,7 @@
     <loc>/posts/outputting-result-of-mockmvc/</loc>
     <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
-  </url><url>
     <loc>/tags/reference/</loc>
-    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
-  </url><url>
-    <loc>/tags/spring/</loc>
-    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
-  </url><url>
-    <loc>/tags/spring-boot/</loc>
-    <lastmod>2021-09-12T10:20:08+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2021-09-12T10:20:08+00:00</lastmod>
   </url><url>
     <loc>/tags/testing/</loc>
