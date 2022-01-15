@@ -93,9 +93,3 @@ name = "Projects"
 url = "/projects/"
 identifier = "projects"
 weight = 5
-
-[[menu.main]]
-name = "Brighton Kotlin"
-url = "/brighton-kotlin"
-identifier = "brighton-kotlin"
-weight = 6
