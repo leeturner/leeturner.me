@@ -20,7 +20,7 @@ author = "Hi, I'm Lee Turner 👋"
 intro = "This is the personal site of Lee Turner"
 authorimage = "avatar.jpg"
 dateformat = "Jan 2, 2006"
-description = "Lead Backend Developer at [Crunch](https://medium.com/@crunchtech), [Snyk Ambassador](https://snyk.io/snyk-ambassadors/), Hacker of code. Appsec enthusiast. Runs [Brighton Kotlin](https://brightonkotlin.com) & Brighton JUG"
+description = "Lead Backend Developer at [Crunch](https://medium.com/@crunchtech), [Snyk Ambassador](https://snyk.io/snyk-ambassadors/), Hacker of code. Appsec enthusiast. Runs [Brighton Kotlin](https://brightonkotlin.com) & [Brighton JUG](https://brightonjug.com)"
 toc = false
 
 ## Site Meta Settings
