@@ -6,7 +6,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta name="description" content="Lead Backend Developer at Crunch, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
+<meta name="description" content="Senior Software Engineer at Segovia/Crown Agents Bank,, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
 
 
 <title>
@@ -17,7 +17,7 @@
 <meta name="author" content="Lee Turner">
 
 
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
@@ -81,31 +81,31 @@
     <p>This post falls into the category of something I always forget and need to Google.</p>
 <p>When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging.  This can be done by adding <code>MockMvcResultsHandlers.print()</code> to the call chain like in the following example.</p>
 <p>This:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>  
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getStatementsThrowABadRequestWhenCookiesNotPresent</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>  
-   mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/statements&#34;</span><span style="color:#f92672">)</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">(</span>getHeaders<span style="color:#f92672">())</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">cookie</span><span style="color:#f92672">(</span>getCookies<span style="color:#f92672">())</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON</span><span style="color:#f92672">))</span>
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isBadRequest</span><span style="color:#f92672">())</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.status&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>400<span style="color:#f92672">)))</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.type&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;BAD_REQUEST&#34;</span><span style="color:#f92672">)))</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.errors.length()&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>0<span style="color:#f92672">)));</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>Becomes this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>  
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getStatementsThrowABadRequestWhenCookiesNotPresent</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>  
-   mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/statements&#34;</span><span style="color:#f92672">)</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">(</span>getHeaders<span style="color:#f92672">())</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">cookie</span><span style="color:#f92672">(</span>getCookies<span style="color:#f92672">())</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON</span><span style="color:#f92672">));</span>
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isBadRequest</span><span style="color:#f92672">())</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.status&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>400<span style="color:#f92672">)))</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.type&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;BAD_REQUEST&#34;</span><span style="color:#f92672">)))</span>  
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.errors.length()&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>0<span style="color:#f92672">)))</span>
-	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andDo</span><span style="color:#f92672">(</span>MockMvcResultHandlers<span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">());</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>Along with all the other output from the test, there will be the <code>json</code> response from the call to the endpoint.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Test</span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getStatementsThrowABadRequestWhenCookiesNotPresent</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>   mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/statements&#34;</span><span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">(</span>getHeaders<span style="color:#f92672">())</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">cookie</span><span style="color:#f92672">(</span>getCookies<span style="color:#f92672">())</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON</span><span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isBadRequest</span><span style="color:#f92672">())</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.status&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>400<span style="color:#f92672">)))</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.type&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;BAD_REQUEST&#34;</span><span style="color:#f92672">)))</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.errors.length()&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>0<span style="color:#f92672">)));</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Becomes this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Test</span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getStatementsThrowABadRequestWhenCookiesNotPresent</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>   mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/statements&#34;</span><span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">headers</span><span style="color:#f92672">(</span>getHeaders<span style="color:#f92672">())</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">cookie</span><span style="color:#f92672">(</span>getCookies<span style="color:#f92672">())</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isBadRequest</span><span style="color:#f92672">())</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.status&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>400<span style="color:#f92672">)))</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.type&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;BAD_REQUEST&#34;</span><span style="color:#f92672">)))</span>  
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.errors.length()&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>0<span style="color:#f92672">)))</span>
+</span></span><span style="display:flex;"><span>	 <span style="color:#f92672">.</span><span style="color:#a6e22e">andDo</span><span style="color:#f92672">(</span>MockMvcResultHandlers<span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Along with all the other output from the test, there will be the <code>json</code> response from the call to the endpoint.</p>
 
   </div>
 </section>
@@ -143,7 +143,7 @@
 
 <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -170,7 +170,7 @@
   
   <h6 class="text-center copyright">© 2021. Lee Turner | <a href="/privacy">Privacy Policy</a></h6>
   
-  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.92.0</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.101.0</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
   
       
   

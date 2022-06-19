@@ -6,7 +6,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta name="description" content="Lead Backend Developer at Crunch, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
+<meta name="description" content="Senior Software Engineer at Segovia/Crown Agents Bank,, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
 
 
 <title>
@@ -17,7 +17,7 @@
 <meta name="author" content="Lee Turner">
 
 
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
@@ -83,64 +83,64 @@
 <p>Stretched across the back of the desk in front of me is a <a href="https://shop.blinkinlabs.com/collections/frontpage/products/blinkytape-basic_"> BlinkyTape </a> attached to my usb hub.  Most of the time the BlinkyTape is just used for a bit of subtle lighting behind my monitor but while looking into the Junit TestWatcher API, it suddenly hit me&hellip;. maybe I could combine the two.</p>
 <p>I already had a <a href="https://github.com/leeturner/night-fever">bit of code</a> to interact directly with the BlinkyTape so all I needed to do was figure out how to tracks the success, failure or whether a test is disabled.  If I could do that I could then turn the BlinkyTape green, red or orange.</p>
 <p>I put together a simple Kotlin implementation of the TestWatcher API that adds a test result status to a list:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BlinkyTapeTestWatcher</span> : TestWatcher, AfterAllCallback {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> testResultsStatus = mutableListOf&lt;TestResultStatus&gt;()
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testDisabled</span>(context: ExtensionContext, reason: Optional&lt;String&gt;) {
-        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.DISABLED)
-    }
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testSuccessful</span>(context: ExtensionContext) {
-        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.SUCCESS)
-    }
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testAborted</span>(context: ExtensionContext, cause: Throwable?) {
-        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.ABORTED)
-    }
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testFailed</span>(context: ExtensionContext, cause: Throwable?) {
-        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.FAILED)
-    }
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">afterAll</span>(extensionContext: ExtensionContext) {
-        <span style="color:#75715e">// first lets check to see if we have any test failures so we can leave the blinky tape as red
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.FAILED }) {
-            <span style="color:#66d9ef">this</span>.renderFrame(RED_BLINKY_TAPE_FRAME)
-            <span style="color:#66d9ef">return</span>
-        }
-
-        <span style="color:#75715e">// if no test failures then we can take a look to see if there are any disabled tests.  If there are then
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// we can set the blinky tape to orange
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.DISABLED }) {
-            <span style="color:#66d9ef">this</span>.renderFrame(ORANGE_BLINKY_TAPE_FRAME)
-            <span style="color:#66d9ef">return</span>
-        }
-
-        <span style="color:#75715e">// if no failures or disabled tests then we can set the blinky tape to green
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.SUCCESS }) {
-            <span style="color:#66d9ef">this</span>.renderFrame(GREEN_BLINKY_TAPE_FRAME)
-            <span style="color:#66d9ef">return</span>
-        }
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">renderFrame</span>(frame: BlinkyTapeFrame) {
-        <span style="color:#66d9ef">val</span> controller = BlinkyTapeController()
-        controller.renderFrame(frame)
-        controller.close()
-    }
-
-    <span style="color:#66d9ef">companion</span> <span style="color:#66d9ef">object</span> {
-        <span style="color:#66d9ef">val</span> ORANGE_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.ORANGE)
-        <span style="color:#66d9ef">val</span> RED_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.RED)
-        <span style="color:#66d9ef">val</span> GREEN_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.GREEN)
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">enum</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestResultStatus</span> {
-        SUCCESS, ABORTED, FAILED, DISABLED
-    }
-}
-</code></pre></div><p>The <code>BlinkyTapeTestWatcher</code> class also implements the <code>AfterAllCallback</code> interface allows us to override a method called <code>afterAll</code> that is executed when all the tests have finished.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BlinkyTapeTestWatcher</span> : TestWatcher, AfterAllCallback {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> testResultsStatus = mutableListOf&lt;TestResultStatus&gt;()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testDisabled</span>(context: ExtensionContext, reason: Optional&lt;String&gt;) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.DISABLED)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testSuccessful</span>(context: ExtensionContext) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.SUCCESS)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testAborted</span>(context: ExtensionContext, cause: Throwable?) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.ABORTED)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testFailed</span>(context: ExtensionContext, cause: Throwable?) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.FAILED)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">afterAll</span>(extensionContext: ExtensionContext) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// first lets check to see if we have any test failures so we can leave the blinky tape as red
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.FAILED }) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.renderFrame(RED_BLINKY_TAPE_FRAME)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// if no test failures then we can take a look to see if there are any disabled tests.  If there are then
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// we can set the blinky tape to orange
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.DISABLED }) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.renderFrame(ORANGE_BLINKY_TAPE_FRAME)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// if no failures or disabled tests then we can set the blinky tape to green
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.SUCCESS }) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.renderFrame(GREEN_BLINKY_TAPE_FRAME)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">renderFrame</span>(frame: BlinkyTapeFrame) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> controller = BlinkyTapeController()
+</span></span><span style="display:flex;"><span>        controller.renderFrame(frame)
+</span></span><span style="display:flex;"><span>        controller.close()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">companion</span> <span style="color:#66d9ef">object</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> ORANGE_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.ORANGE)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> RED_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.RED)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> GREEN_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.GREEN)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">enum</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestResultStatus</span> {
+</span></span><span style="display:flex;"><span>        SUCCESS, ABORTED, FAILED, DISABLED
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>BlinkyTapeTestWatcher</code> class also implements the <code>AfterAllCallback</code> interface allows us to override a method called <code>afterAll</code> that is executed when all the tests have finished.</p>
 <p>The <code>afterAll</code> method performs 3 checks:</p>
 <ol>
 <li>If any of the tests have failed it renders the BlinkyTape as all red</li>
@@ -187,7 +187,7 @@
 
 <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -214,7 +214,7 @@
   
   <h6 class="text-center copyright">© 2021. Lee Turner | <a href="/privacy">Privacy Policy</a></h6>
   
-  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.92.0</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.101.0</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
   
       
   

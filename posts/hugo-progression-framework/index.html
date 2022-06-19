@@ -6,7 +6,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta name="description" content="Lead Backend Developer at Crunch, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
+<meta name="description" content="Senior Software Engineer at Segovia/Crown Agents Bank,, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
 
 
 <title>
@@ -17,7 +17,7 @@
 <meta name="author" content="Lee Turner">
 
 
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
@@ -116,43 +116,43 @@ git clone https://github.com/leeturner/hugo-progression.git
 +-----------+       +------------+       +------------+          +-------------+
 </code></pre><h4 id="21-create-your-framework-data-files">2.1) Create Your Framework Data Files</h4>
 <p>In this step we will create the <code>hugo</code> data file that contains the data for the different areas and levels for an individual framework.  These data files are <code>yml</code> and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">topics</span>:
-  - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;communication&#34;</span>
-    <span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;💬 Communication&#34;</span>
-    <span style="color:#f92672">content</span>:
-      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">1</span>
-        <span style="color:#f92672">criteria</span>:
-          - <span style="color:#e6db74">&#34;Provides regular status updates to their mentor/buddy&#34;</span>
-          - <span style="color:#e6db74">&#34;Points out syntactical improvements in code reviews&#34;</span>
-          - <span style="color:#e6db74">&#34;Writes PR descriptions that provide basic context for the change&#34;</span>
-          - <span style="color:#e6db74">&#34;Seeks guidance from other engineers, rather than answers&#34;</span>
-      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">2</span>
-        <span style="color:#f92672">criteria</span>:
-          - <span style="color:#e6db74">&#34;Proactively communicates to their team what they are working on, why, how it&#39;s going and what help they need&#34;</span>
-          - <span style="color:#e6db74">&#34;Accepts feedback graciously&#34;</span>
-          - <span style="color:#e6db74">&#34;Gives feedback to peers when asked&#34;</span>
-        <span style="color:#f92672">exampleCriteria</span>:
-          - <span style="color:#f92672">criteria</span>: <span style="color:#e6db74">&#34;Provides helpful and actionable feedback in code reviews in an empathetic manner&#34;</span>
-            <span style="color:#f92672">examples</span>:
-              - <span style="color:#e6db74">&#34;Take a look at the levelling up your code reviews talk for some ideas&#34;</span>
-          - <span style="color:#f92672">criteria</span>: <span style="color:#e6db74">&#34;Writes PR descriptions that provide context and provide rationale for significant decisions&#34;</span>
-            <span style="color:#f92672">examples</span>:
-              - <span style="color:#e6db74">&#34;I decided to X instead of Y here, I also considered Z but for these reasons I went with X&#34;</span>
-  - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;impact&#34;</span>
-    <span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;💥 Impact&#34;</span>
-    <span style="color:#f92672">content</span>:
-      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">1</span>
-        <span style="color:#f92672">criteria</span>:
-          - <span style="color:#e6db74">&#34;Delivers assigned tasks, working with a more senior team member, and able to take PR feedback to improve their work&#34;</span>
-      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">2</span>
-        <span style="color:#f92672">criteria</span>:
-          - <span style="color:#e6db74">&#34;Delivers assigned tasks that meet expected criteria&#34;</span>
-          - <span style="color:#e6db74">&#34;Works for the team, focuses on tasks that contribute to team goals&#34;</span>
-          - <span style="color:#e6db74">&#34;Tries to unblock themselves first before seeking help&#34;</span>
-          - <span style="color:#e6db74">&#34;Manages their own time effectively, prioritises their workload well, on time for meetings, aware when blocking others and unblocks&#34;</span>
-          - <span style="color:#e6db74">&#34;Helps the team, does what needs doing&#34;</span>
-          - <span style="color:#e6db74">&#34;Breaks down small/medium problems into iterative steps&#34;</span>
-</code></pre></div><p>These framework data files need to be placed in the <code>data</code> folder for your <code>hugo</code> site.  They can be structured into sub-folders if you wish:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">topics</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;communication&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;💬 Communication&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">content</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">criteria</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Provides regular status updates to their mentor/buddy&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Points out syntactical improvements in code reviews&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Writes PR descriptions that provide basic context for the change&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Seeks guidance from other engineers, rather than answers&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">criteria</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Proactively communicates to their team what they are working on, why, how it&#39;s going and what help they need&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Accepts feedback graciously&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Gives feedback to peers when asked&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">exampleCriteria</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">criteria</span>: <span style="color:#e6db74">&#34;Provides helpful and actionable feedback in code reviews in an empathetic manner&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">examples</span>:
+</span></span><span style="display:flex;"><span>              - <span style="color:#e6db74">&#34;Take a look at the levelling up your code reviews talk for some ideas&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">criteria</span>: <span style="color:#e6db74">&#34;Writes PR descriptions that provide context and provide rationale for significant decisions&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">examples</span>:
+</span></span><span style="display:flex;"><span>              - <span style="color:#e6db74">&#34;I decided to X instead of Y here, I also considered Z but for these reasons I went with X&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;impact&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;💥 Impact&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">content</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">criteria</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Delivers assigned tasks, working with a more senior team member, and able to take PR feedback to improve their work&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">level</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">criteria</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Delivers assigned tasks that meet expected criteria&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Works for the team, focuses on tasks that contribute to team goals&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Tries to unblock themselves first before seeking help&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Manages their own time effectively, prioritises their workload well, on time for meetings, aware when blocking others and unblocks&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Helps the team, does what needs doing&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;Breaks down small/medium problems into iterative steps&#34;</span>
+</span></span></code></pre></div><p>These framework data files need to be placed in the <code>data</code> folder for your <code>hugo</code> site.  They can be structured into sub-folders if you wish:</p>
 <pre tabindex="0"><code>data
   frameworks
     engineering
@@ -171,17 +171,17 @@ git clone https://github.com/leeturner/hugo-progression.git
 </code></pre><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/data/frameworks">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
 <h4 id="22-create-the-markdown-page-with-front-matter--content-for-the-framework-homepage">2.2) Create The Markdown Page With Front Matter &amp; Content For The Framework Homepage</h4>
 <p>For any of the frameworks to appear in your <code>hugo</code> site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any <code>hugo</code> site, these markdown files live in the <code>content</code> folder.  The front matter can contain all the usual <code>hugo</code> fields along with a couple of special fields specific to <code>hugo-progression</code>.  See the example below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
-title: 🛠️ Backend Engineering Framework
-linktitle: 🛠️ Backend
-description: Backend engineering progression framework
-menu:
-  main:
-    parent: engineering
-levels: 6
-datafilepartial: engineering/backend-partial.html
----
-</code></pre></div><p>The two fields that are specific to <code>hugo-progression</code> are <code>levels</code> and <code>datafilepartial</code>.  The <code>levels</code> field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework <code>yml</code> data file.  This will also determine how many levels are created in the menu when the site is generated:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: 🛠️ Backend Engineering Framework
+</span></span><span style="display:flex;"><span>linktitle: 🛠️ Backend
+</span></span><span style="display:flex;"><span>description: Backend engineering progression framework
+</span></span><span style="display:flex;"><span>menu:
+</span></span><span style="display:flex;"><span>  main:
+</span></span><span style="display:flex;"><span>    parent: engineering
+</span></span><span style="display:flex;"><span>levels: 6
+</span></span><span style="display:flex;"><span>datafilepartial: engineering/backend-partial.html
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>The two fields that are specific to <code>hugo-progression</code> are <code>levels</code> and <code>datafilepartial</code>.  The <code>levels</code> field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework <code>yml</code> data file.  This will also determine how many levels are created in the menu when the site is generated:</p>
 <p><img src="/img/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-levels.png" alt="Hugo Progression Levels" title="Hugo Progression Levels"></p>
 <p>The <code>datafilepartial</code> field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step</p>
 <p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/content">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
@@ -190,7 +190,7 @@ datafilepartial: engineering/backend-partial.html
 <p>I have tried to take out all the common elements make sure the html partial files are as small as possible, and the below example is as small as I could get it.</p>
 <pre tabindex="0"><code class="language-gotemplate" data-lang="gotemplate">{{ $this_parent_index := .parent_index}}
 {{ range .site_data.frameworks.engineering.backend.topics }}
-{{ partial &quot;topic-by-level.html&quot; (dict &quot;context&quot; . &quot;parent_index&quot; $this_parent_index) }}
+{{ partial &#34;topic-by-level.html&#34; (dict &#34;context&#34; . &#34;parent_index&#34; $this_parent_index) }}
 {{ end }}
 </code></pre><p>As you can see, the one line that is specific to the data file is the <code>range</code> line:</p>
 <pre tabindex="0"><code class="language-gotemplate" data-lang="gotemplate">{{ range .site_data.frameworks.engineering.backend.topics }}
@@ -211,10 +211,10 @@ datafilepartial: engineering/backend-partial.html
     people-partial.html
     product-partial.html
 </code></pre><p>Once you have created your html partial file that references the framework data file, make sure you are correctly referencing the html partial in your markdown file as in the example above:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
-datafilepartial: engineering/backend-partial.html
----
-</code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>datafilepartial: engineering/backend-partial.html
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
 <h3 id="3-nearly-finished">3) Nearly finished</h3>
 <p>In order to see your site in action, run Hugo&rsquo;s built-in local server.</p>
 <p><code>$ hugo server</code></p>
@@ -259,7 +259,7 @@ hugo
 
 <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -286,7 +286,7 @@ hugo
   
   <h6 class="text-center copyright">© 2021. Lee Turner | <a href="/privacy">Privacy Policy</a></h6>
   
-  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.92.0</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.101.0</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
   
       
   

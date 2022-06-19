@@ -6,7 +6,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta name="description" content="Lead Backend Developer at Crunch, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
+<meta name="description" content="Senior Software Engineer at Segovia/Crown Agents Bank,, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
 
 
 <title>
@@ -17,7 +17,7 @@
 <meta name="author" content="Lee Turner">
 
 
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
@@ -88,34 +88,34 @@
 <p>On the flip side I didn&rsquo;t want to invest too much time in tooling up while I was still only playing with the workflow.  I effectively wanted as little as I could get away with so I could get up and running.  I then found another video by Kent Beck where he walks you through his <a href="https://www.youtube.com/watch?v=IIKndRX5qHw">minimal TCR setup in VS Code</a>.  That video ultimately gave me all I needed to set this up in IntelliJ.</p>
 <h2 id="my-minimal-tcr-implementation-in-intellij">My minimal TCR implementation in IntelliJ</h2>
 <p>The first step was to find a way to get feedback on the success or failure of a test run.  As I said above, most of my day to day coding is done using Java and maven.  I can easily run my test suite using mavan on the command line so this is where I started looking first.  Well, it turns out that the maven command line (mvn) returns different status codes based on the success or failure of your tests.  This means I can run <em>mvn test</em> on a project where the tests all pass and see the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Tests run: 42, Failures: 0, Errors: 0, Skipped: <span style="color:#ae81ff">0</span>
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> BUILD SUCCESS
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Total time: 2.509 s
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Finished at: 2019-01-17T21:54:57Z
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Final Memory: 11M/309M
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
-&gt;  night-fever git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> echo $?
-<span style="color:#ae81ff">0</span>
-</code></pre></div><p>And on a project where there are failing tests and see this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>ERROR<span style="color:#f92672">]</span> Tests run: 42, Failures: 1, Errors: 0, Skipped: <span style="color:#ae81ff">0</span>
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> BUILD FAILURE
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Total time: 3.085 s
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Finished at: 2019-01-17T22:03:32Z
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Final Memory: 11M/309M
-<span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
-<span style="color:#f92672">[</span>ERROR<span style="color:#f92672">]</span> Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test <span style="color:#f92672">(</span>default-test<span style="color:#f92672">)</span> on project nightfever: There are test failures.
-
-&gt;  night-fever git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> echo $?
-<span style="color:#ae81ff">1</span>
-</code></pre></div><p>This means I can now use that status code to chain together a command much like the one Kent Beck uses in his VS Code video:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn test <span style="color:#f92672">&amp;&amp;</span> git commit -am working <span style="color:#f92672">||</span> git reset --hard
-</code></pre></div><p>OK, good start, I now have a command line TCR implementation working with maven.  Next step, how do I execute this from within IntelliJ?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Tests run: 42, Failures: 0, Errors: 0, Skipped: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> BUILD SUCCESS
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Total time: 2.509 s
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Finished at: 2019-01-17T21:54:57Z
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Final Memory: 11M/309M
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt;  night-fever git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> echo $?
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>And on a project where there are failing tests and see this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>ERROR<span style="color:#f92672">]</span> Tests run: 42, Failures: 1, Errors: 0, Skipped: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> BUILD FAILURE
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Total time: 3.085 s
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Finished at: 2019-01-17T22:03:32Z
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Final Memory: 11M/309M
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ERROR<span style="color:#f92672">]</span> Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test <span style="color:#f92672">(</span>default-test<span style="color:#f92672">)</span> on project nightfever: There are test failures.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt;  night-fever git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> echo $?
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>This means I can now use that status code to chain together a command much like the one Kent Beck uses in his VS Code video:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn test <span style="color:#f92672">&amp;&amp;</span> git commit -am working <span style="color:#f92672">||</span> git reset --hard
+</span></span></code></pre></div><p>OK, good start, I now have a command line TCR implementation working with maven.  Next step, how do I execute this from within IntelliJ?</p>
 <p>My first try at this was to setup an <em>external tool</em> within IntelliJ.  This wasn&rsquo;t as easy as it sounds due to IntelliJ only accepting one command along with parameters.  There was also no way to chain multiple external tools together.  After a little bit of Googling I found an IntelliJ support article that talked about calling bash directly and passing the commands you want to call as a parameter.  The external tool edit window looks like this:</p>
 <p><img src="/img/blog/2019-01-17-tooling-up-tcr-intellij/intellij-external-tool-edit.png" alt="IntelliJ External Tool Edit Screen"></p>
 <p>This worked pretty well, as you can see from the screen shot you can even set it to synchronise the files after execution of the tool so IntelliJ picks up any reverts that might have happened.</p>
@@ -157,7 +157,7 @@
 
 <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -184,7 +184,7 @@
   
   <h6 class="text-center copyright">© 2021. Lee Turner | <a href="/privacy">Privacy Policy</a></h6>
   
-  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.92.0</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.101.0</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
   
       
   
