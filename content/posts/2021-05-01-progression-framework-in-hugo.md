@@ -37,7 +37,7 @@ Hugo Progression is a [Hugo](https://gohugo.io/) template that can render progre
 
 ![Hugo Progression Screenshot](/img/blog/2021-05-01-progression-framework-in-hugo/hugo-framework.gif "Hugo Progression Screenshot")
 
-A full demo of this template can be found at the [Hugo Progression Demo Site](https://hugo-progression.com/)
+A full demo of this template can be found at the [Hugo Progression Demo Site](https://leeturner.github.io/hugo-progression-demo/)
 
 ### 1) Installation
 
