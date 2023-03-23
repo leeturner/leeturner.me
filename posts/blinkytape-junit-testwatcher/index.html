@@ -17,7 +17,7 @@
 <meta name="author" content="Lee Turner">
 
 
-<meta name="generator" content="Hugo 0.101.0" />
+<meta name="generator" content="Hugo 0.111.3">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
@@ -88,37 +88,37 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> testResultsStatus = mutableListOf&lt;TestResultStatus&gt;()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testDisabled</span>(context: ExtensionContext, reason: Optional&lt;String&gt;) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.DISABLED)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(<span style="color:#a6e22e">TestResultStatus</span>.DISABLED)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testSuccessful</span>(context: ExtensionContext) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.SUCCESS)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(<span style="color:#a6e22e">TestResultStatus</span>.SUCCESS)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testAborted</span>(context: ExtensionContext, cause: Throwable?) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.ABORTED)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(<span style="color:#a6e22e">TestResultStatus</span>.ABORTED)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testFailed</span>(context: ExtensionContext, cause: Throwable?) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(TestResultStatus.FAILED)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.testResultsStatus.add(<span style="color:#a6e22e">TestResultStatus</span>.FAILED)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">afterAll</span>(extensionContext: ExtensionContext) {
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// first lets check to see if we have any test failures so we can leave the blinky tape as red
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.FAILED }) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">TestResultStatus</span>.FAILED }) {
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.renderFrame(RED_BLINKY_TAPE_FRAME)
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// if no test failures then we can take a look to see if there are any disabled tests.  If there are then
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// we can set the blinky tape to orange
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.DISABLED }) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">TestResultStatus</span>.DISABLED }) {
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.renderFrame(ORANGE_BLINKY_TAPE_FRAME)
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// if no failures or disabled tests then we can set the blinky tape to green
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> TestResultStatus.SUCCESS }) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.testResultsStatus.any { <span style="color:#66d9ef">it</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">TestResultStatus</span>.SUCCESS }) {
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.renderFrame(GREEN_BLINKY_TAPE_FRAME)
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
 </span></span><span style="display:flex;"><span>        }
@@ -131,9 +131,9 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">companion</span> <span style="color:#66d9ef">object</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> ORANGE_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.ORANGE)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> RED_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.RED)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> GREEN_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = Color.GREEN)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> ORANGE_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = <span style="color:#a6e22e">Color</span>.ORANGE)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> RED_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = <span style="color:#a6e22e">Color</span>.RED)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> GREEN_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = <span style="color:#a6e22e">Color</span>.GREEN)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">enum</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestResultStatus</span> {
@@ -214,7 +214,7 @@
   
   <h6 class="text-center copyright">© 2021. Lee Turner | <a href="/privacy">Privacy Policy</a></h6>
   
-  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.101.0</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo  v0.111.3</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
   
       
   
