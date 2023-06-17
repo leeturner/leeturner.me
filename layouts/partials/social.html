@@ -1,4 +1,7 @@
 <section id="social-pane" class="text-center social">
+  {{ with .Site.Params.social.mastodon }}
+  <a href="{{.}}" aria-label="Mastodon" target="_blank"><i class="fab fa-mastodon" aria-hidden="true"></i></a>
+  {{ end }}
   {{ with .Site.Params.social.twitter }}
   <a href="https://twitter.com/{{.}}" aria-label="Twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
   {{ end }}
@@ -78,7 +81,7 @@
   <a href="https://snapchat.com/add/{{.}}" aria-label="Snapchat" target="_blank"><i class="fab fa-snapchat" aria-hidden="true"></i></a>
   {{ end }}
   {{ with .Site.Params.social.youtube}}
-  <a href="https://youtube.com/channel/{{.}}" aria-label="Youtube" target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+  <a href="https://youtube.com/{{.}}" aria-label="Youtube" target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i></a>
   {{ end }}
   {{ with .Site.Params.social.keybase}}
   <a href="https://keybase.io/{{.}}" aria-label="Keybase" target="_blank"><i class="fab fa-keybase" aria-hidden="true"></i></a>
@@ -122,6 +125,7 @@
   "name": "{{ .Site.Params.author }}",
   "url": "{{ .Site.Params.baseURL }}",
   "sameAs": [
+    {{ with .Site.Params.social.mastodon }}"{{.}}",{{ end }}
     {{ with .Site.Params.social.twitter }}"https://twitter.com/{{.}}",{{ end }}
     {{ with .Site.Params.social.google }}"https://plus.google.com/{{.}}/about",{{ end }}
     {{ with .Site.Params.social.googlescholar}}"https://scholar.google.com/citations?user={{.}}"{{ end }}

@@ -30,10 +30,12 @@ description = "Senior Software Engineer at Segovia/Crown Agents Bank,, Snyk Amba
 ## Social Accounts
 [params.social]
 github = "leeturner"
-#instagram = "lturner"
-#xing = "<username>"
+mastodon = "https://hachyderm.io/@leeturner"
 linkedin = "turnerlee"
 twitter = "leeturner"
+youtube = "@leeturner"
+#instagram = "<username>"
+#xing = "<username>"
 #facebook = "<username>"
 #google = "<username>"
 #googlescholar = "<account_id>"
@@ -52,11 +54,10 @@ twitter = "leeturner"
 #steam = "<username>"
 #reddit = "<username>"
 #snapchat = "<username>"
-youtube = "/UCpdN6W_x0jIJmJlBP9icORw"
 
 ## Extras
 [params.extra]
-copyright = "© 2021. Lee Turner | [Privacy Policy](/privacy)"
+copyright = "©2023. Lee Turner | [Privacy Policy](/privacy)"
 poweredby = true
 highlightjs = true
 socialmarkup = true
