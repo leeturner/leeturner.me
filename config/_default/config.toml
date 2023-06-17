@@ -30,7 +30,7 @@ description = "Senior Software Engineer at Segovia/Crown Agents Bank,, Snyk Amba
 ## Social Accounts
 [params.social]
 github = "leeturner"
-instagram = "lturner"
+#instagram = "lturner"
 #xing = "<username>"
 linkedin = "turnerlee"
 twitter = "leeturner"
