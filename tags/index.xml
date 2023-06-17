@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Jan 2022 10:20:08 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Jun 2023 10:20:08 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>meetups</title>
+      <link>/tags/meetups/</link>
+      <pubDate>Thu, 08 Jun 2023 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/meetups/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>social</title>
+      <link>/tags/social/</link>
+      <pubDate>Thu, 08 Jun 2023 10:20:08 +0000</pubDate>
+      
+      <guid>/tags/social/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>dependency</title>
       <link>/tags/dependency/</link>

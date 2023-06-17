@@ -6,7 +6,17 @@
     <description>Recent content on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Jan 2022 10:20:08 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Jun 2023 10:20:08 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Brighton JUG &amp; Kotlin Summer Social 🍺</title>
+      <link>/posts/brighton-jug-kotlin-summer-social/</link>
+      <pubDate>Thu, 08 Jun 2023 10:20:08 +0000</pubDate>
+      
+      <guid>/posts/brighton-jug-kotlin-summer-social/</guid>
+      <description>We will be taking a break from our usual schedule of talks to get both our meetups together with an IRL social and kick off the summer with a few drinks at the Foundary pub in Brighton.
+Come and join us by signing up on either the Brighton Kotlin or Brighton JUG meetup pages.</description>
+    </item>
+    
     <item>
       <title>Overriding a Parent Dependency in Maven</title>
       <link>/posts/overriding-a-dependency-in-maven/</link>
@@ -150,7 +160,7 @@ At the moment I have no idea where this site is going to go but at the very leas
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>I am an experienced software engineer with over 20 years experience working on large scale software implementations and have a passion for well crafted, pragmatically tested software. I am currently working at Segovia/Crown Agents Back as a Senior Software Engineer and have significant experience in Java, Kotlin and Spring Boot along with test-driven development and stringent source and release management processes. I am also experienced with agile practices such as scrum, pair programming and continuous integration.</description>
+      <description>I am an experienced software engineer with over 20 years experience working on large scale software implementations and have a passion for well crafted, pragmatically tested software. I am currently working at Crown Agents Bank as a Senior Software Engineer and have significant experience in Java, Kotlin and Spring Boot along with test-driven development and stringent source and release management processes. I am also experienced with agile practices such as scrum, pair programming and continuous integration.</description>
     </item>
     
     <item>
