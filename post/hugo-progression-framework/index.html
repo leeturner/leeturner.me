@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Lee Turner">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="//img/headers/the_pinicles_perth_australia.png">
+    <meta property="twitter:image" content="//img/headers/the_pinicles_perth_australia.png" />
+    
+
+    
+    <meta name="title" content="Creating a Progression Framework in Hugo" />
+    <meta property="og:title" content="Creating a Progression Framework in Hugo" />
+    <meta property="twitter:title" content="Creating a Progression Framework in Hugo" />
+    
+
+    
+    <meta name="description" content="A hugo template to create Monzo style progression frameworks">
+    <meta property="og:description" content="A hugo template to create Monzo style progression frameworks" />
+    <meta property="twitter:description" content="A hugo template to create Monzo style progression frameworks" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Creating a Progression Framework in Hugo | Lee Turner</title>
+
+    <link rel="canonical" href="/post/hugo-progression-framework/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+    <script src="https://buttons.github.io/buttons.js"></script>
+    
+
+</head>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-115883229-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lee Turner</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/meetups/">meetups</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/about/">About</a></li>
+                    
+                        <li><a href="/projects/">Projects</a></li>
+                    
+                        <li><a href="https://leeturner.tech/">Resume</a></li>
+                    
+                        <li><a href="/archive/">Archive</a></li>
+                    
+
+
+
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/headers/the_pinicles_perth_australia.png')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/monzo" title="monzo">
+                            monzo
+                        </a>
+                        
+                        <a class="tag" href="/tags/framework" title="framework">
+                            framework
+                        </a>
+                        
+                        <a class="tag" href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        <a class="tag" href="/tags/progression" title="progression">
+                            progression
+                        </a>
+                        
+                    </div>
+                    <h1>Creating a Progression Framework in Hugo</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Lee Turner
+                             
+                            on 
+                            Saturday, May 1, 2021
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>I was introduced to progression frameworks last year when I came across the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
+<p>I really like the idea that people within an organisation have a tool to help them grow and hone their strengths along with organisations ensuring they are in good shape, and their employees are happy.</p>
+<p>The Monzo progression framework is built using the Gatsby static site builder which makes the frameworks easy to build and track via source control. I have never used Gatsby, but I do have some investment in the Hugo static site builder, and we also use that at <a href="https://crunchtech.medium.com/">Crunch</a>, so I thought I would see if I could put a hugo template together that can render progression frameworks in the same data format as Monzo.</p>
+<p>I am definitely no frontend developer but as an initial proof of concept this works pretty well.</p>
+<h2 id="what-are-progression-frameworks-">What Are Progression Frameworks ?</h2>
+<p>First off it is probably a good idea to define what a progression framework is.  A progression framework (or ‘competency matrix’, ‘career ladder’, ‘career pathway’) is a tool to help people within an organisation understand where they currently are and how to progress and grow in their work.  It also helps an organisation map people&rsquo;s competencies (their skills and knowledge) to compensation (how they&rsquo;re rewarded for them financially).</p>
+<p>When done right, a tool like this helps employees to grow and hone their strengths, and helps managers ensure that their organisations are in good shape and their employees happy.</p>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><a href="https://monzo.com/blog/2019/01/07/progression">https://monzo.com/blog/2019/01/07/progression</a></li>
+<li><a href="https://github.com/monzo/progression-framework">https://github.com/monzo/progression-framework</a></li>
+<li><a href="https://www.progression.fyi/">https://www.progression.fyi/</a></li>
+</ul>
+<h2 id="how-to-build-your-progression-framework-with-hugo-progression">How To Build Your Progression Framework With Hugo Progression</h2>
+<p>Hugo Progression is a <a href="https://gohugo.io/">Hugo</a> template that can render progression frameworks using the same data format as the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
+<p>
+  <figure>
+    <img src="/img/blog/2021-05-01-progression-framework-in-hugo/hugo-framework.gif" alt="Hugo Progression Screenshot">
+    <center><figcaption>Hugo Progression Screenshot</figcaption></center>
+  </figure>
+
+</p>
+<p>A full demo of this template can be found at the <a href="https://leeturner.github.io/hugo-progression-demo/">Hugo Progression Demo Site</a></p>
+<h3 id="1-installation">1) Installation</h3>
+<p>Navigate to your themes folder in your Hugo site and use the following commands:</p>
+<pre tabindex="0"><code>cd themes/
+git clone https://github.com/leeturner/hugo-progression.git
+</code></pre><p>If you don&rsquo;t want to clone the theme you can add it as a git submodule. Inside the folder of your Hugo site run:</p>
+<pre tabindex="0"><code>git submodule add https://github.com/leeturner/hugo-progression.git themes/hugo-progression
+</code></pre><p>For more information read the <a href="https://gohugo.io/overview/installing/">official setup guide</a> of Hugo.</p>
+<h3 id="2-setup-your-framework-data--content">2) Setup Your Framework Data &amp; Content</h3>
+<p>Due to some restrictions in what data <code>hugo</code> allows in the markdown front matter (see section 2.3) along with how you reference data files in <code>hugo</code>, an individual framework needs to consist of 3 things:</p>
+<ul>
+<li>a markdown page that contains the homepage of the framework</li>
+<li>a data <code>yml</code> file containing the content for each level of the framework</li>
+<li>a hugo html partial that links the above together.</li>
+</ul>
+<pre tabindex="0"><code>+-----------+       +------------+       +------------+          +-------------+
+| Markdown  |       |    html    |       |  data yml  |          | Individual  |
+|   file    |------&gt;|   partial  |------&gt;|    file    |     =    | Progression |
+|           |       |            |       |            |          |  Framework  |
++-----------+       +------------+       +------------+          +-------------+
+</code></pre><h4 id="21-create-your-framework-data-files">2.1) Create Your Framework Data Files</h4>
+<p>In this step we will create the <code>hugo</code> data file that contains the data for the different areas and levels for an individual framework.  These data files are <code>yml</code> and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">topics</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: <span style="color:#f1fa8c">&#34;communication&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">title</span>: <span style="color:#f1fa8c">&#34;💬 Communication&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">content</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">level</span>: <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">criteria</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Provides regular status updates to their mentor/buddy&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Points out syntactical improvements in code reviews&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Writes PR descriptions that provide basic context for the change&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Seeks guidance from other engineers, rather than answers&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">level</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">criteria</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Proactively communicates to their team what they are working on, why, how it&#39;s going and what help they need&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Accepts feedback graciously&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Gives feedback to peers when asked&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">exampleCriteria</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ff79c6">criteria</span>: <span style="color:#f1fa8c">&#34;Provides helpful and actionable feedback in code reviews in an empathetic manner&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">examples</span>:
+</span></span><span style="display:flex;"><span>              - <span style="color:#f1fa8c">&#34;Take a look at the levelling up your code reviews talk for some ideas&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#ff79c6">criteria</span>: <span style="color:#f1fa8c">&#34;Writes PR descriptions that provide context and provide rationale for significant decisions&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">examples</span>:
+</span></span><span style="display:flex;"><span>              - <span style="color:#f1fa8c">&#34;I decided to X instead of Y here, I also considered Z but for these reasons I went with X&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: <span style="color:#f1fa8c">&#34;impact&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">title</span>: <span style="color:#f1fa8c">&#34;💥 Impact&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">content</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">level</span>: <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">criteria</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Delivers assigned tasks, working with a more senior team member, and able to take PR feedback to improve their work&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">level</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">criteria</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Delivers assigned tasks that meet expected criteria&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Works for the team, focuses on tasks that contribute to team goals&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Tries to unblock themselves first before seeking help&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Manages their own time effectively, prioritises their workload well, on time for meetings, aware when blocking others and unblocks&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Helps the team, does what needs doing&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Breaks down small/medium problems into iterative steps&#34;</span>
+</span></span></code></pre></div><p>These framework data files need to be placed in the <code>data</code> folder for your <code>hugo</code> site.  They can be structured into sub-folders if you wish:</p>
+<pre tabindex="0"><code>data
+  frameworks
+    engineering
+      backend.yml
+      data.yml
+      mobile.yml
+      qualityanalyst.yml
+      web.yml
+    operations
+      opsindividualcontributor.yml
+      opsleadership.yml
+    generic.yml
+    marketing.yml
+    people.yml
+    product.yml
+</code></pre><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/data/frameworks">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<h4 id="22-create-the-markdown-page-with-front-matter--content-for-the-framework-homepage">2.2) Create The Markdown Page With Front Matter &amp; Content For The Framework Homepage</h4>
+<p>For any of the frameworks to appear in your <code>hugo</code> site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any <code>hugo</code> site, these markdown files live in the <code>content</code> folder.  The front matter can contain all the usual <code>hugo</code> fields along with a couple of special fields specific to <code>hugo-progression</code>.  See the example below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: 🛠️ Backend Engineering Framework
+</span></span><span style="display:flex;"><span>linktitle: 🛠️ Backend
+</span></span><span style="display:flex;"><span>description: Backend engineering progression framework
+</span></span><span style="display:flex;"><span>menu:
+</span></span><span style="display:flex;"><span>  main:
+</span></span><span style="display:flex;"><span>    parent: engineering
+</span></span><span style="display:flex;"><span>levels: 6
+</span></span><span style="display:flex;"><span>datafilepartial: engineering/backend-partial.html
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>The two fields that are specific to <code>hugo-progression</code> are <code>levels</code> and <code>datafilepartial</code>.  The <code>levels</code> field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework <code>yml</code> data file.  This will also determine how many levels are created in the menu when the site is generated:</p>
+<p>
+  <figure>
+    <img src="/img/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-levels.png" alt="Hugo Progression Levels">
+    <center><figcaption>Hugo Progression Levels</figcaption></center>
+  </figure>
+
+</p>
+<p>The <code>datafilepartial</code> field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step</p>
+<p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/content">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<h4 id="23-create-the-html-partial">2.3) Create The HTML Partial</h4>
+<p>Because <code>hugo</code> won&rsquo;t allow us to specify a data file in the front matter of a markdown file we have to create a simple <code>hugo</code> html partial file for each framework data file to get around this.  If you want to understand more about this restriction in <code>hugo</code> take a look at this article by <a href="https://michele.io/">Michele Titolo</a> which helped me understand how to work around it - <a href="https://michele.io/content-data-hugo/">https://michele.io/content-data-hugo/</a></p>
+<p>I have tried to take out all the common elements make sure the html partial files are as small as possible, and the below example is as small as I could get it.</p>
+<pre tabindex="0"><code class="language-gotemplate" data-lang="gotemplate">{{ $this_parent_index := .parent_index}}
+{{ range .site_data.frameworks.engineering.backend.topics }}
+{{ partial &#34;topic-by-level.html&#34; (dict &#34;context&#34; . &#34;parent_index&#34; $this_parent_index) }}
+{{ end }}
+</code></pre><p>As you can see, the one line that is specific to the data file is the <code>range</code> line:</p>
+<pre tabindex="0"><code class="language-gotemplate" data-lang="gotemplate">{{ range .site_data.frameworks.engineering.backend.topics }}
+</code></pre><p>This line will change for each of the html partial files but all the rest will stay the same.  The path to the <code>topics</code> effectively matches the folder structure you used when you created your data files. To keep things consistent I store my html partials in the same directory structure as my data files:</p>
+<pre tabindex="0"><code>layouts
+  partials
+    engineering
+      backend-partial.html
+      data-partial.html
+      mobile-partial.html
+      qualityanalyst-partial.html
+      web-partial.html
+    operations
+      opsindividualcontributor-partial.html
+      opsleadership-partial.html
+    generic-partial.html
+    marketing-partial.html
+    people-partial.html
+    product-partial.html
+</code></pre><p>Once you have created your html partial file that references the framework data file, make sure you are correctly referencing the html partial in your markdown file as in the example above:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>datafilepartial: engineering/backend-partial.html
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<h3 id="3-nearly-finished">3) Nearly finished</h3>
+<p>In order to see your site in action, run Hugo&rsquo;s built-in local server.</p>
+<p><code>$ hugo server</code></p>
+<p>Now enter <a href="http://localhost:1313/"><code>localhost:1313</code></a> in the address bar of your browser.</p>
+<h2 id="production">Production</h2>
+<p>To run in production, run <code>HUGO_ENV=production</code> before your build command. For example:</p>
+<pre tabindex="0"><code>HUGO_ENV=production hugo
+</code></pre><p>Note: The above command will not work on Windows. If you are running a Windows OS, use the below command:</p>
+<pre tabindex="0"><code>set HUGO_ENV=production
+hugo
+</code></pre><p>This hugo template is by no means perfect - largely due to me not being a frontend developer, but it works well enough to be useful for people who use Hugo and want to invest in a progression framework.  If you would like to get involved, fork the project and create a pull request.  It would be great to have more people contribute to this project.</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/blinkytape-junit-testwatcher/" data-toggle="tooltip" data-placement="top" title="BlinkyTape JUnit Testwatcher API Implementation">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/outputting-result-of-mockmvc/" data-toggle="tooltip" data-placement="top" title="Outputting the result of a mockMvc call">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+<div id="disqus-comment"></div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "leeturner-me" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hello-world" title="hello-world">
+                            hello-world
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/intellij" title="intellij">
+                            intellij
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/reference" title="reference">
+                            reference
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/spring" title="spring">
+                            spring
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/spring-boot" title="spring-boot">
+                            spring-boot
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://hachyderm.io/@leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+            
+            
+            
+           
+           <li>
+               <a target="_blank" href="https://youtube.com/@leeturner">
+                   <span class="fa-stack fa-lg">
+                       <i class="fas fa-circle fa-stack-2x"></i>
+                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                   </span>
+               </a>
+           </li>
+           
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Lee Turner" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Lee Turner 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

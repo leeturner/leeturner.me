@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Lee Turner">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="//img/headers/the_pinicles_perth_australia.png">
+    <meta property="twitter:image" content="//img/headers/the_pinicles_perth_australia.png" />
+    
+
+    
+    <meta name="title" content="Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ" />
+    <meta property="og:title" content="Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ" />
+    <meta property="twitter:title" content="Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ" />
+    
+
+    
+    <meta name="description" content="This post shows how I implemented a minimal test &amp;&amp; commit || revert inside InelliJ - and when I say minimal I mean minimal.">
+    <meta property="og:description" content="This post shows how I implemented a minimal test &amp;&amp; commit || revert inside InelliJ - and when I say minimal I mean minimal." />
+    <meta property="twitter:description" content="This post shows how I implemented a minimal test &amp;&amp; commit || revert inside InelliJ - and when I say minimal I mean minimal." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ | Lee Turner</title>
+
+    <link rel="canonical" href="/post/tooling-up-tcr-intellij/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+    <script src="https://buttons.github.io/buttons.js"></script>
+    
+
+</head>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-115883229-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lee Turner</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/meetups/">meetups</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/about/">About</a></li>
+                    
+                        <li><a href="/projects/">Projects</a></li>
+                    
+                        <li><a href="https://leeturner.tech/">Resume</a></li>
+                    
+                        <li><a href="/archive/">Archive</a></li>
+                    
+
+
+
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/headers/the_pinicles_perth_australia.png')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/tooling" title="tooling">
+                            tooling
+                        </a>
+                        
+                        <a class="tag" href="/tags/tcr" title="tcr">
+                            tcr
+                        </a>
+                        
+                        <a class="tag" href="/tags/intellij" title="intellij">
+                            intellij
+                        </a>
+                        
+                    </div>
+                    <h1>Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Lee Turner
+                             
+                            on 
+                            Thursday, January 17, 2019
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>Like many others, I have been reading about the new programming workflow introduced by <a href="https://twitter.com/KentBeck">Kent Beck</a> called <a href="https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864">test &amp;&amp; commit || revert</a> (TCR)</p>
+<p>When I first heard about it I had much the same response as Kent - why the hell would you want to do something like that?  That can&rsquo;t possibly work, my tests don&rsquo;t always pass when I am experimenting - I would lose my code if I did this.</p>
+<h2 id="so-what-is-test--commit--revert-anyway">So what is test &amp;&amp; commit || revert anyway?</h2>
+<p>The concept is extremely simple.  When your tests run successfully your code is committed, if your tests fail for any reason, your code is automatically reverted back to the state where the tests last passed.  Yes, this means that you can (and probably will) lose code - especially in the beginning when you are still playing around with this.</p>
+<p>The easiest way to get your head around it is to watch it in action.  Take a look at this video by Kent Beck <a href="https://www.youtube.com/watch?v=ZrHBVTCbcE0">demonstrating TCR</a></p>
+<p>So, what&rsquo;s the point ?  The idea is to make everything smaller - the amount of code you write between green test runs, your iterations around the test/dev/commit cycle and bigger problems broken down into smaller parts.  Of course, writing tests is a given here because it is what the whole workflow is based on but they don&rsquo;t always have to come first.</p>
+<p>Most of the TCR implementations I have seen so far have been like in the video linked above, a single file implementation where the tests and the code are in the same file.  The problem I had is that I don&rsquo;t work like that.  I am a Java developer so most of my projects are based on Maven where the &lsquo;code&rsquo; and the tests are kept in separate directories.  I also use IntelliJ as my main IDE so I wanted something that worked in that environment and not have to use a different editor and/or keep switching to the commandline.</p>
+<p>On the flip side I didn&rsquo;t want to invest too much time in tooling up while I was still only playing with the workflow.  I effectively wanted as little as I could get away with so I could get up and running.  I then found another video by Kent Beck where he walks you through his <a href="https://www.youtube.com/watch?v=IIKndRX5qHw">minimal TCR setup in VS Code</a>.  That video ultimately gave me all I needed to set this up in IntelliJ.</p>
+<h2 id="my-minimal-tcr-implementation-in-intellij">My minimal TCR implementation in IntelliJ</h2>
+<p>The first step was to find a way to get feedback on the success or failure of a test run.  As I said above, most of my day to day coding is done using Java and maven.  I can easily run my test suite using mavan on the command line so this is where I started looking first.  Well, it turns out that the maven command line (mvn) returns different status codes based on the success or failure of your tests.  This means I can run <em>mvn test</em> on a project where the tests all pass and see the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> Tests run: 42, Failures: 0, Errors: 0, Skipped: <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> BUILD SUCCESS
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> Total time: 2.509 s
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> Finished at: 2019-01-17T21:54:57Z
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> Final Memory: 11M/309M
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt;  night-fever git:<span style="color:#ff79c6">(</span>master<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$?</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">0</span>
+</span></span></code></pre></div><p>And on a project where there are failing tests and see this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[</span>ERROR<span style="color:#ff79c6">]</span> Tests run: 42, Failures: 1, Errors: 0, Skipped: <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> BUILD FAILURE
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> Total time: 3.085 s
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> Finished at: 2019-01-17T22:03:32Z
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> Final Memory: 11M/309M
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> ------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>ERROR<span style="color:#ff79c6">]</span> Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test <span style="color:#ff79c6">(</span>default-test<span style="color:#ff79c6">)</span> on project nightfever: There are <span style="color:#8be9fd;font-style:italic">test</span> failures.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt;  night-fever git:<span style="color:#ff79c6">(</span>master<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#8be9fd;font-style:italic">$?</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">1</span>
+</span></span></code></pre></div><p>This means I can now use that status code to chain together a command much like the one Kent Beck uses in his VS Code video:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn <span style="color:#8be9fd;font-style:italic">test</span> <span style="color:#ff79c6">&amp;&amp;</span> git commit -am working <span style="color:#ff79c6">||</span> git reset --hard
+</span></span></code></pre></div><p>OK, good start, I now have a command line TCR implementation working with maven.  Next step, how do I execute this from within IntelliJ?</p>
+<p>My first try at this was to setup an <em>external tool</em> within IntelliJ.  This wasn&rsquo;t as easy as it sounds due to IntelliJ only accepting one command along with parameters.  There was also no way to chain multiple external tools together.  After a little bit of Googling I found an IntelliJ support article that talked about calling bash directly and passing the commands you want to call as a parameter.  The external tool edit window looks like this:</p>
+<p>
+  <img src="/img/blog/2019-01-17-tooling-up-tcr-intellij/intellij-external-tool-edit.png" alt="IntelliJ External Tool Edit Screen">
+
+</p>
+<p>This worked pretty well, as you can see from the screen shot you can even set it to synchronise the files after execution of the tool so IntelliJ picks up any reverts that might have happened.</p>
+<p>That in and of itself would probably be enough for a minimal TCR implementation inside IntelliJ.  However, there are other options along the same theme which might work better for you depending on how you prefer to code.  There is a plugin written by Jet Brains called <a href="https://www.jetbrains.com/help/idea/using-file-watchers.html">File Watchers</a> that allows you to automatically run a command when you change or save a file. This is how I ultimately had this setup:</p>
+<p>
+  <img src="/img/blog/2019-01-17-tooling-up-tcr-intellij/intellij-file-watcher-edit.png" alt="IntelliJ File Watcher Edit Screen">
+
+</p>
+<p>You will notice that I un-ticked the option <em>Auto-save edited files to trigger the watcher</em>.  I turned that off so the File Watcher starts upon save (File | Save All) or when you move the focus from IntelliJ IDEA (on frame deactivation).  The main reason being that I didn&rsquo;t want the File Watcher to kick in when I was part way through a change and IntelliJ decided to auto-save the file.</p>
+<h2 id="what-next-">What Next ?</h2>
+<p>All of the above works really well but it obviously has some downsides.  I am effectively running the whole test suite via maven and although this ran pretty fast on my machine with a relatively small project, it would really slow things down when the project grew to any reasonable size.  That would make this solution effectively unusable at that point.  Thankfully IntelliJ was quite quick at syncing with the file system when a revert happened so hopefully that won&rsquo;t be a problem moving forwards.</p>
+<p>My ultimate solution would be to have this type of functionality integrated with the Run/Debug test runner inside IntelliJ.  I could then use my standard keyboard shortcuts to run individual test methods, a whole test class or a whole test suite and it would trigger the test &amp;&amp; commit || revert workflow based on the results in a much more integrated way.  I imagine this would require a plugin to make this happen.</p>
+<p>I&rsquo;ll be continuing to play with TCR to see how far I can stretch it and whether is it applicable to all types of projects.  That is the topic for another article though.</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/hello-world-erm-again/" data-toggle="tooltip" data-placement="top" title="Hello World.... erm again">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/building-a-camel-case-junit5-displaynamegenerator/" data-toggle="tooltip" data-placement="top" title="Building a Camel Case @DisplayNameGenerator For JUnit 5">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+<div id="disqus-comment"></div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "leeturner-me" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hello-world" title="hello-world">
+                            hello-world
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/intellij" title="intellij">
+                            intellij
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/reference" title="reference">
+                            reference
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/spring" title="spring">
+                            spring
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/spring-boot" title="spring-boot">
+                            spring-boot
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://hachyderm.io/@leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+            
+            
+            
+           
+           <li>
+               <a target="_blank" href="https://youtube.com/@leeturner">
+                   <span class="fa-stack fa-lg">
+                       <i class="fas fa-circle fa-stack-2x"></i>
+                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                   </span>
+               </a>
+           </li>
+           
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Lee Turner" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Lee Turner 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

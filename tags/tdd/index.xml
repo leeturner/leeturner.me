@@ -9,20 +9,20 @@
     <lastBuildDate>Sun, 10 Feb 2019 22:09:08 +0000</lastBuildDate><atom:link href="/tags/tdd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building a Camel Case @DisplayNameGenerator For JUnit 5</title>
-      <link>/posts/building-a-camel-case-junit5-displaynamegenerator/</link>
+      <link>/post/building-a-camel-case-junit5-displaynamegenerator/</link>
       <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
       
-      <guid>/posts/building-a-camel-case-junit5-displaynamegenerator/</guid>
+      <guid>/post/building-a-camel-case-junit5-displaynamegenerator/</guid>
       <description>I think it is fair to say that JUnit has been my go to unit testing framework for quite a while. I have used TestNG on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.
 This was solidified even further with the release of JUnit 5.</description>
     </item>
     
     <item>
       <title>Continuous Feedback With TDD &amp; Auto Running Tests</title>
-      <link>/posts/continuous-feedback-with-tdd/</link>
+      <link>/post/continuous-feedback-with-tdd/</link>
       <pubDate>Mon, 12 Feb 2018 22:09:08 +0000</pubDate>
       
-      <guid>/posts/continuous-feedback-with-tdd/</guid>
+      <guid>/post/continuous-feedback-with-tdd/</guid>
       <description>This is the first of my &amp;lsquo;reference&amp;rsquo; posts which pretty much means I am writing about it here so I don&amp;rsquo;t forget about it in the future.
 This post it about configuring your dev environment to provide you with continuous feedback while writing your code. All of this came about after a conversation with another developer on my team about how to setup IntelliJ to run tests automatically. We were looking at plugins such as Infinitest but it all seemed a little clunky and crashed every so often.</description>
     </item>

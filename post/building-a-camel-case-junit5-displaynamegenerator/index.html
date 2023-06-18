@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Lee Turner">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="//img/headers/the_pinicles_perth_australia.png">
+    <meta property="twitter:image" content="//img/headers/the_pinicles_perth_australia.png" />
+    
+
+    
+    <meta name="title" content="Building a Camel Case @DisplayNameGenerator For JUnit 5" />
+    <meta property="og:title" content="Building a Camel Case @DisplayNameGenerator For JUnit 5" />
+    <meta property="twitter:title" content="Building a Camel Case @DisplayNameGenerator For JUnit 5" />
+    
+
+    
+    <meta name="description" content="I am loving the new JUnit 5 features and the @DisplayName annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new @DisplayNameGenerator API all of that will change.">
+    <meta property="og:description" content="I am loving the new JUnit 5 features and the @DisplayName annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new @DisplayNameGenerator API all of that will change." />
+    <meta property="twitter:description" content="I am loving the new JUnit 5 features and the @DisplayName annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new @DisplayNameGenerator API all of that will change." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Building a Camel Case @DisplayNameGenerator For JUnit 5 | Lee Turner</title>
+
+    <link rel="canonical" href="/post/building-a-camel-case-junit5-displaynamegenerator/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+    <script src="https://buttons.github.io/buttons.js"></script>
+    
+
+</head>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-115883229-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lee Turner</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/meetups/">meetups</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/about/">About</a></li>
+                    
+                        <li><a href="/projects/">Projects</a></li>
+                    
+                        <li><a href="https://leeturner.tech/">Resume</a></li>
+                    
+                        <li><a href="/archive/">Archive</a></li>
+                    
+
+
+
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/headers/the_pinicles_perth_australia.png')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        <a class="tag" href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        <a class="tag" href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                    </div>
+                    <h1>Building a Camel Case @DisplayNameGenerator For JUnit 5</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Lee Turner
+                             
+                            on 
+                            Sunday, February 10, 2019
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>I think it is fair to say that <a href="https://junit.org">JUnit</a> has been my go to unit testing framework for quite a while.  I have used <a href="https://testng.org/">TestNG</a> on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.</p>
+<p>This was solidified even further with the release of JUnit 5.  I won&rsquo;t go into any detail here of what the major differences are between version 4 and 5 because there are loads of great articles on the web about this already.  However, some of my favourites are:</p>
+<ul>
+<li>New asserts - especially assertThrows()</li>
+<li>Assumptions</li>
+<li>More readable test descriptions with the @DisplayName annotation</li>
+<li>Tags</li>
+<li>Parameterised Tests</li>
+<li>Dynamic Tests (although I need to delve into this one a little more)</li>
+</ul>
+<h2 id="the-displayname-annotation">The @DisplayName Annotation</h2>
+<p>The <code>@DisplayName</code> annotation seemed like a great idea - you add the annotation with a more readable description to your test class or methods and that gets displayed instead of the default class or method name in your test runner.  Something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@DisplayName<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Tests that when updating your password, the two passwords submitted must match&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>@Test
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> testWhenAnUpdatePasswordRequestIsSubmittedTheTwoPasswordsMustMatch<span style="color:#ff79c6">{}</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// test goes here
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>It was fun for a while but it quickly became a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  However, all of this might change with the latest JUnit 5.4 release and the new <code>@DisplayNameGenerator</code> API.</p>
+<p>If you follow along on Twitter, you will have heard of the new <code>@DisplayNameGenerator</code> API before the 5.4 release.  Basically it would allow JUnit to determine a nice display name for your classes and tests from your class and method names without having to add the <code>@DisplayName</code> annotation.  Seemed like the best of both worlds to me.</p>
+<p>When the <a href="https://twitter.com/junitteam/status/1093621376978747393">5.4 release announcement was made on twitter</a> I setup a quick project and dived right in, but there was one big problem.  The only <code>@DisplayNameGenerator</code> provided in release 5.4 is a <a href="https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/DisplayNameGenerator.ReplaceUnderscores.html">ReplaceUnderscores</a> Generator which as you can imagine replaces the underscores in your class and method names with a space.  For example, the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@DisplayNameGeneration<span style="color:#ff79c6">(</span>DisplayNameGenerator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ReplaceUnderscores</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Password_Reset_Tests</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    @Test
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> test_When_An_Update_Password_Request_Is_Submitted_The_Two_Passwords_Must_Match<span style="color:#ff79c6">{}</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// test goes here
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>Will output:</p>
+<pre tabindex="0"><code>+-- Password Reset Test
+	+-- test When An Update Password Request Is Submitted The Two Passwords Must Match
+</code></pre><p>All well and good if you use underscores in your class and method names.  I tend to be more of a camel case kind of guy.  Underscores never really did it for me so this wasn&rsquo;t going to work out of the box.  The nice thing here is that the JUnit team give a <a href="https://junit.org/junit5/docs/5.4.0/user-guide/index.html#writing-tests-display-name-generator">really good example</a> of implementing a new <code>DisplayNameGenerator</code> so I borrowed the code from their user guide and has a play with a new camel case generator.</p>
+<p>All of the code discussed here can be found in <a href="https://github.com/leeturner/junit5-camel-case-emoji-display-name-generator">this github repo</a>.</p>
+<h2 id="a-camel-case-displaynamegenerator">A Camel Case @DisplayNameGenerator</h2>
+<p>On the face of it putting a space before every capital letter in a class or method name isn&rsquo;t that hard.  It can all be achieved with a simple <code>replaceAll</code> regex.  Something like this which extends the <code>DisplayNameGenerator.Standard</code> built into JUnit 5.4:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCase</span> <span style="color:#8be9fd;font-style:italic">extends</span> DisplayNameGenerator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Standard</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCase</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>testClass<span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> nestedClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>nestedClass<span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForMethod</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">,</span> Method testMethod<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span>testMethod<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getName</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> String <span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;([A-Z])&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34; $1&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> name<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>This works for the most part but you very quickly see the benefit of having a single character that you need to replace like in the <code>ReplaceUnderscores</code>.  For example, the above implementation doesn&rsquo;t take into account numbers and will fail to put a space where you would expect one.  For example, this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@Test
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">ifItIsDivisibleBy4ButNotBy100</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">/// test goes here
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>Would render:</p>
+<pre tabindex="0"><code>+-- if It Is Divisible By4 But Not By100
+</code></pre><p>Not particularly ideal.  We also need to cater for numbers and not just individual numbers, we have to look for sequences of numbers and assume they are intended to be together.  Simple enough with another regex:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCase</span> <span style="color:#8be9fd;font-style:italic">extends</span> DisplayNameGenerator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Standard</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCase</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>testClass<span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> nestedClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>nestedClass<span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForMethod</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">,</span> Method testMethod<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span>testMethod<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getName</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> String <span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;([A-Z])&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34; $1&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;([0-9]+)&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34; $1&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> name<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>All in all this simple camel case <code>DisplayNameGenerator</code> works pretty well and generates something like this:</p>
+<p>
+  <img src="/img/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator/junit5-ReplaceCamelCase.png" alt="Replace Camel Case Junit 5 Display Name Generator">
+
+</p>
+<p>I will be playing around with this further to see if there are any other scenarios It doesn&rsquo;t cater for and updating accordingly.</p>
+<h2 id="one-step-too-far">One Step Too Far&hellip;&hellip;</h2>
+<p>I am going to leave this here for posterity&rsquo;s sake.  I am not proud of it but once I thought of it I couldn&rsquo;t help myself :)</p>
+<p>One of the new things JUnit 5 allows is <a href="https://twitter.com/sam_brannen/status/660595585288970240?lang=en">emoji in your test names</a>.  This also applies to the <code>@DisplayName</code> annotation.  All I will say is that it doesn&rsquo;t take a great leap to extend the <code>ReplaceUnderscores</code> or <code>ReplaceCamelCase</code> Generators with one that replaces certain words with emoji.  Here is a little proof of concept using the example from the JUnit user guide:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCaseEmojis</span> <span style="color:#8be9fd;font-style:italic">extends</span> ReplaceCamelCase <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCaseEmojis</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceWithEmojis</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>testClass<span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> nestedClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceWithEmojis</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>nestedClass<span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForMethod</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">,</span> Method testMethod<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceWithEmojis</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForMethod</span><span style="color:#ff79c6">(</span>testClass<span style="color:#ff79c6">,</span> testMethod<span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> String <span style="color:#50fa7b">replaceWithEmojis</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Camel|camel&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\uD83D\uDC2B&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Case|case&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\uD83D\uDCBC&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Display|display&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\uD83D\uDCBB&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Divisible|divisible&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\u2797&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Year|year&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\uD83D\uDCC5&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;100&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\uD83D\uDCAF&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> name<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>This generates something like this:</p>
+<p>
+  <img src="/img/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator/junit5-ReplaceCamelCaseEmoji.png" alt="Replace Camel Case Junit 5 Display Name Generator">
+
+</p>
+<p>You are very welcome :)</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/tooling-up-tcr-intellij/" data-toggle="tooltip" data-placement="top" title="Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/copying-the-branch-name-in-intellij/" data-toggle="tooltip" data-placement="top" title="Copying A Branch Name In Intellij">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+<div id="disqus-comment"></div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "leeturner-me" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hello-world" title="hello-world">
+                            hello-world
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/intellij" title="intellij">
+                            intellij
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/reference" title="reference">
+                            reference
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/spring" title="spring">
+                            spring
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/spring-boot" title="spring-boot">
+                            spring-boot
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://hachyderm.io/@leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+            
+            
+            
+           
+           <li>
+               <a target="_blank" href="https://youtube.com/@leeturner">
+                   <span class="fa-stack fa-lg">
+                       <i class="fas fa-circle fa-stack-2x"></i>
+                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                   </span>
+               </a>
+           </li>
+           
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Lee Turner" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Lee Turner 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

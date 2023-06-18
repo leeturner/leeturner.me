@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 12 Sep 2021 10:20:08 +0000</lastBuildDate><atom:link href="/tags/mockmvc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Outputting the result of a mockMvc call</title>
-      <link>/posts/outputting-result-of-mockmvc/</link>
+      <link>/post/outputting-result-of-mockmvc/</link>
       <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
       
-      <guid>/posts/outputting-result-of-mockmvc/</guid>
+      <guid>/post/outputting-result-of-mockmvc/</guid>
       <description>This post falls into the category of something I always forget and need to Google.
 When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging. This can be done by adding MockMvcResultsHandlers.print() to the call chain like in the following example.
 This:

@@ -9,20 +9,20 @@
     <lastBuildDate>Sat, 08 Jan 2022 10:20:08 +0000</lastBuildDate><atom:link href="/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Overriding a Parent Dependency in Maven</title>
-      <link>/posts/overriding-a-dependency-in-maven/</link>
+      <link>/post/overriding-a-dependency-in-maven/</link>
       <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
       
-      <guid>/posts/overriding-a-dependency-in-maven/</guid>
+      <guid>/post/overriding-a-dependency-in-maven/</guid>
       <description>This weekend I am spending some time taking a look at my Snyk Dashboard and upgrading a few dependencies in old projects
 The main thing I wanted to take a look at was the recent RCE (Remote Code Execution) vulnerability that was disclosed in the h2 database. This is a similar JNDI exploit to the one that impacted Log4j in December last year (called Log4Shell). You can read more about Log4Shell on the Snyk resources page and find details of the recent h2 RCE on the Snyk Vulnerability Database</description>
     </item>
     
     <item>
       <title>Outputting the result of a mockMvc call</title>
-      <link>/posts/outputting-result-of-mockmvc/</link>
+      <link>/post/outputting-result-of-mockmvc/</link>
       <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
       
-      <guid>/posts/outputting-result-of-mockmvc/</guid>
+      <guid>/post/outputting-result-of-mockmvc/</guid>
       <description>This post falls into the category of something I always forget and need to Google.
 When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging. This can be done by adding MockMvcResultsHandlers.print() to the call chain like in the following example.
 This:

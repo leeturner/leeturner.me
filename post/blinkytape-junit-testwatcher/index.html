@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Lee Turner">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="//img/headers/the_pinicles_perth_australia.png">
+    <meta property="twitter:image" content="//img/headers/the_pinicles_perth_australia.png" />
+    
+
+    
+    <meta name="title" content="BlinkyTape JUnit Testwatcher API Implementation" />
+    <meta property="og:title" content="BlinkyTape JUnit Testwatcher API Implementation" />
+    <meta property="twitter:title" content="BlinkyTape JUnit Testwatcher API Implementation" />
+    
+
+    
+    <meta name="description" content="This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip.">
+    <meta property="og:description" content="This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip." />
+    <meta property="twitter:description" content="This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>BlinkyTape JUnit Testwatcher API Implementation | Lee Turner</title>
+
+    <link rel="canonical" href="/post/blinkytape-junit-testwatcher/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+    <script src="https://buttons.github.io/buttons.js"></script>
+    
+
+</head>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-115883229-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lee Turner</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/meetups/">meetups</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/about/">About</a></li>
+                    
+                        <li><a href="/projects/">Projects</a></li>
+                    
+                        <li><a href="https://leeturner.tech/">Resume</a></li>
+                    
+                        <li><a href="/archive/">Archive</a></li>
+                    
+
+
+
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/headers/the_pinicles_perth_australia.png')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/kotlin" title="kotlin">
+                            kotlin
+                        </a>
+                        
+                        <a class="tag" href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                        <a class="tag" href="/tags/blinkytape" title="blinkytape">
+                            blinkytape
+                        </a>
+                        
+                        <a class="tag" href="/tags/blinky" title="blinky">
+                            blinky
+                        </a>
+                        
+                        <a class="tag" href="/tags/junit5" title="junit5">
+                            junit5
+                        </a>
+                        
+                        <a class="tag" href="/tags/testwatcher" title="testwatcher">
+                            testwatcher
+                        </a>
+                        
+                    </div>
+                    <h1>BlinkyTape JUnit Testwatcher API Implementation</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Lee Turner
+                             
+                            on 
+                            Tuesday, April 6, 2021
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p><a href="/posts/building-a-camel-case-junit5-displaynamegenerator/">Every so often</a> I like to have a play around with a part of <a href="https://junit.org"> Junit </a> that I haven&rsquo;t used before, and I recently decided to look into the <a href="https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html">TestWatcher API</a>.</p>
+<p>I have to admit that I have been meaning to play with this for quite a while now&hellip;. I just haven&rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</p>
+<p>Stretched across the back of the desk in front of me is a <a href="https://shop.blinkinlabs.com/collections/frontpage/products/blinkytape-basic_"> BlinkyTape </a> attached to my usb hub.  Most of the time the BlinkyTape is just used for a bit of subtle lighting behind my monitor but while looking into the Junit TestWatcher API, it suddenly hit me&hellip;. maybe I could combine the two.</p>
+<p>I already had a <a href="https://github.com/leeturner/night-fever">bit of code</a> to interact directly with the BlinkyTape so all I needed to do was figure out how to tracks the success, failure or whether a test is disabled.  If I could do that I could then turn the BlinkyTape green, red or orange.</p>
+<p>I put together a simple Kotlin implementation of the TestWatcher API that adds a test result status to a list:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">BlinkyTapeTestWatcher</span> : TestWatcher, AfterAllCallback {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">val</span> testResultsStatus = mutableListOf&lt;TestResultStatus&gt;()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">testDisabled</span>(context: ExtensionContext, reason: Optional&lt;String&gt;) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>.testResultsStatus.add(<span style="color:#50fa7b">TestResultStatus</span>.DISABLED)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">testSuccessful</span>(context: ExtensionContext) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>.testResultsStatus.add(<span style="color:#50fa7b">TestResultStatus</span>.SUCCESS)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">testAborted</span>(context: ExtensionContext, cause: Throwable?) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>.testResultsStatus.add(<span style="color:#50fa7b">TestResultStatus</span>.ABORTED)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">testFailed</span>(context: ExtensionContext, cause: Throwable?) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>.testResultsStatus.add(<span style="color:#50fa7b">TestResultStatus</span>.FAILED)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">afterAll</span>(extensionContext: ExtensionContext) {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// first lets check to see if we have any test failures so we can leave the blinky tape as red
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">this</span>.testResultsStatus.any { <span style="color:#ff79c6">it</span> <span style="color:#ff79c6">==</span> <span style="color:#50fa7b">TestResultStatus</span>.FAILED }) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">this</span>.renderFrame(RED_BLINKY_TAPE_FRAME)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// if no test failures then we can take a look to see if there are any disabled tests.  If there are then
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#6272a4">// we can set the blinky tape to orange
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">this</span>.testResultsStatus.any { <span style="color:#ff79c6">it</span> <span style="color:#ff79c6">==</span> <span style="color:#50fa7b">TestResultStatus</span>.DISABLED }) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">this</span>.renderFrame(ORANGE_BLINKY_TAPE_FRAME)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// if no failures or disabled tests then we can set the blinky tape to green
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">this</span>.testResultsStatus.any { <span style="color:#ff79c6">it</span> <span style="color:#ff79c6">==</span> <span style="color:#50fa7b">TestResultStatus</span>.SUCCESS }) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">this</span>.renderFrame(GREEN_BLINKY_TAPE_FRAME)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">renderFrame</span>(frame: BlinkyTapeFrame) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">val</span> controller = BlinkyTapeController()
+</span></span><span style="display:flex;"><span>        controller.renderFrame(frame)
+</span></span><span style="display:flex;"><span>        controller.close()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">companion</span> <span style="color:#ff79c6">object</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">val</span> ORANGE_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = <span style="color:#50fa7b">Color</span>.ORANGE)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">val</span> RED_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = <span style="color:#50fa7b">Color</span>.RED)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">val</span> GREEN_BLINKY_TAPE_FRAME = BlinkyTapeFrame(defaultColour = <span style="color:#50fa7b">Color</span>.GREEN)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">enum</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">TestResultStatus</span> {
+</span></span><span style="display:flex;"><span>        SUCCESS, ABORTED, FAILED, DISABLED
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>BlinkyTapeTestWatcher</code> class also implements the <code>AfterAllCallback</code> interface allows us to override a method called <code>afterAll</code> that is executed when all the tests have finished.</p>
+<p>The <code>afterAll</code> method performs 3 checks:</p>
+<ol>
+<li>If any of the tests have failed it renders the BlinkyTape as all red</li>
+<li>If non of the tests have failed but there were disabled tests it renders the BlinkyTape as all orange</li>
+<li>If all of the tests pass then it renders the BlinkyTape as all green</li>
+</ol>
+<p>All in all it seemed to work out pretty well.  I uploaded the repo to github if you wanted to play around with this yourself - <a href="https://github.com/leeturner/BlinkyTapeTestWatcher">https://github.com/leeturner/BlinkyTapeTestWatcher</a></p>
+<p>I uploaded a short video of this in action to twitter:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Had a play with the <a href="https://twitter.com/junitteam?ref_src=twsrc%5Etfw">@junitteam</a> TestWatcher API today. Hooked it up to my Blinky Tape LED strip for a visual representation of my test status. Green for all tests passing, red for any failures and orange for all passing but some tests disabled. <a href="https://t.co/PezJ0PGb1V">pic.twitter.com/PezJ0PGb1V</a></p>&mdash; Lee Turner (@leeturner) <a href="https://twitter.com/leeturner/status/1371143550348505093?ref_src=twsrc%5Etfw">March 14, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/geek-reads-1/" data-toggle="tooltip" data-placement="top" title="Geek Reads 1">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/hugo-progression-framework/" data-toggle="tooltip" data-placement="top" title="Creating a Progression Framework in Hugo">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+<div id="disqus-comment"></div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "leeturner-me" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+
+            
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hello-world" title="hello-world">
+                            hello-world
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/intellij" title="intellij">
+                            intellij
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/reference" title="reference">
+                            reference
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/spring" title="spring">
+                            spring
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/spring-boot" title="spring-boot">
+                            spring-boot
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://hachyderm.io/@leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+            
+            
+            
+           
+           <li>
+               <a target="_blank" href="https://youtube.com/@leeturner">
+                   <span class="fa-stack fa-lg">
+                       <i class="fas fa-circle fa-stack-2x"></i>
+                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                   </span>
+               </a>
+           </li>
+           
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Lee Turner" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Lee Turner 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

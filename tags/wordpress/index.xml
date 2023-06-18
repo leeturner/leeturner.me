@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 20 Jan 2018 22:09:08 +0000</lastBuildDate><atom:link href="/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Do You Bake or Fry</title>
-      <link>/posts/do-you-bake-or-fry/</link>
+      <link>/post/do-you-bake-or-fry/</link>
       <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
       
-      <guid>/posts/do-you-bake-or-fry/</guid>
+      <guid>/post/do-you-bake-or-fry/</guid>
       <description>Before I go much further, I thought it was probably worth me putting down a few notes about my technology choices for this site.
 In term of website development, I have had experience of quite a few different content management systems such as b2Evolution and more recently Wordpress. I have developed plugins and templates for b2Evolution as well as contributing code to the core product back in the day. I have put more sites together in Wordpress than I care to remember - most of my clients used Wordpress in some form or other while I was working in the paid traffic/SEO industry.</description>
     </item>

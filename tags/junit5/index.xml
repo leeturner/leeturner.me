@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 06 Apr 2021 10:20:08 +0000</lastBuildDate><atom:link href="/tags/junit5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BlinkyTape JUnit Testwatcher API Implementation</title>
-      <link>/posts/blinkytape-junit-testwatcher/</link>
+      <link>/post/blinkytape-junit-testwatcher/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
       
-      <guid>/posts/blinkytape-junit-testwatcher/</guid>
+      <guid>/post/blinkytape-junit-testwatcher/</guid>
       <description>Every so often I like to have a play around with a part of Junit that I haven&amp;rsquo;t used before, and I recently decided to look into the TestWatcher API.
 I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</description>
     </item>

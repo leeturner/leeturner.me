@@ -2,170 +2,293 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/posts/brighton-jug-kotlin-summer-social/</loc>
-    <lastmod>2023-06-08T10:20:08+00:00</lastmod>
+    <loc>/post/brighton-jug-kotlin-summer-social/</loc>
+    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/</loc>
-    <lastmod>2023-06-08T10:20:08+00:00</lastmod>
+    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/tags/meetups/</loc>
-    <lastmod>2023-06-08T10:20:08+00:00</lastmod>
+    <loc>/categories/meetups/</loc>
+    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2023-06-08T10:20:08+00:00</lastmod>
+    <loc>/post/</loc>
+    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/social/</loc>
-    <lastmod>2023-06-08T10:20:08+00:00</lastmod>
+    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2023-06-08T10:20:08+00:00</lastmod>
+    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/dependency/</loc>
     <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/maven/</loc>
     <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/mvn/</loc>
     <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/overriding-a-dependency-in-maven/</loc>
+    <loc>/post/overriding-a-dependency-in-maven/</loc>
     <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/snyk/</loc>
     <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/spring/</loc>
     <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/spring-boot/</loc>
     <lastmod>2022-01-08T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/junit/</loc>
     <lastmod>2021-09-12T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/mockmvc/</loc>
     <lastmod>2021-09-12T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/outputting-result-of-mockmvc/</loc>
+    <loc>/post/outputting-result-of-mockmvc/</loc>
     <lastmod>2021-09-12T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/reference/</loc>
     <lastmod>2021-09-12T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/testing/</loc>
     <lastmod>2021-09-12T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/hugo-progression-framework/</loc>
+    <loc>/post/hugo-progression-framework/</loc>
     <lastmod>2021-05-01T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/framework/</loc>
     <lastmod>2021-05-01T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/hugo/</loc>
     <lastmod>2021-05-01T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/monzo/</loc>
     <lastmod>2021-05-01T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/progression/</loc>
     <lastmod>2021-05-01T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/blinky/</loc>
     <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/blinkytape/</loc>
     <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/blinkytape-junit-testwatcher/</loc>
+    <loc>/post/blinkytape-junit-testwatcher/</loc>
     <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/junit5/</loc>
     <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/kotlin/</loc>
     <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/testwatcher/</loc>
     <lastmod>2021-04-06T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/bookmarks/</loc>
     <lastmod>2020-06-07T13:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/geek-reads-1/</loc>
+    <loc>/post/geek-reads-1/</loc>
     <lastmod>2020-06-07T13:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/copying-the-branch-name-in-intellij/</loc>
+    <loc>/post/copying-the-branch-name-in-intellij/</loc>
     <lastmod>2020-04-12T18:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/intellij/</loc>
     <lastmod>2020-04-12T18:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/building-a-camel-case-junit5-displaynamegenerator/</loc>
+    <loc>/post/building-a-camel-case-junit5-displaynamegenerator/</loc>
     <lastmod>2019-02-10T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/tdd/</loc>
     <lastmod>2019-02-10T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/tcr/</loc>
     <lastmod>2019-01-17T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/tooling/</loc>
     <lastmod>2019-01-17T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/tooling-up-tcr-intellij/</loc>
+    <loc>/post/tooling-up-tcr-intellij/</loc>
     <lastmod>2019-01-17T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/hello-world-erm-again/</loc>
+    <loc>/post/hello-world-erm-again/</loc>
     <lastmod>2019-01-16T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/hello-world/</loc>
     <lastmod>2019-01-16T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/java/</loc>
     <lastmod>2018-02-25T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/jvm/</loc>
     <lastmod>2018-02-25T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/mooc/</loc>
     <lastmod>2018-02-25T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/oracle-mooc-java-virtual-machine-troubleshooting/</loc>
+    <loc>/post/oracle-mooc-java-virtual-machine-troubleshooting/</loc>
     <lastmod>2018-02-25T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/continuous-feedback-with-tdd/</loc>
+    <loc>/post/continuous-feedback-with-tdd/</loc>
     <lastmod>2018-02-12T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/b2evolution/</loc>
     <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/do-you-bake-or-fry/</loc>
+    <loc>/post/do-you-bake-or-fry/</loc>
     <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/jbake/</loc>
     <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/jekyll/</loc>
     <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/static-sites/</loc>
     <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/tags/wordpress/</loc>
     <lastmod>2018-01-20T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/posts/hello-world/</loc>
+    <loc>/post/hello-world/</loc>
     <lastmod>2018-01-18T22:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/about/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/brighton-kotlin/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>/archive/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/privacy/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>/projects/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/now/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

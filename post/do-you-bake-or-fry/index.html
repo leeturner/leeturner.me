@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Lee Turner">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="//img/headers/the_pinicles_perth_australia.png">
+    <meta property="twitter:image" content="//img/headers/the_pinicles_perth_australia.png" />
+    
+
+    
+    <meta name="title" content="Do You Bake or Fry" />
+    <meta property="og:title" content="Do You Bake or Fry" />
+    <meta property="twitter:title" content="Do You Bake or Fry" />
+    
+
+    
+    <meta name="description" content="A quick discussion on the pros and cons of a static versus dynamic website.  I also give a little bit of an insight as to why I am using a static site and what I am using to bake it with.">
+    <meta property="og:description" content="A quick discussion on the pros and cons of a static versus dynamic website.  I also give a little bit of an insight as to why I am using a static site and what I am using to bake it with." />
+    <meta property="twitter:description" content="A quick discussion on the pros and cons of a static versus dynamic website.  I also give a little bit of an insight as to why I am using a static site and what I am using to bake it with." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Do You Bake or Fry | Lee Turner</title>
+
+    <link rel="canonical" href="/post/do-you-bake-or-fry/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+    <script src="https://buttons.github.io/buttons.js"></script>
+    
+
+</head>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-115883229-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lee Turner</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/meetups/">meetups</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/about/">About</a></li>
+                    
+                        <li><a href="/projects/">Projects</a></li>
+                    
+                        <li><a href="https://leeturner.tech/">Resume</a></li>
+                    
+                        <li><a href="/archive/">Archive</a></li>
+                    
+
+
+
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/headers/the_pinicles_perth_australia.png')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/static-sites" title="static-sites">
+                            static-sites
+                        </a>
+                        
+                        <a class="tag" href="/tags/jbake" title="jbake">
+                            jbake
+                        </a>
+                        
+                        <a class="tag" href="/tags/jekyll" title="jekyll">
+                            jekyll
+                        </a>
+                        
+                        <a class="tag" href="/tags/wordpress" title="wordpress">
+                            wordpress
+                        </a>
+                        
+                        <a class="tag" href="/tags/b2evolution" title="b2evolution">
+                            b2evolution
+                        </a>
+                        
+                    </div>
+                    <h1>Do You Bake or Fry</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Lee Turner
+                             
+                            on 
+                            Saturday, January 20, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>Before I go much further, I thought it was probably worth me putting down a few notes about my technology choices for this site.</p>
+<p>In term of website development, I have had experience of quite a few different content management systems such as <a href="http://b2evolution.net">b2Evolution</a> and more recently <a href="http://wordpress.org">Wordpress</a>.  I have developed plugins and templates for b2Evolution as well as contributing code to the core product back in the day.  I have put more sites together in Wordpress than I care to remember - most of my clients used Wordpress in some form or other while I was working in the paid traffic/SEO industry.</p>
+<p>Content management systems like b2Evolution and Wordpress have become commonly know as &lsquo;<em>frying</em>&rsquo; your site - all of your content is hidden away in a database somewhere and the CMS code takes a request from a browser, translates that into a request on the database to pull out the content and wrap it up with your chosen theme to produce your site.  There is absolutely nothing wrong with this&hellip;. in fact it works very well.  You can get a good looking site up and running very quickly and it is probably going to be able to do everything you need it to do.</p>
+<p>On the flip side of &lsquo;<em>frying</em>&rsquo; is &lsquo;<em>baking</em>&rsquo;.  This is where your content is stored in text files using a simple markup like <a href="https://daringfireball.net/projects/markdown/">Markdown</a> or <a href="http://asciidoctor.org">AsciiDoc</a>.  You run your content through an application that bakes it together with a template to produce a static site.  By static site I mean a pure html based website that can be run from any web server or hard drive.</p>
+<p>I have dabbled with blog aware static site generators since reading an article on <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">Blogging Like a Hacker</a> using <a href="https://jekyllrb.com">Jekyll</a> and <a href="https://octopress.org">Octopress</a> to put a few sites together.  The problem I have always had is that I needed the sites to serve a purpose and I didn&rsquo;t have the time to devote to understanding everything I needed to know to get the best out of the static site.</p>
+<h2 id="why-bake-">Why Bake ?</h2>
+<p>There are many pro&rsquo;s and con&rsquo;s to static site generators and they aren&rsquo;t suitable for everyone or every use case.  There has been plenty written about the benefits of static sites but the ones that appeal to me the most are:</p>
+<ul>
+<li><em>Flexibility</em> - the content I write is stored in plain text files.  This means I can write it in a <a href="http://www.vim.org">text editor</a> of <a href="http://sublimetext.com">my choosing</a>.</li>
+<li><em>Security</em> - the output of running a static site generator is a static site - html, css, javascript etc.  There isn&rsquo;t a whole lot you can hack with a static site.  If you have ever had to clean up a hacked Wordpress site you will know that it is no easy job - content inserted into the database, rogue code inserted into the php files, additional files added to your hosting account&hellip;. the list goes on.</li>
+<li><em>Performance</em> - as discussed above, a &lsquo;<em>frying</em>&rsquo; based content management system has multiple resources that it is managing all of which are limited.  There are only a limited number of database requests that the CMS can make at any one time and therefore, if your site is getting a reasonable amount of traffic you will have to consider some kind of caching solution.  A &lsquo;<em>baked</em>&rsquo; site doesn&rsquo;t have these limitations&hellip;.. it is just a static site which can be cached by your browsers standard browser cache.</li>
+<li><em>Reliability</em> - Similar to the performance point above, with all the moving parts of a a &lsquo;<em>frying</em>&rsquo; based CMS there are so many things that can go wrong - problems connecting to the database, issues with conflicting plugins, problems when upgrading the CMS or the plugins.  Static sites have none of these problems.</li>
+<li><em>Version Control</em> - even though some content management systems try to provide some level of version control for your content, that content is still stored in a database which is inherently harder to version control in its entirety.  With a static site you can store all of your content in a version control system such as git, which not only provides you with first class version control but serves as an effective backup as well.  It makes sense that developers who use these tools on a daily basis are drawn to static sites.</li>
+</ul>
+<h2 id="why-bake-now-">Why Bake Now ?</h2>
+<p>So I guess the question has to be why am I now choosing to put this site together using static site generation instead of a standard CMS that I am more familiar with?  I think the main difference this time round is that for me, the website is a project in and of itself, which was never the case before.  I plan to use it to learn a few things I have had on my radar for a little while and also to get involved in an open source project or two.</p>
+<p>This site will be the perfect outlet for all of those things and doesn&rsquo;t have to serve any other purpose than for me to document what I am playing with.</p>
+<h2 id="what-do-you-bake-with-">What Do You Bake With ?</h2>
+<p>This leaves just one thing to discuss.  What am I going to use to generate this site?  There are many more static site generators available now than when I first played with Jekyl and Octopress.  You only have to look at <a href="https://www.staticgen.com">StaticGen</a> to see that Jekyll is still the granddaddy of them all, but there are now others out there that are gaining traction.</p>
+<p>As I am primarily a Java developer I was looking for a good solid open source static site generator written in Java so I could get involved in driving the project forward.  There are a few Java based site generators out there but by far the most complete is <a href="http://www.jbake.org">jBake</a>.  This is the tool I have chosen to build my site with.  This site isn&rsquo;t yet up and running, even as I type this post.  This is mostly due to the fact that I am looking into converting a new template to use with my site (more on this in future posts), but I am playing around with it as I type so hopefully I will have something up and running soon.</p>
+<p>Jbake is by no means perfect.  One of the big things it is missing is a plugin system which would allow people to extend the functionality of jBake while the site is being baked.  I am hoping that this is something that will be worked on soon and something I am looking forward to getting involved with.</p>
+<p>So that is it.  This post lays the foundation of what I am using to build the site and I am sure there will be many more related posts as I dig deeper and get more involved in the project.</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/hello-world/" data-toggle="tooltip" data-placement="top" title="Hello World">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/continuous-feedback-with-tdd/" data-toggle="tooltip" data-placement="top" title="Continuous Feedback With TDD &amp; Auto Running Tests">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+<div id="disqus-comment"></div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "leeturner-me" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hello-world" title="hello-world">
+                            hello-world
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/intellij" title="intellij">
+                            intellij
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/reference" title="reference">
+                            reference
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/spring" title="spring">
+                            spring
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/spring-boot" title="spring-boot">
+                            spring-boot
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://hachyderm.io/@leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+            
+            
+            
+           
+           <li>
+               <a target="_blank" href="https://youtube.com/@leeturner">
+                   <span class="fa-stack fa-lg">
+                       <i class="fas fa-circle fa-stack-2x"></i>
+                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                   </span>
+               </a>
+           </li>
+           
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Lee Turner" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Lee Turner 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
