@@ -3,7 +3,7 @@ title: About
 description: About Lee Turner
 author: Lee Turner
 layout: page
-showcomments: false
+comments: false
 image: "/img/headers/neom-bhKqZNZeAR0-unsplash.jpg"
 aliases:
 - /about.html

@@ -1,7 +1,7 @@
 ---
 title: Brighton Kotlin
 layout: page
-showcomments: false
+comments: false
 ---
 
 Welcome to the Brighton Kotlin meetup group. I set up this group in 2019 for Kotlin users, enthusiasts and learners from beginners to experts, and anyone wanting to get involved with the Kotlin/JVM ecosystem in the local Brighton area.  Due to COVID-19, we decided to move the meetups online in 2021 and are now enjoying speakers from further afield than Brighton which has been great for the local community.
