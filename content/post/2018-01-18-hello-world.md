@@ -4,11 +4,13 @@ date: 2018-01-18T22:09:08Z
 description: The customary first post.  Nothing much to see here..... move along :)
 slug: hello-world
 author: Lee Turner
-type: post
+layout: post
+showtoc: false
 tags:
 - hello-world
 aliases:
 - /blog/2018/01/hello-world.html
+- /posts/hello-world/
 ---     
 
 Well, it has been quite a while since I've had a personal site up and running but given I am back in the dev world full-time, now seemed like a good time to kick one off again.

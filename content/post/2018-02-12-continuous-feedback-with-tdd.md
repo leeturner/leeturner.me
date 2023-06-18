@@ -3,8 +3,7 @@ title: Continuous Feedback With TDD & Auto Running Tests
 date: 2018-02-12T22:09:08Z
 description: Listen to your code and evolve your design using TDD and auto running tests.
 slug: continuous-feedback-with-tdd
-toc: true
-type: post
+layout: post
 author: Lee Turner 
 tags:
 - tdd
@@ -12,6 +11,7 @@ tags:
 - reference
 aliases:
 - /blog/2018/02/continuous-feedback-with-tdd.html
+- /posts/continuous-feedback-with-tdd/
 ---
 This is the first of my 'reference' posts which pretty much means I am writing about it here so I don't forget about it in the future.
 

@@ -3,7 +3,7 @@ title: Do You Bake or Fry
 date: 2018-01-20T22:09:08Z
 description: A quick discussion on the pros and cons of a static versus dynamic website.  I also give a little bit of an insight as to why I am using a static site and what I am using to bake it with.
 slug: do-you-bake-or-fry
-type: post
+layout: post
 author: Lee Turner 
 tags:
 - static-sites
@@ -13,6 +13,7 @@ tags:
 - b2evolution   
 aliases:
 - /blog/2018/01/do-you-bake-or-fry.html
+- /posts/do-you-bake-or-fry/
 ---
 Before I go much further, I thought it was probably worth me putting down a few notes about my technology choices for this site.  
 

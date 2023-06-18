@@ -4,13 +4,15 @@ date: 2018-02-25T22:09:08Z
 description: ts been a while since I have completed one of the Oracle MOOC (Massive Open Online Courses).  This one on troubleshooting the JVM and OutOfMemoryErrors was particularly good.
 slug: oracle-mooc-java-virtual-machine-troubleshooting
 author: Lee Turner
-type: post
+layout: post
+showtoc: false
 tags:
 - java
 - mooc
 - jvm
 aliases:
 - /blog/2018/02/oracle-mooc-java-virtual-machine-troubleshooting.html
+- /posts/oracle-mooc-java-virtual-machine-troubleshooting/
 ---
 Its been a while since I have completed one of the Oracle MOOC (Massive Open Online Courses).  This one on troubleshooting the JVM and OutOfMemoryErrors was particularly good.
 

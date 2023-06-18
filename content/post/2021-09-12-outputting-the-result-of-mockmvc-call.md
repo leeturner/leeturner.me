@@ -3,8 +3,8 @@ title: Outputting the result of a mockMvc call
 date: 2021-09-12T10:20:08Z
 description: How to output the result of a mockmvc call to help with debugging
 slug: outputting-result-of-mockmvc
-toc: true
-type: post
+layout: post
+showtoc: false
 author: Lee Turner
 tags:
 - spring
@@ -13,6 +13,8 @@ tags:
 - testing 
 - junit
 - reference
+aliases:
+  - /posts/outputting-result-of-mockmvc/
 ---
 
 This post falls into the category of something I always forget and need to Google.  

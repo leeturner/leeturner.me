@@ -4,11 +4,13 @@ date: 2019-01-16T22:09:08Z
 description:  Nearly a year to the day that I posted my original Hello World post..... oh dear.
 slug: hello-world-erm-again
 author: Lee Turner
-type: post
+layout: post
+showtoc: false
 tags:
 - hello-world
 aliases:
 - /blog/2019/01/hello-world-erm-again.html
+- /posts/hello-world-erm-again/
 ---     
 Well, what can I say?  It has been nearly a year to the day that I posted my original [Hello World post](/posts/hello-world) and I think it is fair to say that there hasn't been a great deal of activity since.
 

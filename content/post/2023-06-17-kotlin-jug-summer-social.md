@@ -1,14 +1,17 @@
 ---
 title: Brighton JUG & Kotlin Summer Social 🍺
-date: 2023-06-08T10:20:08Z
+date: 2023-06-17T10:20:08Z
 description: June 2023 Brighton Kotlin Meetup - Summer Social
 slug: brighton-jug-kotlin-summer-social
-toc: true
-type: post
+layout: post
 author: Lee Turner
+showtoc: false
 tags:
-- meetups
 - social
+categories:
+  - Meetups
+aliases:
+  - /posts/brighton-jug-kotlin-summer-social/
 ---
 ![Brighton JUG & Kotlin Summer Socal](/img/blog/2023-06-17-kotlin-jug-summer-social/summer-social.png "Summer Social")
 

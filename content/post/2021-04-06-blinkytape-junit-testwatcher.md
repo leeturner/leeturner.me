@@ -3,7 +3,8 @@ title: BlinkyTape JUnit Testwatcher API Implementation
 date: 2021-04-06T10:20:08Z
 description: This implementation demonstrates a Junit 5 TestWatcher API implementation that hooks up your tests to a BlinkyTape LED strip.
 slug: blinkytape-junit-testwatcher
-type: post
+layout: post
+showtoc: false
 author: Lee Turner
 tags:
 - kotlin 
@@ -12,6 +13,8 @@ tags:
 - blinky 
 - junit5 
 - testwatcher
+aliases:
+  - /posts/blinkytape-junit-testwatcher/
 ---
 
 [Every so often](/posts/building-a-camel-case-junit5-displaynamegenerator/) I like to have a play around with a part of [ Junit ](https://junit.org) that I haven't used before, and I recently decided to look into the [TestWatcher API](https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html).

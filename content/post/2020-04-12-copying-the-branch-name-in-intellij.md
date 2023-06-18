@@ -3,12 +3,14 @@ title: Copying A Branch Name In Intellij
 date: 2020-04-12T18:09:08Z
 description: How many times do you need to use the name of the branch you are currently working on?  Up until now I didn't know an easy way to copy the name into the clipboard
 slug: copying-the-branch-name-in-intellij
-toc: false
-type: post
+layout: post
+showtoc: false
 author: Lee Turner 
 tags:
 - intellij
 - reference
+aliases:
+  - /posts/copying-the-branch-name-in-intellij/
 ---
 How many times do you need to use the name of the branch you are currently working on ?  Entering the name of the branch into your CI/CD system to deploy your feature branch into a staging environment, sending the name over email or internal messaging app to a co-worker who you are pair-programming with...
 

@@ -3,7 +3,7 @@ title: Building a Camel Case @DisplayNameGenerator For JUnit 5
 date: 2019-02-10T22:09:08Z
 description: I am loving the new JUnit 5 features and the @DisplayName annotation seemed like a great idea.  However, it was a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  With the latest JUnit 5.4 release and the new @DisplayNameGenerator API all of that will change.
 slug: building-a-camel-case-junit5-displaynamegenerator
-type: post
+layout: post
 author: Lee Turner 
 tags:
 - tdd
@@ -11,6 +11,7 @@ tags:
 - junit
 aliases:
 - /blog/2019/02/building-a-camel-case-junit5-displaynamegenerator.html
+- /posts/building-a-camel-case-junit5-displaynamegenerator/
 ---
 I think it is fair to say that [JUnit](https://junit.org) has been my go to unit testing framework for quite a while.  I have used [TestNG](https://testng.org/) on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.
 

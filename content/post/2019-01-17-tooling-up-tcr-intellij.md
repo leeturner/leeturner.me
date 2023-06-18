@@ -3,8 +3,7 @@ title: Tooling Up - Implementing test && commit || revert (TCR) In IntelliJ
 date: 2019-01-17T22:09:08Z
 description: This post shows how I implemented a minimal test && commit || revert inside InelliJ - and when I say minimal I mean minimal.
 slug: tooling-up-tcr-intellij
-toc: true
-type: post
+layout: post
 author: Lee Turner 
 tags:
 - tooling
@@ -12,6 +11,7 @@ tags:
 - intellij
 aliases:
 - /blog/2019/01/tooling-up-tcr-intellij.html
+- /posts/tooling-up-tcr-intellij/
 ---
 Like many others, I have been reading about the new programming workflow introduced by [Kent Beck](https://twitter.com/KentBeck) called [test && commit || revert](https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864) (TCR)
 
