@@ -1,5 +1,6 @@
 ---
 title: Brighton Kotlin
+layout: page
 showcomments: false
 ---
 

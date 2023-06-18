@@ -1,6 +1,7 @@
 ---
 title: Privacy Policy
 description: leeturner.me Privacy Policy
+layout: page
 author: Lee Turner
 showcomments: false
 aliases:

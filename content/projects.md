@@ -1,6 +1,7 @@
 ---
 title: Projects
 description: A collection of side projects I have built for myself or others.  Hopefully you will find them useful
+layout: page
 author: Lee Turner
 showcomments: false
 ---

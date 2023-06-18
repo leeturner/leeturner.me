@@ -4,36 +4,68 @@ builddrafts = false
 canonifyurls = false
 title = "Lee Turner"
 author = "Lee Turner"
-theme = "hugo-goa"
+theme = "hugo-theme-cleanwhite"
 googleAnalytics = "UA-115883229-1"
 enableRobotsTXT = true
 disqusShortname = "leeturner-me"
+paginate = 6 #frontpage pagination
+preserveTaxonomyNames = true
+hasCJKLanguage = true
+
+[outputs]
+home = ["HTML", "RSS", "Algolia"]
 
 [markup.goldmark.renderer]
 unsafe = true
 
-#[permalinks]
-#post = "/blog/:title/"
-#
 [params]
-author = "Hi, I'm Lee Turner 👋"
-intro = "This is the personal site of Lee Turner"
-authorimage = "avatar.jpg"
-dateformat = "Jan 2, 2006"
-description = "Senior Software Engineer at Segovia/Crown Agents Bank, [Snyk Ambassador](https://snyk.io/snyk-ambassadors/), Hacker of code. Appsec enthusiast. Runs [Brighton Kotlin](https://brightonkotlin.com) & [Brighton JUG](https://brightonjug.com)"
-toc = false
+SEOTitle = "Lee Turner"
+header_image = "img/headers/the_pinicles_perth_australia.png"
+#author = "Hi, I'm Lee Turner 👋"
+slogan = "A random stream of thoughts and software experiments"
+description = "Senior Software Engineer at Segovia/Crown Agents Bank, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin & Brighton JUG"
+keyword = "lee, turner, lee turner, hacking, software engineering, security, coding"
 
-## Site Meta Settings
-[params.meta]
-description = "Senior Software Engineer at Segovia/Crown Agents Bank,, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin & Brighton JUG"
+# leancloud storage for page view counter
+page_view_conter = false
+leancloud_app_id = ""
+leancloud_app_key = ""
+
+# algolia site search
+algolia_search = false
+algolia_appId = ""
+algolia_indexName = ""
+algolia_apiKey = ""
+
+# Sidebar settings
+sidebar_about_description = "Hi, I'm Lee 👋.  Senior Software Engineer at Segovia/Crown Agents Bank, [Snyk Ambassador](https://snyk.io/snyk-ambassadors/), Hacker of code. Appsec enthusiast. Runs [Brighton Kotlin](https://brightonkotlin.com) & [Brighton JUG](https://brightonjug.com)"
+sidebar_avatar = "img/avatar.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+featured_tags = true
+featured_condition_size = 1
+
+image_404 = "img/404-bg.jpg"
+title_404 = "The page you are looking for couldn't be found"
+omit_categories = false
+
+#Enable wechat pay & alipay to allow readers send reward money if they like the articles 
+reward = false
+friends = false
+bookmarks = false
+about_me = true
+
+# Include any custom CSS and/or JS files, url or relative to /static folder
+#custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
+custom_js = ["https://buttons.github.io/buttons.js"]
 
 ## Social Accounts
 [params.social]
-github = "leeturner"
+rss = true
+github = "https://github.com/leeturner"
 mastodon = "https://hachyderm.io/@leeturner"
-linkedin = "turnerlee"
-twitter = "leeturner"
-youtube = "@leeturner"
+linkedin = "https://www.linkedin.com/in/turnerlee/"
+twitter = "https://twitter.com/leeturner"
+youtube = "https://youtube.com/@leeturner"
 #instagram = "<username>"
 #xing = "<username>"
 #facebook = "<username>"
@@ -63,34 +95,40 @@ highlightjs = true
 socialmarkup = true
 displayrssicon = false
 
-# Sets the menu items in the navigation bar
-# Identifier prepends a Font Awesome icon to the menu item
-[[menu.main]]
-name = "Home"
-url = "/"
-identifier = "home"
-weight = 1
+[[params.addtional_menus]]
+title =  "About"
+href =  "/about"
+[[params.addtional_menus]]
+title =  "Projects"
+href =  "/projects"
+[[params.addtional_menus]]
+title =  "Resume"
+href =  "https://leeturner.tech"
+#[[params.addtional_menus]]
+#title =  "Now"
+#href =  "/now"
+[[params.addtional_menus]]
+title =  "Archive"
+href =  "/archive"
 
-[[menu.main]]
-name = "About"
-url = "/about/"
-identifier = "about"
-weight = 2
+[outputFormats.Algolia]
+baseName = "algolia"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
 
-[[menu.main]]
-name = "Resume"
-url = "https://leeturner.tech"
-identifier = "resume"
-weight = 3
+[params.algolia]
+vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+params = ["categories", "tags"]
 
-[[menu.main]]
-name = "Posts"
-url = "/posts/"
-identifier = "posts"
-weight = 4
+[markup]
+[markup.tableOfContents]
+endLevel = 2
+startLevel = 1
+[markup.highlight]
+style = "dracula"
 
-[[menu.main]]
-name = "Projects"
-url = "/projects/"
-identifier = "projects"
-weight = 5
+[sitemap]
+changefreq = 'monthly'
+filename = 'sitemap.xml'
+priority = 0.5
