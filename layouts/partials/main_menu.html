@@ -1,9 +1,0 @@
-{{ with .Site.Menus.main }}
-<section id="main-menu-pane" class="text-center main-menu">
-  <ul>
-    {{ range sort . }}
-    <li><a class="menu-item" href="{{ .URL }}">{{ .Name }}</a></li>
-    {{ end }}
-  </ul>
-</section>
-{{ end }}
