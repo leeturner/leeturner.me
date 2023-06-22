@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Lee Turner</title>
-    <link>/categories/</link>
+    <link>https://leeturner.me/categories/</link>
     <description>Recent content in Categories on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Jun 2023 10:20:08 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Jun 2023 10:20:08 +0000</lastBuildDate><atom:link href="https://leeturner.me/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Meetups</title>
-      <link>/categories/meetups/</link>
+      <link>https://leeturner.me/categories/meetups/</link>
       <pubDate>Sat, 17 Jun 2023 10:20:08 +0000</pubDate>
       
-      <guid>/categories/meetups/</guid>
+      <guid>https://leeturner.me/categories/meetups/</guid>
       <description></description>
     </item>
     
