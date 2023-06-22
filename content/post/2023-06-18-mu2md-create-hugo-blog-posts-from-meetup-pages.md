@@ -1,7 +1,7 @@
 ---
 title: Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup
 subTitle: Automating workflows by scraping Meetup pages using Kotlin Script and JSoup
-date: 2023-06-18T19:09:36+0100
+date: 2023-06-30:09:36+0100
 description: There is a lot of admin involved in running a meetup group.  One of the things I wanted to automate was the creation of blog posts for our meetup blogs.  This post describes how I used Kotlin Script and JSoup to scrape the meetup page and create the blog posts.
 slug: creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup
 layout: post
