@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://leeturner.me/"
 languageCode = "en-us"
 builddrafts = false
 canonifyurls = false
