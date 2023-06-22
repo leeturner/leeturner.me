@@ -6,16 +6,7 @@
     <description>Recent content on Lee Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Jun 2023 19:09:36 +0100</lastBuildDate><atom:link href="https://leeturner.me/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup</title>
-      <link>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</link>
-      <pubDate>Sun, 18 Jun 2023 19:09:36 +0100</pubDate>
-      
-      <guid>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</guid>
-      <description>./mu2md.main.kts -s &amp;#34;Michele Sollecito&amp;#34; -t Apache,Pulsar,Corutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ &amp;gt; 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md #!/usr/bin/env kotlin @file:Repository(&amp;#34;https://jcenter.bintray.com&amp;#34;) @file:DependsOn(&amp;#34;org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5&amp;#34;) @file:DependsOn(&amp;#34;org.jsoup:jsoup:1.16.1&amp;#34;) @file:DependsOn(&amp;#34;io.github.furstenheim:copy_down:1.1&amp;#34;) import io.github.furstenheim.CopyDown import io.github.furstenheim.HeadingStyle import io.github.furstenheim.OptionsBuilder import java.net.SocketTimeoutException import java.time.LocalDateTime import java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME import kotlinx.cli.ArgParser import kotlinx.cli.ArgType import kotlinx.cli.default import org.jsoup.Jsoup object Constants { const val DEFAULT_USER_AGENT = &amp;#34;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/114.0&amp;#34; } // Handle all the required command line arguments for the script val parser = ArgParser(&amp;#34;mu2md.main.kts&amp;#34;) val url by parser.</description>
-    </item>
-    
+    <lastBuildDate>Sat, 17 Jun 2023 10:20:08 +0000</lastBuildDate><atom:link href="https://leeturner.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Brighton JUG &amp; Kotlin Summer Social 🍺</title>
       <link>https://leeturner.me/post/brighton-jug-kotlin-summer-social/</link>
@@ -180,6 +171,15 @@ At the moment I have no idea where this site is going to go but at the very leas
       <guid>https://leeturner.me/brighton-kotlin/</guid>
       <description>Welcome to the Brighton Kotlin meetup group. I set up this group in 2019 for Kotlin users, enthusiasts and learners from beginners to experts, and anyone wanting to get involved with the Kotlin/JVM ecosystem in the local Brighton area. Due to COVID-19, we decided to move the meetups online in 2021 and are now enjoying speakers from further afield than Brighton which has been great for the local community.
 We have regular meetups, presentations and talks, and are always interested in hearing what people want to know about, so please let us know.</description>
+    </item>
+    
+    <item>
+      <title>Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup</title>
+      <link>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</guid>
+      <description>./mu2md.main.kts -s &amp;#34;Michele Sollecito&amp;#34; -t Apache,Pulsar,Corutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ &amp;gt; 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md #!/usr/bin/env kotlin @file:Repository(&amp;#34;https://jcenter.bintray.com&amp;#34;) @file:DependsOn(&amp;#34;org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5&amp;#34;) @file:DependsOn(&amp;#34;org.jsoup:jsoup:1.16.1&amp;#34;) @file:DependsOn(&amp;#34;io.github.furstenheim:copy_down:1.1&amp;#34;) import io.github.furstenheim.CopyDown import io.github.furstenheim.HeadingStyle import io.github.furstenheim.OptionsBuilder import java.net.SocketTimeoutException import java.time.LocalDateTime import java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME import kotlinx.cli.ArgParser import kotlinx.cli.ArgType import kotlinx.cli.default import org.jsoup.Jsoup object Constants { const val DEFAULT_USER_AGENT = &amp;#34;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/114.0&amp;#34; } // Handle all the required command line arguments for the script val parser = ArgParser(&amp;#34;mu2md.main.kts&amp;#34;) val url by parser.</description>
     </item>
     
     <item>
