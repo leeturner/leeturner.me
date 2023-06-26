@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</loc>
+    <lastmod>2023-06-26T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/tags/hugo/</loc>
+    <lastmod>2023-06-26T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/tags/jsoup/</loc>
+    <lastmod>2023-06-26T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/tags/kotlin/</loc>
+    <lastmod>2023-06-26T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/</loc>
+    <lastmod>2023-06-26T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/post/</loc>
+    <lastmod>2023-06-26T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/tags/</loc>
+    <lastmod>2023-06-26T10:20:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://leeturner.me/post/brighton-jug-kotlin-summer-social/</loc>
     <lastmod>2023-06-17T10:20:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -12,27 +47,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://leeturner.me/</loc>
-    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://leeturner.me/categories/meetups/</loc>
     <lastmod>2023-06-17T10:20:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://leeturner.me/post/</loc>
-    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://leeturner.me/tags/social/</loc>
-    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://leeturner.me/tags/</loc>
     <lastmod>2023-06-17T10:20:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -107,11 +127,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://leeturner.me/tags/hugo/</loc>
-    <lastmod>2021-05-01T10:20:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://leeturner.me/tags/monzo/</loc>
     <lastmod>2021-05-01T10:20:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -138,11 +153,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://leeturner.me/tags/junit5/</loc>
-    <lastmod>2021-04-06T10:20:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://leeturner.me/tags/kotlin/</loc>
     <lastmod>2021-04-06T10:20:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -272,14 +282,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://leeturner.me/brighton-kotlin/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://leeturner.me/tags/jsoup/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>

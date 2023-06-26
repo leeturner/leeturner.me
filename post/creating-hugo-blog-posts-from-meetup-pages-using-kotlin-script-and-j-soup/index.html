@@ -210,7 +210,7 @@ if (!doNotTrack) {
                                 Lee Turner
                              
                             on 
-                            Monday, January 1, 0001
+                            Monday, June 26, 2023
                             
                             
                             
@@ -236,8 +236,74 @@ if (!doNotTrack) {
                 post-container">
 
                 
-                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -s <span style="color:#f1fa8c">&#34;Michele Sollecito&#34;</span> -t Apache,Pulsar,Corutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ &gt; 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>#!/usr/bin/env kotlin
+                <h2 id="the-dark-side-of-running-a-meetup-group">The Dark Side of Running a Meetup Group</h2>
+<p>I really enjoy running the <a href="https://brightonkotlin.com">Brighton Kotlin</a> and <a href="https://brightonjug.com">Brighton JUG</a>
+meetup groups. It is purely selfish to be honest, I get to meet lots of interesting people and learn a lot from the
+speakers and attendees and generally geek out with like-minded people.</p>
+<p>However, there is a lot of admin involved in running a meetup group, let alone two - especially when you decide to set
+up a dedicated blog for each of the meetup groups. Add that to a full time job and family commitments and it makes an
+interesting juggling act. So, inspired <a href="https://twitter.com/osteel">Yannick</a>, one of the organisers of the
+local <a href="https://phpsussex.uk/">PHP meetup</a>, and the way he <a href="https://github.com/PHPSussex/phpsussex.github.io">automates</a>
+the updating of the website homepage, I decided that it was time for me to look at my setup.</p>
+<h2 id="automating-the-creation-of-blog-posts">Automating the Creation of Blog Posts</h2>
+<p>I started by looking at the creation of blog posts for the meetup blogs. This was the one task that I always
+left till the last minute or very often didn&rsquo;t get round to at all. It is actually pretty simple - just copy the
+content I had already added to the meetup page and create a blog post from it. Each of the meetup blogs are created
+using <a href="https://gohugo.io">hugo</a> and hosted on GitHub pages (just like this blog) so I just needed to create a markdown
+file with the correct front matter and content.</p>
+<p>The basic idea was to create a script that would scrape a meetup page and create the markdown file in the format
+of a hugo blog post. If I made it generic enough, I could use it for both the Kotlin and Java meetup groups.</p>
+<p>Essentially, something where I could point it
+to <a href="https://www.meetup.com/brighton-kotlin/events/294227622/">this meetup page</a> and
+generate this <a href="https://brightonkotlin.com/blog/apache-pulsar-with-kotlin-couroutines-and-flows/">blog post</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: Apache Pulsar with Kotlin couroutines and flows with Michele Sollecito
+</span></span><span style="display:flex;"><span>description: Apache Pulsar with Kotlin couroutines and flows with Michele Sollecito
+</span></span><span style="display:flex;"><span>date: 2023-06-17T14:23:23.550313
+</span></span><span style="display:flex;"><span>author: Lee Turner
+</span></span><span style="display:flex;"><span>type: post
+</span></span><span style="display:flex;"><span>featured: michele-sollecito.png
+</span></span><span style="display:flex;"><span>featuredalt: Apache Pulsar with Kotlin couroutines and flows with Michele Sollecito
+</span></span><span style="display:flex;"><span>featuredpath: /images/blog/2023/06/
+</span></span><span style="display:flex;"><span>slug: apache-pulsar-with-kotlin-couroutines-and-flows
+</span></span><span style="display:flex;"><span>categories:
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> Meetups
+</span></span><span style="display:flex;"><span>tags:
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> Apache
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> Pulsar
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> Coroutines
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> Flows
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Come and join us by signing up on our meetup
+</span></span><span style="display:flex;"><span>page: [<span style="color:#ff79c6">https://www.meetup.com/brighton-kotlin/events/294227622/</span>](<span style="color:#50fa7b">https://www.meetup.com/brighton-kotlin/events/294227622/</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>We are very excited to welcome **Michele Sollecito** to our July meetup. He will be giving a talk on **Apache Pulsar
+</span></span><span style="display:flex;"><span>with Kotlin couroutines and flows**
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**Event Format: Hybrid**
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">*</span> Join us in-person: 6:00pm @ [<span style="color:#ff79c6">Pizza Pilgrims, Brighton</span>](<span style="color:#50fa7b">https://goo.gl/maps/ZPuDh6w8vz3H7KbQ9</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">*</span> Join us online: 6:30pm on
+</span></span><span style="display:flex;"><span>	YouTube - [<span style="color:#ff79c6">https://www.youtube.com/watch?v=JbeK486FTyU</span>](<span style="color:#50fa7b">https://www.youtube.com/watch?v=JbeK486FTyU</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>We&#39;ll explore how Kotlin makes consuming and producing messages from/to Apache Pulsar easy. We&#39;ll look at some tests,
+</span></span><span style="display:flex;"><span>and discuss how coroutines and flows work great with this kind of reactive and event-driven use cases.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Apache Pulsar is an open-source, distributed messaging and streaming platform built for the cloud. Its features include
+</span></span><span style="display:flex;"><span>multi-tenancy with resource separation and access control, geo-replication across regions, and tiered storage.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**Bio**
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Connect with Michele:  
+</span></span><span style="display:flex;"><span>Twitter: [<span style="color:#ff79c6">https://twitter.com/sollecitom</span>](<span style="color:#50fa7b">https://twitter.com/sollecitom</span>)  
+</span></span><span style="display:flex;"><span>LinkedIn: [<span style="color:#ff79c6">https://www.linkedin.com/in/michelesollecito/</span>](<span style="color:#50fa7b">https://www.linkedin.com/in/michelesollecito/</span>)
+</span></span></code></pre></div><h3 id="kotlin-script-and-jsoup-ftw">Kotlin Script and JSoup FTW</h3>
+<p>For me, Kotlin is the obvious choice for the script and I had already used <a href="https://jsoup.org/">JSoup</a> for a previous
+project, and it was really easy to use, so I decided to use it again.</p>
+<p>Below is the script I came up with. It is pretty self-explanatory, but I will go through it in more detail below. The
+script is hosted on GitHub <a href="https://github.com/leeturner/mu2md">here</a> so make sure you check there for any updates.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>#!/usr/bin/env kotlin
 </span></span><span style="display:flex;"><span>@file:Repository(<span style="color:#f1fa8c">&#34;https://jcenter.bintray.com&#34;</span>)
 </span></span><span style="display:flex;"><span>@file:DependsOn(<span style="color:#f1fa8c">&#34;org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5&#34;</span>)
 </span></span><span style="display:flex;"><span>@file:DependsOn(<span style="color:#f1fa8c">&#34;org.jsoup:jsoup:1.16.1&#34;</span>)
@@ -255,56 +321,67 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.jsoup.Jsoup
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">object</span> <span style="color:#50fa7b">Constants</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">val</span> DEFAULT_USER_AGENT =
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/114.0&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">const</span> <span style="color:#ff79c6">val</span> DEFAULT_USER_AGENT =
+</span></span><span style="display:flex;"><span>		<span style="color:#f1fa8c">&#34;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/114.0&#34;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4">// Handle all the required command line arguments for the script
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">val</span> parser = ArgParser(<span style="color:#f1fa8c">&#34;mu2md.main.kts&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">val</span> url <span style="color:#ff79c6">by</span>
-</span></span><span style="display:flex;"><span>    parser.argument(
-</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">ArgType</span>.String, description = <span style="color:#f1fa8c">&#34;URL of the meetup page we are converting to markdown&#34;</span>)
+</span></span><span style="display:flex;"><span>parser.argument(
+</span></span><span style="display:flex;"><span>	<span style="color:#50fa7b">ArgType</span>.String, description = <span style="color:#f1fa8c">&#34;URL of the meetup page we are converting to markdown&#34;</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">val</span> speaker <span style="color:#ff79c6">by</span>
-</span></span><span style="display:flex;"><span>    parser
-</span></span><span style="display:flex;"><span>        .option(
-</span></span><span style="display:flex;"><span>            <span style="color:#50fa7b">ArgType</span>.String,
-</span></span><span style="display:flex;"><span>            shortName = <span style="color:#f1fa8c">&#34;s&#34;</span>,
-</span></span><span style="display:flex;"><span>            fullName = <span style="color:#f1fa8c">&#34;speaker&#34;</span>,
-</span></span><span style="display:flex;"><span>            description = <span style="color:#f1fa8c">&#34;Name of the speaker&#34;</span>)
-</span></span><span style="display:flex;"><span>        .default(<span style="color:#f1fa8c">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>parser
+</span></span><span style="display:flex;"><span>	.option(
+</span></span><span style="display:flex;"><span>		<span style="color:#50fa7b">ArgType</span>.String,
+</span></span><span style="display:flex;"><span>		shortName = <span style="color:#f1fa8c">&#34;s&#34;</span>,
+</span></span><span style="display:flex;"><span>		fullName = <span style="color:#f1fa8c">&#34;speaker&#34;</span>,
+</span></span><span style="display:flex;"><span>		description = <span style="color:#f1fa8c">&#34;Name of the speaker&#34;</span>
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>	.default(<span style="color:#f1fa8c">&#34;&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">val</span> tags <span style="color:#ff79c6">by</span>
-</span></span><span style="display:flex;"><span>    parser
-</span></span><span style="display:flex;"><span>        .option(
-</span></span><span style="display:flex;"><span>            <span style="color:#50fa7b">ArgType</span>.String,
-</span></span><span style="display:flex;"><span>            shortName = <span style="color:#f1fa8c">&#34;t&#34;</span>,
-</span></span><span style="display:flex;"><span>            fullName = <span style="color:#f1fa8c">&#34;tags&#34;</span>,
-</span></span><span style="display:flex;"><span>            description = <span style="color:#f1fa8c">&#34;List of comma separated tags&#34;</span>)
-</span></span><span style="display:flex;"><span>        .default(<span style="color:#f1fa8c">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>parser
+</span></span><span style="display:flex;"><span>	.option(
+</span></span><span style="display:flex;"><span>		<span style="color:#50fa7b">ArgType</span>.String,
+</span></span><span style="display:flex;"><span>		shortName = <span style="color:#f1fa8c">&#34;t&#34;</span>,
+</span></span><span style="display:flex;"><span>		fullName = <span style="color:#f1fa8c">&#34;tags&#34;</span>,
+</span></span><span style="display:flex;"><span>		description = <span style="color:#f1fa8c">&#34;List of comma separated tags&#34;</span>
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>	.default(<span style="color:#f1fa8c">&#34;&#34;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>parser.parse(args)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">val</span> meetUpPage =
-</span></span><span style="display:flex;"><span>      <span style="color:#50fa7b">Jsoup</span>.connect(url).userAgent(<span style="color:#50fa7b">Constants</span>.DEFAULT_USER_AGENT).<span style="color:#ff79c6">get</span>()
-</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">?:</span> error(<span style="color:#f1fa8c">&#34;Could not connect to </span><span style="color:#f1fa8c">$url</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">val</span> eventTitle = meetUpPage.select(<span style="color:#f1fa8c">&#34;h1&#34;</span>).text() <span style="color:#ff79c6">?:</span> error(<span style="color:#f1fa8c">&#34;Could not find event title&#34;</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">val</span> eventDescription =
-</span></span><span style="display:flex;"><span>      meetUpPage.select(<span style="color:#f1fa8c">&#34;div#event-details div.break-words&#34;</span>)
-</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">?:</span> error(<span style="color:#f1fa8c">&#34;Could not find event description&#34;</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">val</span> now = <span style="color:#50fa7b">LocalDateTime</span>.now()
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">val</span> markdownOptions = <span style="color:#50fa7b">OptionsBuilder</span>.anOptions().withHeadingStyle(<span style="color:#50fa7b">HeadingStyle</span>.ATX).build()
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">val</span> converter = CopyDown(markdownOptions)
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">val</span> eventTitleWithSpeaker = <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">$eventTitle</span><span style="color:#f1fa8c"> </span><span style="color:#f1fa8c">${if (speaker.isNotEmpty()){&#34;with $speaker&#34;}</span><span style="color:#f1fa8c"> else &#34;&#34;}&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">val</span> tagsList = tags.split(<span style="color:#f1fa8c">&#34;,&#34;</span>).map { <span style="color:#ff79c6">it</span>.trim() }.filter { <span style="color:#ff79c6">it</span>.isNotEmpty() }
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">val</span> blogPostTemplate =
-</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> meetUpPage =
+</span></span><span style="display:flex;"><span>		<span style="color:#50fa7b">Jsoup</span>.connect(url).userAgent(<span style="color:#50fa7b">Constants</span>.DEFAULT_USER_AGENT).<span style="color:#ff79c6">get</span>()
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">?:</span> error(<span style="color:#f1fa8c">&#34;Could not connect to </span><span style="color:#f1fa8c">$url</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> eventTitle = meetUpPage.select(<span style="color:#f1fa8c">&#34;h1&#34;</span>).text() <span style="color:#ff79c6">?:</span> error(<span style="color:#f1fa8c">&#34;Could not find event title&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> eventDescription =
+</span></span><span style="display:flex;"><span>		meetUpPage.select(<span style="color:#f1fa8c">&#34;div#event-details div.break-words&#34;</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">?:</span> error(<span style="color:#f1fa8c">&#34;Could not find event description&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> now = <span style="color:#50fa7b">LocalDateTime</span>.now()
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> markdownOptions = <span style="color:#50fa7b">OptionsBuilder</span>.anOptions().withHeadingStyle(<span style="color:#50fa7b">HeadingStyle</span>.ATX).build()
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> converter = CopyDown(markdownOptions)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> eventTitleWithSpeaker = <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">$eventTitle</span><span style="color:#f1fa8c"> ${</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> (speaker.isNotEmpty()) {
+</span></span><span style="display:flex;"><span>			<span style="color:#f1fa8c">&#34;with </span><span style="color:#f1fa8c">$speaker</span><span style="color:#f1fa8c">&#34;</span>
+</span></span><span style="display:flex;"><span>		} <span style="color:#ff79c6">else</span> <span style="color:#f1fa8c">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>	}<span style="color:#f1fa8c">&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> tagsList = tags.split(<span style="color:#f1fa8c">&#34;,&#34;</span>).map { <span style="color:#ff79c6">it</span>.trim() }.filter { <span style="color:#ff79c6">it</span>.isNotEmpty() }
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> blogPostTemplate =
+</span></span><span style="display:flex;"><span>		<span style="color:#f1fa8c">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |---
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |title: </span><span style="color:#f1fa8c">$eventTitleWithSpeaker</span><span style="color:#f1fa8c">
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |description: </span><span style="color:#f1fa8c">$eventTitleWithSpeaker</span><span style="color:#f1fa8c">
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |date: </span><span style="color:#f1fa8c">${now.format(ISO_LOCAL_DATE_TIME)}</span><span style="color:#f1fa8c">
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |author: Lee Turner
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |type: post
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |featured: </span><span style="color:#f1fa8c">${if (speaker.isEmpty()){&#34;replace-me.png&#34;}</span><span style="color:#f1fa8c"> else &#34;${speaker.lowercase().replace(&#34; &#34;, &#34;-&#34;)}.png&#34;}
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |featured: ${
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">			if (speaker.isEmpty()) {
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">				&#34;replace-me.png&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">			} else &#34;${speaker.lowercase().replace(&#34; &#34;, &#34;-&#34;)}.png&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">		}
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |featuredalt: </span><span style="color:#f1fa8c">$eventTitleWithSpeaker</span><span style="color:#f1fa8c">
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |featuredpath: /images/blog/</span><span style="color:#f1fa8c">${now.year}</span><span style="color:#f1fa8c">/</span><span style="color:#f1fa8c">${String.format(&#34;%02d&#34;, now.monthValue)}</span><span style="color:#f1fa8c">/
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |slug: </span><span style="color:#f1fa8c">${eventTitle.lowercase().replace(&#34; &#34;, &#34;-&#34;)}</span><span style="color:#f1fa8c">
@@ -317,12 +394,41 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |</span><span style="color:#f1fa8c">${converter.convert(eventDescription.toString())}</span><span style="color:#f1fa8c">
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>          .trimMargin(<span style="color:#f1fa8c">&#34;|&#34;</span>)
-</span></span><span style="display:flex;"><span>  println(blogPostTemplate)
+</span></span><span style="display:flex;"><span>			.trimMargin(<span style="color:#f1fa8c">&#34;|&#34;</span>)
+</span></span><span style="display:flex;"><span>	println(blogPostTemplate)
 </span></span><span style="display:flex;"><span>} <span style="color:#ff79c6">catch</span> (e: SocketTimeoutException) {
-</span></span><span style="display:flex;"><span>  println(<span style="color:#f1fa8c">&#34;Could not connect to </span><span style="color:#f1fa8c">$url</span><span style="color:#f1fa8c">.  Connection timed out.&#34;</span>)
+</span></span><span style="display:flex;"><span>	println(<span style="color:#f1fa8c">&#34;Could not connect to </span><span style="color:#f1fa8c">$url</span><span style="color:#f1fa8c">.  Connection timed out.&#34;</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>The script is called <code>mu2md</code> (Meetup 2 Markdown) and it starts off by using the <code>kotlinx-cli</code> library from JetBrains to
+handle the command line arguments. The script requires a single argument which is the URL of the meetup page we want
+to convert to markdown. There are also two optional arguments, the speaker and the tags. The speaker is used to
+generate the image name for the blog post, along with some of the blog post metadata and the tags are used to generate
+the tags for the blog post.</p>
+<p>We then parse the meetup page using JSoup and extract the event title and description by referencing the HTML elements.
+I then use a library I called <a href="https://github.com/furstenheim/copy-down">copy_down</a> to take the html from the meetup
+description and convert it to markdown. (I had never used this library before, and it worked really well)</p>
+<p>When we have everything we need, we then print the blog post to the console using standard kotlin string interpolation.</p>
+<h3 id="running-the-script">Running the Script</h3>
+<p>To run the script, you need to have the Kotlin compiler installed and make the script executable. Once you have that,
+you can run the script on the command line just like any shell script and pipe the results into a markdown file. For
+example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -s <span style="color:#f1fa8c">&#34;Michele Sollecito&#34;</span> -t Apache,Pulsar,Corutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ &gt; 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md
+</span></span></code></pre></div><p>As a nice bonus, <code>kotlinx-cli</code> generates a help page for the script, so if you run the script with the <code>-h</code> flag,
+you will see the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -h
+</span></span><span style="display:flex;"><span>Usage: mu2md.main.kts options_list
+</span></span><span style="display:flex;"><span>Arguments:
+</span></span><span style="display:flex;"><span>    url -&gt; URL of the meetup page we are converting to markdown <span style="color:#ff79c6">{</span> String <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>Options:
+</span></span><span style="display:flex;"><span>    --speaker, -s <span style="color:#ff79c6">[]</span> -&gt; Name of the speaker <span style="color:#ff79c6">{</span> String <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    --tags, -t <span style="color:#ff79c6">[]</span> -&gt; List of comma separated tags <span style="color:#ff79c6">{</span> String <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    --help, -h -&gt; Usage info
+</span></span></code></pre></div><p>Let me know if you find this script useful or if you have any suggestions for improvements. I am going to take a look
+at other repetitive tasks I do as part of my meetup workflow and see if I can automate those as well. I will write those
+up as well if I do. I am also going to look at whether I can use GitHub actions along with a variation of this script
+to automate the whole flow of blog post creation and publishing but I will need to figure out how to handle the speaker
+name and tags. That requires a bit more thought.</p>
+
 
                 
 
@@ -330,11 +436,11 @@ if (!doNotTrack) {
                 <hr>
                 <ul class="pager">
                     
-                    
-                    <li class="next">
-                        <a href="/post/hello-world/" data-toggle="tooltip" data-placement="top" title="Hello World">Next
-                            Post &rarr;</a>
+                    <li class="previous">
+                        <a href="/post/brighton-jug-kotlin-summer-social/" data-toggle="tooltip" data-placement="top" title="Brighton JUG &amp; Kotlin Summer Social 🍺">&larr;
+                            Previous Post</a>
                     </li>
+                    
                     
                 </ul>
                 
