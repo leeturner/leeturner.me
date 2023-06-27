@@ -7,7 +7,7 @@ author = "Lee Turner"
 theme = "hugo-theme-cleanwhite"
 googleAnalytics = "UA-115883229-1"
 enableRobotsTXT = true
-disqusShortname = "leeturner-me"
+#disqusShortname = "leeturner-me"
 paginate = 6 #frontpage pagination
 preserveTaxonomyNames = true
 hasCJKLanguage = true
@@ -120,6 +120,18 @@ notAlternative = true
 [params.algolia]
 vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
 params = ["categories", "tags"]
+
+[params.giscus]
+data_repo="leeturner/leeturner.me"
+data_repo_id="MDEwOlJlcG9zaXRvcnkxMDMwNTIxNzQ="
+data_category="General"
+data_category_id="DIC_kwDOBiRzjs4CXhC_"
+data_mapping="pathname"
+data_reactions_enabled="1"
+data_emit_metadata="0"
+data_theme="oborder_light""
+data_lang="en"
+crossorigin="anonymous"
 
 [markup]
 [markup.tableOfContents]
