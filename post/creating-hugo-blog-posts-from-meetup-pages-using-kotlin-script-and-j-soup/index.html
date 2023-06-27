@@ -242,7 +242,7 @@ meetup groups. It is purely selfish to be honest, I get to meet lots of interest
 speakers and attendees and generally geek out with like-minded people.</p>
 <p>However, there is a lot of admin involved in running a meetup group, let alone two - especially when you decide to set
 up a dedicated blog for each of the meetup groups. Add that to a full time job and family commitments and it makes an
-interesting juggling act. So, inspired <a href="https://twitter.com/osteel">Yannick</a>, one of the organisers of the
+interesting juggling act. So, inspired by <a href="https://twitter.com/osteel">Yannick</a>, one of the organisers of the
 local <a href="https://phpsussex.uk/">PHP meetup</a>, and the way he <a href="https://github.com/PHPSussex/phpsussex.github.io">automates</a>
 the updating of the website homepage, I decided that it was time for me to look at my setup.</p>
 <h2 id="automating-the-creation-of-blog-posts">Automating the Creation of Blog Posts</h2>
@@ -257,15 +257,15 @@ of a hugo blog post. If I made it generic enough, I could use it for both the Ko
 to <a href="https://www.meetup.com/brighton-kotlin/events/294227622/">this meetup page</a> and
 generate this <a href="https://brightonkotlin.com/blog/apache-pulsar-with-kotlin-couroutines-and-flows/">blog post</a>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>title: Apache Pulsar with Kotlin couroutines and flows with Michele Sollecito
-</span></span><span style="display:flex;"><span>description: Apache Pulsar with Kotlin couroutines and flows with Michele Sollecito
+</span></span><span style="display:flex;"><span>title: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
+</span></span><span style="display:flex;"><span>description: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
 </span></span><span style="display:flex;"><span>date: 2023-06-17T14:23:23.550313
 </span></span><span style="display:flex;"><span>author: Lee Turner
 </span></span><span style="display:flex;"><span>type: post
 </span></span><span style="display:flex;"><span>featured: michele-sollecito.png
-</span></span><span style="display:flex;"><span>featuredalt: Apache Pulsar with Kotlin couroutines and flows with Michele Sollecito
+</span></span><span style="display:flex;"><span>featuredalt: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
 </span></span><span style="display:flex;"><span>featuredpath: /images/blog/2023/06/
-</span></span><span style="display:flex;"><span>slug: apache-pulsar-with-kotlin-couroutines-and-flows
+</span></span><span style="display:flex;"><span>slug: apache-pulsar-with-kotlin-coroutines-and-flows
 </span></span><span style="display:flex;"><span>categories:
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> Meetups
 </span></span><span style="display:flex;"><span>tags:
@@ -412,7 +412,7 @@ description and convert it to markdown. (I had never used this library before, a
 <p>To run the script, you need to have the Kotlin compiler installed and make the script executable. Once you have that,
 you can run the script on the command line just like any shell script and pipe the results into a markdown file. For
 example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -s <span style="color:#f1fa8c">&#34;Michele Sollecito&#34;</span> -t Apache,Pulsar,Corutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ &gt; 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -s <span style="color:#f1fa8c">&#34;Michele Sollecito&#34;</span> -t Apache,Pulsar,Coroutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ &gt; 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md
 </span></span></code></pre></div><p>As a nice bonus, <code>kotlinx-cli</code> generates a help page for the script, so if you run the script with the <code>-h</code> flag,
 you will see the following:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -h
