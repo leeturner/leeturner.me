@@ -22,7 +22,7 @@ speakers and attendees and generally geek out with like-minded people.
 
 However, there is a lot of admin involved in running a meetup group, let alone two - especially when you decide to set
 up a dedicated blog for each of the meetup groups. Add that to a full time job and family commitments and it makes an
-interesting juggling act. So, inspired [Yannick](https://twitter.com/osteel), one of the organisers of the
+interesting juggling act. So, inspired by [Yannick](https://twitter.com/osteel), one of the organisers of the
 local [PHP meetup](https://phpsussex.uk/), and the way he [automates](https://github.com/PHPSussex/phpsussex.github.io)
 the updating of the website homepage, I decided that it was time for me to look at my setup.
 
@@ -43,15 +43,15 @@ generate this [blog post](https://brightonkotlin.com/blog/apache-pulsar-with-kot
 
 ```markdown
 ---
-title: Apache Pulsar with Kotlin couroutines and flows with Michele Sollecito
-description: Apache Pulsar with Kotlin couroutines and flows with Michele Sollecito
+title: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
+description: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
 date: 2023-06-17T14:23:23.550313
 author: Lee Turner
 type: post
 featured: michele-sollecito.png
-featuredalt: Apache Pulsar with Kotlin couroutines and flows with Michele Sollecito
+featuredalt: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
 featuredpath: /images/blog/2023/06/
-slug: apache-pulsar-with-kotlin-couroutines-and-flows
+slug: apache-pulsar-with-kotlin-coroutines-and-flows
 categories:
 - Meetups
 tags:
@@ -212,7 +212,7 @@ you can run the script on the command line just like any shell script and pipe t
 example:
 
 ```shell
-./mu2md.main.kts -s "Michele Sollecito" -t Apache,Pulsar,Corutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ > 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md
+./mu2md.main.kts -s "Michele Sollecito" -t Apache,Pulsar,Coroutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ > 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md
 ```
 
 As a nice bonus, `kotlinx-cli` generates a help page for the script, so if you run the script with the `-h` flag,
