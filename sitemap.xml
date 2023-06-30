@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://leeturner.me/tags/controllers/</loc>
+    <lastmod>2023-06-29T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/</loc>
+    <lastmod>2023-06-29T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/tags/micronaut/</loc>
+    <lastmod>2023-06-29T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/tags/nerd-snipped/</loc>
+    <lastmod>2023-06-29T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/post/</loc>
+    <lastmod>2023-06-29T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/post/returning-images-from-micronaut-controllers/</loc>
+    <lastmod>2023-06-29T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/tags/</loc>
+    <lastmod>2023-06-29T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</loc>
     <lastmod>2023-06-26T10:20:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -18,21 +53,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://leeturner.me/tags/kotlin/</loc>
-    <lastmod>2023-06-26T10:20:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://leeturner.me/</loc>
-    <lastmod>2023-06-26T10:20:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://leeturner.me/post/</loc>
-    <lastmod>2023-06-26T10:20:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://leeturner.me/tags/</loc>
     <lastmod>2023-06-26T10:20:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

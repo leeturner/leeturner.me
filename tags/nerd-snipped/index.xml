@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nerd Snipped on Lee Turner</title>
+    <link>https://leeturner.me/tags/nerd-snipped/</link>
+    <description>Recent content in Nerd Snipped on Lee Turner</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Jun 2023 18:00:00 +0000</lastBuildDate><atom:link href="https://leeturner.me/tags/nerd-snipped/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Returning Images From Micronaut Controllers</title>
+      <link>https://leeturner.me/post/returning-images-from-micronaut-controllers/</link>
+      <pubDate>Thu, 29 Jun 2023 18:00:00 +0000</pubDate>
+      
+      <guid>https://leeturner.me/post/returning-images-from-micronaut-controllers/</guid>
+      <description>This week I was browsing the Micronaut Gitter channel and saw a question about how to return a BufferedImage from a Micronaut controller. This isn&amp;rsquo;t something I&amp;rsquo;ve done before and it instantly nerd snipped me:
+I am looking for help on how to make a controller method respond with a BufferedImage. Any ideas ?
+I had a quick google, and it turns out you don&amp;rsquo;t need a buffered image at all.</description>
+    </item>
+    
+  </channel>
+</rss>
