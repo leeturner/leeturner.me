@@ -87,12 +87,15 @@ youtube = "https://youtube.com/@leeturner"
 
 ## Extras
 [params.extra]
-copyright = "©2023. Lee Turner | [Privacy Policy](/privacy)"
+copyright = "©2024. Lee Turner | [Privacy Policy](/privacy)"
 poweredby = true
 highlightjs = true
 socialmarkup = true
 displayrssicon = false
 
+[[params.addtional_menus]]
+title =  "Now"
+href =  "/now"
 [[params.addtional_menus]]
 title =  "About"
 href =  "/about"
@@ -102,9 +105,6 @@ href =  "/projects"
 [[params.addtional_menus]]
 title =  "Resume"
 href =  "https://leeturner.tech"
-#[[params.addtional_menus]]
-#title =  "Now"
-#href =  "/now"
 [[params.addtional_menus]]
 title =  "Archive"
 href =  "/archive"

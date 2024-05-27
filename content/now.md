@@ -11,7 +11,7 @@ comments: false
 Inspired by [Derek Sivers's now page](https://sive.rs/now) this is where you can find out what I'm doing now. You can
 find out more about `/now` pages [here](https://nownownow.com/about).
 
-Last updated: June 19, 2023, from Brighton, UK.
+Last updated: May 27, 2024, from Brighton, UK.
 
 ### My Communities
 
@@ -22,6 +22,5 @@ learn and support each other.
 
 ### My Day Job
 
-I currently work for [Crown Agents Bank](https://www.crownagentsbank.com/) where our business goal is “Moving money
-where it’s needed”. My team and I work in the payments domain where we build high volume payment processing APIs and
-systems.
+I currently work for [WireMock](https://wiremock.io) as a Senior Software Engineer where we build WireMock Cloud and
+also build, manage and maintain WireMock open-source and its community. 
