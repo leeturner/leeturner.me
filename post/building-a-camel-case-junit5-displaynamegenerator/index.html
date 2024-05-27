@@ -110,6 +110,8 @@
                     
                     
 		    
+                        <li><a href="/now/">Now</a></li>
+                    
                         <li><a href="/about/">About</a></li>
                     
                         <li><a href="/projects/">Projects</a></li>
@@ -234,21 +236,21 @@
 </ul>
 <h2 id="the-displayname-annotation">The @DisplayName Annotation</h2>
 <p>The <code>@DisplayName</code> annotation seemed like a great idea - you add the annotation with a more readable description to your test class or methods and that gets displayed instead of the default class or method name in your test runner.  Something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@DisplayName<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Tests that when updating your password, the two passwords submitted must match&#34;</span><span style="color:#ff79c6">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@DisplayName(<span style="color:#f1fa8c">&#34;Tests that when updating your password, the two passwords submitted must match&#34;</span>)
 </span></span><span style="display:flex;"><span>@Test
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> testWhenAnUpdatePasswordRequestIsSubmittedTheTwoPasswordsMustMatch<span style="color:#ff79c6">{}</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// test goes here
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> testWhenAnUpdatePasswordRequestIsSubmittedTheTwoPasswordsMustMatch{} {
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// test goes here</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>It was fun for a while but it quickly became a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  However, all of this might change with the latest JUnit 5.4 release and the new <code>@DisplayNameGenerator</code> API.</p>
 <p>If you follow along on Twitter, you will have heard of the new <code>@DisplayNameGenerator</code> API before the 5.4 release.  Basically it would allow JUnit to determine a nice display name for your classes and tests from your class and method names without having to add the <code>@DisplayName</code> annotation.  Seemed like the best of both worlds to me.</p>
 <p>When the <a href="https://twitter.com/junitteam/status/1093621376978747393">5.4 release announcement was made on twitter</a> I setup a quick project and dived right in, but there was one big problem.  The only <code>@DisplayNameGenerator</code> provided in release 5.4 is a <a href="https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/DisplayNameGenerator.ReplaceUnderscores.html">ReplaceUnderscores</a> Generator which as you can imagine replaces the underscores in your class and method names with a space.  For example, the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@DisplayNameGeneration<span style="color:#ff79c6">(</span>DisplayNameGenerator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ReplaceUnderscores</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Password_Reset_Tests</span> <span style="color:#ff79c6">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@DisplayNameGeneration(DisplayNameGenerator.<span style="color:#50fa7b">ReplaceUnderscores</span>.<span style="color:#50fa7b">class</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Password_Reset_Tests</span> {
 </span></span><span style="display:flex;"><span>    @Test
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> test_When_An_Update_Password_Request_Is_Submitted_The_Two_Passwords_Must_Match<span style="color:#ff79c6">{}</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// test goes here
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> test_When_An_Update_Password_Request_Is_Submitted_The_Two_Passwords_Must_Match{} {
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// test goes here</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Will output:</p>
 <pre tabindex="0"><code>+-- Password Reset Test
 	+-- test When An Update Password Request Is Submitted The Two Passwords Must Match
@@ -256,57 +258,57 @@
 <p>All of the code discussed here can be found in <a href="https://github.com/leeturner/junit5-camel-case-emoji-display-name-generator">this github repo</a>.</p>
 <h2 id="a-camel-case-displaynamegenerator">A Camel Case @DisplayNameGenerator</h2>
 <p>On the face of it putting a space before every capital letter in a class or method name isn&rsquo;t that hard.  It can all be achieved with a simple <code>replaceAll</code> regex.  Something like this which extends the <code>DisplayNameGenerator.Standard</code> built into JUnit 5.4:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCase</span> <span style="color:#8be9fd;font-style:italic">extends</span> DisplayNameGenerator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Standard</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCase</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCase</span> <span style="color:#8be9fd;font-style:italic">extends</span> DisplayNameGenerator.<span style="color:#50fa7b">Standard</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCase</span>() {
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>testClass<span style="color:#ff79c6">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForClass</span>(Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">replaceCapitals</span>(<span style="color:#8be9fd;font-style:italic">super</span>.<span style="color:#50fa7b">generateDisplayNameForClass</span>(testClass));
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> nestedClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>nestedClass<span style="color:#ff79c6">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForNestedClass</span>(Class<span style="color:#ff79c6">&lt;?&gt;</span> nestedClass) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">replaceCapitals</span>(<span style="color:#8be9fd;font-style:italic">super</span>.<span style="color:#50fa7b">generateDisplayNameForNestedClass</span>(nestedClass));
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForMethod</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">,</span> Method testMethod<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span>testMethod<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getName</span><span style="color:#ff79c6">());</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForMethod</span>(Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass, Method testMethod) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">replaceCapitals</span>(testMethod.<span style="color:#50fa7b">getName</span>());
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> String <span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;([A-Z])&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34; $1&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> name<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> String <span style="color:#50fa7b">replaceCapitals</span>(String name) {
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name.<span style="color:#50fa7b">replaceAll</span>(<span style="color:#f1fa8c">&#34;([A-Z])&#34;</span>, <span style="color:#f1fa8c">&#34; $1&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> name;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>This works for the most part but you very quickly see the benefit of having a single character that you need to replace like in the <code>ReplaceUnderscores</code>.  For example, the above implementation doesn&rsquo;t take into account numbers and will fail to put a space where you would expect one.  For example, this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@Test
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">ifItIsDivisibleBy4ButNotBy100</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">/// test goes here
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">ifItIsDivisibleBy4ButNotBy100</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">/// test goes here</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Would render:</p>
 <pre tabindex="0"><code>+-- if It Is Divisible By4 But Not By100
 </code></pre><p>Not particularly ideal.  We also need to cater for numbers and not just individual numbers, we have to look for sequences of numbers and assume they are intended to be together.  Simple enough with another regex:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCase</span> <span style="color:#8be9fd;font-style:italic">extends</span> DisplayNameGenerator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Standard</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCase</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCase</span> <span style="color:#8be9fd;font-style:italic">extends</span> DisplayNameGenerator.<span style="color:#50fa7b">Standard</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCase</span>() {
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>testClass<span style="color:#ff79c6">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForClass</span>(Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">replaceCapitals</span>(<span style="color:#8be9fd;font-style:italic">super</span>.<span style="color:#50fa7b">generateDisplayNameForClass</span>(testClass));
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> nestedClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>nestedClass<span style="color:#ff79c6">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForNestedClass</span>(Class<span style="color:#ff79c6">&lt;?&gt;</span> nestedClass) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">replaceCapitals</span>(<span style="color:#8be9fd;font-style:italic">super</span>.<span style="color:#50fa7b">generateDisplayNameForNestedClass</span>(nestedClass));
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForMethod</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">,</span> Method testMethod<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span>testMethod<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getName</span><span style="color:#ff79c6">());</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForMethod</span>(Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass, Method testMethod) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">replaceCapitals</span>(testMethod.<span style="color:#50fa7b">getName</span>());
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> String <span style="color:#50fa7b">replaceCapitals</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;([A-Z])&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34; $1&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;([0-9]+)&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34; $1&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> name<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> String <span style="color:#50fa7b">replaceCapitals</span>(String name) {
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name.<span style="color:#50fa7b">replaceAll</span>(<span style="color:#f1fa8c">&#34;([A-Z])&#34;</span>, <span style="color:#f1fa8c">&#34; $1&#34;</span>);
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name.<span style="color:#50fa7b">replaceAll</span>(<span style="color:#f1fa8c">&#34;([0-9]+)&#34;</span>, <span style="color:#f1fa8c">&#34; $1&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> name;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>All in all this simple camel case <code>DisplayNameGenerator</code> works pretty well and generates something like this:</p>
 <p>
   <img src="/img/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator/junit5-ReplaceCamelCase.png" alt="Replace Camel Case Junit 5 Display Name Generator">
@@ -316,32 +318,32 @@
 <h2 id="one-step-too-far">One Step Too Far&hellip;&hellip;</h2>
 <p>I am going to leave this here for posterity&rsquo;s sake.  I am not proud of it but once I thought of it I couldn&rsquo;t help myself :)</p>
 <p>One of the new things JUnit 5 allows is <a href="https://twitter.com/sam_brannen/status/660595585288970240?lang=en">emoji in your test names</a>.  This also applies to the <code>@DisplayName</code> annotation.  All I will say is that it doesn&rsquo;t take a great leap to extend the <code>ReplaceUnderscores</code> or <code>ReplaceCamelCase</code> Generators with one that replaces certain words with emoji.  Here is a little proof of concept using the example from the JUnit user guide:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCaseEmojis</span> <span style="color:#8be9fd;font-style:italic">extends</span> ReplaceCamelCase <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCaseEmojis</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCaseEmojis</span> <span style="color:#8be9fd;font-style:italic">extends</span> ReplaceCamelCase {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCaseEmojis</span>() {
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceWithEmojis</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForClass</span><span style="color:#ff79c6">(</span>testClass<span style="color:#ff79c6">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForClass</span>(Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">replaceWithEmojis</span>(<span style="color:#8be9fd;font-style:italic">super</span>.<span style="color:#50fa7b">generateDisplayNameForClass</span>(testClass));
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> nestedClass<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceWithEmojis</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForNestedClass</span><span style="color:#ff79c6">(</span>nestedClass<span style="color:#ff79c6">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForNestedClass</span>(Class<span style="color:#ff79c6">&lt;?&gt;</span> nestedClass) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">replaceWithEmojis</span>(<span style="color:#8be9fd;font-style:italic">super</span>.<span style="color:#50fa7b">generateDisplayNameForNestedClass</span>(nestedClass));
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForMethod</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass<span style="color:#ff79c6">,</span> Method testMethod<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceWithEmojis</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">generateDisplayNameForMethod</span><span style="color:#ff79c6">(</span>testClass<span style="color:#ff79c6">,</span> testMethod<span style="color:#ff79c6">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> String <span style="color:#50fa7b">generateDisplayNameForMethod</span>(Class<span style="color:#ff79c6">&lt;?&gt;</span> testClass, Method testMethod) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">replaceWithEmojis</span>(<span style="color:#8be9fd;font-style:italic">super</span>.<span style="color:#50fa7b">generateDisplayNameForMethod</span>(testClass, testMethod));
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> String <span style="color:#50fa7b">replaceWithEmojis</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Camel|camel&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\uD83D\uDC2B&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Case|case&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\uD83D\uDCBC&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Display|display&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\uD83D\uDCBB&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Divisible|divisible&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\u2797&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Year|year&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\uD83D\uDCC5&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">replaceAll</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;100&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;\uD83D\uDCAF&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> name<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> String <span style="color:#50fa7b">replaceWithEmojis</span>(String name) {
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name.<span style="color:#50fa7b">replaceAll</span>(<span style="color:#f1fa8c">&#34;Camel|camel&#34;</span>, <span style="color:#f1fa8c">&#34;\uD83D\uDC2B&#34;</span>);
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name.<span style="color:#50fa7b">replaceAll</span>(<span style="color:#f1fa8c">&#34;Case|case&#34;</span>, <span style="color:#f1fa8c">&#34;\uD83D\uDCBC&#34;</span>);
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name.<span style="color:#50fa7b">replaceAll</span>(<span style="color:#f1fa8c">&#34;Display|display&#34;</span>, <span style="color:#f1fa8c">&#34;\uD83D\uDCBB&#34;</span>);
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name.<span style="color:#50fa7b">replaceAll</span>(<span style="color:#f1fa8c">&#34;Divisible|divisible&#34;</span>, <span style="color:#f1fa8c">&#34;\u2797&#34;</span>);
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name.<span style="color:#50fa7b">replaceAll</span>(<span style="color:#f1fa8c">&#34;Year|year&#34;</span>, <span style="color:#f1fa8c">&#34;\uD83D\uDCC5&#34;</span>);
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> name.<span style="color:#50fa7b">replaceAll</span>(<span style="color:#f1fa8c">&#34;100&#34;</span>, <span style="color:#f1fa8c">&#34;\uD83D\uDCAF&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> name;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>This generates something like this:</p>
 <p>
   <img src="/img/blog/2019-02-10-building-a-camel-case-junit5-displaynamegenerator/junit5-ReplaceCamelCaseEmoji.png" alt="Replace Camel Case Junit 5 Display Name Generator">
@@ -510,8 +512,8 @@
                         
                         
                         
-                        <a href="/tags/spring-boot" title="spring-boot">
-                            spring-boot
+                        <a href="/tags/spring-boot" title="spring boot">
+                            spring boot
                         </a>
                         
                         
@@ -635,7 +637,7 @@
             
              </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; Lee Turner 2023
+                    Copyright &copy; Lee Turner 2024
                     <br>
                     <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
                 </p>

@@ -1,43 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>junit on Lee Turner</title>
+    <title>Junit on Lee Turner</title>
     <link>https://leeturner.me/tags/junit/</link>
-    <description>Recent content in junit on Lee Turner</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Junit on Lee Turner</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Sep 2021 10:20:08 +0000</lastBuildDate><atom:link href="https://leeturner.me/tags/junit/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Sep 2021 10:20:08 +0000</lastBuildDate>
+    <atom:link href="https://leeturner.me/tags/junit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Outputting the result of a mockMvc call</title>
       <link>https://leeturner.me/post/outputting-result-of-mockmvc/</link>
       <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/outputting-result-of-mockmvc/</guid>
-      <description>This post falls into the category of something I always forget and need to Google.
-When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging. This can be done by adding MockMvcResultsHandlers.print() to the call chain like in the following example.
-This:
-@Test void getStatementsThrowABadRequestWhenCookiesNotPresent() throws Exception { mockMvc.perform(get(&amp;#34;/statements&amp;#34;) .headers(getHeaders()) .cookie(getCookies()) .contentType(MediaType.APPLICATION_JSON)) .andExpect(status().isBadRequest()) .</description>
+      <description>This post falls into the category of something I always forget and need to Google.&#xA;When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging. This can be done by adding MockMvcResultsHandlers.print() to the call chain like in the following example.&#xA;This:&#xA;@Test void getStatementsThrowABadRequestWhenCookiesNotPresent() throws Exception { mockMvc.perform(get(&amp;#34;/statements&amp;#34;) .headers(getHeaders()) .cookie(getCookies()) .contentType(MediaType.APPLICATION_JSON)) .andExpect(status().isBadRequest()) .</description>
     </item>
-    
     <item>
       <title>BlinkyTape JUnit Testwatcher API Implementation</title>
       <link>https://leeturner.me/post/blinkytape-junit-testwatcher/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/blinkytape-junit-testwatcher/</guid>
-      <description>Every so often I like to have a play around with a part of Junit that I haven&amp;rsquo;t used before, and I recently decided to look into the TestWatcher API.
-I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</description>
+      <description>Every so often I like to have a play around with a part of Junit that I haven&amp;rsquo;t used before, and I recently decided to look into the TestWatcher API.&#xA;I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</description>
     </item>
-    
     <item>
       <title>Building a Camel Case @DisplayNameGenerator For JUnit 5</title>
       <link>https://leeturner.me/post/building-a-camel-case-junit5-displaynamegenerator/</link>
       <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/building-a-camel-case-junit5-displaynamegenerator/</guid>
-      <description>I think it is fair to say that JUnit has been my go to unit testing framework for quite a while. I have used TestNG on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.
-This was solidified even further with the release of JUnit 5.</description>
+      <description>I think it is fair to say that JUnit has been my go to unit testing framework for quite a while. I have used TestNG on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.&#xA;This was solidified even further with the release of JUnit 5.</description>
     </item>
-    
   </channel>
 </rss>

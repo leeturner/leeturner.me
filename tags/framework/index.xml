@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>framework on Lee Turner</title>
+    <title>Framework on Lee Turner</title>
     <link>https://leeturner.me/tags/framework/</link>
-    <description>Recent content in framework on Lee Turner</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Framework on Lee Turner</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 May 2021 10:20:08 +0000</lastBuildDate><atom:link href="https://leeturner.me/tags/framework/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 May 2021 10:20:08 +0000</lastBuildDate>
+    <atom:link href="https://leeturner.me/tags/framework/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating a Progression Framework in Hugo</title>
       <link>https://leeturner.me/post/hugo-progression-framework/</link>
       <pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/hugo-progression-framework/</guid>
-      <description>I was introduced to progression frameworks last year when I came across the Monzo progression framework
-I really like the idea that people within an organisation have a tool to help them grow and hone their strengths along with organisations ensuring they are in good shape, and their employees are happy.
-The Monzo progression framework is built using the Gatsby static site builder which makes the frameworks easy to build and track via source control.</description>
+      <description>I was introduced to progression frameworks last year when I came across the Monzo progression framework&#xA;I really like the idea that people within an organisation have a tool to help them grow and hone their strengths along with organisations ensuring they are in good shape, and their employees are happy.&#xA;The Monzo progression framework is built using the Gatsby static site builder which makes the frameworks easy to build and track via source control.</description>
     </item>
-    
   </channel>
 </rss>

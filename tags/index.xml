@@ -4,350 +4,275 @@
     <title>Tags on Lee Turner</title>
     <link>https://leeturner.me/tags/</link>
     <description>Recent content in Tags on Lee Turner</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Jun 2023 18:00:00 +0000</lastBuildDate><atom:link href="https://leeturner.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Jun 2023 18:00:00 +0000</lastBuildDate>
+    <atom:link href="https://leeturner.me/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Controllers</title>
       <link>https://leeturner.me/tags/controllers/</link>
-      <pubDate>Thu, 29 Jun 2023 18:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/controllers/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Micronaut</title>
       <link>https://leeturner.me/tags/micronaut/</link>
-      <pubDate>Thu, 29 Jun 2023 18:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/micronaut/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Nerd Snipped</title>
       <link>https://leeturner.me/tags/nerd-snipped/</link>
-      <pubDate>Thu, 29 Jun 2023 18:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/nerd-snipped/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>hugo</title>
+      <title>Hugo</title>
       <link>https://leeturner.me/tags/hugo/</link>
-      <pubDate>Mon, 26 Jun 2023 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/hugo/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>jsoup</title>
+      <title>Jsoup</title>
       <link>https://leeturner.me/tags/jsoup/</link>
-      <pubDate>Mon, 26 Jun 2023 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/jsoup/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kotlin</title>
+      <title>Kotlin</title>
       <link>https://leeturner.me/tags/kotlin/</link>
-      <pubDate>Mon, 26 Jun 2023 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/kotlin/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>social</title>
+      <title>Social</title>
       <link>https://leeturner.me/tags/social/</link>
-      <pubDate>Sat, 17 Jun 2023 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/social/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>dependency</title>
+      <title>Dependency</title>
       <link>https://leeturner.me/tags/dependency/</link>
-      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/dependency/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>maven</title>
+      <title>Maven</title>
       <link>https://leeturner.me/tags/maven/</link>
-      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/maven/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mvn</title>
+      <title>Mvn</title>
       <link>https://leeturner.me/tags/mvn/</link>
-      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/mvn/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>snyk</title>
+      <title>Snyk</title>
       <link>https://leeturner.me/tags/snyk/</link>
-      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/snyk/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>spring</title>
+      <title>Spring</title>
       <link>https://leeturner.me/tags/spring/</link>
-      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/spring/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>spring boot</title>
+      <title>Spring Boot</title>
       <link>https://leeturner.me/tags/spring-boot/</link>
-      <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/spring-boot/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>junit</title>
+      <title>Junit</title>
       <link>https://leeturner.me/tags/junit/</link>
-      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/junit/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mockmvc</title>
+      <title>Mockmvc</title>
       <link>https://leeturner.me/tags/mockmvc/</link>
-      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/mockmvc/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>reference</title>
+      <title>Reference</title>
       <link>https://leeturner.me/tags/reference/</link>
-      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/reference/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>testing</title>
+      <title>Testing</title>
       <link>https://leeturner.me/tags/testing/</link>
-      <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/testing/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>framework</title>
+      <title>Framework</title>
       <link>https://leeturner.me/tags/framework/</link>
-      <pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/framework/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>monzo</title>
+      <title>Monzo</title>
       <link>https://leeturner.me/tags/monzo/</link>
-      <pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/monzo/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>progression</title>
+      <title>Progression</title>
       <link>https://leeturner.me/tags/progression/</link>
-      <pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/progression/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>blinky</title>
+      <title>Blinky</title>
       <link>https://leeturner.me/tags/blinky/</link>
-      <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/blinky/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>blinkytape</title>
+      <title>Blinkytape</title>
       <link>https://leeturner.me/tags/blinkytape/</link>
-      <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/blinkytape/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>junit5</title>
+      <title>Junit5</title>
       <link>https://leeturner.me/tags/junit5/</link>
-      <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/junit5/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>testwatcher</title>
+      <title>Testwatcher</title>
       <link>https://leeturner.me/tags/testwatcher/</link>
-      <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/testwatcher/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>bookmarks</title>
+      <title>Bookmarks</title>
       <link>https://leeturner.me/tags/bookmarks/</link>
-      <pubDate>Sun, 07 Jun 2020 13:20:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/bookmarks/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>intellij</title>
+      <title>Intellij</title>
       <link>https://leeturner.me/tags/intellij/</link>
-      <pubDate>Sun, 12 Apr 2020 18:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/intellij/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tdd</title>
+      <title>Tdd</title>
       <link>https://leeturner.me/tags/tdd/</link>
-      <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/tdd/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tcr</title>
+      <title>Tcr</title>
       <link>https://leeturner.me/tags/tcr/</link>
-      <pubDate>Thu, 17 Jan 2019 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/tcr/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tooling</title>
+      <title>Tooling</title>
       <link>https://leeturner.me/tags/tooling/</link>
-      <pubDate>Thu, 17 Jan 2019 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/tooling/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>hello-world</title>
+      <title>Hello-World</title>
       <link>https://leeturner.me/tags/hello-world/</link>
-      <pubDate>Wed, 16 Jan 2019 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/hello-world/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>java</title>
+      <title>Java</title>
       <link>https://leeturner.me/tags/java/</link>
-      <pubDate>Sun, 25 Feb 2018 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/java/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>jvm</title>
+      <title>Jvm</title>
       <link>https://leeturner.me/tags/jvm/</link>
-      <pubDate>Sun, 25 Feb 2018 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/jvm/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mooc</title>
+      <title>Mooc</title>
       <link>https://leeturner.me/tags/mooc/</link>
-      <pubDate>Sun, 25 Feb 2018 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/mooc/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>b2evolution</title>
+      <title>B2evolution</title>
       <link>https://leeturner.me/tags/b2evolution/</link>
-      <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/b2evolution/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>jbake</title>
+      <title>Jbake</title>
       <link>https://leeturner.me/tags/jbake/</link>
-      <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/jbake/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>jekyll</title>
+      <title>Jekyll</title>
       <link>https://leeturner.me/tags/jekyll/</link>
-      <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/jekyll/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>static-sites</title>
+      <title>Static-Sites</title>
       <link>https://leeturner.me/tags/static-sites/</link>
-      <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/static-sites/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>wordpress</title>
+      <title>Wordpress</title>
       <link>https://leeturner.me/tags/wordpress/</link>
-      <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/tags/wordpress/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

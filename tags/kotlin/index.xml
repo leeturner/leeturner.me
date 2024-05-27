@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kotlin on Lee Turner</title>
+    <title>Kotlin on Lee Turner</title>
     <link>https://leeturner.me/tags/kotlin/</link>
-    <description>Recent content in kotlin on Lee Turner</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Kotlin on Lee Turner</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Jun 2023 10:20:08 +0000</lastBuildDate><atom:link href="https://leeturner.me/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Jun 2023 10:20:08 +0000</lastBuildDate>
+    <atom:link href="https://leeturner.me/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup</title>
       <link>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</link>
       <pubDate>Mon, 26 Jun 2023 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</guid>
-      <description>The Dark Side of Running a Meetup Group I really enjoy running the Brighton Kotlin and Brighton JUG meetup groups. It is purely selfish to be honest, I get to meet lots of interesting people and learn a lot from the speakers and attendees and generally geek out with like-minded people.
-However, there is a lot of admin involved in running a meetup group, let alone two - especially when you decide to set up a dedicated blog for each of the meetup groups.</description>
+      <description>The Dark Side of Running a Meetup Group I really enjoy running the Brighton Kotlin and Brighton JUG meetup groups. It is purely selfish to be honest, I get to meet lots of interesting people and learn a lot from the speakers and attendees and generally geek out with like-minded people.&#xA;However, there is a lot of admin involved in running a meetup group, let alone two - especially when you decide to set up a dedicated blog for each of the meetup groups.</description>
     </item>
-    
     <item>
       <title>BlinkyTape JUnit Testwatcher API Implementation</title>
       <link>https://leeturner.me/post/blinkytape-junit-testwatcher/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/blinkytape-junit-testwatcher/</guid>
-      <description>Every so often I like to have a play around with a part of Junit that I haven&amp;rsquo;t used before, and I recently decided to look into the TestWatcher API.
-I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</description>
+      <description>Every so often I like to have a play around with a part of Junit that I haven&amp;rsquo;t used before, and I recently decided to look into the TestWatcher API.&#xA;I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</description>
     </item>
-    
   </channel>
 </rss>

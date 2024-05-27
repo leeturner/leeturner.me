@@ -4,176 +4,121 @@
     <title>Posts on Lee Turner</title>
     <link>https://leeturner.me/post/</link>
     <description>Recent content in Posts on Lee Turner</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Jun 2023 18:00:00 +0000</lastBuildDate><atom:link href="https://leeturner.me/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Jun 2023 18:00:00 +0000</lastBuildDate>
+    <atom:link href="https://leeturner.me/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Returning Images From Micronaut Controllers</title>
       <link>https://leeturner.me/post/returning-images-from-micronaut-controllers/</link>
       <pubDate>Thu, 29 Jun 2023 18:00:00 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/returning-images-from-micronaut-controllers/</guid>
-      <description>This week I was browsing the Micronaut Gitter channel and saw a question about how to return a BufferedImage from a Micronaut controller. This isn&amp;rsquo;t something I&amp;rsquo;ve done before and it instantly nerd snipped me:
-I am looking for help on how to make a controller method respond with a BufferedImage. Any ideas ?
-I had a quick google, and it turns out you don&amp;rsquo;t need a buffered image at all.</description>
+      <description>This week I was browsing the Micronaut Gitter channel and saw a question about how to return a BufferedImage from a Micronaut controller. This isn&amp;rsquo;t something I&amp;rsquo;ve done before and it instantly nerd snipped me:&#xA;I am looking for help on how to make a controller method respond with a BufferedImage. Any ideas ?&#xA;I had a quick google, and it turns out you don&amp;rsquo;t need a buffered image at all.</description>
     </item>
-    
     <item>
       <title>Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup</title>
       <link>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</link>
       <pubDate>Mon, 26 Jun 2023 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/</guid>
-      <description>The Dark Side of Running a Meetup Group I really enjoy running the Brighton Kotlin and Brighton JUG meetup groups. It is purely selfish to be honest, I get to meet lots of interesting people and learn a lot from the speakers and attendees and generally geek out with like-minded people.
-However, there is a lot of admin involved in running a meetup group, let alone two - especially when you decide to set up a dedicated blog for each of the meetup groups.</description>
+      <description>The Dark Side of Running a Meetup Group I really enjoy running the Brighton Kotlin and Brighton JUG meetup groups. It is purely selfish to be honest, I get to meet lots of interesting people and learn a lot from the speakers and attendees and generally geek out with like-minded people.&#xA;However, there is a lot of admin involved in running a meetup group, let alone two - especially when you decide to set up a dedicated blog for each of the meetup groups.</description>
     </item>
-    
     <item>
       <title>Brighton JUG &amp; Kotlin Summer Social 🍺</title>
       <link>https://leeturner.me/post/brighton-jug-kotlin-summer-social/</link>
       <pubDate>Sat, 17 Jun 2023 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/brighton-jug-kotlin-summer-social/</guid>
-      <description>Summer Social We will be taking a break from our usual schedule of talks to get both our meetups together with an IRL social and kick off the summer with a few drinks at the Foundary pub in Brighton.
-Come and join us by signing up on either the Brighton Kotlin or Brighton JUG meetup pages.</description>
+      <description>Summer Social We will be taking a break from our usual schedule of talks to get both our meetups together with an IRL social and kick off the summer with a few drinks at the Foundary pub in Brighton.&#xA;Come and join us by signing up on either the Brighton Kotlin or Brighton JUG meetup pages.</description>
     </item>
-    
     <item>
       <title>Overriding a Parent Dependency in Maven</title>
       <link>https://leeturner.me/post/overriding-a-dependency-in-maven/</link>
       <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/overriding-a-dependency-in-maven/</guid>
-      <description>This weekend I am spending some time taking a look at my Snyk Dashboard and upgrading a few dependencies in old projects
-The main thing I wanted to take a look at was the recent RCE (Remote Code Execution) vulnerability that was disclosed in the h2 database. This is a similar JNDI exploit to the one that impacted Log4j in December last year (called Log4Shell). You can read more about Log4Shell on the Snyk resources page and find details of the recent h2 RCE on the Snyk Vulnerability Database</description>
+      <description>This weekend I am spending some time taking a look at my Snyk Dashboard and upgrading a few dependencies in old projects&#xA;The main thing I wanted to take a look at was the recent RCE (Remote Code Execution) vulnerability that was disclosed in the h2 database. This is a similar JNDI exploit to the one that impacted Log4j in December last year (called Log4Shell). You can read more about Log4Shell on the Snyk resources page and find details of the recent h2 RCE on the Snyk Vulnerability Database</description>
     </item>
-    
     <item>
       <title>Outputting the result of a mockMvc call</title>
       <link>https://leeturner.me/post/outputting-result-of-mockmvc/</link>
       <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/outputting-result-of-mockmvc/</guid>
-      <description>This post falls into the category of something I always forget and need to Google.
-When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging. This can be done by adding MockMvcResultsHandlers.print() to the call chain like in the following example.
-This:
-@Test void getStatementsThrowABadRequestWhenCookiesNotPresent() throws Exception { mockMvc.perform(get(&amp;#34;/statements&amp;#34;) .headers(getHeaders()) .cookie(getCookies()) .contentType(MediaType.APPLICATION_JSON)) .andExpect(status().isBadRequest()) .</description>
+      <description>This post falls into the category of something I always forget and need to Google.&#xA;When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging. This can be done by adding MockMvcResultsHandlers.print() to the call chain like in the following example.&#xA;This:&#xA;@Test void getStatementsThrowABadRequestWhenCookiesNotPresent() throws Exception { mockMvc.perform(get(&amp;#34;/statements&amp;#34;) .headers(getHeaders()) .cookie(getCookies()) .contentType(MediaType.APPLICATION_JSON)) .andExpect(status().isBadRequest()) .</description>
     </item>
-    
     <item>
       <title>Creating a Progression Framework in Hugo</title>
       <link>https://leeturner.me/post/hugo-progression-framework/</link>
       <pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/hugo-progression-framework/</guid>
-      <description>I was introduced to progression frameworks last year when I came across the Monzo progression framework
-I really like the idea that people within an organisation have a tool to help them grow and hone their strengths along with organisations ensuring they are in good shape, and their employees are happy.
-The Monzo progression framework is built using the Gatsby static site builder which makes the frameworks easy to build and track via source control.</description>
+      <description>I was introduced to progression frameworks last year when I came across the Monzo progression framework&#xA;I really like the idea that people within an organisation have a tool to help them grow and hone their strengths along with organisations ensuring they are in good shape, and their employees are happy.&#xA;The Monzo progression framework is built using the Gatsby static site builder which makes the frameworks easy to build and track via source control.</description>
     </item>
-    
     <item>
       <title>BlinkyTape JUnit Testwatcher API Implementation</title>
       <link>https://leeturner.me/post/blinkytape-junit-testwatcher/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/blinkytape-junit-testwatcher/</guid>
-      <description>Every so often I like to have a play around with a part of Junit that I haven&amp;rsquo;t used before, and I recently decided to look into the TestWatcher API.
-I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</description>
+      <description>Every so often I like to have a play around with a part of Junit that I haven&amp;rsquo;t used before, and I recently decided to look into the TestWatcher API.&#xA;I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</description>
     </item>
-    
     <item>
       <title>Geek Reads 1</title>
       <link>https://leeturner.me/post/geek-reads-1/</link>
       <pubDate>Sun, 07 Jun 2020 13:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/geek-reads-1/</guid>
-      <description>Geek Reads are a selection of the articles, tools and announcements I have found interesting while browsing the interwebs, I save all of these in my pinboard account and gather them up periodically and post them here.
-The Ultimate Kotlin Tutorials for Beginners | CalliCoder A wide range of kotlin tutorials
-yolossn/Prometheus-Basics: A beginner friendly introduction to prometheus 🔥 A beginner friendly introduction to prometheus
-GitOps Days 2020 – conference for DevOps, Kubernetes, and Microservices Whether you’ve been wanting to learn about GitOps for the first time or you need help to convince your teams to understand the benefits of GitOps, this event is for you!</description>
+      <description>Geek Reads are a selection of the articles, tools and announcements I have found interesting while browsing the interwebs, I save all of these in my pinboard account and gather them up periodically and post them here.&#xA;The Ultimate Kotlin Tutorials for Beginners | CalliCoder A wide range of kotlin tutorials&#xA;yolossn/Prometheus-Basics: A beginner friendly introduction to prometheus 🔥 A beginner friendly introduction to prometheus&#xA;GitOps Days 2020 – conference for DevOps, Kubernetes, and Microservices Whether you’ve been wanting to learn about GitOps for the first time or you need help to convince your teams to understand the benefits of GitOps, this event is for you!</description>
     </item>
-    
     <item>
       <title>Copying A Branch Name In Intellij</title>
       <link>https://leeturner.me/post/copying-the-branch-name-in-intellij/</link>
       <pubDate>Sun, 12 Apr 2020 18:09:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/copying-the-branch-name-in-intellij/</guid>
-      <description>How many times do you need to use the name of the branch you are currently working on ? Entering the name of the branch into your CI/CD system to deploy your feature branch into a staging environment, sending the name over email or internal messaging app to a co-worker who you are pair-programming with&amp;hellip;
-I seem to need to do this quite frequently over the course of a working week, and the place I always go to get the branch name is Intellij.</description>
+      <description>How many times do you need to use the name of the branch you are currently working on ? Entering the name of the branch into your CI/CD system to deploy your feature branch into a staging environment, sending the name over email or internal messaging app to a co-worker who you are pair-programming with&amp;hellip;&#xA;I seem to need to do this quite frequently over the course of a working week, and the place I always go to get the branch name is Intellij.</description>
     </item>
-    
     <item>
       <title>Building a Camel Case @DisplayNameGenerator For JUnit 5</title>
       <link>https://leeturner.me/post/building-a-camel-case-junit5-displaynamegenerator/</link>
       <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/building-a-camel-case-junit5-displaynamegenerator/</guid>
-      <description>I think it is fair to say that JUnit has been my go to unit testing framework for quite a while. I have used TestNG on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.
-This was solidified even further with the release of JUnit 5.</description>
+      <description>I think it is fair to say that JUnit has been my go to unit testing framework for quite a while. I have used TestNG on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.&#xA;This was solidified even further with the release of JUnit 5.</description>
     </item>
-    
     <item>
       <title>Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ</title>
       <link>https://leeturner.me/post/tooling-up-tcr-intellij/</link>
       <pubDate>Thu, 17 Jan 2019 22:09:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/tooling-up-tcr-intellij/</guid>
-      <description>Like many others, I have been reading about the new programming workflow introduced by Kent Beck called test &amp;amp;&amp;amp; commit || revert (TCR)
-When I first heard about it I had much the same response as Kent - why the hell would you want to do something like that? That can&amp;rsquo;t possibly work, my tests don&amp;rsquo;t always pass when I am experimenting - I would lose my code if I did this.</description>
+      <description>Like many others, I have been reading about the new programming workflow introduced by Kent Beck called test &amp;amp;&amp;amp; commit || revert (TCR)&#xA;When I first heard about it I had much the same response as Kent - why the hell would you want to do something like that? That can&amp;rsquo;t possibly work, my tests don&amp;rsquo;t always pass when I am experimenting - I would lose my code if I did this.</description>
     </item>
-    
     <item>
       <title>Hello World.... erm again</title>
       <link>https://leeturner.me/post/hello-world-erm-again/</link>
       <pubDate>Wed, 16 Jan 2019 22:09:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/hello-world-erm-again/</guid>
-      <description>Well, what can I say? It has been nearly a year to the day that I posted my original Hello World post and I think it is fair to say that there hasn&amp;rsquo;t been a great deal of activity since.
-That isn&amp;rsquo;t to say that it hasn&amp;rsquo;t been an extremely busy 2018. I just completely failed to write about any of it which is a shame. 2018 was filled with some pretty cool stuff:</description>
+      <description>Well, what can I say? It has been nearly a year to the day that I posted my original Hello World post and I think it is fair to say that there hasn&amp;rsquo;t been a great deal of activity since.&#xA;That isn&amp;rsquo;t to say that it hasn&amp;rsquo;t been an extremely busy 2018. I just completely failed to write about any of it which is a shame. 2018 was filled with some pretty cool stuff:</description>
     </item>
-    
     <item>
       <title>Oracle MOOC - Java Virtual Machine Troubleshooting (2018)</title>
       <link>https://leeturner.me/post/oracle-mooc-java-virtual-machine-troubleshooting/</link>
       <pubDate>Sun, 25 Feb 2018 22:09:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/oracle-mooc-java-virtual-machine-troubleshooting/</guid>
-      <description>Its been a while since I have completed one of the Oracle MOOC (Massive Open Online Courses). This one on troubleshooting the JVM and OutOfMemoryErrors was particularly good.
-This Oracle MOOC was run by Poonam Parhar, currently a JVM Sustaining Engineer at Oracle where her primary responsibility is to resolve customer escalated problems against JRockit and HotSpot JVMs
-Here is the summary from the course:
-If you are interested in learning why our Java applications might exhibit performance problems, abnormal memory usage growth or sometimes even fail with OutOfMemoryError exceptions, and you want to learn how these problems can be diagnosed and eradicated, then this course is for you!</description>
+      <description>Its been a while since I have completed one of the Oracle MOOC (Massive Open Online Courses). This one on troubleshooting the JVM and OutOfMemoryErrors was particularly good.&#xA;This Oracle MOOC was run by Poonam Parhar, currently a JVM Sustaining Engineer at Oracle where her primary responsibility is to resolve customer escalated problems against JRockit and HotSpot JVMs&#xA;Here is the summary from the course:&#xA;If you are interested in learning why our Java applications might exhibit performance problems, abnormal memory usage growth or sometimes even fail with OutOfMemoryError exceptions, and you want to learn how these problems can be diagnosed and eradicated, then this course is for you!</description>
     </item>
-    
     <item>
       <title>Continuous Feedback With TDD &amp; Auto Running Tests</title>
       <link>https://leeturner.me/post/continuous-feedback-with-tdd/</link>
       <pubDate>Mon, 12 Feb 2018 22:09:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/continuous-feedback-with-tdd/</guid>
-      <description>This is the first of my &amp;lsquo;reference&amp;rsquo; posts which pretty much means I am writing about it here so I don&amp;rsquo;t forget about it in the future.
-This post it about configuring your dev environment to provide you with continuous feedback while writing your code. All of this came about after a conversation with another developer on my team about how to setup IntelliJ to run tests automatically. We were looking at plugins such as Infinitest but it all seemed a little clunky and crashed every so often.</description>
+      <description>This is the first of my &amp;lsquo;reference&amp;rsquo; posts which pretty much means I am writing about it here so I don&amp;rsquo;t forget about it in the future.&#xA;This post it about configuring your dev environment to provide you with continuous feedback while writing your code. All of this came about after a conversation with another developer on my team about how to setup IntelliJ to run tests automatically. We were looking at plugins such as Infinitest but it all seemed a little clunky and crashed every so often.</description>
     </item>
-    
     <item>
       <title>Do You Bake or Fry</title>
       <link>https://leeturner.me/post/do-you-bake-or-fry/</link>
       <pubDate>Sat, 20 Jan 2018 22:09:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/do-you-bake-or-fry/</guid>
-      <description>Before I go much further, I thought it was probably worth me putting down a few notes about my technology choices for this site.
-In term of website development, I have had experience of quite a few different content management systems such as b2Evolution and more recently Wordpress. I have developed plugins and templates for b2Evolution as well as contributing code to the core product back in the day. I have put more sites together in Wordpress than I care to remember - most of my clients used Wordpress in some form or other while I was working in the paid traffic/SEO industry.</description>
+      <description>Before I go much further, I thought it was probably worth me putting down a few notes about my technology choices for this site.&#xA;In term of website development, I have had experience of quite a few different content management systems such as b2Evolution and more recently Wordpress. I have developed plugins and templates for b2Evolution as well as contributing code to the core product back in the day. I have put more sites together in Wordpress than I care to remember - most of my clients used Wordpress in some form or other while I was working in the paid traffic/SEO industry.</description>
     </item>
-    
     <item>
       <title>Hello World</title>
       <link>https://leeturner.me/post/hello-world/</link>
       <pubDate>Thu, 18 Jan 2018 22:09:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/hello-world/</guid>
-      <description>Well, it has been quite a while since I&amp;rsquo;ve had a personal site up and running but given I am back in the dev world full-time, now seemed like a good time to kick one off again.
-At the moment I have no idea where this site is going to go but at the very least it will be a place for me to document what I am working on and the things I am playing around with - more for my reference than anything else but hopefully there might be some use for others as well.</description>
+      <description>Well, it has been quite a while since I&amp;rsquo;ve had a personal site up and running but given I am back in the dev world full-time, now seemed like a good time to kick one off again.&#xA;At the moment I have no idea where this site is going to go but at the very least it will be a place for me to document what I am working on and the things I am playing around with - more for my reference than anything else but hopefully there might be some use for others as well.</description>
     </item>
-    
   </channel>
 </rss>

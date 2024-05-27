@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>spring boot on Lee Turner</title>
+    <title>Spring Boot on Lee Turner</title>
     <link>https://leeturner.me/tags/spring-boot/</link>
-    <description>Recent content in spring boot on Lee Turner</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Spring Boot on Lee Turner</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Jan 2022 10:20:08 +0000</lastBuildDate><atom:link href="https://leeturner.me/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Jan 2022 10:20:08 +0000</lastBuildDate>
+    <atom:link href="https://leeturner.me/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Overriding a Parent Dependency in Maven</title>
       <link>https://leeturner.me/post/overriding-a-dependency-in-maven/</link>
       <pubDate>Sat, 08 Jan 2022 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/overriding-a-dependency-in-maven/</guid>
-      <description>This weekend I am spending some time taking a look at my Snyk Dashboard and upgrading a few dependencies in old projects
-The main thing I wanted to take a look at was the recent RCE (Remote Code Execution) vulnerability that was disclosed in the h2 database. This is a similar JNDI exploit to the one that impacted Log4j in December last year (called Log4Shell). You can read more about Log4Shell on the Snyk resources page and find details of the recent h2 RCE on the Snyk Vulnerability Database</description>
+      <description>This weekend I am spending some time taking a look at my Snyk Dashboard and upgrading a few dependencies in old projects&#xA;The main thing I wanted to take a look at was the recent RCE (Remote Code Execution) vulnerability that was disclosed in the h2 database. This is a similar JNDI exploit to the one that impacted Log4j in December last year (called Log4Shell). You can read more about Log4Shell on the Snyk resources page and find details of the recent h2 RCE on the Snyk Vulnerability Database</description>
     </item>
-    
     <item>
       <title>Outputting the result of a mockMvc call</title>
       <link>https://leeturner.me/post/outputting-result-of-mockmvc/</link>
       <pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
-      
       <guid>https://leeturner.me/post/outputting-result-of-mockmvc/</guid>
-      <description>This post falls into the category of something I always forget and need to Google.
-When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging. This can be done by adding MockMvcResultsHandlers.print() to the call chain like in the following example.
-This:
-@Test void getStatementsThrowABadRequestWhenCookiesNotPresent() throws Exception { mockMvc.perform(get(&amp;#34;/statements&amp;#34;) .headers(getHeaders()) .cookie(getCookies()) .contentType(MediaType.APPLICATION_JSON)) .andExpect(status().isBadRequest()) .</description>
+      <description>This post falls into the category of something I always forget and need to Google.&#xA;When running spring integration tests and using mockMvc, it can often be useful to see the output of the call in the console to help with debugging. This can be done by adding MockMvcResultsHandlers.print() to the call chain like in the following example.&#xA;This:&#xA;@Test void getStatementsThrowABadRequestWhenCookiesNotPresent() throws Exception { mockMvc.perform(get(&amp;#34;/statements&amp;#34;) .headers(getHeaders()) .cookie(getCookies()) .contentType(MediaType.APPLICATION_JSON)) .andExpect(status().isBadRequest()) .</description>
     </item>
-    
   </channel>
 </rss>
