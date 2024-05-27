@@ -9,9 +9,9 @@ author: Lee Turner
 showtoc: false
 comments: true
 tags:
-  - Micronaut
-  - Controllers
-  - Nerd Snipped
+  - micronaut
+  - controllers
+  - nerd-snipped
 ---
 
 This week I was browsing the [Micronaut Gitter channel](https://matrix.to/#/#micronautfw_questions:gitter.im) and saw a
