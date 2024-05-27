@@ -6,8 +6,15 @@
     <description>Recent content on Lee Turner</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Jun 2023 18:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 May 2024 10:00:00 +0000</lastBuildDate>
     <atom:link href="https://leeturner.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WireMock 3.6.0 - New Array Helpers</title>
+      <link>https://leeturner.me/post/wiremock-3-6-0-array-helpers/</link>
+      <pubDate>Fri, 24 May 2024 10:00:00 +0000</pubDate>
+      <guid>https://leeturner.me/post/wiremock-3-6-0-array-helpers/</guid>
+      <description>WireMock version 3.6.0 has just been released containing a number of new features, bug fixes and dependency updates. Version 3.6.0 has a number of new template helpers to make working with arrays much easier when using Response Templating.&#xA;In this post we are going to explore the new array helpers and how to use them.&#xA;arrayAdd - add elements to an array The arrayAdd helper can be used to add elements to an array based on a position value or the start or end keywords.</description>
+    </item>
     <item>
       <title>Returning Images From Micronaut Controllers</title>
       <link>https://leeturner.me/post/returning-images-from-micronaut-controllers/</link>
