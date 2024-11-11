@@ -8,8 +8,6 @@ author: Lee Turner
 showtoc: false
 tags:
 - social
-categories:
-  - Meetups
 aliases:
   - /posts/brighton-jug-kotlin-summer-social/
 ---
