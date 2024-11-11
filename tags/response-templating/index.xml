@@ -13,7 +13,7 @@
       <link>https://leeturner.me/post/wiremock-3-6-0-array-helpers/</link>
       <pubDate>Fri, 24 May 2024 10:00:00 +0000</pubDate>
       <guid>https://leeturner.me/post/wiremock-3-6-0-array-helpers/</guid>
-      <description>WireMock version 3.6.0 has just been released containing a number of new features, bug fixes and dependency updates. Version 3.6.0 has a number of new template helpers to make working with arrays much easier when using Response Templating.&#xA;In this post we are going to explore the new array helpers and how to use them.&#xA;arrayAdd - add elements to an array The arrayAdd helper can be used to add elements to an array based on a position value or the start or end keywords.</description>
+      <description>&lt;p&gt;WireMock version 3.6.0 has &lt;a href=&#34;https://www.wiremock.io/post/wiremock-3-6-0-released&#34;&gt;just been released&lt;/a&gt; containing a&#xA;number of new features, bug fixes and dependency updates. Version 3.6.0 has a number of new template helpers to make&#xA;working with arrays much easier when using Response Templating.&lt;/p&gt;&#xA;&lt;p&gt;In this post we are going to explore the new array helpers and how to use them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;arrayadd---add-elements-to-an-array&#34;&gt;arrayAdd - add elements to an array&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;code&gt;arrayAdd&lt;/code&gt; helper can be used to add elements to an array based on a position value or the start or end keywords. If&#xA;no position is specified, the element will be added to end of the array.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

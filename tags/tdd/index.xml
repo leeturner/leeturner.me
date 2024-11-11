@@ -13,14 +13,14 @@
       <link>https://leeturner.me/post/building-a-camel-case-junit5-displaynamegenerator/</link>
       <pubDate>Sun, 10 Feb 2019 22:09:08 +0000</pubDate>
       <guid>https://leeturner.me/post/building-a-camel-case-junit5-displaynamegenerator/</guid>
-      <description>I think it is fair to say that JUnit has been my go to unit testing framework for quite a while. I have used TestNG on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.&#xA;This was solidified even further with the release of JUnit 5.</description>
+      <description>&lt;p&gt;I think it is fair to say that &lt;a href=&#34;https://junit.org&#34;&gt;JUnit&lt;/a&gt; has been my go to unit testing framework for quite a while.  I have used &lt;a href=&#34;https://testng.org/&#34;&gt;TestNG&lt;/a&gt; on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.&lt;/p&gt;&#xA;&lt;p&gt;This was solidified even further with the release of JUnit 5.  I won&amp;rsquo;t go into any detail here of what the major differences are between version 4 and 5 because there are loads of great articles on the web about this already.  However, some of my favourites are:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Continuous Feedback With TDD &amp; Auto Running Tests</title>
       <link>https://leeturner.me/post/continuous-feedback-with-tdd/</link>
       <pubDate>Mon, 12 Feb 2018 22:09:08 +0000</pubDate>
       <guid>https://leeturner.me/post/continuous-feedback-with-tdd/</guid>
-      <description>This is the first of my &amp;lsquo;reference&amp;rsquo; posts which pretty much means I am writing about it here so I don&amp;rsquo;t forget about it in the future.&#xA;This post it about configuring your dev environment to provide you with continuous feedback while writing your code. All of this came about after a conversation with another developer on my team about how to setup IntelliJ to run tests automatically. We were looking at plugins such as Infinitest but it all seemed a little clunky and crashed every so often.</description>
+      <description>&lt;p&gt;This is the first of my &amp;lsquo;reference&amp;rsquo; posts which pretty much means I am writing about it here so I don&amp;rsquo;t forget about it in the future.&lt;/p&gt;&#xA;&lt;p&gt;This post it about configuring your dev environment to provide you with continuous feedback while writing your code.  All of this came about after a conversation with another developer on my team about how to setup IntelliJ to run tests automatically.  We were looking at plugins such as &lt;a href=&#34;https://infinitest.github.io&#34;&gt;Infinitest&lt;/a&gt; but it all seemed a little clunky and crashed every so often.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

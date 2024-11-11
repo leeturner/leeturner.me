@@ -77,16 +77,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://leeturner.me/categories/</loc>
-    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://leeturner.me/categories/meetups/</loc>
-    <lastmod>2023-06-17T10:20:08+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://leeturner.me/tags/social/</loc>
     <lastmod>2023-06-17T10:20:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -317,6 +307,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://leeturner.me/brighton-kotlin/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>

@@ -13,7 +13,7 @@
       <link>https://leeturner.me/post/tooling-up-tcr-intellij/</link>
       <pubDate>Thu, 17 Jan 2019 22:09:08 +0000</pubDate>
       <guid>https://leeturner.me/post/tooling-up-tcr-intellij/</guid>
-      <description>Like many others, I have been reading about the new programming workflow introduced by Kent Beck called test &amp;amp;&amp;amp; commit || revert (TCR)&#xA;When I first heard about it I had much the same response as Kent - why the hell would you want to do something like that? That can&amp;rsquo;t possibly work, my tests don&amp;rsquo;t always pass when I am experimenting - I would lose my code if I did this.</description>
+      <description>&lt;p&gt;Like many others, I have been reading about the new programming workflow introduced by &lt;a href=&#34;https://twitter.com/KentBeck&#34;&gt;Kent Beck&lt;/a&gt; called &lt;a href=&#34;https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864&#34;&gt;test &amp;amp;&amp;amp; commit || revert&lt;/a&gt; (TCR)&lt;/p&gt;&#xA;&lt;p&gt;When I first heard about it I had much the same response as Kent - why the hell would you want to do something like that?  That can&amp;rsquo;t possibly work, my tests don&amp;rsquo;t always pass when I am experimenting - I would lose my code if I did this.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

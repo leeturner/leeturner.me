@@ -13,7 +13,7 @@
       <link>https://leeturner.me/post/blinkytape-junit-testwatcher/</link>
       <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
       <guid>https://leeturner.me/post/blinkytape-junit-testwatcher/</guid>
-      <description>Every so often I like to have a play around with a part of Junit that I haven&amp;rsquo;t used before, and I recently decided to look into the TestWatcher API.&#xA;I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://leeturner.me/posts/building-a-camel-case-junit5-displaynamegenerator/&#34;&gt;Every so often&lt;/a&gt; I like to have a play around with a part of &lt;a href=&#34;https://junit.org&#34;&gt; Junit &lt;/a&gt; that I haven&amp;rsquo;t used before, and I recently decided to look into the &lt;a href=&#34;https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html&#34;&gt;TestWatcher API&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
