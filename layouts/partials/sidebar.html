@@ -22,95 +22,25 @@
             {{ end }}
            <!-- SNS Link -->
            <ul class="list-inline">
-               {{ if .Site.Params.social.email }}
-               <li>
-                   <a href="mailto:{{ .Site.Params.social.email }}">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                      </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.twitter }}
-               <li>
-                   <a href="{{ . }}">
+               {{ with .Site.Params.social.bluesky }}
+                   <li>
+                       <a href="{{ . }}">
                        <span class="fa-stack fa-lg">
                            <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                           <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
                        </span>
-                   </a>
-               </li>
+                       </a>
+                   </li>
                {{ end }}
-               {{ with .Site.Params.social.zhihu }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
+               {{ with .Site.Params.social.mastodon }}
+                   <li>
+                       <a target="_blank" href="{{ . }}">
                        <span class="fa-stack fa-lg">
                            <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-stack-1x fa-inverse">知</i>
+                           <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
                        </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.weibo }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.facebook }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.wechat }}
-               <li>
-                   <a target="_blank" href="{{ . | relURL}}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.github }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.gitlab }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.git }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-git fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
+                       </a>
+                   </li>
                {{ end }}
                {{ with .Site.Params.social.linkedin }}
                <li>
@@ -122,15 +52,25 @@
                    </a>
                </li>
                {{ end }}
-               {{ with .Site.Params.social.medium }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-medium fa-stack-1x fa-inverse"></i>
-                            </span>
-                   </a>
-               </li>
+               {{ with .Site.Params.social.twitter }}
+                   <li>
+                       <a href="{{ . }}">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-brands fa-x-twitter fa-stack-1x fa-inverse"></i>
+                       </span>
+                       </a>
+                   </li>
+               {{ end }}
+               {{ with .Site.Params.social.github }}
+                   <li>
+                       <a target="_blank" href="{{ . }}">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                       </a>
+                   </li>
                {{ end }}
                {{ with .Site.Params.social.stackoverflow }}
                     <li>
@@ -141,66 +81,6 @@
                             </span>
                         </a>
                     </li>
-            {{ end }}
-            {{ with .Site.Params.social.reddit }}
-                    <li>
-                        <a target="_blank" href="{{ . }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-reddit fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-            {{ end }}
-            {{ with .Site.Params.social.mastodon }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.keybase }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-keybase fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.xing }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-xing fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.instagram }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ with .Site.Params.social.flickr }}
-               <li>
-                   <a target="_blank" href="{{ . }}">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-flickr fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
                {{ end }}
                {{ with .Site.Params.social.youtube }}
                <li>
@@ -209,16 +89,6 @@
                        <i class="fas fa-circle fa-stack-2x"></i>
                        <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
                    </span>
-                   </a>
-               </li>
-               {{ end }}
-               {{ if .Site.Params.social.rss }}
-               <li>
-                   <a href='{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}' rel="alternate" type="application/rss+xml" title="{{ .Site.Title | default "" }}" >
-                   <span class="fa-stack fa-lg">
-                               <i class="fas fa-circle fa-stack-2x"></i>
-                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-                           </span>
                    </a>
                </li>
                {{ end }}

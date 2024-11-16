@@ -62,14 +62,15 @@ rss = true
 github = "https://github.com/leeturner"
 mastodon = "https://hachyderm.io/@leeturner"
 linkedin = "https://www.linkedin.com/in/turnerlee/"
-twitter = "https://twitter.com/leeturner"
+twitter = "https://x.com/leeturner"
 youtube = "https://youtube.com/@leeturner"
+stackoverflow = "https://stackoverflow.com/users/11251979/lee-turner"
+bluesky = "https://bsky.app/profile/leeturner.bsky.social"
 #instagram = "<username>"
 #xing = "<username>"
 #facebook = "<username>"
 #google = "<username>"
 #googlescholar = "<account_id>"
-#stackoverflow = "<username>"
 #lastfm = "<username>"
 #goodreads = "<username>"
 #gitlab = "<username>"
@@ -93,6 +94,9 @@ highlightjs = true
 socialmarkup = true
 displayrssicon = false
 
+[[params.addtional_menus]]
+title =  "Microblog"
+href =  "/microblog"
 [[params.addtional_menus]]
 title =  "Now"
 href =  "/now"
