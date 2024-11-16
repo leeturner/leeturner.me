@@ -2,8 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://leeturner.me/microblog/2024-11-16t09-49/</loc>
+    <lastmod>2024-11-16T09:49:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://leeturner.me/</loc>
-    <lastmod>2024-05-24T10:00:00+00:00</lastmod>
+    <lastmod>2024-11-16T09:49:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/microblog/</loc>
+    <lastmod>2024-11-16T09:49:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/microblog/2024-11-15t09-09/</loc>
+    <lastmod>2024-11-15T09:09:08+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/microblog/2024-11-14t09-09/</loc>
+    <lastmod>2024-11-14T09:09:08+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
