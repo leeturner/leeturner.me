@@ -6,8 +6,15 @@
     <description>Recent content on Lee Turner</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Nov 2024 09:49:08 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2024 13:35:08 +0000</lastBuildDate>
     <atom:link href="https://leeturner.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-11-17T13:35</title>
+      <link>https://leeturner.me/microblog/2024-11-17t13-35/</link>
+      <pubDate>Sun, 17 Nov 2024 13:35:08 +0000</pubDate>
+      <guid>https://leeturner.me/microblog/2024-11-17t13-35/</guid>
+      <description>&lt;p&gt;It’s been a great week of live music. From Cigarettes After Sex live at the O2 to the amazing Cardinal Black at a local&#xA;venue in Brighton&lt;/p&gt;</description>
+    </item>
     <item>
       <title>2024-11-16T09:49</title>
       <link>https://leeturner.me/microblog/2024-11-16t09-49/</link>
@@ -188,7 +195,7 @@
       <link>https://leeturner.me/now/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://leeturner.me/now/</guid>
-      <description>&lt;h2 id=&#34;what-im-doing-now&#34;&gt;What I&amp;rsquo;m doing /now&lt;/h2&gt;&#xA;&lt;p&gt;Inspired by &lt;a href=&#34;https://sive.rs/now&#34;&gt;Derek Sivers&amp;rsquo;s now page&lt;/a&gt; this is where you can find out what I&amp;rsquo;m doing now. You can&#xA;find out more about &lt;code&gt;/now&lt;/code&gt; pages &lt;a href=&#34;https://nownownow.com/about&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Last updated: May 27, 2024, from Brighton, UK.&lt;/p&gt;&#xA;&lt;h3 id=&#34;my-communities&#34;&gt;My Communities&lt;/h3&gt;&#xA;&lt;p&gt;I currently run two local meetups in Brighton - &lt;a href=&#34;https://brightonkotlin.com&#34;&gt;Brighton Kotlin&lt;/a&gt;&#xA;and &lt;a href=&#34;https://brightonjug.com&#34;&gt;Brighton JUG&lt;/a&gt; where we bring Kotlin and Java users, enthusiasts&#xA;and learners from beginners to experts, and anyone wanting to get involved with the Kotlin/JVM ecosystem together to&#xA;learn and support each other.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;what-im-doing-now&#34;&gt;What I&amp;rsquo;m doing /now&lt;/h2&gt;&#xA;&lt;p&gt;Inspired by &lt;a href=&#34;https://sive.rs/now&#34;&gt;Derek Sivers&amp;rsquo;s now page&lt;/a&gt; this is where you can find out what I&amp;rsquo;m doing now. You can&#xA;find out more about &lt;code&gt;/now&lt;/code&gt; pages &lt;a href=&#34;https://nownownow.com/about&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Last updated: Nov 16th, 2024, from Brighton, UK.&lt;/p&gt;&#xA;&lt;h3 id=&#34;my-day-job&#34;&gt;My Day Job&lt;/h3&gt;&#xA;&lt;p&gt;I currently work for &lt;a href=&#34;https://wiremock.io&#34;&gt;WireMock&lt;/a&gt; as a Senior Software Engineer where we build WireMock Cloud and&#xA;also build, manage and maintain WireMock open-source and its community.&lt;/p&gt;&#xA;&lt;h3 id=&#34;my-communities&#34;&gt;My Communities&lt;/h3&gt;&#xA;&lt;p&gt;I currently run two local meetups in Brighton - &lt;a href=&#34;https://brightonkotlin.com&#34;&gt;Brighton Kotlin&lt;/a&gt;&#xA;and &lt;a href=&#34;https://brightonjug.com&#34;&gt;Brighton JUG&lt;/a&gt; where we bring Kotlin and Java users, enthusiasts&#xA;and learners from beginners to experts, and anyone wanting to get involved with the Kotlin/JVM ecosystem together to&#xA;learn and support each other.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
