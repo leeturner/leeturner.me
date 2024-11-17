@@ -11,7 +11,12 @@ comments: false
 Inspired by [Derek Sivers's now page](https://sive.rs/now) this is where you can find out what I'm doing now. You can
 find out more about `/now` pages [here](https://nownownow.com/about).
 
-Last updated: May 27, 2024, from Brighton, UK.
+Last updated: Nov 16th, 2024, from Brighton, UK.
+
+### My Day Job
+
+I currently work for [WireMock](https://wiremock.io) as a Senior Software Engineer where we build WireMock Cloud and
+also build, manage and maintain WireMock open-source and its community. 
 
 ### My Communities
 
@@ -20,7 +25,9 @@ and [Brighton JUG](https://brightonjug.com) where we bring Kotlin and Java users
 and learners from beginners to experts, and anyone wanting to get involved with the Kotlin/JVM ecosystem together to
 learn and support each other.
 
-### My Day Job
+### What I Am Reading
 
-I currently work for [WireMock](https://wiremock.io) as a Senior Software Engineer where we build WireMock Cloud and
-also build, manage and maintain WireMock open-source and its community. 
+I have recently picked up my copy of `Java to Kotlin - A Refactoring Guidebook` by `Duncan McGregor` and `Nat Pryce`
+again.  I read this book not long after it came out but enjoying a second pass through.
+
+
