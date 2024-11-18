@@ -36,7 +36,7 @@ algolia_indexName = ""
 algolia_apiKey = ""
 
 # Sidebar settings
-sidebar_about_description = "Hi, I'm Lee 👋.  Senior Software Engineer at [WireMock](https://wiremock.io), [Snyk Ambassador](https://snyk.io/snyk-ambassadors/), Hacker of code. Appsec enthusiast. Runs [Brighton Kotlin](https://brightonkotlin.com) & [Brighton JUG](https://brightonjug.com)"
+sidebar_about_description = "Hi, I'm Lee 👋.  Senior Software Engineer at [WireMock](https://wiremock.io), [Snyk Ambassador](https://snyk.io/snyk-ambassadors/), Hacker of code. Appsec enthusiast. Runs [Brighton Kotlin](https://brightonkotlin.com) & Brighton JUG"
 sidebar_avatar = "img/avatar.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 featured_tags = true
