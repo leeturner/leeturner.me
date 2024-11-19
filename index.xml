@@ -6,8 +6,15 @@
     <description>Recent content on Lee Turner</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Nov 2024 11:16:08 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2024 22:27:08 +0000</lastBuildDate>
     <atom:link href="https://leeturner.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-11-19T22:27</title>
+      <link>https://leeturner.me/microblog/2024-11-19t22-27/</link>
+      <pubDate>Tue, 19 Nov 2024 22:27:08 +0000</pubDate>
+      <guid>https://leeturner.me/microblog/2024-11-19t22-27/</guid>
+      <description>&lt;p&gt;This is a great post on the current state of Kotlin Script.  This section was music to my ears&lt;/p&gt;&#xA;&lt;p&gt;We will continue to develop the &lt;code&gt;.main.kts&lt;/code&gt; script type, which is already helpful for simple automation tasks. We have&#xA;plans to extend its functionality and streamline IDE support. Such scripts continue to be supported out of the box in&#xA;the Kotlin compiler and the Kotlin plugin for IntelliJ IDEA.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/&#34;&gt;https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>2024-11-19T11:16</title>
       <link>https://leeturner.me/microblog/2024-11-19t11-16/</link>
