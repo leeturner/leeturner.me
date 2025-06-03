@@ -159,49 +159,14 @@
 
 
 
-
-<style type="text/css">
-    header.intro-header {
-        background-image: url('/img/headers/the_pinicles_perth_australia.png')
-    }
-</style>
-
-<header class="intro-header" >
-
+<header class="intro-header" style="background-image: url('/img/headers/the_pinicles_perth_australia.png')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/micronaut" title="micronaut">
-                            micronaut
-                        </a>
-                        
-                        <a class="tag" href="/tags/controllers" title="controllers">
-                            controllers
-                        </a>
-                        
-                        <a class="tag" href="/tags/nerd-snipped" title="nerd-snipped">
-                            nerd-snipped
-                        </a>
-                        
-                    </div>
-                    <h1>Returning Images From Micronaut Controllers</h1>
-                    <h2 class="subheading">How to load an image from the classpath and return it from a Micronaut controller</h2>
-                    <span class="meta">
-                        
-                            Posted by 
-                            
-                                Lee Turner
-                             
-                            on 
-                            Thursday, June 29, 2023
-                            
-                            
-                            
-                            
-                    </span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>Lee Turner </h1>
+                    
+		    <span class="subheading">A random stream of thoughts and software experiments</span>
                 </div>
             </div>
         </div>
@@ -214,20 +179,19 @@
 <article>
     <div class="container">
         <div class="row">
-
             
             <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+            
                 <p>This week I was browsing the <a href="https://matrix.to/#/#micronautfw_questions:gitter.im">Micronaut Gitter channel</a> and saw a
 question about how to return a BufferedImage from a Micronaut controller. This isn&rsquo;t something I&rsquo;ve done before and it
 instantly <a href="https://xkcd.com/356/">nerd snipped</a> me:</p>
 <blockquote>
-<p>I am looking for help on how to make a controller method respond with a BufferedImage. Any ideas ?</p>
-</blockquote>
+<p>I am looking for help on how to make a controller method respond with a BufferedImage. Any ideas ?</p></blockquote>
 <p>I had a quick google, and it turns out you don&rsquo;t need a buffered image at all. I found a few references to returning a
 byte array from a controller, so I quickly span up a new service from <a href="https://micronaut.io/launch/">Micronaut Launch</a>,
 added a controller with an endpoint that loaded an image from the classpath returned it as a byte array:</p>
@@ -260,28 +224,9 @@ render the image correctly.</p>
 <p>The repo with all the source code is <a href="https://github.com/leeturner/micronaut-bufferedimage">here</a> if you want to take a
 look</p>
 
-
-                
-
-                
-                <hr>
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/" data-toggle="tooltip" data-placement="top" title="Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup">&larr;
-                            Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/post/wiremock-3-6-0-array-helpers/" data-toggle="tooltip" data-placement="top" title="WireMock 3.6.0 - New Array Helpers">Next
-                            Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-                
-
-                
+            
+             
+            
 
 <script src="https://giscus.app/client.js"
         data-repo="leeturner/leeturner.me"
@@ -298,152 +243,246 @@ look</p>
 </script>
 
 
+            
             </div>
-
             
             
 
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+	
+    <section class="visible-md visible-lg">
+	
+        <div class="short-about">
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                
-                
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/hello-world" title="hello-world">
-                            hello-world
+            <a href="/about">
+               <img src="/img/avatar.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Hi, I&rsquo;m Lee 👋.  Senior Software Engineer at <a href="https://wiremock.io">WireMock</a>, <a href="https://snyk.io/snyk-ambassadors/">Snyk Ambassador</a>, Hacker of code. Appsec enthusiast. Runs <a href="https://brightonkotlin.com">Brighton Kotlin</a> &amp; Brighton JUG</p>
+            
+           
+           <ul class="list-inline">
+               
+                   <li>
+                       <a href="https://bsky.app/profile/leeturner.bsky.social">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
+                       </span>
+                       </a>
+                   </li>
+               
+               
+                   <li>
+                       <a target="_blank" href="https://hachyderm.io/@leeturner">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                       </span>
+                       </a>
+                   </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+                   <li>
+                       <a href="https://x.com/leeturner">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-brands fa-x-twitter fa-stack-1x fa-inverse"></i>
+                       </span>
+                       </a>
+                   </li>
+               
+               
+                   <li>
+                       <a target="_blank" href="https://github.com/leeturner">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                       </a>
+                   </li>
+               
+               
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
                         </a>
-                        
-                        
-                        
-                        <a href="/tags/hugo" title="hugo">
-                            hugo
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/intellij" title="intellij">
-                            intellij
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/junit" title="junit">
-                            junit
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/kotlin" title="kotlin">
-                            kotlin
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/reference" title="reference">
-                            reference
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/spring" title="spring">
-                            spring
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/spring-boot" title="spring boot">
-                            spring boot
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/tdd" title="tdd">
-                            tdd
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/testing" title="testing">
-                            testing
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                </section>
-                
-
-                
-                
+                    </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://youtube.com/@leeturner">
+                   <span class="fa-stack fa-lg">
+                       <i class="fas fa-circle fa-stack-2x"></i>
+                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                   </span>
+                   </a>
+               </li>
+               
+                </ul>
             </div>
+    </section>
+	
+    
+    
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/hello-world" title="hello-world">
+                        hello-world
+                    </a>
+               
+            
+               
+                    <a href="/tags/hugo" title="hugo">
+                        hugo
+                    </a>
+               
+            
+               
+                    <a href="/tags/intellij" title="intellij">
+                        intellij
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/junit" title="junit">
+                        junit
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/kotlin" title="kotlin">
+                        kotlin
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/reference" title="reference">
+                        reference
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/spring" title="spring">
+                        spring
+                    </a>
+               
+            
+               
+                    <a href="/tags/spring-boot" title="spring boot">
+                        spring boot
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/tdd" title="tdd">
+                        tdd
+                    </a>
+               
+            
+               
+                    <a href="/tags/testing" title="testing">
+                        testing
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+        </div>
+    </section>
+    
+
+    
+    
+    
+</div>
+
         </div>
     </div>
 </article>
@@ -528,7 +567,7 @@ look</p>
                    
              </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; Lee Turner 2024
+                    Copyright &copy; Lee Turner 2025
                     <br>
                     <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
                 </p>
