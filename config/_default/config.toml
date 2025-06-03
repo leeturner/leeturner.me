@@ -6,7 +6,6 @@ title = "Lee Turner"
 author = "Lee Turner"
 theme = "hugo-theme-cleanwhite"
 enableRobotsTXT = true
-paginate = 6 #frontpage pagination
 preserveTaxonomyNames = true
 hasCJKLanguage = true
 
@@ -88,7 +87,7 @@ bluesky = "https://bsky.app/profile/leeturner.bsky.social"
 
 ## Extras
 [params.extra]
-copyright = "©2024. Lee Turner | [Privacy Policy](/privacy)"
+copyright = "©2025. Lee Turner | [Privacy Policy](/privacy)"
 poweredby = true
 highlightjs = true
 socialmarkup = true
