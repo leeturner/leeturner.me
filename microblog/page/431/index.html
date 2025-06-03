@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Lee Turner">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png">
+    <meta property="twitter:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png" />
+    
+
+    
+    <meta name="title" content="Microblog" />
+    <meta property="og:title" content="Microblog" />
+    <meta property="twitter:title" content="Microblog" />
+    
+
+    
+    <meta name="description" content="Senior Software Engineer at WireMock, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
+    <meta property="og:description" content="Senior Software Engineer at WireMock, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG" />
+    <meta property="twitter:description" content="Senior Software Engineer at WireMock, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG" />
+    
+
+    
+    <meta property="twitter:card" content="Microblog of Lee Turner" />
+    
+    
+
+    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Microblog | Lee Turner</title>
+
+    <link rel="canonical" href="/microblog/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+    <script src="https://buttons.github.io/buttons.js"></script>
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lee Turner</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/microblog/">Microblog</a></li>
+                    
+                        <li><a href="/now/">Now</a></li>
+                    
+                        <li><a href="/about/">About</a></li>
+                    
+                        <li><a href="/projects/">Projects</a></li>
+                    
+                        <li><a href="https://leeturner.tech/">Resume</a></li>
+                    
+                        <li><a href="/archive/">Archive</a></li>
+                    
+
+
+
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+<header class="intro-header" style="background-image: url('/img/headers/the_pinicles_perth_australia.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>Lee Turner </h1>
+                    
+		    <span class="subheading">A random stream of thoughts and software experiments</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    
+
+    <div data-pagefind-ignore="all" class="container">
+        <div class="row">
+            <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
+                <div data-pagefind-ignore="all">
+                    
+                        <div class="post-preview">
+
+
+
+
+
+
+
+
+                            <p>Why does #iMovie not display the video clips after importing a large movie? The movie is in the events folder but not displayed in iMovie ?</p>
+
+                            <p class="post-meta">
+                                <a href="https://leeturner.me/microblog/2009-12-01t16-56/">
+                                
+                                    Posted by Lee Turner on Tuesday, December 1, 2009  16:56:11 UTC
+                                    
+                                    
+                                
+                                </a>
+                            </p>
+
+                        </div>
+                        <hr>
+                    
+                        <div class="post-preview">
+
+
+
+
+
+
+
+
+                            <p>Well, that&rsquo;s it for #flashforward till the new year</p>
+
+                            <p class="post-meta">
+                                <a href="https://leeturner.me/microblog/2009-11-30t22-06/">
+                                
+                                    Posted by Lee Turner on Monday, November 30, 2009  22:06:31 UTC
+                                    
+                                    
+                                
+                                </a>
+                            </p>
+
+                        </div>
+                        <hr>
+                    
+                        <div class="post-preview">
+
+
+
+
+
+
+
+
+                            <p>Has just realised that #flashforward is on tv tonight</p>
+
+                            <p class="post-meta">
+                                <a href="https://leeturner.me/microblog/2009-11-30t20-00/">
+                                
+                                    Posted by Lee Turner on Monday, November 30, 2009  20:00:24 UTC
+                                    
+                                    
+                                
+                                </a>
+                            </p>
+
+                        </div>
+                        <hr>
+                    
+                        <div class="post-preview">
+
+
+
+
+
+
+
+
+                            <p>RT @1Password: Reminder: Li&rsquo;l bro&rsquo;s currently free: <a href="http://itunes.com/app/1PasswordPro">http://itunes.com/app/1PasswordPro</a> Price going back up to USD$7.99 tomorrow.</p>
+
+                            <p class="post-meta">
+                                <a href="https://leeturner.me/microblog/2009-11-30t19-50/">
+                                
+                                    Posted by Lee Turner on Monday, November 30, 2009  19:50:36 UTC
+                                    
+                                    
+                                
+                                </a>
+                            </p>
+
+                        </div>
+                        <hr>
+                    
+                        <div class="post-preview">
+
+
+
+
+
+
+
+
+                            <p>The update to #tweetie2 is pretty sweet</p>
+
+                            <p class="post-meta">
+                                <a href="https://leeturner.me/microblog/2009-11-30t19-36/">
+                                
+                                    Posted by Lee Turner on Monday, November 30, 2009  19:36:56 UTC
+                                    
+                                    
+                                
+                                </a>
+                            </p>
+
+                        </div>
+                        <hr>
+                    
+                        <div class="post-preview">
+
+
+
+
+
+
+
+
+                            <p>Xmas dinner time  <a href="http://twitpic.com/rgaqc">http://twitpic.com/rgaqc</a></p>
+
+                            <p class="post-meta">
+                                <a href="https://leeturner.me/microblog/2009-11-29t13-57/">
+                                
+                                    Posted by Lee Turner on Sunday, November 29, 2009  13:57:50 UTC
+                                    
+                                    
+                                
+                                </a>
+                            </p>
+
+                        </div>
+                        <hr>
+                    
+                        <div class="post-preview">
+
+
+
+
+
+
+
+
+                            <p>I may have eaten a tad too much today&hellip;&hellip;.</p>
+
+                            <p class="post-meta">
+                                <a href="https://leeturner.me/microblog/2009-11-28t22-14/">
+                                
+                                    Posted by Lee Turner on Saturday, November 28, 2009  22:14:23 UTC
+                                    
+                                    
+                                
+                                </a>
+                            </p>
+
+                        </div>
+                        <hr>
+                    
+                        <div class="post-preview">
+
+
+
+
+
+
+
+
+                            <p>All the decs are up here.  <a href="http://twitpic.com/rag9x">http://twitpic.com/rag9x</a></p>
+
+                            <p class="post-meta">
+                                <a href="https://leeturner.me/microblog/2009-11-28t10-09/">
+                                
+                                    Posted by Lee Turner on Saturday, November 28, 2009  10:09:30 UTC
+                                    
+                                    
+                                
+                                </a>
+                            </p>
+
+                        </div>
+                        <hr>
+                    
+                        <div class="post-preview">
+
+
+
+
+
+
+
+
+                            <p>Off for the Xmas photo shoot with all @birthdownloads family then meeting dad for some lunch</p>
+
+                            <p class="post-meta">
+                                <a href="https://leeturner.me/microblog/2009-11-28t10-07/">
+                                
+                                    Posted by Lee Turner on Saturday, November 28, 2009  10:07:04 UTC
+                                    
+                                    
+                                
+                                </a>
+                            </p>
+
+                        </div>
+                        <hr>
+                    
+                        <div class="post-preview">
+
+
+
+
+
+
+
+
+                            <p>Ho ho ho [pic] <a href="http://ff.im/-c6494">http://ff.im/-c6494</a></p>
+
+                            <p class="post-meta">
+                                <a href="https://leeturner.me/microblog/2009-11-27t17-08/">
+                                
+                                    Posted by Lee Turner on Friday, November 27, 2009  17:08:10 UTC
+                                    
+                                    
+                                
+                                </a>
+                            </p>
+
+                        </div>
+                        <hr>
+                    
+                </div>
+                
+
+
+<ul class="pager" data-pagefind-ignore="all">
+    
+    <li class="previous">
+        <a href="/microblog/page/430/">&larr; Newer Posts</a>
+    </li>
+    
+    
+    <li class="next">
+        <a href="/microblog/page/432/">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+            </div>
+            
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+	
+    <section class="visible-md visible-lg">
+	
+        <div class="short-about">
+            
+            <a href="/about">
+               <img src="/img/avatar.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Hi, I&rsquo;m Lee 👋.  Senior Software Engineer at <a href="https://wiremock.io">WireMock</a>, <a href="https://snyk.io/snyk-ambassadors/">Snyk Ambassador</a>, Hacker of code. Appsec enthusiast. Runs <a href="https://brightonkotlin.com">Brighton Kotlin</a> &amp; Brighton JUG</p>
+            
+           
+           <ul class="list-inline">
+               
+                   <li>
+                       <a href="https://bsky.app/profile/leeturner.bsky.social">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
+                       </span>
+                       </a>
+                   </li>
+               
+               
+                   <li>
+                       <a target="_blank" href="https://hachyderm.io/@leeturner">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                       </span>
+                       </a>
+                   </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+                   <li>
+                       <a href="https://x.com/leeturner">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-brands fa-x-twitter fa-stack-1x fa-inverse"></i>
+                       </span>
+                       </a>
+                   </li>
+               
+               
+                   <li>
+                       <a target="_blank" href="https://github.com/leeturner">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                       </a>
+                   </li>
+               
+               
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://youtube.com/@leeturner">
+                   <span class="fa-stack fa-lg">
+                       <i class="fas fa-circle fa-stack-2x"></i>
+                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                   </span>
+                   </a>
+               </li>
+               
+                </ul>
+            </div>
+    </section>
+	
+    
+    
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/hello-world" title="hello-world">
+                        hello-world
+                    </a>
+               
+            
+               
+                    <a href="/tags/hugo" title="hugo">
+                        hugo
+                    </a>
+               
+            
+               
+                    <a href="/tags/intellij" title="intellij">
+                        intellij
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/junit" title="junit">
+                        junit
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/kotlin" title="kotlin">
+                        kotlin
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/reference" title="reference">
+                        reference
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/spring" title="spring">
+                        spring
+                    </a>
+               
+            
+               
+                    <a href="/tags/spring-boot" title="spring boot">
+                        spring boot
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/tdd" title="tdd">
+                        tdd
+                    </a>
+               
+            
+               
+                    <a href="/tags/testing" title="testing">
+                        testing
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+        </div>
+    </section>
+    
+
+    
+    
+    
+</div>
+
+        </div>
+    </div>
+
+
+    <hr />
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://bsky.app/profile/leeturner.bsky.social">
+                               <span class="fa-stack fa-lg">
+                                   <i class="fas fa-circle fa-stack-2x"></i>
+                                   <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
+                               </span>
+                            </a>
+                        </li>
+                    
+                    
+                        <li>
+                            <a target="_blank" href="https://hachyderm.io/@leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </a>
+                        </li>
+                    
+                    
+                        <li>
+                            <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </a>
+                        </li>
+                    
+                    
+                    <li>
+                        <a href="https://x.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                   
+                   <li>
+                       <a target="_blank" href="https://youtube.com/@leeturner">
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Lee Turner 2025
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
