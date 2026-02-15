@@ -159,14 +159,49 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/headers/the_pinicles_perth_australia.png')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/headers/the_pinicles_perth_australia.png')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Lee Turner </h1>
-                    
-		    <span class="subheading">A random stream of thoughts and software experiments</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        <a class="tag" href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        <a class="tag" href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                    </div>
+                    <h1>Building a Camel Case @DisplayNameGenerator For JUnit 5</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Lee Turner
+                             
+                            on 
+                            Sunday, February 10, 2019
+                            
+                            
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
@@ -179,14 +214,14 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container">
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
                 <p>I think it is fair to say that <a href="https://junit.org">JUnit</a> has been my go to unit testing framework for quite a while.  I have used <a href="https://testng.org/">TestNG</a> on some pretty major projects where it was already in use (and it has some awesome features) but if I am building something from scratch, I will most likely reach for the JUnit maven dependencies.</p>
 <p>This was solidified even further with the release of JUnit 5.  I won&rsquo;t go into any detail here of what the major differences are between version 4 and 5 because there are loads of great articles on the web about this already.  However, some of my favourites are:</p>
 <ul>
@@ -199,7 +234,7 @@
 </ul>
 <h2 id="the-displayname-annotation">The @DisplayName Annotation</h2>
 <p>The <code>@DisplayName</code> annotation seemed like a great idea - you add the annotation with a more readable description to your test class or methods and that gets displayed instead of the default class or method name in your test runner.  Something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@DisplayName(<span style="color:#f1fa8c">&#34;Tests that when updating your password, the two passwords submitted must match&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@DisplayName(<span style="color:#f1fa8c">&#34;Tests that when updating your password, the two passwords submitted must match&#34;</span>)
 </span></span><span style="display:flex;"><span>@Test
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> testWhenAnUpdatePasswordRequestIsSubmittedTheTwoPasswordsMustMatch{} {
 </span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// test goes here</span>
@@ -207,7 +242,7 @@
 </span></span></code></pre></div><p>It was fun for a while but it quickly became a lot of work to write and keep updated - especially when you like to write descriptive test method names.  It just seemed like unnecessary duplication.  However, all of this might change with the latest JUnit 5.4 release and the new <code>@DisplayNameGenerator</code> API.</p>
 <p>If you follow along on Twitter, you will have heard of the new <code>@DisplayNameGenerator</code> API before the 5.4 release.  Basically it would allow JUnit to determine a nice display name for your classes and tests from your class and method names without having to add the <code>@DisplayName</code> annotation.  Seemed like the best of both worlds to me.</p>
 <p>When the <a href="https://twitter.com/junitteam/status/1093621376978747393">5.4 release announcement was made on twitter</a> I setup a quick project and dived right in, but there was one big problem.  The only <code>@DisplayNameGenerator</code> provided in release 5.4 is a <a href="https://junit.org/junit5/docs/5.4.0/api/org/junit/jupiter/api/DisplayNameGenerator.ReplaceUnderscores.html">ReplaceUnderscores</a> Generator which as you can imagine replaces the underscores in your class and method names with a space.  For example, the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@DisplayNameGeneration(DisplayNameGenerator.<span style="color:#50fa7b">ReplaceUnderscores</span>.<span style="color:#50fa7b">class</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@DisplayNameGeneration(DisplayNameGenerator.<span style="color:#50fa7b">ReplaceUnderscores</span>.<span style="color:#50fa7b">class</span>)
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Password_Reset_Tests</span> {
 </span></span><span style="display:flex;"><span>    @Test
 </span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> test_When_An_Update_Password_Request_Is_Submitted_The_Two_Passwords_Must_Match{} {
@@ -221,7 +256,7 @@
 <p>All of the code discussed here can be found in <a href="https://github.com/leeturner/junit5-camel-case-emoji-display-name-generator">this github repo</a>.</p>
 <h2 id="a-camel-case-displaynamegenerator">A Camel Case @DisplayNameGenerator</h2>
 <p>On the face of it putting a space before every capital letter in a class or method name isn&rsquo;t that hard.  It can all be achieved with a simple <code>replaceAll</code> regex.  Something like this which extends the <code>DisplayNameGenerator.Standard</code> built into JUnit 5.4:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCase</span> <span style="color:#8be9fd;font-style:italic">extends</span> DisplayNameGenerator.<span style="color:#50fa7b">Standard</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCase</span> <span style="color:#8be9fd;font-style:italic">extends</span> DisplayNameGenerator.<span style="color:#50fa7b">Standard</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCase</span>() {
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
@@ -243,14 +278,14 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>This works for the most part but you very quickly see the benefit of having a single character that you need to replace like in the <code>ReplaceUnderscores</code>.  For example, the above implementation doesn&rsquo;t take into account numbers and will fail to put a space where you would expect one.  For example, this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@Test
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@Test
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">ifItIsDivisibleBy4ButNotBy100</span>() {
 </span></span><span style="display:flex;"><span>	<span style="color:#6272a4">/// test goes here</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Would render:</p>
 <pre tabindex="0"><code>+-- if It Is Divisible By4 But Not By100
 </code></pre><p>Not particularly ideal.  We also need to cater for numbers and not just individual numbers, we have to look for sequences of numbers and assume they are intended to be together.  Simple enough with another regex:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCase</span> <span style="color:#8be9fd;font-style:italic">extends</span> DisplayNameGenerator.<span style="color:#50fa7b">Standard</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCase</span> <span style="color:#8be9fd;font-style:italic">extends</span> DisplayNameGenerator.<span style="color:#50fa7b">Standard</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCase</span>() {
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
@@ -281,7 +316,7 @@
 <h2 id="one-step-too-far">One Step Too Far&hellip;&hellip;</h2>
 <p>I am going to leave this here for posterity&rsquo;s sake.  I am not proud of it but once I thought of it I couldn&rsquo;t help myself :)</p>
 <p>One of the new things JUnit 5 allows is <a href="https://twitter.com/sam_brannen/status/660595585288970240?lang=en">emoji in your test names</a>.  This also applies to the <code>@DisplayName</code> annotation.  All I will say is that it doesn&rsquo;t take a great leap to extend the <code>ReplaceUnderscores</code> or <code>ReplaceCamelCase</code> Generators with one that replaces certain words with emoji.  Here is a little proof of concept using the example from the JUnit user guide:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCaseEmojis</span> <span style="color:#8be9fd;font-style:italic">extends</span> ReplaceCamelCase {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ReplaceCamelCaseEmojis</span> <span style="color:#8be9fd;font-style:italic">extends</span> ReplaceCamelCase {
 </span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">ReplaceCamelCaseEmojis</span>() {
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
@@ -314,9 +349,28 @@
 </p>
 <p>You are very welcome :)</p>
 
-            
-             
-            
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/tooling-up-tcr-intellij/" data-toggle="tooltip" data-placement="top" title="Tooling Up - Implementing test &amp;&amp; commit || revert (TCR) In IntelliJ">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/copying-the-branch-name-in-intellij/" data-toggle="tooltip" data-placement="top" title="Copying A Branch Name In Intellij">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
 
 <script src="https://giscus.app/client.js"
         data-repo="leeturner/leeturner.me"
@@ -333,246 +387,166 @@
 </script>
 
 
+            </div>
+
             
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
             </div>
             
-            
 
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-	
-    <section class="visible-md visible-lg">
-	
-        <div class="short-about">
             
-            <a href="/about">
-               <img src="/img/avatar.jpg" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Hi, I&rsquo;m Lee 👋.  Senior Software Engineer at <a href="https://wiremock.io">WireMock</a>, <a href="https://snyk.io/snyk-ambassadors/">Snyk Ambassador</a>, Hacker of code. Appsec enthusiast. Runs <a href="https://brightonkotlin.com">Brighton Kotlin</a> &amp; Brighton JUG</p>
-            
-           
-           <ul class="list-inline">
-               
-                   <li>
-                       <a href="https://bsky.app/profile/leeturner.bsky.social">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                   <li>
-                       <a target="_blank" href="https://hachyderm.io/@leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-                   <li>
-                       <a href="https://x.com/leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-brands fa-x-twitter fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                   <li>
-                       <a target="_blank" href="https://github.com/leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hello-world" title="hello-world">
+                            hello-world
                         </a>
-                    </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://youtube.com/@leeturner">
-                   <span class="fa-stack fa-lg">
-                       <i class="fas fa-circle fa-stack-2x"></i>
-                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                   </span>
-                   </a>
-               </li>
-               
-                </ul>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/intellij" title="intellij">
+                            intellij
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kotlin" title="kotlin">
+                            kotlin
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/reference" title="reference">
+                            reference
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/spring" title="spring">
+                            spring
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/spring-boot" title="spring boot">
+                            spring boot
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
             </div>
-    </section>
-	
-    
-    
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/hello-world" title="hello-world">
-                        hello-world
-                    </a>
-               
-            
-               
-                    <a href="/tags/hugo" title="hugo">
-                        hugo
-                    </a>
-               
-            
-               
-                    <a href="/tags/intellij" title="intellij">
-                        intellij
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/junit" title="junit">
-                        junit
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/kotlin" title="kotlin">
-                        kotlin
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/reference" title="reference">
-                        reference
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/spring" title="spring">
-                        spring
-                    </a>
-               
-            
-               
-                    <a href="/tags/spring-boot" title="spring boot">
-                        spring boot
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/tdd" title="tdd">
-                        tdd
-                    </a>
-               
-            
-               
-                    <a href="/tags/testing" title="testing">
-                        testing
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-        </div>
-    </section>
-    
-
-    
-    
-    
-</div>
-
         </div>
     </div>
 </article>
@@ -657,7 +631,7 @@
                    
              </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; Lee Turner 2025
+                    Copyright &copy; Lee Turner 2026
                     <br>
                     <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
                 </p>
@@ -767,6 +741,7 @@
         });
     });
 </script>
+
 
 
 

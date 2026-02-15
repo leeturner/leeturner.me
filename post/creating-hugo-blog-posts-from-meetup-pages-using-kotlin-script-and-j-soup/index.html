@@ -159,14 +159,49 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/headers/the_pinicles_perth_australia.png')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/headers/the_pinicles_perth_australia.png')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Lee Turner </h1>
-                    
-		    <span class="subheading">A random stream of thoughts and software experiments</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/kotlin" title="kotlin">
+                            kotlin
+                        </a>
+                        
+                        <a class="tag" href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        <a class="tag" href="/tags/jsoup" title="jsoup">
+                            jsoup
+                        </a>
+                        
+                    </div>
+                    <h1>Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup</h1>
+                    <h2 class="subheading">Automating workflows by scraping Meetup pages using Kotlin Script and JSoup</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Lee Turner
+                             
+                            on 
+                            Monday, June 26, 2023
+                            
+                            
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
@@ -179,14 +214,14 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container">
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
                 <h2 id="the-dark-side-of-running-a-meetup-group">The Dark Side of Running a Meetup Group</h2>
 <p>I really enjoy running the <a href="https://brightonkotlin.com">Brighton Kotlin</a> and <a href="https://brightonjug.com">Brighton JUG</a>
 meetup groups. It is purely selfish to be honest, I get to meet lots of interesting people and learn a lot from the
@@ -207,7 +242,7 @@ of a hugo blog post. If I made it generic enough, I could use it for both the Ko
 <p>Essentially, something where I could point it
 to <a href="https://www.meetup.com/brighton-kotlin/events/294227622/">this meetup page</a> and
 generate this <a href="https://brightonkotlin.com/blog/apache-pulsar-with-kotlin-couroutines-and-flows/">blog post</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span>title: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
 </span></span><span style="display:flex;"><span>description: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
 </span></span><span style="display:flex;"><span>date: 2023-06-17T14:23:23.550313
@@ -254,7 +289,7 @@ generate this <a href="https://brightonkotlin.com/blog/apache-pulsar-with-kotlin
 project, and it was really easy to use, so I decided to use it again.</p>
 <p>Below is the script I came up with. It is pretty self-explanatory, but I will go through it in more detail below. The
 script is hosted on GitHub <a href="https://github.com/leeturner/mu2md">here</a> so make sure you check there for any updates.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>#!/usr/bin/env kotlin
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>#!/usr/bin/env kotlin
 </span></span><span style="display:flex;"><span>@file:Repository(<span style="color:#f1fa8c">&#34;https://jcenter.bintray.com&#34;</span>)
 </span></span><span style="display:flex;"><span>@file:DependsOn(<span style="color:#f1fa8c">&#34;org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5&#34;</span>)
 </span></span><span style="display:flex;"><span>@file:DependsOn(<span style="color:#f1fa8c">&#34;org.jsoup:jsoup:1.16.1&#34;</span>)
@@ -277,7 +312,7 @@ script is hosted on GitHub <a href="https://github.com/leeturner/mu2md">here</a>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4">// Handle all the required command line arguments for the script
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">val</span> parser = ArgParser(<span style="color:#f1fa8c">&#34;mu2md.main.kts&#34;</span>)
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">val</span> parser = ArgParser(<span style="color:#f1fa8c">&#34;mu2md.main.kts&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">val</span> url <span style="color:#ff79c6">by</span>
 </span></span><span style="display:flex;"><span>parser.argument(
 </span></span><span style="display:flex;"><span>	<span style="color:#50fa7b">ArgType</span>.String, description = <span style="color:#f1fa8c">&#34;URL of the meetup page we are converting to markdown&#34;</span>
@@ -363,10 +398,10 @@ description and convert it to markdown. (I had never used this library before, a
 <p>To run the script, you need to have the Kotlin compiler installed and make the script executable. Once you have that,
 you can run the script on the command line just like any shell script and pipe the results into a markdown file. For
 example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -s <span style="color:#f1fa8c">&#34;Michele Sollecito&#34;</span> -t Apache,Pulsar,Coroutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ &gt; 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -s <span style="color:#f1fa8c">&#34;Michele Sollecito&#34;</span> -t Apache,Pulsar,Coroutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ &gt; 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md
 </span></span></code></pre></div><p>As a nice bonus, <code>kotlinx-cli</code> generates a help page for the script, so if you run the script with the <code>-h</code> flag,
 you will see the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -h
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -h
 </span></span><span style="display:flex;"><span>Usage: mu2md.main.kts options_list
 </span></span><span style="display:flex;"><span>Arguments:
 </span></span><span style="display:flex;"><span>    url -&gt; URL of the meetup page we are converting to markdown <span style="color:#ff79c6">{</span> String <span style="color:#ff79c6">}</span>
@@ -380,9 +415,28 @@ up as well if I do. I am also going to look at whether I can use GitHub actions 
 to automate the whole flow of blog post creation and publishing but I will need to figure out how to handle the speaker
 name and tags. That requires a bit more thought.</p>
 
-            
-             
-            
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/brighton-jug-kotlin-summer-social/" data-toggle="tooltip" data-placement="top" title="Brighton JUG &amp; Kotlin Summer Social 🍺">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/returning-images-from-micronaut-controllers/" data-toggle="tooltip" data-placement="top" title="Returning Images From Micronaut Controllers">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
 
 <script src="https://giscus.app/client.js"
         data-repo="leeturner/leeturner.me"
@@ -399,246 +453,166 @@ name and tags. That requires a bit more thought.</p>
 </script>
 
 
+            </div>
+
             
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
             </div>
             
-            
 
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-	
-    <section class="visible-md visible-lg">
-	
-        <div class="short-about">
             
-            <a href="/about">
-               <img src="/img/avatar.jpg" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Hi, I&rsquo;m Lee 👋.  Senior Software Engineer at <a href="https://wiremock.io">WireMock</a>, <a href="https://snyk.io/snyk-ambassadors/">Snyk Ambassador</a>, Hacker of code. Appsec enthusiast. Runs <a href="https://brightonkotlin.com">Brighton Kotlin</a> &amp; Brighton JUG</p>
-            
-           
-           <ul class="list-inline">
-               
-                   <li>
-                       <a href="https://bsky.app/profile/leeturner.bsky.social">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                   <li>
-                       <a target="_blank" href="https://hachyderm.io/@leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-                   <li>
-                       <a href="https://x.com/leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-brands fa-x-twitter fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                   <li>
-                       <a target="_blank" href="https://github.com/leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hello-world" title="hello-world">
+                            hello-world
                         </a>
-                    </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://youtube.com/@leeturner">
-                   <span class="fa-stack fa-lg">
-                       <i class="fas fa-circle fa-stack-2x"></i>
-                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                   </span>
-                   </a>
-               </li>
-               
-                </ul>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/intellij" title="intellij">
+                            intellij
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kotlin" title="kotlin">
+                            kotlin
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/reference" title="reference">
+                            reference
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/spring" title="spring">
+                            spring
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/spring-boot" title="spring boot">
+                            spring boot
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
             </div>
-    </section>
-	
-    
-    
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/hello-world" title="hello-world">
-                        hello-world
-                    </a>
-               
-            
-               
-                    <a href="/tags/hugo" title="hugo">
-                        hugo
-                    </a>
-               
-            
-               
-                    <a href="/tags/intellij" title="intellij">
-                        intellij
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/junit" title="junit">
-                        junit
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/kotlin" title="kotlin">
-                        kotlin
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/reference" title="reference">
-                        reference
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/spring" title="spring">
-                        spring
-                    </a>
-               
-            
-               
-                    <a href="/tags/spring-boot" title="spring boot">
-                        spring boot
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/tdd" title="tdd">
-                        tdd
-                    </a>
-               
-            
-               
-                    <a href="/tags/testing" title="testing">
-                        testing
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-        </div>
-    </section>
-    
-
-    
-    
-    
-</div>
-
         </div>
     </div>
 </article>
@@ -723,7 +697,7 @@ name and tags. That requires a bit more thought.</p>
                    
              </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; Lee Turner 2025
+                    Copyright &copy; Lee Turner 2026
                     <br>
                     <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
                 </p>
@@ -833,6 +807,7 @@ name and tags. That requires a bit more thought.</p>
         });
     });
 </script>
+
 
 
 

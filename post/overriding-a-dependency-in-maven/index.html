@@ -159,14 +159,61 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/headers/the_pinicles_perth_australia.png')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/headers/the_pinicles_perth_australia.png')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Lee Turner </h1>
-                    
-		    <span class="subheading">A random stream of thoughts and software experiments</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/mvn" title="mvn">
+                            mvn
+                        </a>
+                        
+                        <a class="tag" href="/tags/maven" title="maven">
+                            maven
+                        </a>
+                        
+                        <a class="tag" href="/tags/spring" title="spring">
+                            spring
+                        </a>
+                        
+                        <a class="tag" href="/tags/spring-boot" title="spring boot">
+                            spring boot
+                        </a>
+                        
+                        <a class="tag" href="/tags/dependency" title="dependency">
+                            dependency
+                        </a>
+                        
+                        <a class="tag" href="/tags/snyk" title="snyk">
+                            snyk
+                        </a>
+                        
+                    </div>
+                    <h1>Overriding a Parent Dependency in Maven</h1>
+                    <h2 class="subheading">How to override a parent dependency in maven and use Snyk to validate</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Lee Turner
+                             
+                            on 
+                            Saturday, January 8, 2022
+                            
+                            
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
@@ -179,14 +226,14 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container">
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
                 <p>This weekend I am spending some time taking a look at my <a href="https://snyk.io">Snyk Dashboard</a> and upgrading a few dependencies in old projects</p>
 <p>The main thing I wanted to take a look at was the recent RCE (Remote Code Execution) vulnerability that was disclosed in the h2 database.  This is a similar <code>JNDI</code> exploit to the one that impacted Log4j in December last year (called Log4Shell).  You can read more about Log4Shell on the <a href="https://snyk.io/log4j-vulnerability-resources/">Snyk resources page</a> and find details of the recent h2 RCE on the <a href="https://security.snyk.io/vuln/SNYK-JAVA-COMH2DATABASE-2331071">Snyk Vulnerability Database</a></p>
 <p>As you can see from the dependency scan, I am using version <code>1.4.200</code> and this dependency is introduced via the <code>spring-boot-starter-parent</code> version <code>2.5.4</code></p>
@@ -199,7 +246,7 @@
 </p>
 <h2 id="1-update-the-parent-dependencies">1. Update the Parent Dependencies</h2>
 <p>The first thing to do is to make sure we are using the latest version of the parent.  This won&rsquo;t actually fix the h2 issue given Spring Boot <code>2.6.2</code> was released before the h2 vulnerability was disclosed but using the latest parent will <a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.2">update</a> a load of other dependencies as well.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;parent&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;parent&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#ff79c6">&lt;/groupId&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#ff79c6">&lt;/artifactId&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;version&gt;</span>2.6.2<span style="color:#ff79c6">&lt;/version&gt;</span>
@@ -208,7 +255,7 @@
 </span></span></code></pre></div><h2 id="2-override-the-h2-dependency">2. Override the H2 dependency</h2>
 <p>The next step is to override the h2 dependency provided by Sprint Boot and upgrade it to the version that fixes RCE vulnerability - <code>2.0.206</code>.</p>
 <p>To do this we simply add the version of h2 we want to the <code>&lt;properties&gt;</code> element in the <code>pom.xml</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;properties&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;properties&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;h2.version&gt;</span>2.0.206<span style="color:#ff79c6">&lt;/h2.version&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/properties&gt;</span>
 </span></span></code></pre></div><p>If you use an IDE like IntelliJ you should now be able to see the updated dependency in your dependencies&rsquo; manager:</p>
@@ -220,7 +267,7 @@
 
 </p>
 <p>Or, if you want to do it on the command line <code>mvn dependency:tree</code> is your friend:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mvn dependency:tree                                                  
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mvn dependency:tree                                                  
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> Scanning <span style="color:#ff79c6">for</span> projects...
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> 
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>INFO<span style="color:#ff79c6">]</span> ------------------------------------------------------------------------
@@ -393,9 +440,28 @@
 
 </p>
 
-            
-             
-            
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/outputting-result-of-mockmvc/" data-toggle="tooltip" data-placement="top" title="Outputting the result of a mockMvc call">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/brighton-jug-kotlin-summer-social/" data-toggle="tooltip" data-placement="top" title="Brighton JUG &amp; Kotlin Summer Social 🍺">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
 
 <script src="https://giscus.app/client.js"
         data-repo="leeturner/leeturner.me"
@@ -412,246 +478,166 @@
 </script>
 
 
+            </div>
+
             
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
             </div>
             
-            
 
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-	
-    <section class="visible-md visible-lg">
-	
-        <div class="short-about">
             
-            <a href="/about">
-               <img src="/img/avatar.jpg" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Hi, I&rsquo;m Lee 👋.  Senior Software Engineer at <a href="https://wiremock.io">WireMock</a>, <a href="https://snyk.io/snyk-ambassadors/">Snyk Ambassador</a>, Hacker of code. Appsec enthusiast. Runs <a href="https://brightonkotlin.com">Brighton Kotlin</a> &amp; Brighton JUG</p>
-            
-           
-           <ul class="list-inline">
-               
-                   <li>
-                       <a href="https://bsky.app/profile/leeturner.bsky.social">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                   <li>
-                       <a target="_blank" href="https://hachyderm.io/@leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-                   <li>
-                       <a href="https://x.com/leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-brands fa-x-twitter fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                   <li>
-                       <a target="_blank" href="https://github.com/leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hello-world" title="hello-world">
+                            hello-world
                         </a>
-                    </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://youtube.com/@leeturner">
-                   <span class="fa-stack fa-lg">
-                       <i class="fas fa-circle fa-stack-2x"></i>
-                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                   </span>
-                   </a>
-               </li>
-               
-                </ul>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/intellij" title="intellij">
+                            intellij
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kotlin" title="kotlin">
+                            kotlin
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/reference" title="reference">
+                            reference
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/spring" title="spring">
+                            spring
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/spring-boot" title="spring boot">
+                            spring boot
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
             </div>
-    </section>
-	
-    
-    
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/hello-world" title="hello-world">
-                        hello-world
-                    </a>
-               
-            
-               
-                    <a href="/tags/hugo" title="hugo">
-                        hugo
-                    </a>
-               
-            
-               
-                    <a href="/tags/intellij" title="intellij">
-                        intellij
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/junit" title="junit">
-                        junit
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/kotlin" title="kotlin">
-                        kotlin
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/reference" title="reference">
-                        reference
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/spring" title="spring">
-                        spring
-                    </a>
-               
-            
-               
-                    <a href="/tags/spring-boot" title="spring boot">
-                        spring boot
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/tdd" title="tdd">
-                        tdd
-                    </a>
-               
-            
-               
-                    <a href="/tags/testing" title="testing">
-                        testing
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-        </div>
-    </section>
-    
-
-    
-    
-    
-</div>
-
         </div>
     </div>
 </article>
@@ -736,7 +722,7 @@
                    
              </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; Lee Turner 2025
+                    Copyright &copy; Lee Turner 2026
                     <br>
                     <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
                 </p>
@@ -846,6 +832,7 @@
         });
     });
 </script>
+
 
 
 
