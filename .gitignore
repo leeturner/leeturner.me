@@ -3,3 +3,4 @@
 .idea/
 leeturner.me.iml
 public
+.hugo_build.lock
