@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     
+    <script>
+    (function() {
+        
+        
+        const autoTheme = false;
+        if (autoTheme) {
+            document.documentElement.setAttribute('data-auto-theme', 'true');
+        }
+
+        const theme = localStorage.getItem('cleanwhite-theme') ||
+                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+    })();
+    </script>
+
+    
     <meta property="og:site_name" content="Lee Turner">
     <meta property="og:type" content="article">
 
@@ -26,6 +42,8 @@
     <meta property="twitter:description" content="Senior Software Engineer at WireMock, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG" />
     
 
+    <meta property="og:url" content="https://leeturner.me/tags/social/" />
+
     
     <meta property="twitter:card" content="summary" />
     
@@ -39,19 +57,24 @@
     <link rel="canonical" href="/tags/social/">
 
     
-    
+
     
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     
-    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.css">
 
     
-    <link rel="stylesheet" href="/css/zanshang.css">
+    <link rel="stylesheet" href="/css/theme-variables.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.min.css">
 
     
     <link rel="stylesheet" href="/css/all.min.css">
 
+    
+    
     
     
 
@@ -78,7 +101,6 @@
 
 
 
-
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 
     <div class="container-fluid">
@@ -98,13 +120,10 @@
         <div id="huxblog_navbar">
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
                     
                         
                     
-                    
+
 		    
                         <li><a href="/microblog/">Microblog</a></li>
                     
@@ -118,9 +137,42 @@
                     
                         <li><a href="/archive/">Archive</a></li>
                     
+                    
+		            <li>
+                        <a href="#" id="theme-toggle" title="Toggle dark mode" style="opacity: 0;">
+                            <i class="fa fa-moon"></i>
+                            <i class="fa fa-sun" style="display: none;"></i>
+                        </a>
+		           </li>
+                    <script>
+                    (function() {
+                        
+                        var theme = localStorage.getItem('cleanwhite-theme') ||
+                                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                        var toggleBtn = document.getElementById('theme-toggle');
+                        if (toggleBtn) {
+                            var moonIcon = toggleBtn.querySelector('.fa-moon');
+                            var sunIcon = toggleBtn.querySelector('.fa-sun');
 
+                            if (theme === 'dark') {
+                                if (moonIcon) moonIcon.style.display = 'none';
+                                if (sunIcon) sunIcon.style.display = 'inline';
+                                toggleBtn.setAttribute('title', 'Switch to light mode');
+                            } else {
+                                if (moonIcon) moonIcon.style.display = 'inline';
+                                if (sunIcon) sunIcon.style.display = 'none';
+                                toggleBtn.setAttribute('title', 'Switch to dark mode');
+                            }
 
-
+                            
+                            requestAnimationFrame(function() {
+                                toggleBtn.style.transition = 'opacity 0.2s ease';
+                                toggleBtn.style.opacity = '1';
+                            });
+                        }
+                    })();
+                    </script>
+                    
                 </ul>
             </div>
         </div>
@@ -155,6 +207,24 @@
             $navbar.className += " in";
         }
     }
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        var navLinks = document.querySelectorAll('.navbar-collapse a');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                if ($navbar.className.indexOf('in') > 0) {
+                    
+                    $navbar.className = " ";
+                    setTimeout(function(){
+                        if($navbar.className.indexOf('in') < 0) {
+                            $collapse.style.height = "0px"
+                        }
+                    },400)
+                }
+            });
+        });
+    });
 </script>
 
 
@@ -345,15 +415,7 @@
                
             
                
-                    <a href="/tags/hello-world" title="hello-world">
-                        hello-world
-                    </a>
-               
             
-               
-                    <a href="/tags/hugo" title="hugo">
-                        hugo
-                    </a>
                
             
                
@@ -382,10 +444,6 @@
             
                
             
-               
-                    <a href="/tags/kotlin" title="kotlin">
-                        kotlin
-                    </a>
                
             
                
@@ -417,15 +475,9 @@
                
             
                
-                    <a href="/tags/spring" title="spring">
-                        spring
-                    </a>
-               
             
                
-                    <a href="/tags/spring-boot" title="spring boot">
-                        spring boot
-                    </a>
+            
                
             
                
@@ -433,17 +485,7 @@
                
             
                
-                    <a href="/tags/tdd" title="tdd">
-                        tdd
-                    </a>
-               
             
-               
-            
-               
-                    <a href="/tags/testing" title="testing">
-                        testing
-                    </a>
                
             
                
@@ -460,6 +502,7 @@
     </section>
     
 
+    
     
     
     
@@ -592,11 +635,49 @@
 
 
 <script>
+    (function() {
+        function updateTagcloudColors() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const startColor = isDark ? '#808080' : '#bbbbee';
+            if($('#tag_cloud').length !== 0 && $.fn.tagcloud) {
+                $.fn.tagcloud.defaults = {
+                    color: {start: startColor, end: '#0085a1'},
+                };
+                $('#tag_cloud a').tagcloud();
+            }
+        }
+
+        
+        $(document).ready(function() {
+            updateTagcloudColors();
+        });
+
+        
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.attributeName === 'data-theme') {
+                    updateTagcloudColors();
+                }
+            });
+        });
+
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-theme']
+        });
+    })();
+</script>
+
+
+<script>
     loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
 </script>
+
+
+<script src="/js/theme-toggle.js"></script>
 
 
 
@@ -625,7 +706,7 @@
             n = $(this).prop('tagName').toLowerCase();
             i = "#" + $(this).prop('id');
             t = $(this).text();
-            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            c = $('<a href="' + i + '" rel="nofollow" title="' + t + '">' + t + '</a>');
             l = $('<li class="' + n + '_nav"></li>').append(c);
             $(selector).append(l);
         });
