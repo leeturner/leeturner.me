@@ -6,8 +6,15 @@
     <description>Recent content on Lee Turner</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Dec 2024 12:13:03 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Feb 2026 10:00:00 +0000</lastBuildDate>
     <atom:link href="https://leeturner.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Convert an Image into Colourful Ascii Art - Vlang Edition</title>
+      <link>https://leeturner.me/post/image-term-vlang/</link>
+      <pubDate>Mon, 16 Feb 2026 10:00:00 +0000</pubDate>
+      <guid>https://leeturner.me/post/image-term-vlang/</guid>
+      <description>&lt;p&gt;Coming into 2026, I decided that it was time to step outside the JVM and play&#xA;around with some different languages. While &lt;a href=&#34;https://kotlinlang.org/&#34;&gt;Kotlin&lt;/a&gt; is still&#xA;my goto language, jvm languages do come with their own baggage.  I have used&#xA;&lt;a href=&#34;https://go.dev/&#34;&gt;Go&lt;/a&gt; before and really liked the simplicity and performance of the&#xA;language.  It has a lot to like, but it does have a few things that I am not a fan of:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;No mutability built into the language&lt;/li&gt;&#xA;&lt;li&gt;Error handling is a bit clunky&lt;/li&gt;&#xA;&lt;li&gt;Lack of visibility modifiers&lt;/li&gt;&#xA;&lt;li&gt;Enum support is limited&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Anyway, long story short, I decided to dive into a couple of new languages and see what&#xA;I liked best.  The main one being &lt;a href=&#34;https://rust-lang.org/&#34;&gt;Rust&lt;/a&gt; and the other being&#xA;&lt;a href=&#34;https://vlang.io/&#34;&gt;V&lt;/a&gt;. V is a newer language that I have been wanting to try out for a while.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>2024-12-22T12-13</title>
       <link>https://leeturner.me/microblog/2024-12-22t12-13/</link>

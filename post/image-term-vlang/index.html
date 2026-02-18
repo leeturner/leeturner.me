@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Lee Turner">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png">
+    <meta property="twitter:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png" />
+    
+
+    
+    <meta name="title" content="Convert an Image into Colourful Ascii Art - Vlang Edition" />
+    <meta property="og:title" content="Convert an Image into Colourful Ascii Art - Vlang Edition" />
+    <meta property="twitter:title" content="Convert an Image into Colourful Ascii Art - Vlang Edition" />
+    
+
+    
+    <meta name="description" content="image-term, a small command-line tool that renders images directly in your terminal using colored block characters.">
+    <meta property="og:description" content="image-term, a small command-line tool that renders images directly in your terminal using colored block characters." />
+    <meta property="twitter:description" content="image-term, a small command-line tool that renders images directly in your terminal using colored block characters." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Convert an Image into Colourful Ascii Art - Vlang Edition | Lee Turner</title>
+
+    <link rel="canonical" href="/post/image-term-vlang/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+    <script src="https://buttons.github.io/buttons.js"></script>
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lee Turner</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/microblog/">Microblog</a></li>
+                    
+                        <li><a href="/now/">Now</a></li>
+                    
+                        <li><a href="/about/">About</a></li>
+                    
+                        <li><a href="/projects/">Projects</a></li>
+                    
+                        <li><a href="https://leeturner.tech/">Resume</a></li>
+                    
+                        <li><a href="/archive/">Archive</a></li>
+                    
+
+
+
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/headers/the_pinicles_perth_australia.png')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/vlang" title="vlang">
+                            vlang
+                        </a>
+                        
+                        <a class="tag" href="/tags/terminal" title="terminal">
+                            terminal
+                        </a>
+                        
+                        <a class="tag" href="/tags/cli" title="cli">
+                            cli
+                        </a>
+                        
+                        <a class="tag" href="/tags/image" title="image">
+                            image
+                        </a>
+                        
+                    </div>
+                    <h1>Convert an Image into Colourful Ascii Art - Vlang Edition</h1>
+                    <h2 class="subheading">Building a Terminal Image Viewer in V</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Lee Turner
+                             
+                            on 
+                            Monday, February 16, 2026
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>Coming into 2026, I decided that it was time to step outside the JVM and play
+around with some different languages. While <a href="https://kotlinlang.org/">Kotlin</a> is still
+my goto language, jvm languages do come with their own baggage.  I have used
+<a href="https://go.dev/">Go</a> before and really liked the simplicity and performance of the
+language.  It has a lot to like, but it does have a few things that I am not a fan of:</p>
+<ul>
+<li>No mutability built into the language</li>
+<li>Error handling is a bit clunky</li>
+<li>Lack of visibility modifiers</li>
+<li>Enum support is limited</li>
+</ul>
+<p>Anyway, long story short, I decided to dive into a couple of new languages and see what
+I liked best.  The main one being <a href="https://rust-lang.org/">Rust</a> and the other being
+<a href="https://vlang.io/">V</a>. V is a newer language that I have been wanting to try out for a while.</p>
+<p>At some point last year I read an article called <a href="https://linyunliu.com/blogs/convert-an-image-into-colourful-ascii-art/">Convert an Image into Colourful Ascii Art</a>
+which shows how to use python to display an image inside your terminal
+with colourful ascii characters.  This seemed like a fun project to try out in V.</p>
+<p><a href="https://github.com/leeturner/image-term">image-term</a> is my take on the idea.</p>
+<p>
+  <img src="/img/blog/2026-02-16-image-term-vlang/ascii-veasel.png" alt="image-term in action">
+
+</p>
+<p>Image taken from the <a href="https://vlang.io/">V</a> website.</p>
+<h2 id="what-it-does">What it does</h2>
+<p>image-term takes an image path as an argument, loads it, and renders a coloured mosaic
+in your terminal. Each character cell in the terminal becomes a single coloured block.
+The tool detects your terminal dimensions and scales the image to fit, correcting for
+the fact that terminal characters are taller than they are wide.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>The rendering pipeline has four steps:</p>
+<h3 id="1-load-the-image">1. Load the image</h3>
+<p>V&rsquo;s <code>stbi</code> module wraps <a href="https://github.com/nothings/stb">stb_image</a> C library, which
+handles decoding JPEG, PNG, BMP, and other common formats. A single call to <code>stbi.load()</code>
+gives you the raw pixel data.</p>
+<h3 id="2-resize-to-fit-the-terminal">2. Resize to fit the terminal</h3>
+<p>The image needs to map onto the terminal grid, so it gets resized using nearest-neighbour
+sampling. The target dimensions are calculated from the terminal size, with an aspect ratio
+correction factor of 0.5 to account for characters being roughly twice as tall as they are wide.</p>
+<h3 id="3-average-colours-into-blocks">3. Average colours into blocks</h3>
+<p>The resized image is divided into grid-sized blocks. For each block, the pixel colours
+are averaged to produce a single representative colour.</p>
+<h3 id="4-render-with-ansi-colours">4. Render with ANSI colours</h3>
+<p>Each block is printed as a <code>@</code> character using 24-bit ANSI colour
+codes via V&rsquo;s <code>term</code> module. The result is a mosaic that preserves the colour and
+composition of the original image.</p>
+<h2 id="what-i-liked-about-v">What I liked about V</h2>
+<p>V made this project pretty straightforward. A few things stood out:</p>
+<ul>
+<li><strong>The standard library is great</strong> - just like Go, all the batteries are included</li>
+<li><strong>Compile times</strong> are fast enough that the edit-compile-run cycle feels instant</li>
+<li><strong>The syntax</strong> is minimal and easy to read - the entire application is around 120 lines</li>
+</ul>
+<p>Basically, V has taken all the best bits from Go and solved all the problems that I
+mentioned above.  It is definitely a language I will be using for future projects.</p>
+<h2 id="source">Source</h2>
+<p>The full source, including a readme on how to build and run it, is on <a href="https://github.com/leeturner/image-term">GitHub</a>.</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/wiremock-3-6-0-array-helpers/" data-toggle="tooltip" data-placement="top" title="WireMock 3.6.0 - New Array Helpers">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
+                
+
+<script src="https://giscus.app/client.js"
+        data-repo="leeturner/leeturner.me"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkxMDMwNTIxNzQ="
+        data-category="General"
+        data-category-id="DIC_kwDOBiRzjs4CXhC_"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hello-world" title="hello-world">
+                            hello-world
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/intellij" title="intellij">
+                            intellij
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/junit" title="junit">
+                            junit
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kotlin" title="kotlin">
+                            kotlin
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/reference" title="reference">
+                            reference
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/spring" title="spring">
+                            spring
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/spring-boot" title="spring boot">
+                            spring boot
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tdd" title="tdd">
+                            tdd
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/testing" title="testing">
+                            testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://bsky.app/profile/leeturner.bsky.social">
+                               <span class="fa-stack fa-lg">
+                                   <i class="fas fa-circle fa-stack-2x"></i>
+                                   <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
+                               </span>
+                            </a>
+                        </li>
+                    
+                    
+                        <li>
+                            <a target="_blank" href="https://hachyderm.io/@leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </a>
+                        </li>
+                    
+                    
+                        <li>
+                            <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </a>
+                        </li>
+                    
+                    
+                    <li>
+                        <a href="https://x.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/leeturner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                   
+                   <li>
+                       <a target="_blank" href="https://youtube.com/@leeturner">
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Lee Turner 2026
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
