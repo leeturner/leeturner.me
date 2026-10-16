@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Controllers on Lee Turner</title>
-    <link>https://leeturner.me/tags/controllers/</link>
-    <description>Recent content in Controllers on Lee Turner</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 29 Jun 2023 18:00:00 +0000</lastBuildDate>
-    <atom:link href="https://leeturner.me/tags/controllers/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Returning Images From Micronaut Controllers</title>
-      <link>https://leeturner.me/post/returning-images-from-micronaut-controllers/</link>
-      <pubDate>Thu, 29 Jun 2023 18:00:00 +0000</pubDate>
-      <guid>https://leeturner.me/post/returning-images-from-micronaut-controllers/</guid>
-      <description>&lt;p&gt;This week I was browsing the &lt;a href=&#34;https://matrix.to/#/#micronautfw_questions:gitter.im&#34;&gt;Micronaut Gitter channel&lt;/a&gt; and saw a&#xA;question about how to return a BufferedImage from a Micronaut controller. This isn&amp;rsquo;t something I&amp;rsquo;ve done before and it&#xA;instantly &lt;a href=&#34;https://xkcd.com/356/&#34;&gt;nerd snipped&lt;/a&gt; me:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I am looking for help on how to make a controller method respond with a BufferedImage. Any ideas ?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I had a quick google, and it turns out you don&amp;rsquo;t need a buffered image at all. I found a few references to returning a&#xA;byte array from a controller, so I quickly span up a new service from &lt;a href=&#34;https://micronaut.io/launch/&#34;&gt;Micronaut Launch&lt;/a&gt;,&#xA;added a controller with an endpoint that loaded an image from the classpath returned it as a byte array:&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Controllers on Lee Turner</title>
+		<link>https://leeturner.me/tags/controllers/</link>
+		<description>Recent content in Controllers on Lee Turner</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 29 Jun 2023 18:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://leeturner.me/tags/controllers/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Returning Images From Micronaut Controllers</title>
+				<link>https://leeturner.me/post/returning-images-from-micronaut-controllers/</link>
+				<pubDate>Thu, 29 Jun 2023 18:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/post/returning-images-from-micronaut-controllers/</guid>
+				<description>&lt;p&gt;This week I was browsing the &lt;a href=&#34;https://matrix.to/#/#micronautfw_questions:gitter.im&#34;&gt;Micronaut Gitter channel&lt;/a&gt; and saw a&#xA;question about how to return a BufferedImage from a Micronaut controller. This isn&amp;rsquo;t something I&amp;rsquo;ve done before and it&#xA;instantly &lt;a href=&#34;https://xkcd.com/356/&#34;&gt;nerd snipped&lt;/a&gt; me:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I am looking for help on how to make a controller method respond with a BufferedImage. Any ideas ?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I had a quick google, and it turns out you don&amp;rsquo;t need a buffered image at all. I found a few references to returning a&#xA;byte array from a controller, so I quickly span up a new service from &lt;a href=&#34;https://micronaut.io/launch/&#34;&gt;Micronaut Launch&lt;/a&gt;,&#xA;added a controller with an endpoint that loaded an image from the classpath returned it as a byte array:&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

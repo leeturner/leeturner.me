@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Testwatcher on Lee Turner</title>
-    <link>https://leeturner.me/tags/testwatcher/</link>
-    <description>Recent content in Testwatcher on Lee Turner</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 06 Apr 2021 10:20:08 +0000</lastBuildDate>
-    <atom:link href="https://leeturner.me/tags/testwatcher/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>BlinkyTape JUnit Testwatcher API Implementation</title>
-      <link>https://leeturner.me/post/blinkytape-junit-testwatcher/</link>
-      <pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-      <guid>https://leeturner.me/post/blinkytape-junit-testwatcher/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://leeturner.me/posts/building-a-camel-case-junit5-displaynamegenerator/&#34;&gt;Every so often&lt;/a&gt; I like to have a play around with a part of &lt;a href=&#34;https://junit.org&#34;&gt; Junit &lt;/a&gt; that I haven&amp;rsquo;t used before, and I recently decided to look into the &lt;a href=&#34;https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html&#34;&gt;TestWatcher API&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Testwatcher on Lee Turner</title>
+		<link>https://leeturner.me/tags/testwatcher/</link>
+		<description>Recent content in Testwatcher on Lee Turner</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 06 Apr 2021 10:20:08 +0000</lastBuildDate>
+		
+			<atom:link href="https://leeturner.me/tags/testwatcher/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>BlinkyTape JUnit Testwatcher API Implementation</title>
+				<link>https://leeturner.me/post/blinkytape-junit-testwatcher/</link>
+				<pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
+				<guid>https://leeturner.me/post/blinkytape-junit-testwatcher/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://leeturner.me/posts/building-a-camel-case-junit5-displaynamegenerator/&#34;&gt;Every so often&lt;/a&gt; I like to have a play around with a part of &lt;a href=&#34;https://junit.org&#34;&gt; Junit &lt;/a&gt; that I haven&amp;rsquo;t used before, and I recently decided to look into the &lt;a href=&#34;https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html&#34;&gt;TestWatcher API&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I have to admit that I have been meaning to play with this for quite a while now&amp;hellip;. I just haven&amp;rsquo;t really found a good use-case for it. Given that I decided to quit trying to find a good use-case and implement something nerdy instead.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

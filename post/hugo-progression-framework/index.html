@@ -396,14 +396,14 @@ git clone https://github.com/leeturner/hugo-progression.git
 <h4 id="22-create-the-markdown-page-with-front-matter--content-for-the-framework-homepage">2.2) Create The Markdown Page With Front Matter &amp; Content For The Framework Homepage</h4>
 <p>For any of the frameworks to appear in your <code>hugo</code> site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any <code>hugo</code> site, these markdown files live in the <code>content</code> folder.  The front matter can contain all the usual <code>hugo</code> fields along with a couple of special fields specific to <code>hugo-progression</code>.  See the example below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>title: 🛠️ Backend Engineering Framework
-</span></span><span style="display:flex;"><span>linktitle: 🛠️ Backend
-</span></span><span style="display:flex;"><span>description: Backend engineering progression framework
-</span></span><span style="display:flex;"><span>menu:
-</span></span><span style="display:flex;"><span>  main:
-</span></span><span style="display:flex;"><span>    parent: engineering
-</span></span><span style="display:flex;"><span>levels: 6
-</span></span><span style="display:flex;"><span>datafilepartial: engineering/backend-partial.html
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">title</span>: 🛠️ Backend Engineering Framework
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">linktitle</span>: 🛠️ Backend
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">description</span>: Backend engineering progression framework
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">menu</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">main</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">parent</span>: engineering
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">levels</span>: <span style="color:#bd93f9">6</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">datafilepartial</span>: engineering/backend-partial.html
 </span></span><span style="display:flex;"><span>---
 </span></span></code></pre></div><p>The two fields that are specific to <code>hugo-progression</code> are <code>levels</code> and <code>datafilepartial</code>.  The <code>levels</code> field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework <code>yml</code> data file.  This will also determine how many levels are created in the menu when the site is generated:</p>
 <p>
@@ -442,7 +442,7 @@ git clone https://github.com/leeturner/hugo-progression.git
     product-partial.html
 </code></pre><p>Once you have created your html partial file that references the framework data file, make sure you are correctly referencing the html partial in your markdown file as in the example above:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>datafilepartial: engineering/backend-partial.html
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">datafilepartial</span>: engineering/backend-partial.html
 </span></span><span style="display:flex;"><span>---
 </span></span></code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
 <h3 id="3-nearly-finished">3) Nearly finished</h3>

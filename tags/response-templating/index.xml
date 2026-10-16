@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Response-Templating on Lee Turner</title>
-    <link>https://leeturner.me/tags/response-templating/</link>
-    <description>Recent content in Response-Templating on Lee Turner</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 24 May 2024 10:00:00 +0000</lastBuildDate>
-    <atom:link href="https://leeturner.me/tags/response-templating/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>WireMock 3.6.0 - New Array Helpers</title>
-      <link>https://leeturner.me/post/wiremock-3-6-0-array-helpers/</link>
-      <pubDate>Fri, 24 May 2024 10:00:00 +0000</pubDate>
-      <guid>https://leeturner.me/post/wiremock-3-6-0-array-helpers/</guid>
-      <description>&lt;p&gt;WireMock version 3.6.0 has &lt;a href=&#34;https://www.wiremock.io/post/wiremock-3-6-0-released&#34;&gt;just been released&lt;/a&gt; containing a&#xA;number of new features, bug fixes and dependency updates. Version 3.6.0 has a number of new template helpers to make&#xA;working with arrays much easier when using Response Templating.&lt;/p&gt;&#xA;&lt;p&gt;In this post we are going to explore the new array helpers and how to use them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;arrayadd---add-elements-to-an-array&#34;&gt;arrayAdd - add elements to an array&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;code&gt;arrayAdd&lt;/code&gt; helper can be used to add elements to an array based on a position value or the start or end keywords. If&#xA;no position is specified, the element will be added to end of the array.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Response-Templating on Lee Turner</title>
+		<link>https://leeturner.me/tags/response-templating/</link>
+		<description>Recent content in Response-Templating on Lee Turner</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 24 May 2024 10:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://leeturner.me/tags/response-templating/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>WireMock 3.6.0 - New Array Helpers</title>
+				<link>https://leeturner.me/post/wiremock-3-6-0-array-helpers/</link>
+				<pubDate>Fri, 24 May 2024 10:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/post/wiremock-3-6-0-array-helpers/</guid>
+				<description>&lt;p&gt;WireMock version 3.6.0 has &lt;a href=&#34;https://www.wiremock.io/post/wiremock-3-6-0-released&#34;&gt;just been released&lt;/a&gt; containing a&#xA;number of new features, bug fixes and dependency updates. Version 3.6.0 has a number of new template helpers to make&#xA;working with arrays much easier when using Response Templating.&lt;/p&gt;&#xA;&lt;p&gt;In this post we are going to explore the new array helpers and how to use them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;arrayadd---add-elements-to-an-array&#34;&gt;arrayAdd - add elements to an array&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;code&gt;arrayAdd&lt;/code&gt; helper can be used to add elements to an array based on a position value or the start or end keywords. If&#xA;no position is specified, the element will be added to end of the array.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>
