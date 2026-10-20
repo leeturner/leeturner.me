@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Type" "post" }}
+<div class="wrap">
+  <header class="page-head">
+    <h1>Every <span>post.</span></h1>
+    <p>{{ len $posts }} posts since {{ (index $posts (sub (len $posts) 1)).Date.Year }}. Browse by <a href="{{ "tags/" | relURL }}">tag</a>, or follow along with <a href="{{ with site.Home.OutputFormats.Get "rss" }}{{ .RelPermalink }}{{ end }}">RSS</a>.</p>
+  </header>
+  {{- range $posts.GroupByDate "2006" }}
+  <section class="archive-year">
+    <h2>{{ .Key }}</h2>
+    <ul>
+      {{- range .Pages }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January" }}</time></li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+</div>
+{{ end }}

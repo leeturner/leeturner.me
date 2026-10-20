@@ -1,0 +1,117 @@
+# Projects shown on /projects/. Tags drive the filter buttons on that page.
+# Optional per project: links (extra buttons), status: wip.
+
+- name: Micronaut Launch TUI
+  repo: leeturner/micronaut-launch-tui
+  tags: [kotlin, micronaut, cli]
+  summary: >-
+    mtui is a terminal UI for creating Micronaut projects through Micronaut Launch, written in Kotlin and
+    built with TamboUI. It puts the hundreds of available features in one searchable list, previews the
+    generated files and unzips the project straight into the current directory. Inspired by Dan Vega's
+    spring-initializr-tui.
+
+- name: wiremock-micronaut
+  repo: leeturner/wiremock-micronaut
+  tags: [kotlin, micronaut, wiremock, testing]
+  summary: >-
+    Simplifies testing HTTP clients in Micronaut 5 and above. It starts WireMock servers per test class,
+    binds their URLs into Micronaut configuration before your beans are created and injects them into your
+    tests. The annotations mirror wiremock-spring-boot, so it should feel familiar.
+  links:
+    - label: Maven Central
+      url: https://central.sonatype.com/artifact/io.github.leeturner/wiremock-micronaut
+
+- name: wiremock-blns-extension
+  repo: leeturner/wiremock-blns-extension
+  tags: [wiremock, testing]
+  summary: >-
+    A WireMock extension that adds a naughtyString Handlebars helper, so templated responses can return
+    strings from the Big List of Naughty Strings: SQL injection, RTL text, zero-width characters, emoji and
+    more. Works with embedded WireMock and the standalone JAR or Docker image.
+  links:
+    - label: Maven Central
+      url: https://central.sonatype.com/artifact/io.github.leeturner/wiremock-blns-extension
+
+- name: Xport
+  repo: leeturner/xport
+  tags: [kotlin, micronaut, cli, hugo]
+  summary: >-
+    A command line tool written in Kotlin and Micronaut that converts an X/Twitter data export into Hugo
+    markdown files, preserving the original timestamps and media. I used it to bring my old tweets over to
+    the microblog on this site.
+  links:
+    - label: See the microblog
+      url: /microblog/
+
+- name: Conway's Game of Life
+  repo: leeturner/conways-game-of-life-kotlin
+  tags: [kotlin, micronaut]
+  summary: >-
+    A terminal based Game of Life written in Kotlin using Micronaut and functional programming with Arrow.
+    The universe wraps around like a torus and can be rendered in the terminal with ANSI colours or in a
+    KorGE 2D window.
+
+- name: Spektrum
+  repo: leeturner/spektrum
+  tags: [kotlin, micronaut]
+  status: wip
+  summary: >-
+    A work in progress Sinclair ZX Spectrum emulator written in Kotlin and Micronaut, starting with an
+    emulation of the Z80 CPU.
+
+- name: Micronaut CLI Template
+  repo: leeturner/micronaut-cli-template
+  tags: [kotlin, micronaut, cli]
+  summary: >-
+    A ready to go Kotlin Micronaut command line application template with the tooling I like already set
+    up: a Gradle version catalogue, Kotlinter and Detekt, Arrow, Strikt, and GitHub Actions and Dependabot
+    for CI. Click "Use this template" on GitHub to start from it.
+
+- name: callback-logger
+  repo: leeturner/callback-logger
+  tags: [kotlin, micronaut, testing]
+  summary: >-
+    A simple Kotlin and Micronaut service that receives callbacks, useful when testing APIs locally that send
+    them. It logs every POST or PUT it receives, has a simple web UI, and lets you define custom endpoints
+    with your own response code and payload.
+
+- name: image-term
+  repo: leeturner/image-term
+  tags: [vlang, cli]
+  summary: >-
+    A terminal image viewer written in V that renders images as colourful ASCII mosaics. It scales the
+    image to fit your terminal, corrects for the aspect ratio of terminal characters and averages the
+    colours within each block of pixels.
+  links:
+    - label: Read the post
+      url: /post/image-term-vlang/
+
+- name: Hugo Progression Framework
+  repo: leeturner/hugo-progression
+  tags: [hugo]
+  summary: >-
+    A Hugo template that renders progression frameworks using the same data format as the Monzo
+    progression framework.
+  links:
+    - label: Read the post
+      url: /posts/hugo-progression-framework/
+
+- name: BlinkyTapeTestWatcher
+  repo: leeturner/BlinkyTapeTestWatcher
+  tags: [kotlin, testing]
+  summary: >-
+    A Kotlin implementation of the JUnit 5 TestWatcher API that hooks your tests up to a BlinkyTape LED
+    strip.
+  links:
+    - label: Read the post
+      url: /posts/blinkytape-junit-testwatcher/
+
+- name: pinboard2markdown
+  repo: leeturner/pinboard2markdown
+  tags: [kotlin, spring, cli]
+  summary: >-
+    A command line tool written in Kotlin and Spring Boot that fetches bookmarks with a given tag from the
+    pinboard.in API and outputs them as markdown. I use it to build my Geek Reads posts.
+  links:
+    - label: Geek Reads posts
+      url: /tags/bookmarks/

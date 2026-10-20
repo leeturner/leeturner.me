@@ -1,153 +1,105 @@
 baseURL = "https://leeturner.me/"
 languageCode = "en-us"
-builddrafts = false
-canonifyurls = false
+buildDrafts = false
+canonifyURLs = false
 title = "Lee Turner"
-author = "Lee Turner"
-theme = "hugo-theme-cleanwhite"
+theme = "leeturner"
 enableRobotsTXT = true
 preserveTaxonomyNames = true
-hasCJKLanguage = true
+
+[params.author]
+name = "Lee Turner"
+
+[taxonomies]
+tag = "tags"
 
 [outputs]
-home = ["HTML", "RSS", "Algolia"]
+home = ["HTML", "RSS"]
+section = ["HTML", "RSS"]
+
+[services.rss]
+limit = 30
+
+[pagination]
+pagerSize = 20
 
 [markup.goldmark.renderer]
 unsafe = true
 
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 3
+
+[markup.highlight]
+noClasses = false
+
 [params]
-SEOTitle = "Lee Turner"
-header_image = "img/headers/the_pinicles_perth_australia.png"
-#author = "Hi, I'm Lee Turner 👋"
 slogan = "A random stream of thoughts and software experiments"
-description = "Senior Software Engineer at WireMock, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin & Brighton JUG"
-keyword = "lee, turner, lee turner, hacking, software engineering, security, coding"
-
-dark_mode_toggle = true
-
-# leancloud storage for page view counter
-page_view_conter = false
-leancloud_app_id = ""
-leancloud_app_key = ""
-
-# algolia site search
-algolia_search = false
-algolia_appId = ""
-algolia_indexName = ""
-algolia_apiKey = ""
-
-# Sidebar settings
-sidebar_about_description = "Hi, I'm Lee 👋.  Senior Software Engineer at [WireMock](https://wiremock.io), [Snyk Ambassador](https://snyk.io/snyk-ambassadors/), Hacker of code. Appsec enthusiast. Runs [Brighton Kotlin](https://brightonkotlin.com) & Brighton JUG"
-sidebar_avatar = "img/avatar.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
-
-featured_tags = true
-featured_condition_size = 2
-
-image_404 = "img/404-bg.jpg"
-title_404 = "The page you are looking for couldn't be found"
-omit_categories = false
-
-# Last posts
-last_posts = false
-#last_posts_title = "LAST POSTS"
-#last_posts_count = 5
-
-#Enable wechat pay & alipay to allow readers send reward money if they like the articles
-reward = false
-friends = false
-bookmarks = false
-about_me = true
-
-# Include any custom CSS and/or JS files, url or relative to /static folder
-#custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
-custom_js = ["https://buttons.github.io/buttons.js"]
-
-## Social Accounts
-[params.social]
-rss = true
-github = "https://github.com/leeturner"
-mastodon = "https://hachyderm.io/@leeturner"
-linkedin = "https://www.linkedin.com/in/turnerlee/"
-twitter = "https://x.com/leeturner"
-youtube = "https://youtube.com/@leeturner"
-stackoverflow = "https://stackoverflow.com/users/11251979/lee-turner"
-bluesky = "https://bsky.app/profile/leeturner.bsky.social"
-#instagram = "<username>"
-#xing = "<username>"
-#facebook = "<username>"
-#google = "<username>"
-#googlescholar = "<account_id>"
-#lastfm = "<username>"
-#goodreads = "<username>"
-#gitlab = "<username>"
-#bitbucket = "<username>"
-#fivehundredpx = "<username>"
-#flickr = "<username>"
-#foursquare = "<username>"
-#hackernews = "<username>"
-#kickstarter = "<username>"
-#patreon = "<username>"
-#pintrest = "<username>"
-#steam = "<username>"
-#reddit = "<username>"
-#snapchat = "<username>"
-
-## Extras
-[params.extra]
-poweredby = true
-highlightjs = true
-socialmarkup = true
-displayrssicon = false
-
-[[params.additional_menus]]
-title =  "Microblog"
-href =  "/microblog"
-[[params.additional_menus]]
-title =  "Now"
-href =  "/now"
-[[params.additional_menus]]
-title =  "About"
-href =  "/about"
-[[params.additional_menus]]
-title =  "Projects"
-href =  "/projects"
-[[params.additional_menus]]
-title =  "Resume"
-href =  "https://leeturner.tech"
-[[params.additional_menus]]
-title =  "Archive"
-href =  "/archive"
-
-[outputFormats.Algolia]
-baseName = "algolia"
-isPlainText = true
-mediaType = "application/json"
-notAlternative = true
-
-[params.algolia]
-vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
-params = ["categories", "tags"]
+description = "Senior Software Engineer at WireMock, Snyk Ambassador, hacker of code and appsec enthusiast."
+keywords = "lee, turner, lee turner, hacking, software engineering, security, coding"
+avatar = "img/avatar.jpg"
+bio = "Hi, I'm Lee. Senior Software Engineer at [WireMock](https://wiremock.io), [Snyk Ambassador](https://snyk.io/snyk-ambassadors/), hacker of code and appsec enthusiast."
+microblogPagerSize = 50
 
 [params.giscus]
-data_repo="leeturner/leeturner.me"
-data_repo_id="MDEwOlJlcG9zaXRvcnkxMDMwNTIxNzQ="
-data_category="General"
-data_category_id="DIC_kwDOBiRzjs4CXhC_"
-data_mapping="pathname"
-data_reactions_enabled="1"
-data_emit_metadata="0"
-data_theme="light"
-data_lang="en"
-crossorigin="anonymous"
+data_repo = "leeturner/leeturner.me"
+data_repo_id = "MDEwOlJlcG9zaXRvcnkxMDMwNTIxNzQ="
+data_category = "General"
+data_category_id = "DIC_kwDOBiRzjs4CXhC_"
+data_mapping = "pathname"
+data_reactions_enabled = "1"
+data_emit_metadata = "0"
+data_lang = "en"
 
-[markup]
-[markup.tableOfContents]
-endLevel = 2
-startLevel = 1
-[markup.highlight]
-style = "dracula"
+[[params.social]]
+name = "GitHub"
+url = "https://github.com/leeturner"
+[[params.social]]
+name = "Mastodon"
+url = "https://hachyderm.io/@leeturner"
+rel = "me"
+[[params.social]]
+name = "Bluesky"
+url = "https://bsky.app/profile/leeturner.bsky.social"
+[[params.social]]
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/turnerlee/"
+[[params.social]]
+name = "X"
+url = "https://x.com/leeturner"
+[[params.social]]
+name = "YouTube"
+url = "https://youtube.com/@leeturner"
+[[params.social]]
+name = "Stack Overflow"
+url = "https://stackoverflow.com/users/11251979/lee-turner"
+
+[[menus.main]]
+name = "Microblog"
+pageRef = "/microblog"
+weight = 10
+[[menus.main]]
+name = "Now"
+pageRef = "/now"
+weight = 20
+[[menus.main]]
+name = "About"
+pageRef = "/about"
+weight = 30
+[[menus.main]]
+name = "Projects"
+pageRef = "/projects"
+weight = 40
+[[menus.main]]
+name = "Resume"
+url = "https://leeturner.tech"
+weight = 50
+[[menus.main]]
+name = "Archive"
+pageRef = "/archive"
+weight = 60
 
 [sitemap]
-changefreq = 'monthly'
-filename = 'sitemap.xml'
+changeFreq = "monthly"
+filename = "sitemap.xml"
 priority = 0.5

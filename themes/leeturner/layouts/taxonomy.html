@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    <p>Every topic I have written about, with the number of posts for each.</p>
+  </header>
+  <div class="tag-cloud">
+    {{- range .Data.Terms.Alphabetical }}
+    <a href="{{ .Page.RelPermalink }}">{{ .Term }}<span>{{ .Count }}</span></a>
+    {{- end }}
+  </div>
+</div>
+{{ end }}

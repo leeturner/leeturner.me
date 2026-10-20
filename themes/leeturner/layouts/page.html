@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="wrap">
+  <article>
+    <header class="page-head">
+      <h1>{{ .Title }}</h1>
+    </header>
+    <div class="prose" style="margin-left: 0">
+      {{ .Content }}
+    </div>
+    {{- partial "comments.html" . }}
+  </article>
+</div>
+{{ end }}

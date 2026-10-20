@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}<p>{{ . }}</p>{{ end }}
+  </header>
+  <div class="post-grid" style="margin-top: 24px">
+    {{- range (.Paginate .RegularPages).Pages }}
+    {{- partial "post-card.html" . }}
+    {{- end }}
+  </div>
+  {{- partial "pager.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="wrap">
+  <div class="mb-single">
+    <a href="{{ .Parent.RelPermalink }}">← Microblog</a>
+    <div style="margin-top: 20px">
+      {{- partial "microblog-post.html" (dict "page" . "link" false) }}
+    </div>
+    <nav class="pager" aria-label="Neighbouring posts" style="margin-top: 20px">
+      {{- with .NextInSection }}<a class="pill-link" href="{{ .RelPermalink }}">← Newer</a>{{ else }}<span></span>{{ end }}
+      {{- with .PrevInSection }}<a class="pill-link" href="{{ .RelPermalink }}">Older →</a>{{ else }}<span></span>{{ end }}
+    </nav>
+  </div>
+  {{- partial "comments.html" . }}
+</div>
+{{ end }}

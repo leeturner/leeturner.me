@@ -1,0 +1,65 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Type" "post" }}
+<div class="wrap">
+  <section class="hero">
+    {{- $words := split site.Params.slogan " " }}
+    {{- $split := sub (len $words) 2 }}
+    <h1>{{ delimit (first $split $words) " " }} <span>{{ delimit (after $split $words) " " }}.</span></h1>
+    <div class="hero-bio">
+      <img src="{{ site.Params.avatar | relURL }}" alt="{{ site.Params.author.name }}" width="64" height="64">
+      <p>{{ site.Params.bio | markdownify }}</p>
+    </div>
+  </section>
+
+  <section class="latest" aria-labelledby="latest-title">
+    <div class="section-head">
+      <h2 class="eyebrow" id="latest-title">Latest writing</h2>
+      <a href="{{ "archive/" | relURL }}">All posts →</a>
+    </div>
+
+    {{- with index $posts 0 }}
+    <article class="featured">
+      <div class="featured-body">
+        <div class="meta">{{ partial "post-date.html" . }}{{ with .Params.tags }} · {{ delimit (first 3 .) ", " }}{{ end }}</div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Description | default .Summary | plainify }}</p>
+        <a class="read-more" href="{{ .RelPermalink }}">Read the post →</a>
+      </div>
+      {{- $image := .Params.image }}
+      {{- if not $image }}{{ with findRESubmatch `<img[^>]+src="([^"]+)"` .Content 1 }}{{ $image = index (index . 0) 1 }}{{ end }}{{ end }}
+      {{- with $image }}
+      <img class="featured-image" src="{{ . | relURL }}" alt="" loading="lazy">
+      {{- end }}
+    </article>
+    {{- end }}
+
+    <div class="post-grid">
+      {{- range first 3 (after 1 $posts) }}
+      {{- partial "post-card.html" . }}
+      {{- end }}
+    </div>
+  </section>
+
+  <section class="home-strip">
+    {{- with site.GetPage "/microblog" }}
+    <div class="panel">
+      <div class="section-head" style="margin-bottom: 0">
+        <h2 class="eyebrow">From the microblog</h2>
+        <a href="{{ .RelPermalink }}">See all →</a>
+      </div>
+      {{- with index .RegularPages.ByDate.Reverse 0 }}
+      <blockquote class="quote">{{ .Content }}</blockquote>
+      <div class="meta" style="margin-top: 12px"><a href="{{ .RelPermalink }}">{{ .Date | time.Format "2 January 2006" }}</a></div>
+      {{- end }}
+    </div>
+    {{- end }}
+    {{- with site.GetPage "/now" }}
+    <div class="panel-accent">
+      <h2 class="eyebrow">Now</h2>
+      <p>{{ .Params.homeSummary | default .Description }}</p>
+      <a href="{{ .RelPermalink }}">What I'm doing now</a>
+    </div>
+    {{- end }}
+  </section>
+</div>
+{{ end }}
