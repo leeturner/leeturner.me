@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{- $projects := site.Data.projects }}
+{{- $projects := hugo.Data.projects }}
 {{- $tags := slice }}
 {{- range $projects }}{{ range .tags }}{{ $tags = $tags | append . }}{{ end }}{{ end }}
 {{- $tags = $tags | uniq }}
