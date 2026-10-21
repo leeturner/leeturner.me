@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# Publish a microblog post straight to master (which deploys the site).
+#
+#   scripts/mb "Some text"                # post text
+#   scripts/mb "Look at this" photo.jpg   # post text with one or more images
+#   scripts/mb                            # write the post in $EDITOR
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+if [[ "$(git branch --show-current)" != "master" ]]; then
+  echo "mb: switch to master first (git switch master)" >&2
+  exit 1
+fi
+if [[ -n "$(git status --porcelain)" ]]; then
+  echo "mb: working tree has uncommitted changes, commit or stash them first" >&2
+  exit 1
+fi
+
+git pull --quiet --rebase origin master
+
+text="${1:-}"
+shift || true
+
+stamp="$(date -u +%Y-%m-%dT%H-%M)"
+year="${stamp:0:4}"
+file="content/microblog/${year}/${stamp}.md"
+if [[ -e "$file" ]]; then
+  echo "mb: $file already exists, wait a minute and try again" >&2
+  exit 1
+fi
+
+hugo new content "$file" >/dev/null
+
+if [[ -n "$text" ]]; then
+  printf '%s\n' "$text" >> "$file"
+else
+  "${EDITOR:-vi}" "$file"
+fi
+
+for image in "$@"; do
+  dir="static/img/microblog/${year}"
+  mkdir -p "$dir"
+  name="${stamp}-$(basename "$image")"
+  cp "$image" "$dir/$name"
+  printf '\n![](/img/microblog/%s/%s)\n' "$year" "$name" >> "$file"
+  git add "$dir/$name"
+done
+
+git add "$file"
+git commit --quiet -m "Microblog: ${stamp}"
+git push --quiet origin master
+echo "mb: published $file"

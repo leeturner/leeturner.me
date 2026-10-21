@@ -13,6 +13,11 @@ name = "Lee Turner"
 [taxonomies]
 tag = "tags"
 
+# Microblog posts live in year folders (content/microblog/2024/...) but keep
+# their original flat URLs, which giscus comments are keyed on.
+[permalinks.page]
+microblog = "/microblog/:contentbasename/"
+
 [outputs]
 home = ["HTML", "RSS"]
 section = ["HTML", "RSS"]
