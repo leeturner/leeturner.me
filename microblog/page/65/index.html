@@ -1,985 +1,1002 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microblog · Lee Turner</title>
+<meta name="description" content="Microblog of Lee Turner">
+<meta name="keywords" content="lee, turner, lee turner, hacking, software engineering, security, coding">
+<meta name="author" content="Lee Turner">
+<link rel="canonical" href="https://leeturner.me/microblog/">
 
-    
-    <script>
-    (function() {
-        
-        
-        const autoTheme = false;
-        if (autoTheme) {
-            document.documentElement.setAttribute('data-auto-theme', 'true');
-        }
+<meta property="og:site_name" content="Lee Turner">
+<meta property="og:title" content="Microblog · Lee Turner">
+<meta property="og:description" content="Microblog of Lee Turner">
+<meta property="og:url" content="https://leeturner.me/microblog/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://leeturner.me/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss&#43;xml" href="https://leeturner.me/microblog/index.xml" title="Lee Turner">
+<link rel="alternate" type="application/rss+xml" href="https://leeturner.me/index.xml" title="Lee Turner">
 
-        const theme = localStorage.getItem('cleanwhite-theme') ||
-                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-    })();
-    </script>
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
 
-    
-    <meta property="og:site_name" content="Lee Turner">
-    <meta property="og:type" content="article">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme') || localStorage.getItem('cleanwhite-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
+</script>
 
-    
-    <meta property="og:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png">
-    <meta property="twitter:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png" />
-    
-
-    
-    <meta name="title" content="Microblog" />
-    <meta property="og:title" content="Microblog" />
-    <meta property="twitter:title" content="Microblog" />
-    
-
-    
-    <meta name="description" content="Senior Software Engineer at WireMock, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG">
-    <meta property="og:description" content="Senior Software Engineer at WireMock, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG" />
-    <meta property="twitter:description" content="Senior Software Engineer at WireMock, Snyk Ambassador, Hacker of code. Appsec enthusiast. Runs Brighton Kotlin &amp; Brighton JUG" />
-    
-
-    <meta property="og:url" content="https://leeturner.me/microblog/" />
-
-    
-    <meta property="twitter:card" content="Microblog of Lee Turner" />
-    
-    
-
-    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>Microblog | Lee Turner</title>
-
-    <link rel="canonical" href="/microblog/">
-
-    
-
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    
-    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.css">
-
-    
-    <link rel="stylesheet" href="/css/theme-variables.css">
-
-    
-    <link rel="stylesheet" href="/css/zanshang.min.css">
-
-    
-    <link rel="stylesheet" href="/css/all.min.css">
-
-    
-    
-    
-    
-
-    
-    <script src="/js/jquery.min.js"></script>
-
-    
-    <script src="/js/bootstrap.min.js"></script>
-
-    
-    <script src="/js/hux-blog.min.js"></script>
-
-    
-    <script src="/js/lazysizes.min.js"></script>
-
-    
-    
-    <script src="https://buttons.github.io/buttons.js"></script>
-    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/main.min.52a95ce6b75a59acf349e573cb5074f7b5fabd9ee6bdca4216a9f66728deda75.css" integrity="sha256-Uqlc5rdaWazzSeVzy1B097X6vZ7mvcpCFqn2Zyje2nU=">
 
 </head>
-
-
-
-
-
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-
-    <div class="container-fluid">
-        
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Lee Turner</a>
-        </div>
-
-        
-        
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    
-                        
-                    
-
-		    
-                        <li><a href="/microblog/">Microblog</a></li>
-                    
-                        <li><a href="/now/">Now</a></li>
-                    
-                        <li><a href="/about/">About</a></li>
-                    
-                        <li><a href="/projects/">Projects</a></li>
-                    
-                        <li><a href="https://leeturner.tech/">Resume</a></li>
-                    
-                        <li><a href="/archive/">Archive</a></li>
-                    
-                    
-		            <li>
-                        <a href="#" id="theme-toggle" title="Toggle dark mode" style="opacity: 0;">
-                            <i class="fa fa-moon"></i>
-                            <i class="fa fa-sun" style="display: none;"></i>
-                        </a>
-		           </li>
-                    <script>
-                    (function() {
-                        
-                        var theme = localStorage.getItem('cleanwhite-theme') ||
-                                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                        var toggleBtn = document.getElementById('theme-toggle');
-                        if (toggleBtn) {
-                            var moonIcon = toggleBtn.querySelector('.fa-moon');
-                            var sunIcon = toggleBtn.querySelector('.fa-sun');
-
-                            if (theme === 'dark') {
-                                if (moonIcon) moonIcon.style.display = 'none';
-                                if (sunIcon) sunIcon.style.display = 'inline';
-                                toggleBtn.setAttribute('title', 'Switch to light mode');
-                            } else {
-                                if (moonIcon) moonIcon.style.display = 'inline';
-                                if (sunIcon) sunIcon.style.display = 'none';
-                                toggleBtn.setAttribute('title', 'Switch to dark mode');
-                            }
-
-                            
-                            requestAnimationFrame(function() {
-                                toggleBtn.style.transition = 'opacity 0.2s ease';
-                                toggleBtn.style.opacity = '1';
-                            });
-                        }
-                    })();
-                    </script>
-                    
-                </ul>
-            </div>
-        </div>
-        
-    </div>
-    
-</nav>
-<script>
-    
-    
-    
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        
-            $navbar.className = " ";
-            
-            setTimeout(function(){
-                
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        var navLinks = document.querySelectorAll('.navbar-collapse a');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                if ($navbar.className.indexOf('in') > 0) {
-                    
-                    $navbar.className = " ";
-                    setTimeout(function(){
-                        if($navbar.className.indexOf('in') < 0) {
-                            $collapse.style.height = "0px"
-                        }
-                    },400)
-                }
-            });
-        });
-    });
-</script>
-
-
-
-<header class="intro-header" style="background-image: url('/img/headers/the_pinicles_perth_australia.png')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Lee Turner </h1>
-                    
-		    <span class="subheading">A random stream of thoughts and software experiments</span>
-                </div>
-            </div>
-        </div>
-    </div>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">Lee Turner<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/microblog/" aria-current="page">Microblog</a>
+      <a href="/now/">Now</a>
+      <a href="/about/">About</a>
+      <a href="/projects/">Projects</a>
+      <a href="https://leeturner.tech">Resume</a>
+      <a href="/archive/">Archive</a>
+    </nav>
+    <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
 </header>
 
-
-
-    
-
-    <div data-pagefind-ignore="all" class="container">
-        <div class="row">
-            <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container
-        ">
-                <div data-pagefind-ignore="all">
-                    
-                        <div class="post-preview">
-
-
-
-
-
-
-
-
-                            <p>Really enjoyed the session on 10 Java Security Practices by @BrianVerm at @DevoxxUK I found the yaml DOS attack really interesting. You can find more about that here - <a href="https://snyk.io/blog/java-yaml-parser-with-snakeyaml/">https://snyk.io/blog/java-yaml-parser-with-snakeyaml/</a> or if you prefer some code, here is a little demo I wrote <a href="https://github.com/leeturner/snakeyaml-dos-vulnerability">https://github.com/leeturner/snakeyaml-dos-vulnerability</a></p>
-
-                            <p class="post-meta">
-                                <a href="https://leeturner.me/microblog/2021-11-02t12-19/">
-                                
-                                    Posted by Lee Turner on Tuesday, November 2, 2021  12:19:48 UTC
-                                    
-                                    
-                                
-                                </a>
-                            </p>
-
-                        </div>
-                        <hr>
-                    
-                        <div class="post-preview">
-
-
-
-
-
-
-
-
-                            <p>Hosting @Devoxx this morning was a blast.. Really enjoyed it. Thank you to @snyksec and @SammyHep for  all your help in the run up to the event.  The talks from @aalmiray and @touret_alex were awesome 👍</p>
-
-                            <p class="post-meta">
-                                <a href="https://leeturner.me/microblog/2021-11-01t13-42/">
-                                
-                                    Posted by Lee Turner on Monday, November 1, 2021  13:42:30 UTC
-                                    
-                                    
-                                
-                                </a>
-                            </p>
-
-                        </div>
-                        <hr>
-                    
-                        <div class="post-preview">
-
-
-
-
-
-
-
-
-                            <p>First up at about 10:50am will be @aalmiray.  Definitely looking forward to this one. <a href="https://x.com/aalmiray/status/1455105001928417285">https://x.com/aalmiray/status/1455105001928417285</a></p>
-
-                            <p class="post-meta">
-                                <a href="https://leeturner.me/microblog/2021-11-01t09-43/">
-                                
-                                    Posted by Lee Turner on Monday, November 1, 2021  09:43:25 UTC
-                                    
-                                    
-                                
-                                </a>
-                            </p>
-
-                        </div>
-                        <hr>
-                    
-                        <div class="post-preview">
-
-
-
-
-
-
-
-
-                            <p>Awesome kick off to @Devoxx this morning.  See you in Room E from 10:50am where I’ll be hosting for a couple of hours.  Looks like I have a couple of awesome speakers with me.</p>
-
-                            <p class="post-meta">
-                                <a href="https://leeturner.me/microblog/2021-11-01t09-41/">
-                                
-                                    Posted by Lee Turner on Monday, November 1, 2021  09:41:50 UTC
-                                    
-                                    
-                                
-                                </a>
-                            </p>
-
-                        </div>
-                        <hr>
-                    
-                        <div class="post-preview">
-
-
-
-
-
-
-
-
-                            <p>I&rsquo;ll be hosting a couple of the sessions tomorrow morning at @Devoxx .  Looking forward to seeing you there if you are attending in person or online.</p>
-<p><a href="https://www.devoxx.co.uk">https://www.devoxx.co.uk</a></p>
-
-                            <p class="post-meta">
-                                <a href="https://leeturner.me/microblog/2021-10-31t08-53/">
-                                
-                                    Posted by Lee Turner on Sunday, October 31, 2021  08:53:56 UTC
-                                    
-                                    
-                                
-                                </a>
-                            </p>
-
-                        </div>
-                        <hr>
-                    
-                        <div class="post-preview">
-
-
-
-
-
-
-
-
-                            <p>RT @liran_tal: Ok, so - news time 🥳
-Weekend side-project is ready-ish!</p>
-<p>How do you track all of your speaking engagements? gigsboat: https:…</p>
-
-                            <p class="post-meta">
-                                <a href="https://leeturner.me/microblog/2021-10-30t21-02/">
-                                
-                                    Posted by Lee Turner on Saturday, October 30, 2021  21:02:45 UTC
-                                    
-                                    
-                                
-                                </a>
-                            </p>
-
-                        </div>
-                        <hr>
-                    
-                        <div class="post-preview">
-
-
-
-
-
-
-
-
-                            <p>Thank you for the puppy swag @snyksec 
-  <img src="/img/x//1454470513464647683-FC9RNOfWYAUb_lO.jpg" alt="">
-
-</p>
-
-                            <p class="post-meta">
-                                <a href="https://leeturner.me/microblog/2021-10-30t15-29/">
-                                
-                                    Posted by Lee Turner on Saturday, October 30, 2021  15:29:27 UTC
-                                    
-                                    
-                                
-                                </a>
-                            </p>
-
-                        </div>
-                        <hr>
-                    
-                        <div class="post-preview">
-
-
-
-
-
-
-
-
-                            <p>Happiness is a rainbow and a wet pup 🐶 <a href="https://www.instagram.com/p/CVnOZdGsyTW/?utm_medium=twitter">https://www.instagram.com/p/CVnOZdGsyTW/?utm_medium=twitter</a></p>
-
-                            <p class="post-meta">
-                                <a href="https://leeturner.me/microblog/2021-10-29t12-40/">
-                                
-                                    Posted by Lee Turner on Friday, October 29, 2021  12:40:59 UTC
-                                    
-                                    
-                                
-                                </a>
-                            </p>
-
-                        </div>
-                        <hr>
-                    
-                        <div class="post-preview">
-
-
-
-
-
-
-
-
-                            <p>You should definitely watch this if you haven’t seen @dmitrykandalov live coding @http4k before. <a href="https://x.com/DevFest_UKI/status/1453972397820813319">https://x.com/DevFest_UKI/status/1453972397820813319</a></p>
-
-                            <p class="post-meta">
-                                <a href="https://leeturner.me/microblog/2021-10-29t08-31/">
-                                
-                                    Posted by Lee Turner on Friday, October 29, 2021  08:31:44 UTC
-                                    
-                                    
-                                
-                                </a>
-                            </p>
-
-                        </div>
-                        <hr>
-                    
-                        <div class="post-preview">
-
-
-
-
-
-
-
-
-                            <p>RT @Juliets_Tweets: Finally! Du pain, du vin, du boursin 🌱😋https://veganfooduk.co.uk/boursin-to-launch-soft-vegan-cheeze-alternative-in-the-uk-soon</p>
-
-                            <p class="post-meta">
-                                <a href="https://leeturner.me/microblog/2021-10-29t08-23/">
-                                
-                                    Posted by Lee Turner on Friday, October 29, 2021  08:23:26 UTC
-                                    
-                                    
-                                
-                                </a>
-                            </p>
-
-                        </div>
-                        <hr>
-                    
-                </div>
-                
-
-
-<ul class="pager" data-pagefind-ignore="all">
-    
-    <li class="previous">
-        <a href="/microblog/page/64/">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/microblog/page/66/">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
-
-
-            </div>
-            
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-	
-    <section class="visible-md visible-lg">
-	
-        <div class="short-about">
-            
-            <a href="/about">
-               <img src="/img/avatar.jpg" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Hi, I&rsquo;m Lee 👋.  Senior Software Engineer at <a href="https://wiremock.io">WireMock</a>, <a href="https://snyk.io/snyk-ambassadors/">Snyk Ambassador</a>, Hacker of code. Appsec enthusiast. Runs <a href="https://brightonkotlin.com">Brighton Kotlin</a> &amp; Brighton JUG</p>
-            
-           
-           <ul class="list-inline">
-               
-                   <li>
-                       <a href="https://bsky.app/profile/leeturner.bsky.social">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                   <li>
-                       <a target="_blank" href="https://hachyderm.io/@leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-                   <li>
-                       <a href="https://x.com/leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-brands fa-x-twitter fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                   <li>
-                       <a target="_blank" href="https://github.com/leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://youtube.com/@leeturner">
-                   <span class="fa-stack fa-lg">
-                       <i class="fas fa-circle fa-stack-2x"></i>
-                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                   </span>
-                   </a>
-               </li>
-               
-                </ul>
-            </div>
-    </section>
-	
-    
-    
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/intellij" title="intellij">
-                        intellij
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/junit" title="junit">
-                        junit
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/reference" title="reference">
-                        reference
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-        </div>
-    </section>
-    
-
-    
-    
-    
-    
+  <main id="main">
+<div class="wrap mb-layout">
+  <aside class="mb-profile">
+    <img src="/img/avatar.jpg" alt="Lee Turner" width="88" height="88">
+    <h1>Microblog</h1>
+    <p>Short posts, first on Twitter and now here.</p>
+    <div class="mb-stats">
+      <div><strong>5,601</strong><span>posts</span></div>
+      <div><strong>2007</strong><span>since</span></div>
+    </div>
+    <a class="button-accent" href="/microblog/index.xml">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+      Follow the microblog feed
+    </a>
+    <nav class="mb-years" aria-labelledby="years-title">
+      <h2 id="years-title">Jump to a year</h2>
+      <ol>
+        <li><a href="/microblog/" aria-label="2026, 1 posts">
+          <span class="year">2026</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 2%"></span></span>
+          <span class="count" aria-hidden="true">1</span>
+        </a></li>
+        <li><a href="/microblog/" aria-label="2024, 102 posts">
+          <span class="year">2024</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 11%"></span></span>
+          <span class="count" aria-hidden="true">102</span>
+        </a></li>
+        <li><a href="/microblog/page/3/" aria-label="2023, 198 posts">
+          <span class="year">2023</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 21%"></span></span>
+          <span class="count" aria-hidden="true">198</span>
+        </a></li>
+        <li><a href="/microblog/page/7/" aria-label="2022, 246 posts">
+          <span class="year">2022</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 27%"></span></span>
+          <span class="count" aria-hidden="true">246</span>
+        </a></li>
+        <li><a href="/microblog/page/11/" aria-label="2021, 338 posts">
+          <span class="year">2021</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 37%"></span></span>
+          <span class="count" aria-hidden="true">338</span>
+        </a></li>
+        <li><a href="/microblog/page/18/" aria-label="2020, 158 posts">
+          <span class="year">2020</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 17%"></span></span>
+          <span class="count" aria-hidden="true">158</span>
+        </a></li>
+        <li><a href="/microblog/page/21/" aria-label="2019, 180 posts">
+          <span class="year">2019</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 20%"></span></span>
+          <span class="count" aria-hidden="true">180</span>
+        </a></li>
+        <li><a href="/microblog/page/25/" aria-label="2018, 200 posts">
+          <span class="year">2018</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 22%"></span></span>
+          <span class="count" aria-hidden="true">200</span>
+        </a></li>
+        <li><a href="/microblog/page/29/" aria-label="2017, 159 posts">
+          <span class="year">2017</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 17%"></span></span>
+          <span class="count" aria-hidden="true">159</span>
+        </a></li>
+        <li><a href="/microblog/page/32/" aria-label="2016, 122 posts">
+          <span class="year">2016</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 13%"></span></span>
+          <span class="count" aria-hidden="true">122</span>
+        </a></li>
+        <li><a href="/microblog/page/35/" aria-label="2015, 71 posts">
+          <span class="year">2015</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 8%"></span></span>
+          <span class="count" aria-hidden="true">71</span>
+        </a></li>
+        <li><a href="/microblog/page/36/" aria-label="2014, 137 posts">
+          <span class="year">2014</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 15%"></span></span>
+          <span class="count" aria-hidden="true">137</span>
+        </a></li>
+        <li><a href="/microblog/page/39/" aria-label="2013, 330 posts">
+          <span class="year">2013</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 36%"></span></span>
+          <span class="count" aria-hidden="true">330</span>
+        </a></li>
+        <li><a href="/microblog/page/45/" aria-label="2012, 512 posts">
+          <span class="year">2012</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 55%"></span></span>
+          <span class="count" aria-hidden="true">512</span>
+        </a></li>
+        <li><a href="/microblog/page/56/" aria-label="2011, 573 posts">
+          <span class="year">2011</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 62%"></span></span>
+          <span class="count" aria-hidden="true">573</span>
+        </a></li>
+        <li><a href="/microblog/page/67/" aria-label="2010, 923 posts">
+          <span class="year">2010</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 100%"></span></span>
+          <span class="count" aria-hidden="true">923</span>
+        </a></li>
+        <li><a href="/microblog/page/86/" aria-label="2009, 913 posts">
+          <span class="year">2009</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 99%"></span></span>
+          <span class="count" aria-hidden="true">913</span>
+        </a></li>
+        <li><a href="/microblog/page/104/" aria-label="2008, 255 posts">
+          <span class="year">2008</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 28%"></span></span>
+          <span class="count" aria-hidden="true">255</span>
+        </a></li>
+        <li><a href="/microblog/page/109/" aria-label="2007, 183 posts">
+          <span class="year">2007</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: 20%"></span></span>
+          <span class="count" aria-hidden="true">183</span>
+        </a></li>
+      </ol>
+    </nav>
+  </aside>
+
+  <section class="mb-feed" aria-label="Posts">
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-16t14-18/"><time datetime="2011-03-16T14:18:37Z">16 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>RT @davidzysblat Royal wedding mug with the wrong prince- oh dear! <a href="http://ping.fm/TA7Da">http://ping.fm/TA7Da</a>   {DOH !}</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-16t14-18/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-16t14-18/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-16t12-49/"><time datetime="2011-03-16T12:49:04Z">16 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>RT @mattcutts Twitter just enabled HTTPS <a href="http://goo.gl/y3Akt">http://goo.gl/y3Akt</a> Yay! Turn it on or risk a Firesheeping!</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-16t12-49/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-16t12-49/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-15t20-36/"><time datetime="2011-03-15T20:36:35Z">15 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>I have had to cancel the last 4 orders on #fiverr due to late or non-existent delivery :-(</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-15t20-36/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-15t20-36/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-15t07-12/"><time datetime="2011-03-15T07:12:13Z">15 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Nice one #apple - <a href="http://ping.fm/sBMw6">http://ping.fm/sBMw6</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-15t07-12/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-15t07-12/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-14t15-36/"><time datetime="2011-03-14T15:36:40Z">14 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Quick stop off on way home for coffee and cake  @ brighton garden centre <a href="http://instagr.am/p/CPR3b/">http://instagr.am/p/CPR3b/</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-14t15-36/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-14t15-36/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-14t10-01/"><time datetime="2011-03-14T10:01:39Z">14 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Classic tune - <a href="http://ping.fm/NOQig">http://ping.fm/NOQig</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-14t10-01/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-14t10-01/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-14t09-51/"><time datetime="2011-03-14T09:51:48Z">14 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Today will be fueled by strong coffee and old school #megadeath and #metallica</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-14t09-51/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-14t09-51/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-13t15-17/"><time datetime="2011-03-13T15:17:25Z">13 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Oliver helping us to paint = return on investment :-) <a href="http://instagr.am/p/CNnp1/">http://instagr.am/p/CNnp1/</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-13t15-17/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-13t15-17/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-13t10-05/"><time datetime="2011-03-13T10:05:59Z">13 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>It&rsquo;s going to be one of those kind of days <a href="http://instagr.am/p/CNP8n/">http://instagr.am/p/CNP8n/</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-13t10-05/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-13t10-05/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-12t17-42/"><time datetime="2011-03-12T17:42:22Z">12 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>After spending the day working, now its time to paint with Oliver. <a href="http://instagr.am/p/CL5RH/">http://instagr.am/p/CL5RH/</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-12t17-42/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-12t17-42/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-12t17-24/"><time datetime="2011-03-12T17:24:23Z">12 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>#Dexter Season 5 is very good !!!</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-12t17-24/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-12t17-24/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-12t09-18/"><time datetime="2011-03-12T09:18:05Z">12 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Interesting - RT @nambu: Developer reactions to the Twitter announcement telling Twitter client developers to go away. <a href="http://bit.ly/gNNqTf">http://bit.ly/gNNqTf</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-12t09-18/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-12t09-18/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-11t14-19/"><time datetime="2011-03-11T14:19:20Z">11 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>RT @chpwn: Whoa, Apple posted the GPL&rsquo;d source code for iOS 4.1! Would it be too much to ask for 4.2? <a href="http://www.opensource.apple.com/">http://www.opensource.apple.com/</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-11t14-19/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-11t14-19/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-11t11-20/"><time datetime="2011-03-11T11:20:31Z">11 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Oh shit ! RT @BBCBreaking #Japan declares emergency situation at nuclear plant, as cooler not working; no radioactive leakage</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-11t11-20/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-11t11-20/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-11t10-37/"><time datetime="2011-03-11T10:37:12Z">11 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>RT @Emm Sharktopus, so bad it&rsquo;s good! <a href="http://ping.fm/Dr9Qv">http://ping.fm/Dr9Qv</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-11t10-37/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-11t10-37/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-11t10-17/"><time datetime="2011-03-11T10:17:02Z">11 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Really need to get my #inboxzero ass in gear today !</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-11t10-17/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-11t10-17/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-11t09-38/"><time datetime="2011-03-11T09:38:48Z">11 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Things I like hearing in business meetings - &ldquo;The budget for this is in the millions&rdquo;</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-11t09-38/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-11t09-38/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-10t11-27/"><time datetime="2011-03-10T11:27:52Z">10 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Well, #iOS 4.3 update went without a hitch.  Lets hope it sorts out my #iPhone 3GS crashing.</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-10t11-27/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-10t11-27/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-10t08-12/"><time datetime="2011-03-10T08:12:49Z">10 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>RT @DerrenBrown: Blog post: Cory Doctorow denounces Jediism <a href="http://bit.ly/g5XN7D">http://bit.ly/g5XN7D</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-10t08-12/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-10t08-12/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-09t22-43/"><time datetime="2011-03-09T22:43:39Z">9 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>The whole @DerrenBrown show was bloody awesome.</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-09t22-43/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-09t22-43/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-09t20-54/"><time datetime="2011-03-09T20:54:52Z">9 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Well, first half was excellent. @DerrenBrown rules.</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-09t20-54/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-09t20-54/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-09t19-15/"><time datetime="2011-03-09T19:15:22Z">9 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Waiting for @derrenbrown to start.  <a href="http://plixi.com/p/82795058">http://plixi.com/p/82795058</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-09t19-15/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-09t19-15/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-09t11-13/"><time datetime="2011-03-09T11:13:47Z">9 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>So, when is the next iOS release out ?</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-09t11-13/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-09t11-13/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-09t10-02/"><time datetime="2011-03-09T10:02:13Z">9 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Looking forward to seeing @derrenbrown tonight in #brighton</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-09t10-02/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-09t10-02/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-09t08-05/"><time datetime="2011-03-09T08:05:23Z">9 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Things I love hearing first thing in the morning number 32: &ldquo;Daddy, I&rsquo;m on the toilet, it&rsquo;s runny and it&rsquo;s all over the place&rdquo;.</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-09t08-05/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-09t08-05/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-08t18-33/"><time datetime="2011-03-08T18:33:21Z">8 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Off out for food</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-08t18-33/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-08t18-33/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-08t13-51/"><time datetime="2011-03-08T13:51:11Z">8 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Droppages looks kind of neat - <a href="http://ping.fm/NooMi">http://ping.fm/NooMi</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-08t13-51/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-08t13-51/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-06t10-55/"><time datetime="2011-03-06T10:55:57Z">6 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>I love the smell of keyword research in a morning :-)</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-06t10-55/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-06t10-55/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-04t16-12/"><time datetime="2011-03-04T16:12:34Z">4 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Quick ice cream and beach stop after school  @ Rottingdean Beach <a href="http://instagr.am/p/B_ijc/">http://instagr.am/p/B_ijc/</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-04t16-12/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-04t16-12/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-03t10-25/"><time datetime="2011-03-03T10:25:05Z">3 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Moving web host is a real pain in the rear end !</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-03t10-25/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-03t10-25/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-03t10-01/"><time datetime="2011-03-03T10:01:56Z">3 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>&ldquo;Streaming video requires Safari 4 or 5 on Mac OS X Snow Leopard or Safari on iOS 3 or later&rdquo; #apple #fail</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-03t10-01/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-03t10-01/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-03t10-00/"><time datetime="2011-03-03T10:00:18Z">3 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Hang on.  Streaming the apple keynote from apple.com now requires Snow Leopard ? That can&rsquo;t be right surely ?</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-03t10-00/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-03t10-00/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-03t09-54/"><time datetime="2011-03-03T09:54:00Z">3 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>It kind of hurts when you have just made a nice fresh cup of steaming hot tea and the bloody handle falls off the mug !!!!!!!!!!!</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-03t09-54/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-03t09-54/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-02t20-22/"><time datetime="2011-03-02T20:22:33Z">2 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>I have made the Lunar Landing Module <a href="http://instagr.am/p/B9ING/">http://instagr.am/p/B9ING/</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-02t20-22/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-02t20-22/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-03-01t11-29/"><time datetime="2011-03-01T11:29:14Z">1 March 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Successful first skype call with @twitcherneil</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-03-01t11-29/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-03-01t11-29/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-27t19-30/"><time datetime="2011-02-27T19:30:02Z">27 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>If you are going to stop supporting powerpc in your latest versions, don&rsquo;t tell me there is an upgrade only for it not to work #skype #fail</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-27t19-30/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-27t19-30/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-27t18-39/"><time datetime="2011-02-27T18:39:43Z">27 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>#ubuntu + #dropbox + #synergy = a happy me</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-27t18-39/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-27t18-39/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-27t17-48/"><time datetime="2011-02-27T17:48:35Z">27 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Reading up on the new facebook changes.</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-27t17-48/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-27t17-48/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-27t11-33/"><time datetime="2011-02-27T11:33:35Z">27 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Despicable Me is a great movie !</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-27t11-33/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-27t11-33/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-26t22-21/"><time datetime="2011-02-26T22:21:09Z">26 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>So far #ubuntu pretty much rocks</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-26t22-21/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-26t22-21/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-26t18-19/"><time datetime="2011-02-26T18:19:42Z">26 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Just been on the phone with the in-laws.  Trying to help with an infected #windoze laptop&hellip;.. #painful #phonesupportishard</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-26t18-19/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-26t18-19/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-26t17-33/"><time datetime="2011-02-26T17:33:37Z">26 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>#jolicloud was pretty cool.  now I think I&rsquo;ll try #ubuntu /cc @iainfarrell</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-26t17-33/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-26t17-33/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-26t15-43/"><time datetime="2011-02-26T15:43:08Z">26 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>#jolicloud up and running all nice and easy.  Quite like the look of it so far.  Comprehensive set of apps for it too</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-26t15-43/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-26t15-43/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-26t10-22/"><time datetime="2011-02-26T10:22:11Z">26 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Downloading the jolicloud iso to see if I can bring a very old laptop back to life.</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-26t10-22/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-26t10-22/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-25t21-59/"><time datetime="2011-02-25T21:59:24Z">25 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>A Misty Morning Walk in Shillito Woods - <a href="http://ping.fm/uv5o2">http://ping.fm/uv5o2</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-25t21-59/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-25t21-59/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-25t19-15/"><time datetime="2011-02-25T19:15:47Z">25 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Home sweet home.</p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-25t19-15/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-25t19-15/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-24t15-48/"><time datetime="2011-02-24T15:48:11Z">24 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>I was a little obsessive about my comics. Each one individually wrapped and backed in card <a href="http://plixi.com/p/79649658">http://plixi.com/p/79649658</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-24t15-48/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-24t15-48/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-24t15-46/"><time datetime="2011-02-24T15:46:09Z">24 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Digging out some of my old comics from my mums loft.  <a href="http://plixi.com/p/79649301">http://plixi.com/p/79649301</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-24t15-46/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-24t15-46/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-24t09-52/"><time datetime="2011-02-24T09:52:23Z">24 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>RT @DerrenBrown: Blog post: Charges initiated against Pope for crimes against humanity <a href="http://bit.ly/iajLvN">http://bit.ly/iajLvN</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-24t09-52/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-24t09-52/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+<article class="mb-post">
+  <header class="mb-post-head">
+    <img src="/img/avatar.jpg" alt="" width="42" height="42">
+    <div>
+      <strong>Lee Turner</strong>
+      <a href="/microblog/2011-02-23t19-37/"><time datetime="2011-02-23T19:37:36Z">23 February 2011</time></a>
+    </div>
+  </header>
+  <div class="mb-content"><p>Mmmmmmmm cheese <a href="http://instagr.am/p/BzJdP/">http://instagr.am/p/BzJdP/</a></p>
+</div>
+  <div class="mb-actions">
+    <a href="/microblog/2011-02-23t19-37/#comments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg>Reply</a>
+    <a href="/microblog/2011-02-23t19-37/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Link</a>
+  </div>
+</article>
+
+
+    <nav class="pager" aria-label="Pages"><a class="pill-link" href="/microblog/page/64/">← Newer</a>
+      <span>Page 65 of 113</span><a class="pill-link" href="/microblog/page/66/">Older →</a>
+    </nav>
+  </section>
 </div>
 
-        </div>
+  </main><footer class="site-footer">
+  <div class="wrap">
+    <div class="social-links">
+      <a href="https://github.com/leeturner">GitHub</a>
+      <a href="https://hachyderm.io/@leeturner" rel="me">Mastodon</a>
+      <a href="https://bsky.app/profile/leeturner.bsky.social">Bluesky</a>
+      <a href="https://www.linkedin.com/in/turnerlee/">LinkedIn</a>
+      <a href="https://x.com/leeturner">X</a>
+      <a href="https://youtube.com/@leeturner">YouTube</a>
+      <a href="https://stackoverflow.com/users/11251979/lee-turner">Stack Overflow</a>
+      <a href="/index.xml">RSS</a>
     </div>
-
-
-    <hr />
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-                        <li>
-                            <a href="https://bsky.app/profile/leeturner.bsky.social">
-                               <span class="fa-stack fa-lg">
-                                   <i class="fas fa-circle fa-stack-2x"></i>
-                                   <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
-                               </span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a target="_blank" href="https://hachyderm.io/@leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                    
-                    
-                    <li>
-                        <a href="https://x.com/leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		            
-                    
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                   
-                   <li>
-                       <a target="_blank" href="https://youtube.com/@leeturner">
-                           <span class="fa-stack fa-lg">
-                               <i class="fas fa-circle fa-stack-2x"></i>
-                               <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-                   
-             </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; Lee Turner 2026
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
-                </p>
-            </div>
-        </div>
-    </div>
+    <span>© 2026 Lee Turner · <a href="/privacy/">Privacy</a></span>
+  </div>
 </footer>
 
-
-
-
-<script>
-    function loadAsync(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-
-
-
-
-
-<script>
-    
-    if($('#tag_cloud').length !== 0){
-        loadAsync("/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-
-<script>
-    (function() {
-        function updateTagcloudColors() {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            const startColor = isDark ? '#808080' : '#bbbbee';
-            if($('#tag_cloud').length !== 0 && $.fn.tagcloud) {
-                $.fn.tagcloud.defaults = {
-                    color: {start: startColor, end: '#0085a1'},
-                };
-                $('#tag_cloud a').tagcloud();
-            }
-        }
-
-        
-        $(document).ready(function() {
-            updateTagcloudColors();
-        });
-
-        
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.attributeName === 'data-theme') {
-                    updateTagcloudColors();
-                }
-            });
-        });
-
-        observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['data-theme']
-        });
-    })();
-</script>
-
-
-<script>
-    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<script src="/js/theme-toggle.js"></script>
-
-
-
-
-
-
-<script type="text/javascript">
-    function generateCatalog(selector) {
-
-        
-        
-        
-        
-            _containerSelector = 'div.post-container'
-        
-
-        
-        var P = $(_containerSelector), a, n, t, l, i, c;
-        a = P.find('h1,h2,h3,h4,h5,h6');
-
-        
-        $(selector).html('')
-
-        
-        a.each(function () {
-            n = $(this).prop('tagName').toLowerCase();
-            i = "#" + $(this).prop('id');
-            t = $(this).text();
-            c = $('<a href="' + i + '" rel="nofollow" title="' + t + '">' + t + '</a>');
-            l = $('<li class="' + n + '_nav"></li>').append(c);
-            $(selector).append(l);
-        });
-        return true;
-    }
-
-    generateCatalog(".catalog-body");
-
-    
-    $(".catalog-toggle").click((function (e) {
-        e.preventDefault();
-        $('.side-catalog').toggleClass("fold")
-    }))
-
-    
-
-
-    loadAsync("\/js\/jquery.nav.js", function () {
-        $('.catalog-body').onePageNav({
-            currentClass: "active",
-            changeHash: !1,
-            easing: "swing",
-            filter: "",
-            scrollSpeed: 700,
-            scrollOffset: 0,
-            scrollThreshold: .2,
-            begin: null,
-            end: null,
-            scrollChange: null,
-            padding: 80
-        });
-    });
-</script>
-
-
-
-
-
-
-
+  <script src="/js/site.min.0c3660c2c5a1849e93416ec988abf5863fafc844f12a2f704bc038c2d8ae82a0.js" integrity="sha256-DDZgwsWhhJ6TQW7JiKv1hj&#43;vyETxKi9wS8A4wtiugqA=" defer></script>
 </body>
 </html>

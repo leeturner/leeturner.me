@@ -1,298 +1,92 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup · Lee Turner</title>
+<meta name="description" content="There is a lot of admin involved in running a meetup group.  One of the things I wanted to automate was the creation of blog posts for our meetup blogs.  This …">
+<meta name="keywords" content="lee, turner, lee turner, hacking, software engineering, security, coding">
+<meta name="author" content="Lee Turner">
+<link rel="canonical" href="https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/">
 
-    
-    <script>
-    (function() {
-        
-        
-        const autoTheme = false;
-        if (autoTheme) {
-            document.documentElement.setAttribute('data-auto-theme', 'true');
-        }
+<meta property="og:site_name" content="Lee Turner">
+<meta property="og:title" content="Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup · Lee Turner">
+<meta property="og:description" content="There is a lot of admin involved in running a meetup group.  One of the things I wanted to automate was the creation of blog posts for our meetup blogs.  This …">
+<meta property="og:url" content="https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leeturner.me/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" href="https://leeturner.me/index.xml" title="Lee Turner">
 
-        const theme = localStorage.getItem('cleanwhite-theme') ||
-                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-    })();
-    </script>
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
 
-    
-    <meta property="og:site_name" content="Lee Turner">
-    <meta property="og:type" content="article">
-
-    
-    <meta property="og:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png">
-    <meta property="twitter:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png" />
-    
-
-    
-    <meta name="title" content="Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup" />
-    <meta property="og:title" content="Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup" />
-    <meta property="twitter:title" content="Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup" />
-    
-
-    
-    <meta name="description" content="There is a lot of admin involved in running a meetup group.  One of the things I wanted to automate was the creation of blog posts for our meetup blogs.  This post describes how I used Kotlin Script and JSoup to scrape the meetup page and create the blog posts.">
-    <meta property="og:description" content="There is a lot of admin involved in running a meetup group.  One of the things I wanted to automate was the creation of blog posts for our meetup blogs.  This post describes how I used Kotlin Script and JSoup to scrape the meetup page and create the blog posts." />
-    <meta property="twitter:description" content="There is a lot of admin involved in running a meetup group.  One of the things I wanted to automate was the creation of blog posts for our meetup blogs.  This post describes how I used Kotlin Script and JSoup to scrape the meetup page and create the blog posts." />
-    
-
-    <meta property="og:url" content="https://leeturner.me/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/" />
-
-    
-    <meta property="twitter:card" content="summary" />
-    
-    
-
-    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup | Lee Turner</title>
-
-    <link rel="canonical" href="/post/creating-hugo-blog-posts-from-meetup-pages-using-kotlin-script-and-j-soup/">
-
-    
-
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    
-    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.css">
-
-    
-    <link rel="stylesheet" href="/css/theme-variables.css">
-
-    
-    <link rel="stylesheet" href="/css/zanshang.min.css">
-
-    
-    <link rel="stylesheet" href="/css/all.min.css">
-
-    
-    
-    
-    
-
-    
-    <script src="/js/jquery.min.js"></script>
-
-    
-    <script src="/js/bootstrap.min.js"></script>
-
-    
-    <script src="/js/hux-blog.min.js"></script>
-
-    
-    <script src="/js/lazysizes.min.js"></script>
-
-    
-    
-    <script src="https://buttons.github.io/buttons.js"></script>
-    
-
-</head>
-
-
-
-
-
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-
-    <div class="container-fluid">
-        
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Lee Turner</a>
-        </div>
-
-        
-        
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    
-                        
-                    
-
-		    
-                        <li><a href="/microblog/">Microblog</a></li>
-                    
-                        <li><a href="/now/">Now</a></li>
-                    
-                        <li><a href="/about/">About</a></li>
-                    
-                        <li><a href="/projects/">Projects</a></li>
-                    
-                        <li><a href="https://leeturner.tech/">Resume</a></li>
-                    
-                        <li><a href="/archive/">Archive</a></li>
-                    
-                    
-		            <li>
-                        <a href="#" id="theme-toggle" title="Toggle dark mode" style="opacity: 0;">
-                            <i class="fa fa-moon"></i>
-                            <i class="fa fa-sun" style="display: none;"></i>
-                        </a>
-		           </li>
-                    <script>
-                    (function() {
-                        
-                        var theme = localStorage.getItem('cleanwhite-theme') ||
-                                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                        var toggleBtn = document.getElementById('theme-toggle');
-                        if (toggleBtn) {
-                            var moonIcon = toggleBtn.querySelector('.fa-moon');
-                            var sunIcon = toggleBtn.querySelector('.fa-sun');
-
-                            if (theme === 'dark') {
-                                if (moonIcon) moonIcon.style.display = 'none';
-                                if (sunIcon) sunIcon.style.display = 'inline';
-                                toggleBtn.setAttribute('title', 'Switch to light mode');
-                            } else {
-                                if (moonIcon) moonIcon.style.display = 'inline';
-                                if (sunIcon) sunIcon.style.display = 'none';
-                                toggleBtn.setAttribute('title', 'Switch to dark mode');
-                            }
-
-                            
-                            requestAnimationFrame(function() {
-                                toggleBtn.style.transition = 'opacity 0.2s ease';
-                                toggleBtn.style.opacity = '1';
-                            });
-                        }
-                    })();
-                    </script>
-                    
-                </ul>
-            </div>
-        </div>
-        
-    </div>
-    
-</nav>
 <script>
-    
-    
-    
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        
-            $navbar.className = " ";
-            
-            setTimeout(function(){
-                
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        var navLinks = document.querySelectorAll('.navbar-collapse a');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                if ($navbar.className.indexOf('in') > 0) {
-                    
-                    $navbar.className = " ";
-                    setTimeout(function(){
-                        if($navbar.className.indexOf('in') < 0) {
-                            $collapse.style.height = "0px"
-                        }
-                    },400)
-                }
-            });
-        });
-    });
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme') || localStorage.getItem('cleanwhite-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/main.min.52a95ce6b75a59acf349e573cb5074f7b5fabd9ee6bdca4216a9f66728deda75.css" integrity="sha256-Uqlc5rdaWazzSeVzy1B097X6vZ7mvcpCFqn2Zyje2nU=">
 
-
-
-<style type="text/css">
-    header.intro-header {
-        background-image: url('/img/headers/the_pinicles_perth_australia.png')
-    }
-</style>
-
-<header class="intro-header" >
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/kotlin" title="kotlin">
-                            kotlin
-                        </a>
-                        
-                        <a class="tag" href="/tags/hugo" title="hugo">
-                            hugo
-                        </a>
-                        
-                        <a class="tag" href="/tags/jsoup" title="jsoup">
-                            jsoup
-                        </a>
-                        
-                    </div>
-                    <h1>Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup</h1>
-                    <h2 class="subheading">Automating workflows by scraping Meetup pages using Kotlin Script and JSoup</h2>
-                    <span class="meta">
-                        
-                            Posted by 
-                            
-                                Lee Turner
-                             
-                            on 
-                            Monday, June 26, 2023
-                            
-                            
-                            
-                            
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">Lee Turner<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/microblog/">Microblog</a>
+      <a href="/now/">Now</a>
+      <a href="/about/">About</a>
+      <a href="/projects/">Projects</a>
+      <a href="https://leeturner.tech">Resume</a>
+      <a href="/archive/">Archive</a>
+    </nav>
+    <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
 </header>
 
+  <main id="main">
+<div class="wrap">
+  <article>
+    <header class="post-head">
+      <div class="pills"><a class="pill" href="/tags/kotlin/">kotlin</a><a class="pill" href="/tags/hugo/">hugo</a><a class="pill" href="/tags/jsoup/">jsoup</a>
+      </div>
+      <h1>Creating Hugo Blog Posts from Meetup Pages using Kotlin Script and JSoup</h1>
+      <p class="subtitle">Automating workflows by scraping Meetup pages using Kotlin Script and JSoup</p>
+      <div class="byline">
+        <img src="/img/avatar.jpg" alt="" width="36" height="36">
+        <span><strong>Lee Turner</strong> · <time datetime="2023-06-26">26 June 2023</time>
+ · 6 min read</span>
+      </div>
+    </header>
+    <details class="toc">
+      <summary>On this page</summary>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-dark-side-of-running-a-meetup-group">The Dark Side of Running a Meetup Group</a></li>
+    <li><a href="#automating-the-creation-of-blog-posts">Automating the Creation of Blog Posts</a>
+      <ul>
+        <li><a href="#kotlin-script-and-jsoup-ftw">Kotlin Script and JSoup FTW</a></li>
+        <li><a href="#running-the-script">Running the Script</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
 
-
-
-<article>
-    <div class="container">
-        <div class="row">
-
-            
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                
-                <h2 id="the-dark-side-of-running-a-meetup-group">The Dark Side of Running a Meetup Group</h2>
+    <div class="prose">
+      <h2 id="the-dark-side-of-running-a-meetup-group">The Dark Side of Running a Meetup Group</h2>
 <p>I really enjoy running the <a href="https://brightonkotlin.com">Brighton Kotlin</a> and <a href="https://brightonjug.com">Brighton JUG</a>
 meetup groups. It is purely selfish to be honest, I get to meet lots of interesting people and learn a lot from the
 speakers and attendees and generally geek out with like-minded people.</p>
@@ -312,149 +106,149 @@ of a hugo blog post. If I made it generic enough, I could use it for both the Ko
 <p>Essentially, something where I could point it
 to <a href="https://www.meetup.com/brighton-kotlin/events/294227622/">this meetup page</a> and
 generate this <a href="https://brightonkotlin.com/blog/apache-pulsar-with-kotlin-couroutines-and-flows/">blog post</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">title</span>: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">description</span>: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">date</span>: 2023-06-17T14:23:23.550313
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">author</span>: Lee Turner
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">type</span>: post
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">featured</span>: michele-sollecito.png
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">featuredalt</span>: Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">featuredpath</span>: /images/blog/2023/06/
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">slug</span>: apache-pulsar-with-kotlin-coroutines-and-flows
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">categories</span>:
-</span></span><span style="display:flex;"><span>- Meetups
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">tags</span>:
-</span></span><span style="display:flex;"><span>- Apache
-</span></span><span style="display:flex;"><span>- Pulsar
-</span></span><span style="display:flex;"><span>- Coroutines
-</span></span><span style="display:flex;"><span>- Flows
-</span></span><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Come and join us by signing up on our meetup
-</span></span><span style="display:flex;"><span>page: [<span style="color:#ff79c6">https://www.meetup.com/brighton-kotlin/events/294227622/</span>](<span style="color:#50fa7b">https://www.meetup.com/brighton-kotlin/events/294227622/</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>We are very excited to welcome **Michele Sollecito** to our July meetup. He will be giving a talk on **Apache Pulsar
-</span></span><span style="display:flex;"><span>with Kotlin couroutines and flows**
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>**Event Format: Hybrid**
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">*</span> Join us in-person: 6:00pm @ [<span style="color:#ff79c6">Pizza Pilgrims, Brighton</span>](<span style="color:#50fa7b">https://goo.gl/maps/ZPuDh6w8vz3H7KbQ9</span>)
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">*</span> Join us online: 6:30pm on
-</span></span><span style="display:flex;"><span>	YouTube - [<span style="color:#ff79c6">https://www.youtube.com/watch?v=JbeK486FTyU</span>](<span style="color:#50fa7b">https://www.youtube.com/watch?v=JbeK486FTyU</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>We&#39;ll explore how Kotlin makes consuming and producing messages from/to Apache Pulsar easy. We&#39;ll look at some tests,
-</span></span><span style="display:flex;"><span>and discuss how coroutines and flows work great with this kind of reactive and event-driven use cases.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Apache Pulsar is an open-source, distributed messaging and streaming platform built for the cloud. Its features include
-</span></span><span style="display:flex;"><span>multi-tenancy with resource separation and access control, geo-replication across regions, and tiered storage.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>**Bio**
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Connect with Michele:  
-</span></span><span style="display:flex;"><span>Twitter: [<span style="color:#ff79c6">https://twitter.com/sollecitom</span>](<span style="color:#50fa7b">https://twitter.com/sollecitom</span>)  
-</span></span><span style="display:flex;"><span>LinkedIn: [<span style="color:#ff79c6">https://www.linkedin.com/in/michelesollecito/</span>](<span style="color:#50fa7b">https://www.linkedin.com/in/michelesollecito/</span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2023-06-17T14:23:23.550313</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l">Lee Turner</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">post</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">featured</span><span class="p">:</span><span class="w"> </span><span class="l">michele-sollecito.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">featuredalt</span><span class="p">:</span><span class="w"> </span><span class="l">Apache Pulsar with Kotlin coroutines and flows with Michele Sollecito</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">featuredpath</span><span class="p">:</span><span class="w"> </span><span class="l">/images/blog/2023/06/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">slug</span><span class="p">:</span><span class="w"> </span><span class="l">apache-pulsar-with-kotlin-coroutines-and-flows</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">categories</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="l">Meetups</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">tags</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="l">Apache</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="l">Pulsar</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="l">Coroutines</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="l">Flows</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Come and join us by signing up on our meetup
+</span></span><span class="line"><span class="cl">page: [<span class="nt">https://www.meetup.com/brighton-kotlin/events/294227622/</span>](<span class="na">https://www.meetup.com/brighton-kotlin/events/294227622/</span>)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">We are very excited to welcome <span class="gs">**Michele Sollecito**</span> to our July meetup. He will be giving a talk on **Apache Pulsar
+</span></span><span class="line"><span class="cl">with Kotlin couroutines and flows**
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**Event Format: Hybrid**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">*</span> Join us in-person: 6:00pm @ [<span class="nt">Pizza Pilgrims, Brighton</span>](<span class="na">https://goo.gl/maps/ZPuDh6w8vz3H7KbQ9</span>)
+</span></span><span class="line"><span class="cl"><span class="k">*</span> Join us online: 6:30pm on
+</span></span><span class="line"><span class="cl">	YouTube - [<span class="nt">https://www.youtube.com/watch?v=JbeK486FTyU</span>](<span class="na">https://www.youtube.com/watch?v=JbeK486FTyU</span>)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">We&#39;ll explore how Kotlin makes consuming and producing messages from/to Apache Pulsar easy. We&#39;ll look at some tests,
+</span></span><span class="line"><span class="cl">and discuss how coroutines and flows work great with this kind of reactive and event-driven use cases.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Apache Pulsar is an open-source, distributed messaging and streaming platform built for the cloud. Its features include
+</span></span><span class="line"><span class="cl">multi-tenancy with resource separation and access control, geo-replication across regions, and tiered storage.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**Bio**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Connect with Michele:  
+</span></span><span class="line"><span class="cl">Twitter: [<span class="nt">https://twitter.com/sollecitom</span>](<span class="na">https://twitter.com/sollecitom</span>)  
+</span></span><span class="line"><span class="cl">LinkedIn: [<span class="nt">https://www.linkedin.com/in/michelesollecito/</span>](<span class="na">https://www.linkedin.com/in/michelesollecito/</span>)
 </span></span></code></pre></div><h3 id="kotlin-script-and-jsoup-ftw">Kotlin Script and JSoup FTW</h3>
 <p>For me, Kotlin is the obvious choice for the script and I had already used <a href="https://jsoup.org/">JSoup</a> for a previous
 project, and it was really easy to use, so I decided to use it again.</p>
 <p>Below is the script I came up with. It is pretty self-explanatory, but I will go through it in more detail below. The
 script is hosted on GitHub <a href="https://github.com/leeturner/mu2md">here</a> so make sure you check there for any updates.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>#!/usr/bin/env kotlin
-</span></span><span style="display:flex;"><span>@file:Repository(<span style="color:#f1fa8c">&#34;https://jcenter.bintray.com&#34;</span>)
-</span></span><span style="display:flex;"><span>@file:DependsOn(<span style="color:#f1fa8c">&#34;org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5&#34;</span>)
-</span></span><span style="display:flex;"><span>@file:DependsOn(<span style="color:#f1fa8c">&#34;org.jsoup:jsoup:1.16.1&#34;</span>)
-</span></span><span style="display:flex;"><span>@file:DependsOn(<span style="color:#f1fa8c">&#34;io.github.furstenheim:copy_down:1.1&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> io.github.furstenheim.CopyDown
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> io.github.furstenheim.HeadingStyle
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> io.github.furstenheim.OptionsBuilder
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.net.SocketTimeoutException
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.time.LocalDateTime
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> kotlinx.cli.ArgParser
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> kotlinx.cli.ArgType
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> kotlinx.cli.default
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> org.jsoup.Jsoup
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">object</span> <span style="color:#50fa7b">Constants</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">const</span> <span style="color:#ff79c6">val</span> DEFAULT_USER_AGENT =
-</span></span><span style="display:flex;"><span>		<span style="color:#f1fa8c">&#34;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/114.0&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Handle all the required command line arguments for the script
-</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">val</span> parser = ArgParser(<span style="color:#f1fa8c">&#34;mu2md.main.kts&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">val</span> url <span style="color:#ff79c6">by</span>
-</span></span><span style="display:flex;"><span>parser.argument(
-</span></span><span style="display:flex;"><span>	<span style="color:#50fa7b">ArgType</span>.String, description = <span style="color:#f1fa8c">&#34;URL of the meetup page we are converting to markdown&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">val</span> speaker <span style="color:#ff79c6">by</span>
-</span></span><span style="display:flex;"><span>parser
-</span></span><span style="display:flex;"><span>	.option(
-</span></span><span style="display:flex;"><span>		<span style="color:#50fa7b">ArgType</span>.String,
-</span></span><span style="display:flex;"><span>		shortName = <span style="color:#f1fa8c">&#34;s&#34;</span>,
-</span></span><span style="display:flex;"><span>		fullName = <span style="color:#f1fa8c">&#34;speaker&#34;</span>,
-</span></span><span style="display:flex;"><span>		description = <span style="color:#f1fa8c">&#34;Name of the speaker&#34;</span>
-</span></span><span style="display:flex;"><span>	)
-</span></span><span style="display:flex;"><span>	.default(<span style="color:#f1fa8c">&#34;&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">val</span> tags <span style="color:#ff79c6">by</span>
-</span></span><span style="display:flex;"><span>parser
-</span></span><span style="display:flex;"><span>	.option(
-</span></span><span style="display:flex;"><span>		<span style="color:#50fa7b">ArgType</span>.String,
-</span></span><span style="display:flex;"><span>		shortName = <span style="color:#f1fa8c">&#34;t&#34;</span>,
-</span></span><span style="display:flex;"><span>		fullName = <span style="color:#f1fa8c">&#34;tags&#34;</span>,
-</span></span><span style="display:flex;"><span>		description = <span style="color:#f1fa8c">&#34;List of comma separated tags&#34;</span>
-</span></span><span style="display:flex;"><span>	)
-</span></span><span style="display:flex;"><span>	.default(<span style="color:#f1fa8c">&#34;&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>parser.parse(args)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> meetUpPage =
-</span></span><span style="display:flex;"><span>		<span style="color:#50fa7b">Jsoup</span>.connect(url).userAgent(<span style="color:#50fa7b">Constants</span>.DEFAULT_USER_AGENT).<span style="color:#ff79c6">get</span>()
-</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">?:</span> error(<span style="color:#f1fa8c">&#34;Could not connect to </span><span style="color:#f1fa8c">$url</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> eventTitle = meetUpPage.select(<span style="color:#f1fa8c">&#34;h1&#34;</span>).text() <span style="color:#ff79c6">?:</span> error(<span style="color:#f1fa8c">&#34;Could not find event title&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> eventDescription =
-</span></span><span style="display:flex;"><span>		meetUpPage.select(<span style="color:#f1fa8c">&#34;div#event-details div.break-words&#34;</span>)
-</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">?:</span> error(<span style="color:#f1fa8c">&#34;Could not find event description&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> now = <span style="color:#50fa7b">LocalDateTime</span>.now()
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> markdownOptions = <span style="color:#50fa7b">OptionsBuilder</span>.anOptions().withHeadingStyle(<span style="color:#50fa7b">HeadingStyle</span>.ATX).build()
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> converter = CopyDown(markdownOptions)
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> eventTitleWithSpeaker = <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">$eventTitle</span><span style="color:#f1fa8c"> ${</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> (speaker.isNotEmpty()) {
-</span></span><span style="display:flex;"><span>			<span style="color:#f1fa8c">&#34;with </span><span style="color:#f1fa8c">$speaker</span><span style="color:#f1fa8c">&#34;</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#ff79c6">else</span> <span style="color:#f1fa8c">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>	}<span style="color:#f1fa8c">&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> tagsList = tags.split(<span style="color:#f1fa8c">&#34;,&#34;</span>).map { <span style="color:#ff79c6">it</span>.trim() }.filter { <span style="color:#ff79c6">it</span>.isNotEmpty() }
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">val</span> blogPostTemplate =
-</span></span><span style="display:flex;"><span>		<span style="color:#f1fa8c">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |---
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |title: </span><span style="color:#f1fa8c">$eventTitleWithSpeaker</span><span style="color:#f1fa8c">
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |description: </span><span style="color:#f1fa8c">$eventTitleWithSpeaker</span><span style="color:#f1fa8c">
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |date: </span><span style="color:#f1fa8c">${now.format(ISO_LOCAL_DATE_TIME)}</span><span style="color:#f1fa8c">
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |author: Lee Turner
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |type: post
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |featured: ${
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">			if (speaker.isEmpty()) {
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">				&#34;replace-me.png&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">			} else &#34;${speaker.lowercase().replace(&#34; &#34;, &#34;-&#34;)}.png&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">		}
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |featuredalt: </span><span style="color:#f1fa8c">$eventTitleWithSpeaker</span><span style="color:#f1fa8c">
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |featuredpath: /images/blog/</span><span style="color:#f1fa8c">${now.year}</span><span style="color:#f1fa8c">/</span><span style="color:#f1fa8c">${String.format(&#34;%02d&#34;, now.monthValue)}</span><span style="color:#f1fa8c">/
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |slug: </span><span style="color:#f1fa8c">${eventTitle.lowercase().replace(&#34; &#34;, &#34;-&#34;)}</span><span style="color:#f1fa8c">
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |categories:
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |- Meetups
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |tags:
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |</span><span style="color:#f1fa8c">${tagsList.joinToString(&#34;\n&#34;) { &#34;- $it&#34; }</span><span style="color:#f1fa8c">}
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |---
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |Come and join us by signing up on our meetup page: [</span><span style="color:#f1fa8c">$url</span><span style="color:#f1fa8c">](</span><span style="color:#f1fa8c">$url</span><span style="color:#f1fa8c">)
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        |</span><span style="color:#f1fa8c">${converter.convert(eventDescription.toString())}</span><span style="color:#f1fa8c">
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>			.trimMargin(<span style="color:#f1fa8c">&#34;|&#34;</span>)
-</span></span><span style="display:flex;"><span>	println(blogPostTemplate)
-</span></span><span style="display:flex;"><span>} <span style="color:#ff79c6">catch</span> (e: SocketTimeoutException) {
-</span></span><span style="display:flex;"><span>	println(<span style="color:#f1fa8c">&#34;Could not connect to </span><span style="color:#f1fa8c">$url</span><span style="color:#f1fa8c">.  Connection timed out.&#34;</span>)
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="err">#</span><span class="p">!/</span><span class="n">usr</span><span class="p">/</span><span class="n">bin</span><span class="p">/</span><span class="n">env</span> <span class="n">kotlin</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@file</span><span class="p">:</span><span class="n">Repository</span><span class="p">(</span><span class="s2">&#34;https://jcenter.bintray.com&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@file</span><span class="p">:</span><span class="n">DependsOn</span><span class="p">(</span><span class="s2">&#34;org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@file</span><span class="p">:</span><span class="n">DependsOn</span><span class="p">(</span><span class="s2">&#34;org.jsoup:jsoup:1.16.1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@file</span><span class="p">:</span><span class="n">DependsOn</span><span class="p">(</span><span class="s2">&#34;io.github.furstenheim:copy_down:1.1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.github.furstenheim.CopyDown</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.github.furstenheim.HeadingStyle</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">io.github.furstenheim.OptionsBuilder</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">java.net.SocketTimeoutException</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">java.time.LocalDateTime</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">kotlinx.cli.ArgParser</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">kotlinx.cli.ArgType</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">kotlinx.cli.default</span>
+</span></span><span class="line"><span class="cl"><span class="k">import</span> <span class="nn">org.jsoup.Jsoup</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">Constants</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">const</span> <span class="k">val</span> <span class="py">DEFAULT</span><span class="n">_USER_AGENT</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">		<span class="s2">&#34;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/114.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Handle all the required command line arguments for the script
+</span></span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="py">parser</span> <span class="p">=</span> <span class="n">ArgParser</span><span class="p">(</span><span class="s2">&#34;mu2md.main.kts&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="py">url</span> <span class="k">by</span>
+</span></span><span class="line"><span class="cl"><span class="n">parser</span><span class="p">.</span><span class="n">argument</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">ArgType</span><span class="p">.</span><span class="n">String</span><span class="p">,</span> <span class="n">description</span> <span class="p">=</span> <span class="s2">&#34;URL of the meetup page we are converting to markdown&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="py">speaker</span> <span class="k">by</span>
+</span></span><span class="line"><span class="cl"><span class="n">parser</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">option</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">ArgType</span><span class="p">.</span><span class="n">String</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">shortName</span> <span class="p">=</span> <span class="s2">&#34;s&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">fullName</span> <span class="p">=</span> <span class="s2">&#34;speaker&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">description</span> <span class="p">=</span> <span class="s2">&#34;Name of the speaker&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">default</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="py">tags</span> <span class="k">by</span>
+</span></span><span class="line"><span class="cl"><span class="n">parser</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">option</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">ArgType</span><span class="p">.</span><span class="n">String</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">shortName</span> <span class="p">=</span> <span class="s2">&#34;t&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">fullName</span> <span class="p">=</span> <span class="s2">&#34;tags&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">description</span> <span class="p">=</span> <span class="s2">&#34;List of comma separated tags&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">default</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">parser</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="py">meetUpPage</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">		<span class="nc">Jsoup</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="n">userAgent</span><span class="p">(</span><span class="nc">Constants</span><span class="p">.</span><span class="n">DEFAULT_USER_AGENT</span><span class="p">).</span><span class="k">get</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">			<span class="o">?:</span> <span class="n">error</span><span class="p">(</span><span class="s2">&#34;Could not connect to </span><span class="si">$url</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="py">eventTitle</span> <span class="p">=</span> <span class="n">meetUpPage</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;h1&#34;</span><span class="p">).</span><span class="n">text</span><span class="p">()</span> <span class="o">?:</span> <span class="n">error</span><span class="p">(</span><span class="s2">&#34;Could not find event title&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="py">eventDescription</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">		<span class="n">meetUpPage</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;div#event-details div.break-words&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="o">?:</span> <span class="n">error</span><span class="p">(</span><span class="s2">&#34;Could not find event description&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="py">now</span> <span class="p">=</span> <span class="nc">LocalDateTime</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="py">markdownOptions</span> <span class="p">=</span> <span class="nc">OptionsBuilder</span><span class="p">.</span><span class="n">anOptions</span><span class="p">().</span><span class="n">withHeadingStyle</span><span class="p">(</span><span class="nc">HeadingStyle</span><span class="p">.</span><span class="n">ATX</span><span class="p">).</span><span class="n">build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="py">converter</span> <span class="p">=</span> <span class="n">CopyDown</span><span class="p">(</span><span class="n">markdownOptions</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="py">eventTitleWithSpeaker</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="si">$eventTitle</span><span class="s2"> ${</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">speaker</span><span class="p">.</span><span class="n">isNotEmpty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="s2">&#34;with </span><span class="si">$speaker</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="py">tagsList</span> <span class="p">=</span> <span class="n">tags</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;,&#34;</span><span class="p">).</span><span class="n">map</span> <span class="p">{</span> <span class="k">it</span><span class="p">.</span><span class="n">trim</span><span class="p">()</span> <span class="p">}.</span><span class="n">filter</span> <span class="p">{</span> <span class="k">it</span><span class="p">.</span><span class="n">isNotEmpty</span><span class="p">()</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">val</span> <span class="py">blogPostTemplate</span> <span class="p">=</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">        |---
+</span></span></span><span class="line"><span class="cl"><span class="s">        |title: </span><span class="si">$eventTitleWithSpeaker</span><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">        |description: </span><span class="si">$eventTitleWithSpeaker</span><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">        |date: </span><span class="si">${now.format(ISO_LOCAL_DATE_TIME)}</span><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">        |author: Lee Turner
+</span></span></span><span class="line"><span class="cl"><span class="s">        |type: post
+</span></span></span><span class="line"><span class="cl"><span class="s">        |featured: ${
+</span></span></span><span class="line"><span class="cl"><span class="s">			if (speaker.isEmpty()) {
+</span></span></span><span class="line"><span class="cl"><span class="s">				&#34;replace-me.png&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">			} else &#34;${speaker.lowercase().replace(&#34; &#34;, &#34;-&#34;)}.png&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">		}
+</span></span></span><span class="line"><span class="cl"><span class="s">        |featuredalt: </span><span class="si">$eventTitleWithSpeaker</span><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">        |featuredpath: /images/blog/</span><span class="si">${now.year}</span><span class="s">/</span><span class="si">${String.format(&#34;%02d&#34;, now.monthValue)}</span><span class="s">/
+</span></span></span><span class="line"><span class="cl"><span class="s">        |slug: </span><span class="si">${eventTitle.lowercase().replace(&#34; &#34;, &#34;-&#34;)}</span><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">        |categories:
+</span></span></span><span class="line"><span class="cl"><span class="s">        |- Meetups
+</span></span></span><span class="line"><span class="cl"><span class="s">        |tags:
+</span></span></span><span class="line"><span class="cl"><span class="s">        |</span><span class="si">${tagsList.joinToString(&#34;\n&#34;) { &#34;- $it&#34; }</span><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">        |---
+</span></span></span><span class="line"><span class="cl"><span class="s">        |Come and join us by signing up on our meetup page: [</span><span class="si">$url</span><span class="s">](</span><span class="si">$url</span><span class="s">)
+</span></span></span><span class="line"><span class="cl"><span class="s">        |
+</span></span></span><span class="line"><span class="cl"><span class="s">        |</span><span class="si">${converter.convert(eventDescription.toString())}</span><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">.</span><span class="n">trimMargin</span><span class="p">(</span><span class="s2">&#34;|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">println</span><span class="p">(</span><span class="n">blogPostTemplate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">SocketTimeoutException</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">println</span><span class="p">(</span><span class="s2">&#34;Could not connect to </span><span class="si">$url</span><span class="s2">.  Connection timed out.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>The script is called <code>mu2md</code> (Meetup 2 Markdown) and it starts off by using the <code>kotlinx-cli</code> library from JetBrains to
 handle the command line arguments. The script requires a single argument which is the URL of the meetup page we want
 to convert to markdown. There are also two optional arguments, the speaker and the tags. The speaker is used to
@@ -468,461 +262,67 @@ description and convert it to markdown. (I had never used this library before, a
 <p>To run the script, you need to have the Kotlin compiler installed and make the script executable. Once you have that,
 you can run the script on the command line just like any shell script and pipe the results into a markdown file. For
 example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -s <span style="color:#f1fa8c">&#34;Michele Sollecito&#34;</span> -t Apache,Pulsar,Coroutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ &gt; 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./mu2md.main.kts -s <span class="s2">&#34;Michele Sollecito&#34;</span> -t Apache,Pulsar,Coroutines,Flows https://www.meetup.com/brighton-kotlin/events/294227622/ &gt; 2023-06-17-apache-pulsar-with-kotlin-couroutines-and-flows.md
 </span></span></code></pre></div><p>As a nice bonus, <code>kotlinx-cli</code> generates a help page for the script, so if you run the script with the <code>-h</code> flag,
 you will see the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./mu2md.main.kts -h
-</span></span><span style="display:flex;"><span>Usage: mu2md.main.kts options_list
-</span></span><span style="display:flex;"><span>Arguments:
-</span></span><span style="display:flex;"><span>    url -&gt; URL of the meetup page we are converting to markdown <span style="color:#ff79c6">{</span> String <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>Options:
-</span></span><span style="display:flex;"><span>    --speaker, -s <span style="color:#ff79c6">[]</span> -&gt; Name of the speaker <span style="color:#ff79c6">{</span> String <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>    --tags, -t <span style="color:#ff79c6">[]</span> -&gt; List of comma separated tags <span style="color:#ff79c6">{</span> String <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>    --help, -h -&gt; Usage info
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./mu2md.main.kts -h
+</span></span><span class="line"><span class="cl">Usage: mu2md.main.kts options_list
+</span></span><span class="line"><span class="cl">Arguments:
+</span></span><span class="line"><span class="cl">    url -&gt; URL of the meetup page we are converting to markdown <span class="o">{</span> String <span class="o">}</span>
+</span></span><span class="line"><span class="cl">Options:
+</span></span><span class="line"><span class="cl">    --speaker, -s <span class="o">[]</span> -&gt; Name of the speaker <span class="o">{</span> String <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    --tags, -t <span class="o">[]</span> -&gt; List of comma separated tags <span class="o">{</span> String <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    --help, -h -&gt; Usage info
 </span></span></code></pre></div><p>Let me know if you find this script useful or if you have any suggestions for improvements. I am going to take a look
 at other repetitive tasks I do as part of my meetup workflow and see if I can automate those as well. I will write those
 up as well if I do. I am also going to look at whether I can use GitHub actions along with a variation of this script
 to automate the whole flow of blog post creation and publishing but I will need to figure out how to handle the speaker
 name and tags. That requires a bit more thought.</p>
 
-
-                
-
-                
-                <hr>
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/post/brighton-jug-kotlin-summer-social/" data-toggle="tooltip" data-placement="top" title="Brighton JUG &amp; Kotlin Summer Social 🍺">&larr;
-                            Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/post/returning-images-from-micronaut-controllers/" data-toggle="tooltip" data-placement="top" title="Returning Images From Micronaut Controllers">Next
-                            Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-                
-
-                
-
-<div id="giscus-placeholder"></div>
-
-<script>
-
-(function() {
-    function loadGiscus() {
-        var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        var placeholder = document.getElementById('giscus-placeholder');
-        if (!placeholder) return;
-
-        var giscusScript = document.createElement('script');
-        giscusScript.src = 'https://giscus.app/client.js';
-        giscusScript.setAttribute('data-repo', 'leeturner\/leeturner.me');
-        giscusScript.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkxMDMwNTIxNzQ=');
-        giscusScript.setAttribute('data-category', 'General');
-        giscusScript.setAttribute('data-category-id', 'DIC_kwDOBiRzjs4CXhC_');
-        giscusScript.setAttribute('data-mapping', 'pathname');
-        giscusScript.setAttribute('data-reactions-enabled', '1');
-        giscusScript.setAttribute('data-emit-metadata', '0');
-        giscusScript.setAttribute('data-theme', currentTheme);
-        giscusScript.setAttribute('data-lang', 'en');
-        giscusScript.setAttribute('crossorigin', 'anonymous');
-        giscusScript.async = true;
-
-        
-        placeholder.parentNode.replaceChild(giscusScript, placeholder);
-    }
-
-    
-    loadGiscus();
-})();
-</script>
-
-
-
-
-
-            </div>
-
-            
-            
-            <div class="
-                col-lg-2 col-lg-offset-0
-                visible-lg-block
-                sidebar-container
-                catalog-container">
-                <div class="side-catalog">
-                    <hr class="hidden-sm hidden-xs">
-                    <h5>
-                        <a class="catalog-toggle" href="#">CATALOG</a>
-                    </h5>
-                    <ul class="catalog-body"></ul>
-                </div>
-            </div>
-            
-
-            
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                
-                
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/intellij" title="intellij">
-                            intellij
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/junit" title="junit">
-                            junit
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/reference" title="reference">
-                            reference
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                </section>
-                
-
-                
-                
-            </div>
-        </div>
     </div>
-</article>
+<section class="comments" aria-labelledby="comments-title" id="comments">
+  <h2 id="comments-title">Comments</h2>
+  <div id="giscus"
+    data-repo="leeturner/leeturner.me"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxMDMwNTIxNzQ="
+    data-category="General"
+    data-category-id="DIC_kwDOBiRzjs4CXhC_"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-lang="en"
+    data-loading="lazy"></div>
+  <noscript><p class="muted">Comments are powered by GitHub Discussions and need JavaScript.</p></noscript>
+</section>
 
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-                        <li>
-                            <a href="https://bsky.app/profile/leeturner.bsky.social">
-                               <span class="fa-stack fa-lg">
-                                   <i class="fas fa-circle fa-stack-2x"></i>
-                                   <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
-                               </span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a target="_blank" href="https://hachyderm.io/@leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                    
-                    
-                    <li>
-                        <a href="https://x.com/leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		            
-                    
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                   
-                   <li>
-                       <a target="_blank" href="https://youtube.com/@leeturner">
-                           <span class="fa-stack fa-lg">
-                               <i class="fas fa-circle fa-stack-2x"></i>
-                               <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-                   
-             </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; Lee Turner 2026
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
-                </p>
-            </div>
-        </div>
+  </article>
+  <nav class="keep-reading" aria-label="More posts">
+    <h2 class="eyebrow">Keep reading</h2>
+    <div class="grid">
+      <a href="/post/returning-images-from-micronaut-controllers/"><div class="meta">Newer · <time datetime="2023-06-29">29 June 2023</time>
+</div><div class="title">Returning Images From Micronaut Controllers</div></a>
+      <a href="/post/brighton-jug-kotlin-summer-social/"><div class="meta">Older · <time datetime="2023-06-17">17 June 2023</time>
+</div><div class="title">Brighton JUG &amp; Kotlin Summer Social 🍺</div></a>
     </div>
+  </nav>
+</div>
+
+  </main><footer class="site-footer">
+  <div class="wrap">
+    <div class="social-links">
+      <a href="https://github.com/leeturner">GitHub</a>
+      <a href="https://hachyderm.io/@leeturner" rel="me">Mastodon</a>
+      <a href="https://bsky.app/profile/leeturner.bsky.social">Bluesky</a>
+      <a href="https://www.linkedin.com/in/turnerlee/">LinkedIn</a>
+      <a href="https://x.com/leeturner">X</a>
+      <a href="https://youtube.com/@leeturner">YouTube</a>
+      <a href="https://stackoverflow.com/users/11251979/lee-turner">Stack Overflow</a>
+      <a href="/index.xml">RSS</a>
+    </div>
+    <span>© 2026 Lee Turner · <a href="/privacy/">Privacy</a></span>
+  </div>
 </footer>
 
-
-
-
-<script>
-    function loadAsync(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-
-
-
-
-
-<script>
-    
-    if($('#tag_cloud').length !== 0){
-        loadAsync("/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-
-<script>
-    (function() {
-        function updateTagcloudColors() {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            const startColor = isDark ? '#808080' : '#bbbbee';
-            if($('#tag_cloud').length !== 0 && $.fn.tagcloud) {
-                $.fn.tagcloud.defaults = {
-                    color: {start: startColor, end: '#0085a1'},
-                };
-                $('#tag_cloud a').tagcloud();
-            }
-        }
-
-        
-        $(document).ready(function() {
-            updateTagcloudColors();
-        });
-
-        
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.attributeName === 'data-theme') {
-                    updateTagcloudColors();
-                }
-            });
-        });
-
-        observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['data-theme']
-        });
-    })();
-</script>
-
-
-<script>
-    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<script src="/js/theme-toggle.js"></script>
-
-
-
-
-
-
-<script type="text/javascript">
-    function generateCatalog(selector) {
-
-        
-        
-        
-        
-            _containerSelector = 'div.post-container'
-        
-
-        
-        var P = $(_containerSelector), a, n, t, l, i, c;
-        a = P.find('h1,h2,h3,h4,h5,h6');
-
-        
-        $(selector).html('')
-
-        
-        a.each(function () {
-            n = $(this).prop('tagName').toLowerCase();
-            i = "#" + $(this).prop('id');
-            t = $(this).text();
-            c = $('<a href="' + i + '" rel="nofollow" title="' + t + '">' + t + '</a>');
-            l = $('<li class="' + n + '_nav"></li>').append(c);
-            $(selector).append(l);
-        });
-        return true;
-    }
-
-    generateCatalog(".catalog-body");
-
-    
-    $(".catalog-toggle").click((function (e) {
-        e.preventDefault();
-        $('.side-catalog').toggleClass("fold")
-    }))
-
-    
-
-
-    loadAsync("\/js\/jquery.nav.js", function () {
-        $('.catalog-body').onePageNav({
-            currentClass: "active",
-            changeHash: !1,
-            easing: "swing",
-            filter: "",
-            scrollSpeed: 700,
-            scrollOffset: 0,
-            scrollThreshold: .2,
-            begin: null,
-            end: null,
-            scrollChange: null,
-            padding: 80
-        });
-    });
-</script>
-
-
-
-
-
-
-
+  <script src="/js/site.min.0c3660c2c5a1849e93416ec988abf5863fafc844f12a2f704bc038c2d8ae82a0.js" integrity="sha256-DDZgwsWhhJ6TQW7JiKv1hj&#43;vyETxKi9wS8A4wtiugqA=" defer></script>
 </body>
 </html>

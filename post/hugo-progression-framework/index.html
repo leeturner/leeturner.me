@@ -1,302 +1,97 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creating a Progression Framework in Hugo · Lee Turner</title>
+<meta name="description" content="A hugo template to create Monzo style progression frameworks">
+<meta name="keywords" content="lee, turner, lee turner, hacking, software engineering, security, coding">
+<meta name="author" content="Lee Turner">
+<link rel="canonical" href="https://leeturner.me/post/hugo-progression-framework/">
 
-    
-    <script>
-    (function() {
-        
-        
-        const autoTheme = false;
-        if (autoTheme) {
-            document.documentElement.setAttribute('data-auto-theme', 'true');
-        }
+<meta property="og:site_name" content="Lee Turner">
+<meta property="og:title" content="Creating a Progression Framework in Hugo · Lee Turner">
+<meta property="og:description" content="A hugo template to create Monzo style progression frameworks">
+<meta property="og:url" content="https://leeturner.me/post/hugo-progression-framework/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leeturner.me/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" href="https://leeturner.me/index.xml" title="Lee Turner">
 
-        const theme = localStorage.getItem('cleanwhite-theme') ||
-                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-    })();
-    </script>
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
 
-    
-    <meta property="og:site_name" content="Lee Turner">
-    <meta property="og:type" content="article">
-
-    
-    <meta property="og:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png">
-    <meta property="twitter:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png" />
-    
-
-    
-    <meta name="title" content="Creating a Progression Framework in Hugo" />
-    <meta property="og:title" content="Creating a Progression Framework in Hugo" />
-    <meta property="twitter:title" content="Creating a Progression Framework in Hugo" />
-    
-
-    
-    <meta name="description" content="A hugo template to create Monzo style progression frameworks">
-    <meta property="og:description" content="A hugo template to create Monzo style progression frameworks" />
-    <meta property="twitter:description" content="A hugo template to create Monzo style progression frameworks" />
-    
-
-    <meta property="og:url" content="https://leeturner.me/post/hugo-progression-framework/" />
-
-    
-    <meta property="twitter:card" content="summary" />
-    
-    
-
-    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>Creating a Progression Framework in Hugo | Lee Turner</title>
-
-    <link rel="canonical" href="/post/hugo-progression-framework/">
-
-    
-
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    
-    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.css">
-
-    
-    <link rel="stylesheet" href="/css/theme-variables.css">
-
-    
-    <link rel="stylesheet" href="/css/zanshang.min.css">
-
-    
-    <link rel="stylesheet" href="/css/all.min.css">
-
-    
-    
-    
-    
-
-    
-    <script src="/js/jquery.min.js"></script>
-
-    
-    <script src="/js/bootstrap.min.js"></script>
-
-    
-    <script src="/js/hux-blog.min.js"></script>
-
-    
-    <script src="/js/lazysizes.min.js"></script>
-
-    
-    
-    <script src="https://buttons.github.io/buttons.js"></script>
-    
-
-</head>
-
-
-
-
-
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-
-    <div class="container-fluid">
-        
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Lee Turner</a>
-        </div>
-
-        
-        
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    
-                        
-                    
-
-		    
-                        <li><a href="/microblog/">Microblog</a></li>
-                    
-                        <li><a href="/now/">Now</a></li>
-                    
-                        <li><a href="/about/">About</a></li>
-                    
-                        <li><a href="/projects/">Projects</a></li>
-                    
-                        <li><a href="https://leeturner.tech/">Resume</a></li>
-                    
-                        <li><a href="/archive/">Archive</a></li>
-                    
-                    
-		            <li>
-                        <a href="#" id="theme-toggle" title="Toggle dark mode" style="opacity: 0;">
-                            <i class="fa fa-moon"></i>
-                            <i class="fa fa-sun" style="display: none;"></i>
-                        </a>
-		           </li>
-                    <script>
-                    (function() {
-                        
-                        var theme = localStorage.getItem('cleanwhite-theme') ||
-                                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                        var toggleBtn = document.getElementById('theme-toggle');
-                        if (toggleBtn) {
-                            var moonIcon = toggleBtn.querySelector('.fa-moon');
-                            var sunIcon = toggleBtn.querySelector('.fa-sun');
-
-                            if (theme === 'dark') {
-                                if (moonIcon) moonIcon.style.display = 'none';
-                                if (sunIcon) sunIcon.style.display = 'inline';
-                                toggleBtn.setAttribute('title', 'Switch to light mode');
-                            } else {
-                                if (moonIcon) moonIcon.style.display = 'inline';
-                                if (sunIcon) sunIcon.style.display = 'none';
-                                toggleBtn.setAttribute('title', 'Switch to dark mode');
-                            }
-
-                            
-                            requestAnimationFrame(function() {
-                                toggleBtn.style.transition = 'opacity 0.2s ease';
-                                toggleBtn.style.opacity = '1';
-                            });
-                        }
-                    })();
-                    </script>
-                    
-                </ul>
-            </div>
-        </div>
-        
-    </div>
-    
-</nav>
 <script>
-    
-    
-    
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        
-            $navbar.className = " ";
-            
-            setTimeout(function(){
-                
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        var navLinks = document.querySelectorAll('.navbar-collapse a');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                if ($navbar.className.indexOf('in') > 0) {
-                    
-                    $navbar.className = " ";
-                    setTimeout(function(){
-                        if($navbar.className.indexOf('in') < 0) {
-                            $collapse.style.height = "0px"
-                        }
-                    },400)
-                }
-            });
-        });
-    });
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme') || localStorage.getItem('cleanwhite-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/main.min.52a95ce6b75a59acf349e573cb5074f7b5fabd9ee6bdca4216a9f66728deda75.css" integrity="sha256-Uqlc5rdaWazzSeVzy1B097X6vZ7mvcpCFqn2Zyje2nU=">
 
-
-
-<style type="text/css">
-    header.intro-header {
-        background-image: url('/img/headers/the_pinicles_perth_australia.png')
-    }
-</style>
-
-<header class="intro-header" >
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/monzo" title="monzo">
-                            monzo
-                        </a>
-                        
-                        <a class="tag" href="/tags/framework" title="framework">
-                            framework
-                        </a>
-                        
-                        <a class="tag" href="/tags/hugo" title="hugo">
-                            hugo
-                        </a>
-                        
-                        <a class="tag" href="/tags/progression" title="progression">
-                            progression
-                        </a>
-                        
-                    </div>
-                    <h1>Creating a Progression Framework in Hugo</h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">
-                        
-                            Posted by 
-                            
-                                Lee Turner
-                             
-                            on 
-                            Saturday, May 1, 2021
-                            
-                            
-                            
-                            
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">Lee Turner<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/microblog/">Microblog</a>
+      <a href="/now/">Now</a>
+      <a href="/about/">About</a>
+      <a href="/projects/">Projects</a>
+      <a href="https://leeturner.tech">Resume</a>
+      <a href="/archive/">Archive</a>
+    </nav>
+    <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
 </header>
 
+  <main id="main">
+<div class="wrap">
+  <article>
+    <header class="post-head">
+      <div class="pills"><a class="pill" href="/tags/monzo/">monzo</a><a class="pill" href="/tags/framework/">framework</a><a class="pill" href="/tags/hugo/">hugo</a><a class="pill" href="/tags/progression/">progression</a>
+      </div>
+      <h1>Creating a Progression Framework in Hugo</h1>
+      <div class="byline">
+        <img src="/img/avatar.jpg" alt="" width="36" height="36">
+        <span><strong>Lee Turner</strong> · <time datetime="2021-05-01">1 May 2021</time>
+ · 7 min read</span>
+      </div>
+    </header>
+    <details class="toc">
+      <summary>On this page</summary>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-progression-frameworks-">What Are Progression Frameworks ?</a>
+      <ul>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-build-your-progression-framework-with-hugo-progression">How To Build Your Progression Framework With Hugo Progression</a>
+      <ul>
+        <li><a href="#1-installation">1) Installation</a></li>
+        <li><a href="#2-setup-your-framework-data--content">2) Setup Your Framework Data &amp; Content</a></li>
+        <li><a href="#3-nearly-finished">3) Nearly finished</a></li>
+      </ul>
+    </li>
+    <li><a href="#production">Production</a></li>
+  </ul>
+</nav>
+    </details>
 
-
-
-<article>
-    <div class="container">
-        <div class="row">
-
-            
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                
-                <p>I was introduced to progression frameworks last year when I came across the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
+    <div class="prose">
+      <p>I was introduced to progression frameworks last year when I came across the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
 <p>I really like the idea that people within an organisation have a tool to help them grow and hone their strengths along with organisations ensuring they are in good shape, and their employees are happy.</p>
 <p>The Monzo progression framework is built using the Gatsby static site builder which makes the frameworks easy to build and track via source control. I have never used Gatsby, but I do have some investment in the Hugo static site builder, and we also use that at <a href="https://crunchtech.medium.com/">Crunch</a>, so I thought I would see if I could put a hugo template together that can render progression frameworks in the same data format as Monzo.</p>
 <p>I am definitely no frontend developer but as an initial proof of concept this works pretty well.</p>
@@ -311,13 +106,7 @@
 </ul>
 <h2 id="how-to-build-your-progression-framework-with-hugo-progression">How To Build Your Progression Framework With Hugo Progression</h2>
 <p>Hugo Progression is a <a href="https://gohugo.io/">Hugo</a> template that can render progression frameworks using the same data format as the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
-<p>
-  <figure>
-    <img src="/img/blog/2021-05-01-progression-framework-in-hugo/hugo-framework.gif" alt="Hugo Progression Screenshot">
-    <center><figcaption>Hugo Progression Screenshot</figcaption></center>
-  </figure>
-
-</p>
+<p><img src="/img/blog/2021-05-01-progression-framework-in-hugo/hugo-framework.gif" alt="Hugo Progression Screenshot" title="Hugo Progression Screenshot"></p>
 <p>A full demo of this template can be found at the <a href="https://leeturner.github.io/hugo-progression-demo/">Hugo Progression Demo Site</a></p>
 <h3 id="1-installation">1) Installation</h3>
 <p>Navigate to your themes folder in your Hugo site and use the following commands:</p>
@@ -340,43 +129,43 @@ git clone https://github.com/leeturner/hugo-progression.git
 +-----------+       +------------+       +------------+          +-------------+
 </code></pre><h4 id="21-create-your-framework-data-files">2.1) Create Your Framework Data Files</h4>
 <p>In this step we will create the <code>hugo</code> data file that contains the data for the different areas and levels for an individual framework.  These data files are <code>yml</code> and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">topics</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: <span style="color:#f1fa8c">&#34;communication&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">title</span>: <span style="color:#f1fa8c">&#34;💬 Communication&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">content</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">level</span>: <span style="color:#bd93f9">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">criteria</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Provides regular status updates to their mentor/buddy&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Points out syntactical improvements in code reviews&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Writes PR descriptions that provide basic context for the change&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Seeks guidance from other engineers, rather than answers&#34;</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">level</span>: <span style="color:#bd93f9">2</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">criteria</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Proactively communicates to their team what they are working on, why, how it&#39;s going and what help they need&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Accepts feedback graciously&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Gives feedback to peers when asked&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">exampleCriteria</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#ff79c6">criteria</span>: <span style="color:#f1fa8c">&#34;Provides helpful and actionable feedback in code reviews in an empathetic manner&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">examples</span>:
-</span></span><span style="display:flex;"><span>              - <span style="color:#f1fa8c">&#34;Take a look at the levelling up your code reviews talk for some ideas&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#ff79c6">criteria</span>: <span style="color:#f1fa8c">&#34;Writes PR descriptions that provide context and provide rationale for significant decisions&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">examples</span>:
-</span></span><span style="display:flex;"><span>              - <span style="color:#f1fa8c">&#34;I decided to X instead of Y here, I also considered Z but for these reasons I went with X&#34;</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: <span style="color:#f1fa8c">&#34;impact&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">title</span>: <span style="color:#f1fa8c">&#34;💥 Impact&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">content</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">level</span>: <span style="color:#bd93f9">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">criteria</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Delivers assigned tasks, working with a more senior team member, and able to take PR feedback to improve their work&#34;</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">level</span>: <span style="color:#bd93f9">2</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">criteria</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Delivers assigned tasks that meet expected criteria&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Works for the team, focuses on tasks that contribute to team goals&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Tries to unblock themselves first before seeking help&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Manages their own time effectively, prioritises their workload well, on time for meetings, aware when blocking others and unblocks&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Helps the team, does what needs doing&#34;</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#f1fa8c">&#34;Breaks down small/medium problems into iterative steps&#34;</span>
-</span></span></code></pre></div><p>These framework data files need to be placed in the <code>data</code> folder for your <code>hugo</code> site.  They can be structured into sub-folders if you wish:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">topics</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;communication&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;💬 Communication&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">criteria</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Provides regular status updates to their mentor/buddy&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Points out syntactical improvements in code reviews&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Writes PR descriptions that provide basic context for the change&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Seeks guidance from other engineers, rather than answers&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">criteria</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Proactively communicates to their team what they are working on, why, how it&#39;s going and what help they need&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Accepts feedback graciously&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Gives feedback to peers when asked&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">exampleCriteria</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">criteria</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Provides helpful and actionable feedback in code reviews in an empathetic manner&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span>- <span class="s2">&#34;Take a look at the levelling up your code reviews talk for some ideas&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">criteria</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Writes PR descriptions that provide context and provide rationale for significant decisions&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span>- <span class="s2">&#34;I decided to X instead of Y here, I also considered Z but for these reasons I went with X&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;impact&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;💥 Impact&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">criteria</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Delivers assigned tasks, working with a more senior team member, and able to take PR feedback to improve their work&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">criteria</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Delivers assigned tasks that meet expected criteria&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Works for the team, focuses on tasks that contribute to team goals&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Tries to unblock themselves first before seeking help&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Manages their own time effectively, prioritises their workload well, on time for meetings, aware when blocking others and unblocks&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Helps the team, does what needs doing&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Breaks down small/medium problems into iterative steps&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>These framework data files need to be placed in the <code>data</code> folder for your <code>hugo</code> site.  They can be structured into sub-folders if you wish:</p>
 <pre tabindex="0"><code>data
   frameworks
     engineering
@@ -395,24 +184,18 @@ git clone https://github.com/leeturner/hugo-progression.git
 </code></pre><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/data/frameworks">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
 <h4 id="22-create-the-markdown-page-with-front-matter--content-for-the-framework-homepage">2.2) Create The Markdown Page With Front Matter &amp; Content For The Framework Homepage</h4>
 <p>For any of the frameworks to appear in your <code>hugo</code> site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any <code>hugo</code> site, these markdown files live in the <code>content</code> folder.  The front matter can contain all the usual <code>hugo</code> fields along with a couple of special fields specific to <code>hugo-progression</code>.  See the example below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">title</span>: 🛠️ Backend Engineering Framework
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">linktitle</span>: 🛠️ Backend
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">description</span>: Backend engineering progression framework
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">menu</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">main</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">parent</span>: engineering
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">levels</span>: <span style="color:#bd93f9">6</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">datafilepartial</span>: engineering/backend-partial.html
-</span></span><span style="display:flex;"><span>---
-</span></span></code></pre></div><p>The two fields that are specific to <code>hugo-progression</code> are <code>levels</code> and <code>datafilepartial</code>.  The <code>levels</code> field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework <code>yml</code> data file.  This will also determine how many levels are created in the menu when the site is generated:</p>
-<p>
-  <figure>
-    <img src="/img/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-levels.png" alt="Hugo Progression Levels">
-    <center><figcaption>Hugo Progression Levels</figcaption></center>
-  </figure>
-
-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">🛠️ Backend Engineering Framework</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">linktitle</span><span class="p">:</span><span class="w"> </span><span class="l">🛠️ Backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Backend engineering progression framework</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">menu</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">main</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parent</span><span class="p">:</span><span class="w"> </span><span class="l">engineering</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">levels</span><span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">datafilepartial</span><span class="p">:</span><span class="w"> </span><span class="l">engineering/backend-partial.html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><p>The two fields that are specific to <code>hugo-progression</code> are <code>levels</code> and <code>datafilepartial</code>.  The <code>levels</code> field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework <code>yml</code> data file.  This will also determine how many levels are created in the menu when the site is generated:</p>
+<p><img src="/img/blog/2021-05-01-progression-framework-in-hugo/hugo-progression-levels.png" alt="Hugo Progression Levels" title="Hugo Progression Levels"></p>
 <p>The <code>datafilepartial</code> field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step</p>
 <p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/content">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
 <h4 id="23-create-the-html-partial">2.3) Create The HTML Partial</h4>
@@ -441,10 +224,10 @@ git clone https://github.com/leeturner/hugo-progression.git
     people-partial.html
     product-partial.html
 </code></pre><p>Once you have created your html partial file that references the framework data file, make sure you are correctly referencing the html partial in your markdown file as in the example above:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">datafilepartial</span>: engineering/backend-partial.html
-</span></span><span style="display:flex;"><span>---
-</span></span></code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">datafilepartial</span><span class="p">:</span><span class="w"> </span><span class="l">engineering/backend-partial.html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
 <h3 id="3-nearly-finished">3) Nearly finished</h3>
 <p>In order to see your site in action, run Hugo&rsquo;s built-in local server.</p>
 <p><code>$ hugo server</code></p>
@@ -457,444 +240,50 @@ git clone https://github.com/leeturner/hugo-progression.git
 hugo
 </code></pre><p>This hugo template is by no means perfect - largely due to me not being a frontend developer, but it works well enough to be useful for people who use Hugo and want to invest in a progression framework.  If you would like to get involved, fork the project and create a pull request.  It would be great to have more people contribute to this project.</p>
 
-
-                
-
-                
-                <hr>
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/post/blinkytape-junit-testwatcher/" data-toggle="tooltip" data-placement="top" title="BlinkyTape JUnit Testwatcher API Implementation">&larr;
-                            Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/post/outputting-result-of-mockmvc/" data-toggle="tooltip" data-placement="top" title="Outputting the result of a mockMvc call">Next
-                            Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-                
-
-                
-
-<div id="giscus-placeholder"></div>
-
-<script>
-
-(function() {
-    function loadGiscus() {
-        var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        var placeholder = document.getElementById('giscus-placeholder');
-        if (!placeholder) return;
-
-        var giscusScript = document.createElement('script');
-        giscusScript.src = 'https://giscus.app/client.js';
-        giscusScript.setAttribute('data-repo', 'leeturner\/leeturner.me');
-        giscusScript.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkxMDMwNTIxNzQ=');
-        giscusScript.setAttribute('data-category', 'General');
-        giscusScript.setAttribute('data-category-id', 'DIC_kwDOBiRzjs4CXhC_');
-        giscusScript.setAttribute('data-mapping', 'pathname');
-        giscusScript.setAttribute('data-reactions-enabled', '1');
-        giscusScript.setAttribute('data-emit-metadata', '0');
-        giscusScript.setAttribute('data-theme', currentTheme);
-        giscusScript.setAttribute('data-lang', 'en');
-        giscusScript.setAttribute('crossorigin', 'anonymous');
-        giscusScript.async = true;
-
-        
-        placeholder.parentNode.replaceChild(giscusScript, placeholder);
-    }
-
-    
-    loadGiscus();
-})();
-</script>
-
-
-
-
-
-            </div>
-
-            
-            
-            <div class="
-                col-lg-2 col-lg-offset-0
-                visible-lg-block
-                sidebar-container
-                catalog-container">
-                <div class="side-catalog">
-                    <hr class="hidden-sm hidden-xs">
-                    <h5>
-                        <a class="catalog-toggle" href="#">CATALOG</a>
-                    </h5>
-                    <ul class="catalog-body"></ul>
-                </div>
-            </div>
-            
-
-            
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                
-                
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/intellij" title="intellij">
-                            intellij
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/junit" title="junit">
-                            junit
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/reference" title="reference">
-                            reference
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                </section>
-                
-
-                
-                
-            </div>
-        </div>
     </div>
-</article>
+<section class="comments" aria-labelledby="comments-title" id="comments">
+  <h2 id="comments-title">Comments</h2>
+  <div id="giscus"
+    data-repo="leeturner/leeturner.me"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxMDMwNTIxNzQ="
+    data-category="General"
+    data-category-id="DIC_kwDOBiRzjs4CXhC_"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-lang="en"
+    data-loading="lazy"></div>
+  <noscript><p class="muted">Comments are powered by GitHub Discussions and need JavaScript.</p></noscript>
+</section>
 
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-                        <li>
-                            <a href="https://bsky.app/profile/leeturner.bsky.social">
-                               <span class="fa-stack fa-lg">
-                                   <i class="fas fa-circle fa-stack-2x"></i>
-                                   <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
-                               </span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a target="_blank" href="https://hachyderm.io/@leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                    
-                    
-                    <li>
-                        <a href="https://x.com/leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		            
-                    
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                   
-                   <li>
-                       <a target="_blank" href="https://youtube.com/@leeturner">
-                           <span class="fa-stack fa-lg">
-                               <i class="fas fa-circle fa-stack-2x"></i>
-                               <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-                   
-             </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; Lee Turner 2026
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
-                </p>
-            </div>
-        </div>
+  </article>
+  <nav class="keep-reading" aria-label="More posts">
+    <h2 class="eyebrow">Keep reading</h2>
+    <div class="grid">
+      <a href="/post/outputting-result-of-mockmvc/"><div class="meta">Newer · <time datetime="2021-09-12">12 September 2021</time>
+</div><div class="title">Outputting the result of a mockMvc call</div></a>
+      <a href="/post/blinkytape-junit-testwatcher/"><div class="meta">Older · <time datetime="2021-04-06">6 April 2021</time>
+</div><div class="title">BlinkyTape JUnit Testwatcher API Implementation</div></a>
     </div>
+  </nav>
+</div>
+
+  </main><footer class="site-footer">
+  <div class="wrap">
+    <div class="social-links">
+      <a href="https://github.com/leeturner">GitHub</a>
+      <a href="https://hachyderm.io/@leeturner" rel="me">Mastodon</a>
+      <a href="https://bsky.app/profile/leeturner.bsky.social">Bluesky</a>
+      <a href="https://www.linkedin.com/in/turnerlee/">LinkedIn</a>
+      <a href="https://x.com/leeturner">X</a>
+      <a href="https://youtube.com/@leeturner">YouTube</a>
+      <a href="https://stackoverflow.com/users/11251979/lee-turner">Stack Overflow</a>
+      <a href="/index.xml">RSS</a>
+    </div>
+    <span>© 2026 Lee Turner · <a href="/privacy/">Privacy</a></span>
+  </div>
 </footer>
 
-
-
-
-<script>
-    function loadAsync(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-
-
-
-
-
-<script>
-    
-    if($('#tag_cloud').length !== 0){
-        loadAsync("/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-
-<script>
-    (function() {
-        function updateTagcloudColors() {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            const startColor = isDark ? '#808080' : '#bbbbee';
-            if($('#tag_cloud').length !== 0 && $.fn.tagcloud) {
-                $.fn.tagcloud.defaults = {
-                    color: {start: startColor, end: '#0085a1'},
-                };
-                $('#tag_cloud a').tagcloud();
-            }
-        }
-
-        
-        $(document).ready(function() {
-            updateTagcloudColors();
-        });
-
-        
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.attributeName === 'data-theme') {
-                    updateTagcloudColors();
-                }
-            });
-        });
-
-        observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['data-theme']
-        });
-    })();
-</script>
-
-
-<script>
-    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<script src="/js/theme-toggle.js"></script>
-
-
-
-
-
-
-<script type="text/javascript">
-    function generateCatalog(selector) {
-
-        
-        
-        
-        
-            _containerSelector = 'div.post-container'
-        
-
-        
-        var P = $(_containerSelector), a, n, t, l, i, c;
-        a = P.find('h1,h2,h3,h4,h5,h6');
-
-        
-        $(selector).html('')
-
-        
-        a.each(function () {
-            n = $(this).prop('tagName').toLowerCase();
-            i = "#" + $(this).prop('id');
-            t = $(this).text();
-            c = $('<a href="' + i + '" rel="nofollow" title="' + t + '">' + t + '</a>');
-            l = $('<li class="' + n + '_nav"></li>').append(c);
-            $(selector).append(l);
-        });
-        return true;
-    }
-
-    generateCatalog(".catalog-body");
-
-    
-    $(".catalog-toggle").click((function (e) {
-        e.preventDefault();
-        $('.side-catalog').toggleClass("fold")
-    }))
-
-    
-
-
-    loadAsync("\/js\/jquery.nav.js", function () {
-        $('.catalog-body').onePageNav({
-            currentClass: "active",
-            changeHash: !1,
-            easing: "swing",
-            filter: "",
-            scrollSpeed: 700,
-            scrollOffset: 0,
-            scrollThreshold: .2,
-            begin: null,
-            end: null,
-            scrollChange: null,
-            padding: 80
-        });
-    });
-</script>
-
-
-
-
-
-
-
+  <script src="/js/site.min.0c3660c2c5a1849e93416ec988abf5863fafc844f12a2f704bc038c2d8ae82a0.js" integrity="sha256-DDZgwsWhhJ6TQW7JiKv1hj&#43;vyETxKi9wS8A4wtiugqA=" defer></script>
 </body>
 </html>

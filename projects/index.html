@@ -1,802 +1,195 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects · Lee Turner</title>
+<meta name="description" content="A collection of side projects I have built for myself or others.  Hopefully you will find them useful">
+<meta name="keywords" content="lee, turner, lee turner, hacking, software engineering, security, coding">
+<meta name="author" content="Lee Turner">
+<link rel="canonical" href="https://leeturner.me/projects/">
 
-    
-    <script>
-    (function() {
-        
-        
-        const autoTheme = false;
-        if (autoTheme) {
-            document.documentElement.setAttribute('data-auto-theme', 'true');
-        }
+<meta property="og:site_name" content="Lee Turner">
+<meta property="og:title" content="Projects · Lee Turner">
+<meta property="og:description" content="A collection of side projects I have built for myself or others.  Hopefully you will find them useful">
+<meta property="og:url" content="https://leeturner.me/projects/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leeturner.me/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" href="https://leeturner.me/index.xml" title="Lee Turner">
 
-        const theme = localStorage.getItem('cleanwhite-theme') ||
-                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-    })();
-    </script>
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
 
-    
-    <meta property="og:site_name" content="Lee Turner">
-    <meta property="og:type" content="article">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme') || localStorage.getItem('cleanwhite-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
+</script>
 
-    
-    <meta property="og:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png">
-    <meta property="twitter:image" content="https://leeturner.me//img/headers/the_pinicles_perth_australia.png" />
-    
-
-    
-    <meta name="title" content="Projects" />
-    <meta property="og:title" content="Projects" />
-    <meta property="twitter:title" content="Projects" />
-    
-
-    
-    <meta name="description" content="A collection of side projects I have built for myself or others.  Hopefully you will find them useful">
-    <meta property="og:description" content="A collection of side projects I have built for myself or others.  Hopefully you will find them useful" />
-    <meta property="twitter:description" content="A collection of side projects I have built for myself or others.  Hopefully you will find them useful" />
-    
-
-    <meta property="og:url" content="https://leeturner.me/projects/" />
-
-    
-    <meta property="twitter:card" content="summary" />
-    
-    
-
-    <meta name="keyword"  content="lee, turner, lee turner, hacking, software engineering, security, coding">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>Projects | Lee Turner</title>
-
-    <link rel="canonical" href="/projects/">
-
-    
-
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    
-    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.css">
-
-    
-    <link rel="stylesheet" href="/css/theme-variables.css">
-
-    
-    <link rel="stylesheet" href="/css/zanshang.min.css">
-
-    
-    <link rel="stylesheet" href="/css/all.min.css">
-
-    
-    
-    
-    
-
-    
-    <script src="/js/jquery.min.js"></script>
-
-    
-    <script src="/js/bootstrap.min.js"></script>
-
-    
-    <script src="/js/hux-blog.min.js"></script>
-
-    
-    <script src="/js/lazysizes.min.js"></script>
-
-    
-    
-    <script src="https://buttons.github.io/buttons.js"></script>
-    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/main.min.52a95ce6b75a59acf349e573cb5074f7b5fabd9ee6bdca4216a9f66728deda75.css" integrity="sha256-Uqlc5rdaWazzSeVzy1B097X6vZ7mvcpCFqn2Zyje2nU=">
 
 </head>
-
-
-
-
-
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-
-    <div class="container-fluid">
-        
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Lee Turner</a>
-        </div>
-
-        
-        
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    
-                        
-                    
-
-		    
-                        <li><a href="/microblog/">Microblog</a></li>
-                    
-                        <li><a href="/now/">Now</a></li>
-                    
-                        <li><a href="/about/">About</a></li>
-                    
-                        <li><a href="/projects/">Projects</a></li>
-                    
-                        <li><a href="https://leeturner.tech/">Resume</a></li>
-                    
-                        <li><a href="/archive/">Archive</a></li>
-                    
-                    
-		            <li>
-                        <a href="#" id="theme-toggle" title="Toggle dark mode" style="opacity: 0;">
-                            <i class="fa fa-moon"></i>
-                            <i class="fa fa-sun" style="display: none;"></i>
-                        </a>
-		           </li>
-                    <script>
-                    (function() {
-                        
-                        var theme = localStorage.getItem('cleanwhite-theme') ||
-                                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                        var toggleBtn = document.getElementById('theme-toggle');
-                        if (toggleBtn) {
-                            var moonIcon = toggleBtn.querySelector('.fa-moon');
-                            var sunIcon = toggleBtn.querySelector('.fa-sun');
-
-                            if (theme === 'dark') {
-                                if (moonIcon) moonIcon.style.display = 'none';
-                                if (sunIcon) sunIcon.style.display = 'inline';
-                                toggleBtn.setAttribute('title', 'Switch to light mode');
-                            } else {
-                                if (moonIcon) moonIcon.style.display = 'inline';
-                                if (sunIcon) sunIcon.style.display = 'none';
-                                toggleBtn.setAttribute('title', 'Switch to dark mode');
-                            }
-
-                            
-                            requestAnimationFrame(function() {
-                                toggleBtn.style.transition = 'opacity 0.2s ease';
-                                toggleBtn.style.opacity = '1';
-                            });
-                        }
-                    })();
-                    </script>
-                    
-                </ul>
-            </div>
-        </div>
-        
-    </div>
-    
-</nav>
-<script>
-    
-    
-    
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        
-            $navbar.className = " ";
-            
-            setTimeout(function(){
-                
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        var navLinks = document.querySelectorAll('.navbar-collapse a');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                if ($navbar.className.indexOf('in') > 0) {
-                    
-                    $navbar.className = " ";
-                    setTimeout(function(){
-                        if($navbar.className.indexOf('in') < 0) {
-                            $collapse.style.height = "0px"
-                        }
-                    },400)
-                }
-            });
-        });
-    });
-</script>
-
-
-
-<header class="intro-header" style="background-image: url('/img/headers/the_pinicles_perth_australia.png')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Lee Turner </h1>
-                    
-		    <span class="subheading">A random stream of thoughts and software experiments</span>
-                </div>
-            </div>
-        </div>
-    </div>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">Lee Turner<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/microblog/">Microblog</a>
+      <a href="/now/">Now</a>
+      <a href="/about/">About</a>
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="https://leeturner.tech">Resume</a>
+      <a href="/archive/">Archive</a>
+    </nav>
+    <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
 </header>
 
+  <main id="main">
+<div class="wrap">
+  <header class="page-head">
+    <h1>Things I've <span>built.</span></h1><div style="margin-top: 20px; max-width: 640px; color: var(--muted); font-size: 19px"><p>Here you can find a collection of side projects I have built for myself or others.  Your mileage might vary, but you are welcome to dig in and have a play if they are useful to you.</p>
+<!-- The projects themselves live in data/projects.yaml -->
+</div>
+  </header>
 
+  <div class="filters" role="group" aria-label="Filter projects by tag" hidden>
+    <button type="button" data-tag="all" aria-pressed="true">Everything</button>
+    <button type="button" data-tag="kotlin" aria-pressed="false">kotlin</button>
+    <button type="button" data-tag="micronaut" aria-pressed="false">micronaut</button>
+    <button type="button" data-tag="cli" aria-pressed="false">cli</button>
+    <button type="button" data-tag="wiremock" aria-pressed="false">wiremock</button>
+    <button type="button" data-tag="testing" aria-pressed="false">testing</button>
+    <button type="button" data-tag="hugo" aria-pressed="false">hugo</button>
+  </div>
 
-
-<article>
-    <div class="container">
-        <div class="row">
-            
-            <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container">
-            
-                <p>Here you can find a collection of side projects I have built for myself or others.  Your mileage might vary, but you are welcome to dig in and have a play if they are useful to you.</p>
-<h2 id="micronaut-launch-tui">Micronaut Launch TUI</h2>
-<p><a href="https://github.com/leeturner/micronaut-launch-tui">mtui</a> is a terminal UI for creating <a href="https://micronaut.io">Micronaut</a> projects through <a href="https://launch.micronaut.io">Micronaut Launch</a>, written in <a href="https://kotlinlang.org">Kotlin</a> and built with <a href="https://tamboui.dev">TamboUI</a>.  The hardest part of creating a Micronaut project is finding the right features from the hundreds available, so mtui puts them all in one searchable list.  Pick your options, preview the generated files and unzip the project straight into the current directory without ever leaving the terminal.  It was inspired by Dan Vega&rsquo;s <a href="https://github.com/danvega/spring-initializr-tui">spring-initializr-tui</a></p>
-<p><a class="github-button" href="https://github.com/leeturner/micronaut-launch-tui" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/micronaut-launch-tui on GitHub">View the project on GitHub</a></p>
-<h2 id="wiremock-micronaut">wiremock-micronaut</h2>
-<p><a href="https://github.com/leeturner/wiremock-micronaut">wiremock-micronaut</a> simplifies testing HTTP clients in <a href="https://micronaut.io">Micronaut</a> 5 and above.  It starts <a href="https://wiremock.org">WireMock</a> servers per test class, binds their URLs into Micronaut configuration before your beans are created and injects them into your tests.  The annotations mirror <a href="https://github.com/wiremock/wiremock-spring-boot">wiremock-spring-boot</a> so it should feel familiar if you have used that.  It is available on <a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-micronaut">Maven Central</a></p>
-<p><a class="github-button" href="https://github.com/leeturner/wiremock-micronaut" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/wiremock-micronaut on GitHub">View the project on GitHub</a></p>
-<h2 id="wiremock-blns-extension">wiremock-blns-extension</h2>
-<p><a href="https://github.com/leeturner/wiremock-blns-extension">wiremock-blns-extension</a> is a <a href="https://wiremock.org">WireMock</a> extension that adds a <code>naughtyString</code> Handlebars helper, so templated responses can return strings from the <a href="https://github.com/minimaxir/big-list-of-naughty-strings">Big List of Naughty Strings</a> - SQL injection, RTL text, zero-width characters, emoji, Zalgo text and more.  Every client test that hits the stub then exercises those cases for free.  It works with both embedded WireMock and the standalone JAR / Docker image and is available on <a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-blns-extension">Maven Central</a></p>
-<p><a class="github-button" href="https://github.com/leeturner/wiremock-blns-extension" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/wiremock-blns-extension on GitHub">View the project on GitHub</a></p>
-<h2 id="xport">Xport</h2>
-<p><a href="https://github.com/leeturner/xport">Xport</a> is a command line tool written in <a href="https://kotlinlang.org">Kotlin</a> and <a href="https://micronaut.io">Micronaut</a> that converts an X/Twitter data export into <a href="https://gohugo.io/">Hugo</a> compatible markdown files, preserving the original timestamps and media.  I used it to bring my old tweets over to my own <a href="/microblog/">microblog</a> on this site</p>
-<p><a class="github-button" href="https://github.com/leeturner/xport" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/xport on GitHub">View the project on GitHub</a></p>
-<h2 id="conways-game-of-life">Conway&rsquo;s Game of Life</h2>
-<p>A terminal based implementation of <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway&rsquo;s Game of Life</a> written in <a href="https://kotlinlang.org">Kotlin</a> using <a href="https://micronaut.io">Micronaut</a> and functional programming with <a href="https://arrow-kt.io">Arrow</a>.  The universe wraps around like a torus and can be rendered in the terminal with ANSI colours or in a <a href="https://korge.org/">KorGE</a> 2D window</p>
-<p><a class="github-button" href="https://github.com/leeturner/conways-game-of-life-kotlin" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/conways-game-of-life-kotlin on GitHub">View the project on GitHub</a></p>
-<h2 id="spektrum">Spektrum</h2>
-<p><a href="https://github.com/leeturner/spektrum">Spektrum</a> is a work in progress Sinclair ZX Spectrum emulator written in <a href="https://kotlinlang.org">Kotlin</a> and <a href="https://micronaut.io">Micronaut</a>, starting with an emulation of the Z80 CPU</p>
-<p><a class="github-button" href="https://github.com/leeturner/spektrum" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/spektrum on GitHub">View the project on GitHub</a></p>
-<h2 id="micronaut-cli-template">Micronaut CLI Template</h2>
-<p><a href="https://github.com/leeturner/micronaut-cli-template">Micronaut CLI Template</a> is a ready to go <a href="https://kotlinlang.org">Kotlin</a> <a href="https://micronaut.io">Micronaut</a> command line application template with all the tooling I like already set up - a Gradle version catalogue, Kotlinter and Detekt for linting, <a href="https://arrow-kt.io">Arrow</a> for functional programming, <a href="https://strikt.io">Strikt</a> for assertions and GitHub Actions and Dependabot for CI.  Click &ldquo;Use this template&rdquo; on GitHub to start a new project from it</p>
-<p><a class="github-button" href="https://github.com/leeturner/micronaut-cli-template" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/micronaut-cli-template on GitHub">View the project on GitHub</a></p>
-<h2 id="callback-logger">callback-logger</h2>
-<p><a href="https://github.com/leeturner/callback-logger">callback-logger</a> is a simple <a href="https://kotlinlang.org">Kotlin</a> and <a href="https://micronaut.io">Micronaut</a> service to receive callbacks, which is useful when testing APIs locally that send them.  Point the API you are testing at it and it will log every <code>POST</code> or <code>PUT</code> it receives, with a simple web UI to see what has arrived.  You can also define custom callback endpoints and configure the response code and payload it returns</p>
-<p><a class="github-button" href="https://github.com/leeturner/callback-logger" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/callback-logger on GitHub">View the project on GitHub</a></p>
-<h2 id="image-term">image-term</h2>
-<p><a href="https://github.com/leeturner/image-term">image-term</a> is a terminal based image viewer written in <a href="https://vlang.io/">V</a> that renders images as colourful ASCII mosaics.  It scales the image to fit your terminal, corrects for the aspect ratio of terminal characters and averages the colours within each block of pixels.  It is based on the blog post <a href="https://linyunliu.com/blogs/convert-an-image-into-colourful-ascii-art/">Convert an Image into Colourful Ascii Art</a></p>
-<p><a class="github-button" href="https://github.com/leeturner/image-term" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/image-term on GitHub">View the project on GitHub</a></p>
-<h2 id="hugo-progression-framework">Hugo Progression Framework</h2>
-<p>Hugo Progression is a <a href="https://gohugo.io/">Hugo</a> template that can render progression frameworks using the same data format as the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a> - find out more information in this <a href="/posts/hugo-progression-framework/">blog post</a></p>
-<p><a class="github-button" href="https://github.com/leeturner/hugo-progression" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/hugo-progression on GitHub">View the project on GitHub</a></p>
-<h2 id="blinkytapetestwatcher">BlinkyTapeTestWatcher</h2>
-<p><a href="https://github.com/leeturner/BlinkyTapeTestWatcher">BlinkyTapeTestWatcher</a> is a <a href="https://kotlinlang.org">Kotlin</a> based implementation of the <a href="https://junit.org/junit5/">Junit 5</a> <a href="https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html">TestWatcher API</a> that hooks up your tests to a BlinkyTape LED strip - find out more information in this <a href="/posts/blinkytape-junit-testwatcher/">blog post</a></p>
-<p><a class="github-button" href="https://github.com/leeturner/BlinkyTapeTestWatcher" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/BlinkyTapeTestWatcher on GitHub">View the project on GitHub</a></p>
-<h2 id="pinboard2markdown">pinboard2markdown</h2>
-<p><a href="https://github.com/leeturner/pinboard2markdown">pinboard2markdown</a> is a command line tool written in <a href="https://kotlinlang.org">Kotlin</a> and <a href="https://start.spring.io">Spring Boot</a> that communicates with the <a href="https://pinboard.in/api/">pinboard.in api</a> to retrieve a selection of bookmarks that are tagged with a specified tag.  It then converts those bookmarks to markdown and outputs them to the terminal.</p>
-<p>Because I built this for myself it isn&rsquo;t yet packaged up as a command line tool that can be easily downloaded and used.  If you are a developer familiar with Kotlin or Java technologies that you can clone the github repo and build the project.  If there is any interest I will release a formal version of the project and make it so it can be run just like any other command line tool.</p>
-<p>I use this tool to build regular newsletters for the backend developers at <a href="https://medium.com/@crunchtech">Crunch</a> and to generate my <a href="/tags/bookmarks/">Geek Reads</a> posts</p>
-<p><a class="github-button" href="https://github.com/leeturner/pinboard2markdown/" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="View leeturner/pinboard2markdown on GitHub">View the project on GitHub</a></p>
-
-            
-             
-            
-
-<div id="giscus-placeholder"></div>
-
-<script>
-
-(function() {
-    function loadGiscus() {
-        var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        var placeholder = document.getElementById('giscus-placeholder');
-        if (!placeholder) return;
-
-        var giscusScript = document.createElement('script');
-        giscusScript.src = 'https://giscus.app/client.js';
-        giscusScript.setAttribute('data-repo', 'leeturner\/leeturner.me');
-        giscusScript.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkxMDMwNTIxNzQ=');
-        giscusScript.setAttribute('data-category', 'General');
-        giscusScript.setAttribute('data-category-id', 'DIC_kwDOBiRzjs4CXhC_');
-        giscusScript.setAttribute('data-mapping', 'pathname');
-        giscusScript.setAttribute('data-reactions-enabled', '1');
-        giscusScript.setAttribute('data-emit-metadata', '0');
-        giscusScript.setAttribute('data-theme', currentTheme);
-        giscusScript.setAttribute('data-lang', 'en');
-        giscusScript.setAttribute('crossorigin', 'anonymous');
-        giscusScript.async = true;
-
-        
-        placeholder.parentNode.replaceChild(giscusScript, placeholder);
-    }
-
-    
-    loadGiscus();
-})();
-</script>
-
-
-
-
-
-            
-            </div>
-            
-            
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-	
-    <section class="visible-md visible-lg">
-	
-        <div class="short-about">
-            
-            <a href="/about">
-               <img src="/img/avatar.jpg" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Hi, I&rsquo;m Lee 👋.  Senior Software Engineer at <a href="https://wiremock.io">WireMock</a>, <a href="https://snyk.io/snyk-ambassadors/">Snyk Ambassador</a>, Hacker of code. Appsec enthusiast. Runs <a href="https://brightonkotlin.com">Brighton Kotlin</a> &amp; Brighton JUG</p>
-            
-           
-           <ul class="list-inline">
-               
-                   <li>
-                       <a href="https://bsky.app/profile/leeturner.bsky.social">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                   <li>
-                       <a target="_blank" href="https://hachyderm.io/@leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-                   <li>
-                       <a href="https://x.com/leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-brands fa-x-twitter fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                   <li>
-                       <a target="_blank" href="https://github.com/leeturner">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                       </a>
-                   </li>
-               
-               
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://youtube.com/@leeturner">
-                   <span class="fa-stack fa-lg">
-                       <i class="fas fa-circle fa-stack-2x"></i>
-                       <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                   </span>
-                   </a>
-               </li>
-               
-                </ul>
-            </div>
-    </section>
-	
-    
-    
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/intellij" title="intellij">
-                        intellij
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/junit" title="junit">
-                        junit
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-                    <a href="/tags/reference" title="reference">
-                        reference
-                    </a>
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-               
-            
-        </div>
-    </section>
-    
-
-    
-    
-    
-    
+  <div class="project-grid">
+    <article class="project" data-tags="kotlin micronaut cli">
+      <div class="pills"><span>kotlin</span><span>micronaut</span><span>cli</span>
+      </div>
+      <h2>Micronaut Launch TUI</h2>
+      <p>mtui is a terminal UI for creating Micronaut projects through Micronaut Launch, written in Kotlin and built with TamboUI. It puts the hundreds of available features in one searchable list, previews the generated files and unzips the project straight into the current directory. Inspired by Dan Vega&#39;s spring-initializr-tui.</p>
+      <div class="links"><a href="https://github.com/leeturner/micronaut-launch-tui">View on GitHub →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="kotlin micronaut wiremock testing">
+      <div class="pills"><span>kotlin</span><span>micronaut</span><span>wiremock</span><span>testing</span>
+      </div>
+      <h2>wiremock-micronaut</h2>
+      <p>Simplifies testing HTTP clients in Micronaut 5 and above. It starts WireMock servers per test class, binds their URLs into Micronaut configuration before your beans are created and injects them into your tests. The annotations mirror wiremock-spring-boot, so it should feel familiar.</p>
+      <div class="links"><a href="https://github.com/leeturner/wiremock-micronaut">View on GitHub →</a><a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-micronaut">Maven Central →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="wiremock testing">
+      <div class="pills"><span>wiremock</span><span>testing</span>
+      </div>
+      <h2>wiremock-blns-extension</h2>
+      <p>A WireMock extension that adds a naughtyString Handlebars helper, so templated responses can return strings from the Big List of Naughty Strings: SQL injection, RTL text, zero-width characters, emoji and more. Works with embedded WireMock and the standalone JAR or Docker image.</p>
+      <div class="links"><a href="https://github.com/leeturner/wiremock-blns-extension">View on GitHub →</a><a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-blns-extension">Maven Central →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="kotlin micronaut cli hugo">
+      <div class="pills"><span>kotlin</span><span>micronaut</span><span>cli</span><span>hugo</span>
+      </div>
+      <h2>Xport</h2>
+      <p>A command line tool written in Kotlin and Micronaut that converts an X/Twitter data export into Hugo markdown files, preserving the original timestamps and media. I used it to bring my old tweets over to the microblog on this site.</p>
+      <div class="links"><a href="https://github.com/leeturner/xport">View on GitHub →</a><a href="/microblog/">See the microblog →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="kotlin micronaut">
+      <div class="pills"><span>kotlin</span><span>micronaut</span>
+      </div>
+      <h2>Conway&#39;s Game of Life</h2>
+      <p>A terminal based Game of Life written in Kotlin using Micronaut and functional programming with Arrow. The universe wraps around like a torus and can be rendered in the terminal with ANSI colours or in a KorGE 2D window.</p>
+      <div class="links"><a href="https://github.com/leeturner/conways-game-of-life-kotlin">View on GitHub →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="kotlin micronaut">
+      <div class="pills"><span>kotlin</span><span>micronaut</span><span class="wip">in progress</span>
+      </div>
+      <h2>Spektrum</h2>
+      <p>A work in progress Sinclair ZX Spectrum emulator written in Kotlin and Micronaut, starting with an emulation of the Z80 CPU.</p>
+      <div class="links"><a href="https://github.com/leeturner/spektrum">View on GitHub →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="kotlin micronaut cli">
+      <div class="pills"><span>kotlin</span><span>micronaut</span><span>cli</span>
+      </div>
+      <h2>Micronaut CLI Template</h2>
+      <p>A ready to go Kotlin Micronaut command line application template with the tooling I like already set up: a Gradle version catalogue, Kotlinter and Detekt, Arrow, Strikt, and GitHub Actions and Dependabot for CI. Click &#34;Use this template&#34; on GitHub to start from it.</p>
+      <div class="links"><a href="https://github.com/leeturner/micronaut-cli-template">View on GitHub →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="kotlin micronaut testing">
+      <div class="pills"><span>kotlin</span><span>micronaut</span><span>testing</span>
+      </div>
+      <h2>callback-logger</h2>
+      <p>A simple Kotlin and Micronaut service that receives callbacks, useful when testing APIs locally that send them. It logs every POST or PUT it receives, has a simple web UI, and lets you define custom endpoints with your own response code and payload.</p>
+      <div class="links"><a href="https://github.com/leeturner/callback-logger">View on GitHub →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="vlang cli">
+      <div class="pills"><span>vlang</span><span>cli</span>
+      </div>
+      <h2>image-term</h2>
+      <p>A terminal image viewer written in V that renders images as colourful ASCII mosaics. It scales the image to fit your terminal, corrects for the aspect ratio of terminal characters and averages the colours within each block of pixels.</p>
+      <div class="links"><a href="https://github.com/leeturner/image-term">View on GitHub →</a><a href="/post/image-term-vlang/">Read the post →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="hugo">
+      <div class="pills"><span>hugo</span>
+      </div>
+      <h2>Hugo Progression Framework</h2>
+      <p>A Hugo template that renders progression frameworks using the same data format as the Monzo progression framework.</p>
+      <div class="links"><a href="https://github.com/leeturner/hugo-progression">View on GitHub →</a><a href="/posts/hugo-progression-framework/">Read the post →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="kotlin testing">
+      <div class="pills"><span>kotlin</span><span>testing</span>
+      </div>
+      <h2>BlinkyTapeTestWatcher</h2>
+      <p>A Kotlin implementation of the JUnit 5 TestWatcher API that hooks your tests up to a BlinkyTape LED strip.</p>
+      <div class="links"><a href="https://github.com/leeturner/BlinkyTapeTestWatcher">View on GitHub →</a><a href="/posts/blinkytape-junit-testwatcher/">Read the post →</a>
+      </div>
+    </article>
+    <article class="project" data-tags="kotlin spring cli">
+      <div class="pills"><span>kotlin</span><span>spring</span><span>cli</span>
+      </div>
+      <h2>pinboard2markdown</h2>
+      <p>A command line tool written in Kotlin and Spring Boot that fetches bookmarks with a given tag from the pinboard.in API and outputs them as markdown. I use it to build my Geek Reads posts.</p>
+      <div class="links"><a href="https://github.com/leeturner/pinboard2markdown">View on GitHub →</a><a href="/tags/bookmarks/">Geek Reads posts →</a>
+      </div>
+    </article>
+  </div>
 </div>
 
-        </div>
+  </main><footer class="site-footer">
+  <div class="wrap">
+    <div class="social-links">
+      <a href="https://github.com/leeturner">GitHub</a>
+      <a href="https://hachyderm.io/@leeturner" rel="me">Mastodon</a>
+      <a href="https://bsky.app/profile/leeturner.bsky.social">Bluesky</a>
+      <a href="https://www.linkedin.com/in/turnerlee/">LinkedIn</a>
+      <a href="https://x.com/leeturner">X</a>
+      <a href="https://youtube.com/@leeturner">YouTube</a>
+      <a href="https://stackoverflow.com/users/11251979/lee-turner">Stack Overflow</a>
+      <a href="/index.xml">RSS</a>
     </div>
-</article>
-
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-                        <li>
-                            <a href="https://bsky.app/profile/leeturner.bsky.social">
-                               <span class="fa-stack fa-lg">
-                                   <i class="fas fa-circle fa-stack-2x"></i>
-                                   <i class="fab fa-brands fa-bluesky fa-stack-1x fa-inverse"></i>
-                               </span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a target="_blank" href="https://hachyderm.io/@leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                    
-                    
-                        <li>
-                            <a target="_blank" href="https://www.linkedin.com/in/turnerlee/">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                            </span>
-                            </a>
-                        </li>
-                    
-                    
-                    <li>
-                        <a href="https://x.com/leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/leeturner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		            
-                    
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/11251979/lee-turner">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                   
-                   <li>
-                       <a target="_blank" href="https://youtube.com/@leeturner">
-                           <span class="fa-stack fa-lg">
-                               <i class="fas fa-circle fa-stack-2x"></i>
-                               <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-                   
-             </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; Lee Turner 2026
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
-                </p>
-            </div>
-        </div>
-    </div>
+    <span>© 2026 Lee Turner · <a href="/privacy/">Privacy</a></span>
+  </div>
 </footer>
 
-
-
-
-<script>
-    function loadAsync(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-
-
-
-
-
-<script>
-    
-    if($('#tag_cloud').length !== 0){
-        loadAsync("/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-
-<script>
-    (function() {
-        function updateTagcloudColors() {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            const startColor = isDark ? '#808080' : '#bbbbee';
-            if($('#tag_cloud').length !== 0 && $.fn.tagcloud) {
-                $.fn.tagcloud.defaults = {
-                    color: {start: startColor, end: '#0085a1'},
-                };
-                $('#tag_cloud a').tagcloud();
-            }
-        }
-
-        
-        $(document).ready(function() {
-            updateTagcloudColors();
-        });
-
-        
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.attributeName === 'data-theme') {
-                    updateTagcloudColors();
-                }
-            });
-        });
-
-        observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['data-theme']
-        });
-    })();
-</script>
-
-
-<script>
-    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<script src="/js/theme-toggle.js"></script>
-
-
-
-
-
-
-<script type="text/javascript">
-    function generateCatalog(selector) {
-
-        
-        
-        
-        
-            _containerSelector = 'div.post-container'
-        
-
-        
-        var P = $(_containerSelector), a, n, t, l, i, c;
-        a = P.find('h1,h2,h3,h4,h5,h6');
-
-        
-        $(selector).html('')
-
-        
-        a.each(function () {
-            n = $(this).prop('tagName').toLowerCase();
-            i = "#" + $(this).prop('id');
-            t = $(this).text();
-            c = $('<a href="' + i + '" rel="nofollow" title="' + t + '">' + t + '</a>');
-            l = $('<li class="' + n + '_nav"></li>').append(c);
-            $(selector).append(l);
-        });
-        return true;
-    }
-
-    generateCatalog(".catalog-body");
-
-    
-    $(".catalog-toggle").click((function (e) {
-        e.preventDefault();
-        $('.side-catalog').toggleClass("fold")
-    }))
-
-    
-
-
-    loadAsync("\/js\/jquery.nav.js", function () {
-        $('.catalog-body').onePageNav({
-            currentClass: "active",
-            changeHash: !1,
-            easing: "swing",
-            filter: "",
-            scrollSpeed: 700,
-            scrollOffset: 0,
-            scrollThreshold: .2,
-            begin: null,
-            end: null,
-            scrollChange: null,
-            padding: 80
-        });
-    });
-</script>
-
-
-
-
-
-
-
+  <script src="/js/site.min.0c3660c2c5a1849e93416ec988abf5863fafc844f12a2f704bc038c2d8ae82a0.js" integrity="sha256-DDZgwsWhhJ6TQW7JiKv1hj&#43;vyETxKi9wS8A4wtiugqA=" defer></script>
 </body>
 </html>
