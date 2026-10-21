@@ -6,11 +6,15 @@ images and videos saved under static/img/mastodon/. Posts already imported are
 recognised by the `mastodon_id` in their front matter, so it is safe to run
 this as often as you like.
 
+Normally it only asks Mastodon for posts newer than the newest one already
+imported, so a run is usually a single request. Pass --since to look back to a
+date instead, e.g. to backfill older posts (already imported ones are skipped).
+
 What gets imported: public and unlisted posts, including replies to yourself
 (threads). Skipped: boosts, replies to other people, followers-only and direct
 posts, and anything tagged #nosite.
 
-    scripts/import_mastodon.py --since 2026-10-21
+    scripts/import_mastodon.py
     scripts/import_mastodon.py --since 2026-01-01 --dry-run
 """
 
@@ -60,6 +64,19 @@ def fetch_statuses(instance, account_id, since):
                 return
             yield status
         max_id = page[-1]["id"]
+
+
+def fetch_newer_statuses(instance, account_id, min_id):
+    """Yield the account's statuses newer than `min_id`, oldest page first."""
+    while True:
+        params = {"limit": 40, "exclude_reblogs": "true", "min_id": min_id}
+        url = f"https://{instance}/api/v1/accounts/{account_id}/statuses?{urllib.parse.urlencode(params)}"
+        page = get_json(url)
+        if not page:
+            return
+        # Each page holds the posts just after min_id, sorted newest first.
+        yield from reversed(page)
+        min_id = page[0]["id"]
 
 
 def parse_date(value):
@@ -209,18 +226,25 @@ def render(status, path, body):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--account", default=os.environ.get("MASTODON_ACCOUNT", "leeturner@hachyderm.io"))
-    parser.add_argument("--since", required=True, help="only import posts on or after this date (YYYY-MM-DD)")
+    parser.add_argument("--since", help="look back to this date (YYYY-MM-DD) instead of only fetching posts newer than the last import")
     parser.add_argument("--dry-run", action="store_true", help="print what would be imported without writing files")
     args = parser.parse_args()
 
     username, instance = args.account.lstrip("@").split("@")
-    since = datetime.fromisoformat(args.since).replace(tzinfo=timezone.utc)
-    account_id = get_json(f"https://{instance}/api/v1/accounts/lookup?acct={username}")["id"]
     seen = known_ids()
+    if not args.since and not seen:
+        parser.error("no posts have been imported yet, so pass --since to say where to start")
+    account_id = get_json(f"https://{instance}/api/v1/accounts/lookup?acct={username}")["id"]
+
+    # Oldest first, so a thread's posts get filenames in order.
+    if args.since:
+        since = datetime.fromisoformat(args.since).replace(tzinfo=timezone.utc)
+        statuses = reversed(list(fetch_statuses(instance, account_id, since)))
+    else:
+        statuses = fetch_newer_statuses(instance, account_id, max(seen, key=int))
 
     imported = []
-    # Oldest first, so a thread's posts get filenames in order.
-    for status in reversed(list(fetch_statuses(instance, account_id, since))):
+    for status in statuses:
         if status["id"] in seen or not wanted(status, account_id):
             continue
         parts = [to_markdown(status["content"])] + media_markdown(status, args.dry_run)
