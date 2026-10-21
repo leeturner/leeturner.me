@@ -22,7 +22,7 @@ also build, manage and maintain WireMock open-source and its community.
 ### My Communities
 
 I currently run two local meetups in Brighton - [Brighton Kotlin](https://brightonkotlin.com)
-and [Brighton JUG](https://brightonjug.com) where we bring Kotlin and Java users, enthusiasts
+and [Brighton JUG](https://www.meetup.com/brighton-jug/) where we bring Kotlin and Java users, enthusiasts
 and learners from beginners to experts, and anyone wanting to get involved with the Kotlin/JVM ecosystem together to
 learn and support each other.
 

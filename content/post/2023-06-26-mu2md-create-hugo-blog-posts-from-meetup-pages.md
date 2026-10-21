@@ -16,7 +16,7 @@ tags:
 
 ## The Dark Side of Running a Meetup Group
 
-I really enjoy running the [Brighton Kotlin](https://brightonkotlin.com) and [Brighton JUG](https://brightonjug.com)
+I really enjoy running the [Brighton Kotlin](https://brightonkotlin.com) and [Brighton JUG](https://www.meetup.com/brighton-jug/)
 meetup groups. It is purely selfish to be honest, I get to meet lots of interesting people and learn a lot from the
 speakers and attendees and generally geek out with like-minded people.
 
