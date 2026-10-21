@@ -44,7 +44,7 @@ body {
   line-height: 1.6;
 }
 
-img { max-width: 100%; height: auto; }
+img, video { max-width: 100%; height: auto; }
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -270,7 +270,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .prose h2 { margin: 44px 0 14px; font-size: 34px; }
 .prose h3 { margin: 32px 0 12px; font-size: 25px; }
 .prose h4 { margin: 28px 0 10px; font-size: 20px; }
-.prose img { border-radius: 16px; display: block; }
+.prose img, .prose video { border-radius: 16px; display: block; }
 .prose blockquote {
   margin: 32px 0;
   padding: 0;
@@ -379,6 +379,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .mb-content p { margin: 0 0 12px; }
 .mb-content p:last-child { margin-bottom: 0; }
 .mb-content img { display: block; margin-top: 14px; width: 100%; max-height: 520px; object-fit: cover; border-radius: 16px; }
+.mb-content video { display: block; margin-top: 14px; width: 100%; max-height: 520px; border-radius: 16px; background: #000; }
 .mb-actions { margin-top: 14px; display: flex; gap: 8px; font-size: 14px; font-weight: 500; }
 .mb-actions a {
   display: inline-flex;
