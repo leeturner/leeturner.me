@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Tue, 20 Oct 2026 21:07:49 +0000</lastBuildDate>
+			<lastBuildDate>Wed, 21 Oct 2026 15:14:30 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/microblog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>2026-10-21T15-14</title>
+				<link>https://leeturner.me/microblog/2026-10-21t15-14/</link>
+				<pubDate>Wed, 21 Oct 2026 15:14:30 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-10-21t15-14/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://fosstodon.org/@wiremock&#34;&gt;@wiremock&lt;/a&gt;  WireMock OSS 4.0-beta.41 has been released.  This is largely just a dependency and bug fix release but worth updating all the same if you are running the beta releases.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/wiremock/wiremock/releases/tag/4.0.0-beta.41&#34;&gt;https://github.com/wiremock/wiremock/releases/tag/4.0.0-beta.41&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Everything is up on maven central if you want to update to the latest&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>2026-10-20T21-07</title>
 				<link>https://leeturner.me/microblog/2026-10-20t21-07/</link>
@@ -215,13 +222,6 @@
 				<pubDate>Tue, 12 Nov 2024 22:14:41 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-12t22-14/</guid>
 				<description>&lt;p&gt;RT @wiremockorg: 🆕 We’ve got a glorious new documentation portal for WireMock Cloud – including, for the first time ever, the API reference…&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>2024-11-09T21-39</title>
-				<link>https://leeturner.me/microblog/2024-11-09t21-39/</link>
-				<pubDate>Sat, 09 Nov 2024 21:39:20 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-11-09t21-39/</guid>
-				<description>&lt;p&gt;RT @sdelamo: New in @GitBookIO”Free open source documentation that helps fund your project”&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.gitbook.com/blog/free-open-source-documentation&#34;&gt;https://www.gitbook.com/blog/free-open-source-documentation&lt;/a&gt;&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
