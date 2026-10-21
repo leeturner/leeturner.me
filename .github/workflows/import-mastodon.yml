@@ -19,11 +19,6 @@ on:
       - scripts/import_mastodon.py
       - .github/workflows/import-mastodon.yml
 
-# Posts before this date are never imported automatically. Older posts can be
-# backfilled by running the workflow by hand with an earlier "since" date.
-env:
-  IMPORT_SINCE: '2026-10-21'
-
 concurrency:
   group: import-mastodon
 
@@ -46,9 +41,10 @@ jobs:
         if: github.event_name != 'pull_request'
         id: import
         env:
-          SINCE: ${{ inputs.since || env.IMPORT_SINCE }}
+          SINCE: ${{ inputs.since }}
           DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
-        run: python3 scripts/import_mastodon.py --since "$SINCE" $DRY_RUN
+        # Without a date it only fetches posts newer than the last one imported.
+        run: python3 scripts/import_mastodon.py ${SINCE:+--since "$SINCE"} $DRY_RUN
 
       - name: Commit and push
         if: github.event_name != 'pull_request' && steps.import.outputs.count != '0' && !inputs.dry_run
