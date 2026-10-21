@@ -23,14 +23,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: true  # Fetch Hugo themes
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      # Step 2 - Sets up the latest version of Hugo
+      # Step 2 - Sets up Hugo, pinned so a new release can't break the build unannounced
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.168.0'
+          extended: true
 
       # Step 3 - Clean and don't fail
       - name: Clean public directory

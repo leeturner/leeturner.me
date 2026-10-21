@@ -2,6 +2,7 @@
 title: What I'm doing now
 description: What I’m Doing Now
 layout: page
+homeSummary: Building WireMock Cloud and WireMock open source, and re-reading Java to Kotlin.
 author: Lee Turner
 comments: false
 ---

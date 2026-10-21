@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="social-links">
+      {{- range site.Params.social }}
+      <a href="{{ .url }}"{{ with .rel }} rel="{{ . }}"{{ end }}>{{ .name }}</a>
+      {{- end }}
+      {{- with site.Home.OutputFormats.Get "rss" }}
+      <a href="{{ .RelPermalink }}">RSS</a>
+      {{- end }}
+    </div>
+    <span>© {{ now.Year }} {{ site.Params.author.name }} · <a href="{{ "privacy/" | relURL }}">Privacy</a></span>
+  </div>
+</footer>

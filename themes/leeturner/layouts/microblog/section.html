@@ -1,0 +1,58 @@
+{{ define "main" }}
+{{- $all := .RegularPages.ByDate.Reverse }}
+{{- $size := site.Params.microblogPagerSize | default 50 }}
+{{- $pager := .Paginate $all $size }}
+<div class="wrap mb-layout">
+  <aside class="mb-profile">
+    <img src="{{ site.Params.avatar | relURL }}" alt="{{ site.Params.author.name }}" width="88" height="88">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.intro | default "Short posts, first on Twitter and now here." }}</p>
+    <div class="mb-stats">
+      <div><strong>{{ lang.FormatNumber 0 (len $all) }}</strong><span>posts</span></div>
+      {{- with index $all (sub (len $all) 1) }}
+      <div><strong>{{ .Date.Year }}</strong><span>since</span></div>
+      {{- end }}
+    </div>
+    {{- with .OutputFormats.Get "rss" }}
+    <a class="button-accent" href="{{ .RelPermalink }}">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+      Follow the microblog feed
+    </a>
+    {{- end }}
+
+    {{- $years := $all.GroupByDate "2006" }}
+    {{- $max := 1 }}
+    {{- range $years }}{{ if gt (len .Pages) $max }}{{ $max = len .Pages }}{{ end }}{{ end }}
+    <nav class="mb-years" aria-labelledby="years-title">
+      <h2 id="years-title">Jump to a year</h2>
+      <ol>
+        {{- $seen := 0 }}
+        {{- range $years }}
+        {{- $count := len .Pages }}
+        {{- $pageNo := add (div $seen $size) 1 }}
+        {{- $href := $.RelPermalink }}
+        {{- if gt $pageNo 1 }}{{ $href = printf "%spage/%d/" $.RelPermalink $pageNo }}{{ end }}
+        <li><a href="{{ $href }}" aria-label="{{ .Key }}, {{ $count }} posts">
+          <span class="year">{{ .Key }}</span>
+          <span class="track" aria-hidden="true"><span class="bar" style="width: {{ math.Max 2 (math.Round (mul (div (float $count) $max) 100)) }}%"></span></span>
+          <span class="count" aria-hidden="true">{{ $count }}</span>
+        </a></li>
+        {{- $seen = add $seen $count }}
+        {{- end }}
+      </ol>
+    </nav>
+  </aside>
+
+  <section class="mb-feed" aria-label="Posts">
+    {{- range $pager.Pages }}
+    {{- partial "microblog-post.html" (dict "page" . "link" true) }}
+    {{- end }}
+
+    <nav class="pager" aria-label="Pages">
+      {{- if $pager.HasPrev }}<a class="pill-link" href="{{ $pager.Prev.URL }}">← Newer</a>{{ else }}<span></span>{{ end }}
+      <span>Page {{ $pager.PageNumber }} of {{ $pager.TotalPages }}</span>
+      {{- if $pager.HasNext }}<a class="pill-link" href="{{ $pager.Next.URL }}">Older →</a>{{ else }}<span></span>{{ end }}
+    </nav>
+  </section>
+</div>
+{{ end }}

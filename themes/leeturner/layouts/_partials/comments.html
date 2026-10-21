@@ -1,0 +1,18 @@
+{{- if and site.Params.giscus (ne .Params.comments false) }}
+{{- with site.Params.giscus }}
+<section class="comments" aria-labelledby="comments-title" id="comments">
+  <h2 id="comments-title">Comments</h2>
+  <div id="giscus"
+    data-repo="{{ .data_repo }}"
+    data-repo-id="{{ .data_repo_id }}"
+    data-category="{{ .data_category }}"
+    data-category-id="{{ .data_category_id }}"
+    data-mapping="{{ .data_mapping }}"
+    data-reactions-enabled="{{ .data_reactions_enabled }}"
+    data-emit-metadata="{{ .data_emit_metadata }}"
+    data-lang="{{ .data_lang }}"
+    data-loading="lazy"></div>
+  <noscript><p class="muted">Comments are powered by GitHub Discussions and need JavaScript.</p></noscript>
+</section>
+{{- end }}
+{{- end }}

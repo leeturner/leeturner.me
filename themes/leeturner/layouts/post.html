@@ -1,0 +1,50 @@
+{{ define "main" }}
+<div class="wrap">
+  <article>
+    <header class="post-head">
+      {{- with .Params.tags }}
+      <div class="pills">
+        {{- range . }}<a class="pill" href="{{ printf "tags/%s/" (urlize .) | relURL }}">{{ . }}</a>{{ end }}
+      </div>
+      {{- end }}
+      <h1>{{ .Title }}</h1>
+      {{- with .Params.subtitle }}
+      <p class="subtitle">{{ . }}</p>
+      {{- end }}
+      <div class="byline">
+        <img src="{{ site.Params.avatar | relURL }}" alt="" width="36" height="36">
+        <span><strong>{{ .Params.author | default site.Params.author.name }}</strong> · {{ partial "post-date.html" . }} · {{ .ReadingTime }} min read</span>
+      </div>
+    </header>
+
+    {{- if and (ne .Params.showtoc false) (gt (len (findRE "<li>" .TableOfContents)) 2) }}
+    <details class="toc">
+      <summary>On this page</summary>
+      {{ .TableOfContents }}
+    </details>
+    {{- end }}
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    {{- partial "comments.html" . }}
+  </article>
+
+  {{- $prev := .PrevInSection }}
+  {{- $next := .NextInSection }}
+  {{- if or $prev $next }}
+  <nav class="keep-reading" aria-label="More posts">
+    <h2 class="eyebrow">Keep reading</h2>
+    <div class="grid">
+      {{- with $next }}
+      <a href="{{ .RelPermalink }}"><div class="meta">Newer · {{ partial "post-date.html" . }}</div><div class="title">{{ .Title }}</div></a>
+      {{- end }}
+      {{- with $prev }}
+      <a href="{{ .RelPermalink }}"><div class="meta">Older · {{ partial "post-date.html" . }}</div><div class="title">{{ .Title }}</div></a>
+      {{- end }}
+    </div>
+  </nav>
+  {{- end }}
+</div>
+{{ end }}

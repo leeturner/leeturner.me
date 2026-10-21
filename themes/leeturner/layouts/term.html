@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head">
+    <p class="eyebrow" style="margin: 0 0 12px"><a href="{{ .Parent.RelPermalink }}">Tags</a></p>
+    <h1>{{ .Data.Term }}<span>.</span></h1>
+    <p>{{ len .Pages }} {{ cond (eq (len .Pages) 1) "post" "posts" }} tagged {{ .Data.Term }}.</p>
+  </header>
+  <div class="post-grid" style="margin-top: 24px">
+    {{- range (.Paginate .Pages).Pages }}
+    {{- partial "post-card.html" . }}
+    {{- end }}
+  </div>
+  {{- partial "pager.html" . }}
+</div>
+{{ end }}

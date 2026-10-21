@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{- $projects := hugo.Data.projects }}
+{{- $tags := slice }}
+{{- range $projects }}{{ range .tags }}{{ $tags = $tags | append . }}{{ end }}{{ end }}
+{{- $tags = $tags | uniq }}
+<div class="wrap">
+  <header class="page-head">
+    <h1>Things I've <span>built.</span></h1>
+    {{- with .Content }}<div style="margin-top: 20px; max-width: 640px; color: var(--muted); font-size: 19px">{{ . }}</div>{{ end }}
+  </header>
+
+  <div class="filters" role="group" aria-label="Filter projects by tag" hidden>
+    <button type="button" data-tag="all" aria-pressed="true">Everything</button>
+    {{- range $tags }}
+    {{- $tag := . }}
+    {{- $count := 0 }}
+    {{- range $projects }}{{ if in .tags $tag }}{{ $count = add $count 1 }}{{ end }}{{ end }}
+    {{- if gt $count 1 }}
+    <button type="button" data-tag="{{ $tag }}" aria-pressed="false">{{ $tag }}</button>
+    {{- end }}
+    {{- end }}
+  </div>
+
+  <div class="project-grid">
+    {{- range $projects }}
+    <article class="project" data-tags="{{ delimit .tags " " }}">
+      <div class="pills">
+        {{- range .tags }}<span>{{ . }}</span>{{ end }}
+        {{- if eq .status "wip" }}<span class="wip">in progress</span>{{ end }}
+      </div>
+      <h2>{{ .name }}</h2>
+      <p>{{ .summary }}</p>
+      <div class="links">
+        {{- with .repo }}<a href="https://github.com/{{ . }}">View on GitHub →</a>{{ end }}
+        {{- range .links }}<a href="{{ .url }}">{{ .label }} →</a>{{ end }}
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</div>
+{{ end }}
