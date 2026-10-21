@@ -10,9 +10,44 @@
 		
 		
 		
-			<lastBuildDate>Thu, 08 Jan 2026 12:13:03 +0000</lastBuildDate>
+			<lastBuildDate>Tue, 20 Oct 2026 21:07:49 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/microblog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>2026-10-20T21-07</title>
+				<link>https://leeturner.me/microblog/2026-10-20t21-07/</link>
+				<pubDate>Tue, 20 Oct 2026 21:07:49 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-10-20t21-07/</guid>
+				<description>&lt;p&gt;The Big List Of Naughty Strings is a cool project.  It contains a list of &amp;lsquo;interesting&amp;rsquo; strings that you can use in your testing - thinkings like SQL injection, RTL text, zero-width characters, emoji, Zalgo text and more.  The project can be found here:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/minimaxir/big-list-of-naughty-strings&#34;&gt;https://github.com/minimaxir/big-list-of-naughty-strings&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I thought it might be interesting to wrap these up in a WireMock extension that adds a naughtyString Handlebars helper, so templated responses can return strings from the BLNS.  That extension can be found here:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>2026-10-16T13-18</title>
+				<link>https://leeturner.me/microblog/2026-10-16t13-18/</link>
+				<pubDate>Fri, 16 Oct 2026 13:18:36 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-10-16t13-18/</guid>
+				<description>&lt;p&gt;I have been playing around building TUIs recently.  I have to say, TamboUI is an awesome  option if you are a JVM dev wanting to do something in this area.&lt;/p&gt;&#xA;&lt;p&gt;Micronaut Launch TUI - &lt;a href=&#34;https://github.com/leeturner/micronaut-launch-tui&#34;&gt;https://github.com/leeturner/micronaut-launch-tui&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;TamboUI - &lt;a href=&#34;https://tamboui.dev/&#34;&gt;https://tamboui.dev/&lt;/a&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>2026-10-10T18-33</title>
+				<link>https://leeturner.me/microblog/2026-10-10t18-33/</link>
+				<pubDate>Sat, 10 Oct 2026 18:33:28 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-10-10t18-33/</guid>
+				<description>&lt;p&gt;Last week I put together a little Micronaut Framework WireMock extension to allow WireMock to be easily used inside tests.  It uses the same annotations as the WireMock spring boot extension.  At the moment it only supports http-based WireMock services but it does support the latest Micronaut and the latest WireMock OSS 4 beta so you get all the messaging and SSE support in there.&lt;/p&gt;&#xA;&lt;p&gt;Along with that, I watched Faster Development with Java, Python, and Micronaut by Graeme Rocher and Thomas Wuerthinger from Devoxx Belgium.  I have never been much of a python dev but Pyronaut looks amazing and definitely worth a try. Link to the video below.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>2026-09-27T16-52</title>
+				<link>https://leeturner.me/microblog/2026-09-27t16-52/</link>
+				<pubDate>Sun, 27 Sep 2026 16:52:00 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-09-27t16-52/</guid>
+				<description>&lt;p&gt;Last week beta 39 of WireMock OSS v4 dropped.  Along with the usual bug fixes and dependency updates, this release built on the messaging support already there to add support for Server Sent Events.  This now opens up a wide range of testing capabilities and we are already making good use of this internally on the WireMock eng team.  If you use SSE in your app I would love to hear what you think.  I have updated the WireMock OSS docker example I have with a simple train departure board demo.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>2026-05-21T06-02</title>
+				<link>https://leeturner.me/microblog/2026-05-21t06-02/</link>
+				<pubDate>Thu, 21 May 2026 06:02:53 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-05-21t06-02/</guid>
+				<description>&lt;p&gt;Looking forward to a great few days ahead&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://leeturner.me/img/mastodon/116611047336797170-1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>2026-01-08T12-13</title>
 				<link>https://leeturner.me/microblog/2026-01-08t12-13/</link>
@@ -187,41 +222,6 @@
 				<pubDate>Sat, 09 Nov 2024 21:39:20 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-09t21-39/</guid>
 				<description>&lt;p&gt;RT @sdelamo: New in @GitBookIO”Free open source documentation that helps fund your project”&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.gitbook.com/blog/free-open-source-documentation&#34;&gt;https://www.gitbook.com/blog/free-open-source-documentation&lt;/a&gt;&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>2024-11-08T16-49</title>
-				<link>https://leeturner.me/microblog/2024-11-08t16-49/</link>
-				<pubDate>Fri, 08 Nov 2024 16:49:11 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-11-08t16-49/</guid>
-				<description>&lt;p&gt;RT @picimako: Earlier this week I&amp;rsquo;ve had the opportunity to have a longer discussion with @leeturner from the @wiremockorg team, which was…&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>2024-11-08T16-48</title>
-				<link>https://leeturner.me/microblog/2024-11-08t16-48/</link>
-				<pubDate>Fri, 08 Nov 2024 16:48:43 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-11-08t16-48/</guid>
-				<description>&lt;p&gt;RT @ChrisPHemingway: &amp;ldquo;Wake Up&amp;rdquo; has finally been released! 🎉✨ I’m incredibly grateful to everyone who helped me 🙏💖 I hope you enjoy listenin…&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>2024-10-24T14-48</title>
-				<link>https://leeturner.me/microblog/2024-10-24t14-48/</link>
-				<pubDate>Thu, 24 Oct 2024 14:48:59 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-10-24t14-48/</guid>
-				<description>&lt;p&gt;RT @wiremockorg: WireMock 3.9.2 Released!&lt;/p&gt;&#xA;&lt;p&gt;The WireMock team is excited to announce the release of WireMock version 3.9.2.  Check out the f…&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>2024-10-23T10-02</title>
-				<link>https://leeturner.me/microblog/2024-10-23t10-02/</link>
-				<pubDate>Wed, 23 Oct 2024 10:02:28 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-10-23t10-02/</guid>
-				<description>&lt;p&gt;RT @wiremockorg: If you use our official WireMock Docker images you might be interested in the new guide put together by the team at @Docke…&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>2024-10-23T10-01</title>
-				<link>https://leeturner.me/microblog/2024-10-23t10-01/</link>
-				<pubDate>Wed, 23 Oct 2024 10:01:50 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-10-23t10-01/</guid>
-				<description>&lt;p&gt;RT @picimako: WireMocha v1.0.35 is now out!&lt;/p&gt;&#xA;&lt;p&gt;It improves support for workspaces, and now more accurate HTTP Client requests are generated f…&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
