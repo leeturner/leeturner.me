@@ -6,7 +6,7 @@
   <aside class="mb-profile">
     <img src="{{ site.Params.avatar | relURL }}" alt="{{ site.Params.author.name }}" width="88" height="88">
     <h1>{{ .Title }}</h1>
-    <p>{{ .Params.intro | default "Short posts, first on Twitter and now here." }}</p>
+    <p>{{ .Params.intro | default "Short thoughts, links and updates." }}</p>
     <div class="mb-stats">
       <div><strong>{{ lang.FormatNumber 0 (len $all) }}</strong><span>posts</span></div>
       {{- with index $all (sub (len $all) 1) }}
