@@ -10,9 +10,23 @@
 		
 		
 		
-			<lastBuildDate>Wed, 21 Oct 2026 15:14:30 +0000</lastBuildDate>
+			<lastBuildDate>Thu, 22 Oct 2026 20:29:38 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/microblog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>2026-10-22T20-29</title>
+				<link>https://leeturner.me/microblog/2026-10-22t20-29/</link>
+				<pubDate>Thu, 22 Oct 2026 20:29:38 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-10-22t20-29/</guid>
+				<description>&lt;p&gt;Really enjoyed the social at the &lt;a href=&#34;https://mastodon.social/@tessl_io&#34;&gt;@tessl_io&lt;/a&gt; office tonight. Simon’s talk on the Tessl software factory was really interesting. Definitely interested in giving a try&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>2026-10-22T20-22</title>
+				<link>https://leeturner.me/microblog/2026-10-22t20-22/</link>
+				<pubDate>Thu, 22 Oct 2026 20:22:17 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-10-22t20-22/</guid>
+				<description>&lt;p&gt;RE: &lt;a href=&#34;https://mas.to/@tastapod/117485600577537491&#34;&gt;https://mas.to/@tastapod/117485600577537491&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Static sites FTW&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>2026-10-21T15-14</title>
 				<link>https://leeturner.me/microblog/2026-10-21t15-14/</link>
@@ -208,20 +222,6 @@
 				<pubDate>Wed, 13 Nov 2024 16:26:46 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-13t16-26/</guid>
 				<description>&lt;p&gt;It is my 1 year anniversary at @wiremockorg  next week.  The team has built some awesome dev tooling over the course of the last year.  Here is my anniversary mock API with a chunked dribble response delay and a little bit of response templating thrown in for good measure. &lt;video controls=&#34;&#34; src=&#34;https://leeturner.me/img/x//1856735465413488924-ssZ6E3h17-r6cGqW.mp4?tag=12&#34; style=&#34;width: 100%; height: 100%; background-color: black;&#34;&gt;&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>2024-11-12T22-15</title>
-				<link>https://leeturner.me/microblog/2024-11-12t22-15/</link>
-				<pubDate>Tue, 12 Nov 2024 22:15:06 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-11-12t22-15/</guid>
-				<description>&lt;p&gt;RT @ericwastl: #AdventOfCode 2024 sponsorship is now open! If your organization might be interested in sponsoring, please have them email s…&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>2024-11-12T22-14</title>
-				<link>https://leeturner.me/microblog/2024-11-12t22-14/</link>
-				<pubDate>Tue, 12 Nov 2024 22:14:41 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-11-12t22-14/</guid>
-				<description>&lt;p&gt;RT @wiremockorg: 🆕 We’ve got a glorious new documentation portal for WireMock Cloud – including, for the first time ever, the API reference…&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
