@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Thu, 22 Oct 2026 20:29:38 +0000</lastBuildDate>
+			<lastBuildDate>Sun, 25 Oct 2026 20:34:08 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/microblog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>2026-10-25T20-34</title>
+				<link>https://leeturner.me/microblog/2026-10-25t20-34/</link>
+				<pubDate>Sun, 25 Oct 2026 20:34:08 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-10-25t20-34/</guid>
+				<description>&lt;p&gt;All &lt;a href=&#34;https://fosstodon.org/@micronaut&#34;&gt;@micronaut&lt;/a&gt; projects on &lt;a href=&#34;https://github.com/leeturner&#34;&gt;https://github.com/leeturner&lt;/a&gt; have been updated to the latest security release 5.2.3&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://micronaut.io/2026/10/20/micronaut-framework-5-2-3/&#34;&gt;https://micronaut.io/2026/10/20/micronaut-framework-5-2-3/&lt;/a&gt;&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>2026-10-22T20-29</title>
 				<link>https://leeturner.me/microblog/2026-10-22t20-29/</link>
@@ -215,13 +222,6 @@
 				<pubDate>Thu, 14 Nov 2024 09:09:08 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-14t09-09/</guid>
 				<description>&lt;p&gt;Even though LinkedIn jumped the gun a little, it is my 1 year anniversary at WireMock next week. The team has built some&#xA;awesome dev tooling over the course of the last year - tooling that I wish I had access to in previous projects -&#xA;OpenAPI, stateful mocking, mocks using your own data, gRPC and more. Not only that, it has been great to be a part of an&#xA;active open source project with a great community behind it.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>2024-11-13T16-26</title>
-				<link>https://leeturner.me/microblog/2024-11-13t16-26/</link>
-				<pubDate>Wed, 13 Nov 2024 16:26:46 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-11-13t16-26/</guid>
-				<description>&lt;p&gt;It is my 1 year anniversary at @wiremockorg  next week.  The team has built some awesome dev tooling over the course of the last year.  Here is my anniversary mock API with a chunked dribble response delay and a little bit of response templating thrown in for good measure. &lt;video controls=&#34;&#34; src=&#34;https://leeturner.me/img/x//1856735465413488924-ssZ6E3h17-r6cGqW.mp4?tag=12&#34; style=&#34;width: 100%; height: 100%; background-color: black;&#34;&gt;&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
