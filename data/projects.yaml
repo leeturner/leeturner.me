@@ -1,5 +1,9 @@
 # Projects shown on /projects/. Tags drive the filter buttons on that page.
 # Optional per project: links (extra buttons), status: wip.
+# Each project with a repo also gets a page at /projects/<name>/ built from its
+# GitHub README (see content/projects/_content.gotmpl). To skip that, set
+# website: <url> to link to the project's own site instead, or page: false to
+# keep it as a card only.
 
 - name: Micronaut Launch TUI
   repo: leeturner/micronaut-launch-tui
@@ -106,12 +110,3 @@
     - label: Read the post
       url: /posts/blinkytape-junit-testwatcher/
 
-- name: pinboard2markdown
-  repo: leeturner/pinboard2markdown
-  tags: [kotlin, spring, cli]
-  summary: >-
-    A command line tool written in Kotlin and Spring Boot that fetches bookmarks with a given tag from the
-    pinboard.in API and outputs them as markdown. I use it to build my Geek Reads posts.
-  links:
-    - label: Geek Reads posts
-      url: /tags/bookmarks/

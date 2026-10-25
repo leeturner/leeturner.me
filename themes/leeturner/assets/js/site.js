@@ -35,6 +35,10 @@
     comments.appendChild(script);
   }
 
+  // Project pages: the contents list sits beside the README on wide screens and starts folded up on narrow ones.
+  var toc = document.querySelector('.project-toc details');
+  if (toc && !window.matchMedia('(min-width: 1000px)').matches) toc.open = false;
+
   // Projects: show the filter buttons only when JS runs, so the full list is the fallback.
   var filters = document.querySelector('.filters');
   if (filters) {

@@ -11,6 +11,10 @@ projects filter) in `themes/leeturner/assets/js/site.js`.
 The projects page is generated from `data/projects.yaml`. Add a project there and give it tags; any tag used by
 two or more projects becomes a filter button.
 
+Each project with a `repo` also gets its own page at `/projects/<name>/`, made by `content/projects/_content.gotmpl`
+from the repo's README on GitHub, which is fetched on every build. Set `website:` on a project to link to its own site
+instead, or `page: false` to keep it as a card only.
+
 Run it locally with `hugo server` (Hugo 0.146 or newer).
 
 ## Posting to the microblog

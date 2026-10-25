@@ -1,0 +1,48 @@
+{{- /*
+  Makes a page at /projects/<name>/ for each project in data/projects.yaml that
+  has a repo, using the repo's README from GitHub as the page body. Projects
+  with a website or page: false are left as cards on the projects page.
+
+  The README is fetched on every build. If GitHub can't be reached the page is
+  still built, with just the summary from the data file.
+*/ -}}
+{{- range hugo.Data.projects }}
+  {{- if and .repo (not .website) (ne .page false) }}
+    {{- $readme := "" }}
+    {{- $url := printf "https://raw.githubusercontent.com/%s/HEAD/README.md" .repo }}
+    {{- with try (resources.GetRemote $url) }}
+      {{- with .Err }}
+        {{- warnf "projects: could not fetch the README for %s: %s" $url . }}
+      {{- else with .Value }}
+        {{- $readme = .Content }}
+      {{- else }}
+        {{- warnf "projects: no README found at %s" $url }}
+      {{- end }}
+    {{- end }}
+
+    {{- /* Badge rows near the top move into the page header. */}}
+    {{- $badgeRE := `(?m)^[ \t]*(\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)[ \t]*)+\n` }}
+    {{- $badges := findRE `\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)` (delimit (findRE $badgeRE $readme) "") }}
+    {{- $readme = replaceRE $badgeRE "" $readme }}
+    {{- /* The page shows the project name as its own heading. */}}
+    {{- $readme = replaceRE `\A\s*#[ \t][^\n]*\n` "" $readme }}
+    {{- $readme = replaceRE `\A\s*[^\n]+\n=+[ \t]*\n` "" $readme }}
+
+    {{- $.AddPage (dict
+      "path" (urlize .name)
+      "title" .name
+      "kind" "page"
+      "summary" .summary
+      "content" (dict "mediaType" "text/markdown" "value" $readme)
+      "params" (dict
+        "description" .summary
+        "repo" .repo
+        "projectTags" .tags
+        "status" .status
+        "links" .links
+        "badges" $badges
+        "comments" false
+      )
+    ) }}
+  {{- end }}
+{{- end }}

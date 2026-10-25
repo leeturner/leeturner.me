@@ -28,9 +28,18 @@
         {{- range .tags }}<span>{{ . }}</span>{{ end }}
         {{- if eq .status "wip" }}<span class="wip">in progress</span>{{ end }}
       </div>
+      {{- $page := site.GetPage (printf "/projects/%s" (urlize .name)) }}
+      {{- if .website }}
+      <h2><a href="{{ .website }}">{{ .name }}</a></h2>
+      {{- else if $page }}
+      <h2><a href="{{ $page.RelPermalink }}">{{ .name }}</a></h2>
+      {{- else }}
       <h2>{{ .name }}</h2>
+      {{- end }}
       <p>{{ .summary }}</p>
       <div class="links">
+        {{- with .website }}<a href="{{ . }}">Visit the website →</a>{{ end }}
+        {{- with $page }}<a href="{{ .RelPermalink }}">Project page →</a>{{ end }}
         {{- with .repo }}<a href="https://github.com/{{ . }}">View on GitHub →</a>{{ end }}
         {{- range .links }}<a href="{{ .url }}">{{ .label }} →</a>{{ end }}
       </div>

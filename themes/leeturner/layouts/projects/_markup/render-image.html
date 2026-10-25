@@ -1,0 +1,10 @@
+{{- /* README images: relative paths and github.com blob links only work on GitHub, so point them at raw files. */ -}}
+{{- $src := .Destination }}
+{{- $repo := .Page.Params.repo }}
+{{- if and $repo (not (findRE `^(https?:)?//|^data:` $src)) }}
+  {{- $src = printf "https://raw.githubusercontent.com/%s/HEAD/%s" $repo (strings.TrimLeft "./" $src) }}
+{{- else }}
+  {{- $src = replaceRE `^https://github\.com/([^/]+/[^/]+)/(?:blob|raw)/` "https://raw.githubusercontent.com/$1/" $src }}
+{{- end -}}
+<img src="{{ $src }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy">
+{{- /**/ -}}
