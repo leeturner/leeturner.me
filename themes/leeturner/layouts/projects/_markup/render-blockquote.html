@@ -1,0 +1,11 @@
+{{- /* GitHub alerts (> [!NOTE], > [!WARNING] ...) become callouts; other quotes are left as they are. */ -}}
+{{- if eq .Type "alert" -}}
+<div class="callout callout-{{ .AlertType }}" role="note">
+  <p class="callout-title">{{ .AlertTitle | default (.AlertType | strings.FirstUpper) }}</p>
+  {{ .Text }}
+</div>
+{{- else -}}
+<blockquote>
+  {{ .Text }}
+</blockquote>
+{{- end -}}

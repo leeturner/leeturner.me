@@ -1,0 +1,25 @@
+{{- /*
+  README images: relative paths and github.com blob links only work on GitHub,
+  so resolve them to raw files, then download them at build time and serve them
+  from this site. Badges (shields.io, workflow badges) stay remote so they stay live.
+*/ -}}
+{{- $src := .Destination }}
+{{- $repo := .Page.Params.repo }}
+{{- if and $repo (not (findRE `^(https?:)?//|^data:` $src)) }}
+  {{- $src = printf "https://raw.githubusercontent.com/%s/HEAD/%s" $repo (strings.TrimLeft "./" $src) }}
+{{- else }}
+  {{- $src = replaceRE `^https://github\.com/([^/]+/[^/]+)/(?:blob|raw)/` "https://raw.githubusercontent.com/$1/" $src }}
+{{- end }}
+{{- if hasPrefix $src "https://raw.githubusercontent.com/" }}
+  {{- with try (resources.GetRemote $src) }}
+    {{- with .Err }}
+      {{- warnf "projects: could not fetch image %s: %s" $src . }}
+    {{- else with .Value }}
+      {{- $name := path.Base (replaceRE `[?#].*$` "" $src) }}
+      {{- $img := . | resources.Copy (printf "projects/%s/%s" (urlize $.Page.Title) $name) | fingerprint }}
+      {{- $src = $img.RelPermalink }}
+    {{- end }}
+  {{- end }}
+{{- end -}}
+<img src="{{ $src }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy">
+{{- /**/ -}}

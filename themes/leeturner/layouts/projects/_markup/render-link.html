@@ -1,0 +1,8 @@
+{{- /* README links to other files in the repo are relative, so send them to GitHub. */ -}}
+{{- $href := .Destination }}
+{{- $repo := .Page.Params.repo }}
+{{- if and $repo $href (not (findRE `^[a-z][a-z0-9+.-]*:|^//|^#` $href)) }}
+  {{- $href = printf "https://github.com/%s/blob/HEAD/%s" $repo (strings.TrimLeft "./" $href) }}
+{{- end -}}
+<a href="{{ $href | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text }}</a>
+{{- /**/ -}}

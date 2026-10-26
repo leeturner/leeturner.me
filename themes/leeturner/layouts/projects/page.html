@@ -1,0 +1,45 @@
+{{ define "main" }}
+{{- $repo := .Params.repo }}
+<div class="wrap">
+  <article class="project-page">
+    <header class="project-head">
+      <a class="back-link" href="{{ "projects/" | relURL }}">← All projects</a>
+      <div class="pills">
+        {{- range .Params.projectTags }}<span>{{ . }}</span>{{ end }}
+        {{- if eq .Params.status "wip" }}<span class="wip">in progress</span>{{ end }}
+      </div>
+      <h1>{{ .Title }}</h1>
+      {{- with .Params.description }}<p class="lede">{{ . }}</p>{{ end }}
+      <div class="project-actions">
+        <a class="button-pill accent" href="https://github.com/{{ $repo }}">View on GitHub</a>
+        <a class="button-pill" href="https://github.com/{{ $repo }}/issues">Issues</a>
+        {{- range .Params.links }}<a class="button-pill" href="{{ .url }}">{{ .label }}</a>{{ end }}
+      </div>
+      {{- with .Params.badges }}
+      <div class="badges">
+        {{- range . }}{{ . | $.RenderString }}{{ end }}
+      </div>
+      {{- end }}
+    </header>
+
+    {{- $toc := gt (len (findRE "<li>" .TableOfContents)) 2 }}
+    <div class="project-body{{ if $toc }} has-toc{{ end }}">
+      {{- if $toc }}
+      <nav class="project-toc" aria-label="On this page">
+        <details open>
+          <summary>On this page</summary>
+          {{ .TableOfContents }}
+        </details>
+      </nav>
+      {{- end }}
+      <div class="prose">
+        {{- with .Content }}
+        {{ . }}
+        {{- else }}
+        <p>The code, docs and issues for {{ .Title }} are <a href="https://github.com/{{ $repo }}">on GitHub</a>.</p>
+        {{- end }}
+      </div>
+    </div>
+  </article>
+</div>
+{{ end }}
