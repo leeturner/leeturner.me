@@ -28386,9 +28386,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://leeturner.me/projects/blinkytapetestwatcher/</loc>
+    <priority>0</priority>
+  </url><url>
     <loc>https://leeturner.me/brighton-kotlin/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/projects/callback-logger/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://leeturner.me/projects/conways-game-of-life/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://leeturner.me/projects/hugo-progression-framework/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://leeturner.me/projects/image-term/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://leeturner.me/projects/micronaut-cli-template/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://leeturner.me/projects/micronaut-launch-tui/</loc>
+    <priority>0</priority>
   </url><url>
     <loc>https://leeturner.me/archive/</loc>
     <changefreq>monthly</changefreq>
@@ -28402,8 +28423,20 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://leeturner.me/projects/spektrum/</loc>
+    <priority>0</priority>
+  </url><url>
     <loc>https://leeturner.me/now/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url><url>
+    <loc>https://leeturner.me/projects/wiremock-blns-extension/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://leeturner.me/projects/wiremock-micronaut/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://leeturner.me/projects/xport/</loc>
+    <priority>0</priority>
   </url>
 </urlset>

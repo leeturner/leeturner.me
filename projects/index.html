@@ -12,7 +12,7 @@
 <meta property="og:title" content="Projects · Lee Turner">
 <meta property="og:description" content="A collection of side projects I have built for myself or others.  Hopefully you will find them useful">
 <meta property="og:url" content="https://leeturner.me/projects/">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:image" content="https://leeturner.me/img/avatar.jpg">
 <meta name="twitter:card" content="summary">
 <link rel="alternate" type="application/rss+xml" href="https://leeturner.me/index.xml" title="Lee Turner">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/css/main.min.67049d585fcc3ce9f43a1d5093c73b00d4b0d529d5a41f976ee8bc5cb91663e7.css" integrity="sha256-ZwSdWF/MPOn0Oh1Qk8c7ANSw1SnVpB&#43;Xbui8XLkWY&#43;c=">
+<link rel="stylesheet" href="/css/main.min.74fd232717ea5d6f5b8fee44cc9076ab1071b61374d0b137ffccb645accc4ce8.css" integrity="sha256-dP0jJxfqXW9bj&#43;5EzJB2qxBxthN00LE3/8y2RazMTOg=">
 
 </head>
 <body>
@@ -60,7 +60,7 @@
 <div class="wrap">
   <header class="page-head">
     <h1>Things I've <span>built.</span></h1><div style="margin-top: 20px; max-width: 640px; color: var(--muted); font-size: 19px"><p>Here you can find a collection of side projects I have built for myself or others.  Your mileage might vary, but you are welcome to dig in and have a play if they are useful to you.</p>
-<!-- The projects themselves live in data/projects.yaml -->
+<!-- The projects themselves live in data/projects.yaml. Their detail pages are made by _content.gotmpl. -->
 </div>
   </header>
 
@@ -78,97 +78,89 @@
     <article class="project" data-tags="kotlin micronaut cli">
       <div class="pills"><span>kotlin</span><span>micronaut</span><span>cli</span>
       </div>
-      <h2>Micronaut Launch TUI</h2>
+      <h2><a href="/projects/micronaut-launch-tui/">Micronaut Launch TUI</a></h2>
       <p>mtui is a terminal UI for creating Micronaut projects through Micronaut Launch, written in Kotlin and built with TamboUI. It puts the hundreds of available features in one searchable list, previews the generated files and unzips the project straight into the current directory. Inspired by Dan Vega&#39;s spring-initializr-tui.</p>
-      <div class="links"><a href="https://github.com/leeturner/micronaut-launch-tui">View on GitHub →</a>
+      <div class="links"><a href="/projects/micronaut-launch-tui/">Project page →</a><a href="https://github.com/leeturner/micronaut-launch-tui">View on GitHub →</a>
       </div>
     </article>
     <article class="project" data-tags="kotlin micronaut wiremock testing">
       <div class="pills"><span>kotlin</span><span>micronaut</span><span>wiremock</span><span>testing</span>
       </div>
-      <h2>wiremock-micronaut</h2>
+      <h2><a href="/projects/wiremock-micronaut/">wiremock-micronaut</a></h2>
       <p>Simplifies testing HTTP clients in Micronaut 5 and above. It starts WireMock servers per test class, binds their URLs into Micronaut configuration before your beans are created and injects them into your tests. The annotations mirror wiremock-spring-boot, so it should feel familiar.</p>
-      <div class="links"><a href="https://github.com/leeturner/wiremock-micronaut">View on GitHub →</a><a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-micronaut">Maven Central →</a>
+      <div class="links"><a href="/projects/wiremock-micronaut/">Project page →</a><a href="https://github.com/leeturner/wiremock-micronaut">View on GitHub →</a><a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-micronaut">Maven Central →</a>
       </div>
     </article>
     <article class="project" data-tags="wiremock testing">
       <div class="pills"><span>wiremock</span><span>testing</span>
       </div>
-      <h2>wiremock-blns-extension</h2>
+      <h2><a href="/projects/wiremock-blns-extension/">wiremock-blns-extension</a></h2>
       <p>A WireMock extension that adds a naughtyString Handlebars helper, so templated responses can return strings from the Big List of Naughty Strings: SQL injection, RTL text, zero-width characters, emoji and more. Works with embedded WireMock and the standalone JAR or Docker image.</p>
-      <div class="links"><a href="https://github.com/leeturner/wiremock-blns-extension">View on GitHub →</a><a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-blns-extension">Maven Central →</a>
+      <div class="links"><a href="/projects/wiremock-blns-extension/">Project page →</a><a href="https://github.com/leeturner/wiremock-blns-extension">View on GitHub →</a><a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-blns-extension">Maven Central →</a>
       </div>
     </article>
     <article class="project" data-tags="kotlin micronaut cli hugo">
       <div class="pills"><span>kotlin</span><span>micronaut</span><span>cli</span><span>hugo</span>
       </div>
-      <h2>Xport</h2>
+      <h2><a href="/projects/xport/">Xport</a></h2>
       <p>A command line tool written in Kotlin and Micronaut that converts an X/Twitter data export into Hugo markdown files, preserving the original timestamps and media. I used it to bring my old tweets over to the microblog on this site.</p>
-      <div class="links"><a href="https://github.com/leeturner/xport">View on GitHub →</a><a href="/microblog/">See the microblog →</a>
+      <div class="links"><a href="/projects/xport/">Project page →</a><a href="https://github.com/leeturner/xport">View on GitHub →</a><a href="/microblog/">See the microblog →</a>
       </div>
     </article>
     <article class="project" data-tags="kotlin micronaut">
       <div class="pills"><span>kotlin</span><span>micronaut</span>
       </div>
-      <h2>Conway&#39;s Game of Life</h2>
+      <h2><a href="/projects/conways-game-of-life/">Conway&#39;s Game of Life</a></h2>
       <p>A terminal based Game of Life written in Kotlin using Micronaut and functional programming with Arrow. The universe wraps around like a torus and can be rendered in the terminal with ANSI colours or in a KorGE 2D window.</p>
-      <div class="links"><a href="https://github.com/leeturner/conways-game-of-life-kotlin">View on GitHub →</a>
+      <div class="links"><a href="/projects/conways-game-of-life/">Project page →</a><a href="https://github.com/leeturner/conways-game-of-life-kotlin">View on GitHub →</a>
       </div>
     </article>
     <article class="project" data-tags="kotlin micronaut">
       <div class="pills"><span>kotlin</span><span>micronaut</span><span class="wip">in progress</span>
       </div>
-      <h2>Spektrum</h2>
+      <h2><a href="/projects/spektrum/">Spektrum</a></h2>
       <p>A work in progress Sinclair ZX Spectrum emulator written in Kotlin and Micronaut, starting with an emulation of the Z80 CPU.</p>
-      <div class="links"><a href="https://github.com/leeturner/spektrum">View on GitHub →</a>
+      <div class="links"><a href="/projects/spektrum/">Project page →</a><a href="https://github.com/leeturner/spektrum">View on GitHub →</a>
       </div>
     </article>
     <article class="project" data-tags="kotlin micronaut cli">
       <div class="pills"><span>kotlin</span><span>micronaut</span><span>cli</span>
       </div>
-      <h2>Micronaut CLI Template</h2>
+      <h2><a href="/projects/micronaut-cli-template/">Micronaut CLI Template</a></h2>
       <p>A ready to go Kotlin Micronaut command line application template with the tooling I like already set up: a Gradle version catalogue, Kotlinter and Detekt, Arrow, Strikt, and GitHub Actions and Dependabot for CI. Click &#34;Use this template&#34; on GitHub to start from it.</p>
-      <div class="links"><a href="https://github.com/leeturner/micronaut-cli-template">View on GitHub →</a>
+      <div class="links"><a href="/projects/micronaut-cli-template/">Project page →</a><a href="https://github.com/leeturner/micronaut-cli-template">View on GitHub →</a>
       </div>
     </article>
     <article class="project" data-tags="kotlin micronaut testing">
       <div class="pills"><span>kotlin</span><span>micronaut</span><span>testing</span>
       </div>
-      <h2>callback-logger</h2>
+      <h2><a href="/projects/callback-logger/">callback-logger</a></h2>
       <p>A simple Kotlin and Micronaut service that receives callbacks, useful when testing APIs locally that send them. It logs every POST or PUT it receives, has a simple web UI, and lets you define custom endpoints with your own response code and payload.</p>
-      <div class="links"><a href="https://github.com/leeturner/callback-logger">View on GitHub →</a>
+      <div class="links"><a href="/projects/callback-logger/">Project page →</a><a href="https://github.com/leeturner/callback-logger">View on GitHub →</a>
       </div>
     </article>
     <article class="project" data-tags="vlang cli">
       <div class="pills"><span>vlang</span><span>cli</span>
       </div>
-      <h2>image-term</h2>
+      <h2><a href="/projects/image-term/">image-term</a></h2>
       <p>A terminal image viewer written in V that renders images as colourful ASCII mosaics. It scales the image to fit your terminal, corrects for the aspect ratio of terminal characters and averages the colours within each block of pixels.</p>
-      <div class="links"><a href="https://github.com/leeturner/image-term">View on GitHub →</a><a href="/post/image-term-vlang/">Read the post →</a>
+      <div class="links"><a href="/projects/image-term/">Project page →</a><a href="https://github.com/leeturner/image-term">View on GitHub →</a><a href="/post/image-term-vlang/">Read the post →</a>
       </div>
     </article>
     <article class="project" data-tags="hugo">
       <div class="pills"><span>hugo</span>
       </div>
-      <h2>Hugo Progression Framework</h2>
+      <h2><a href="/projects/hugo-progression-framework/">Hugo Progression Framework</a></h2>
       <p>A Hugo template that renders progression frameworks using the same data format as the Monzo progression framework.</p>
-      <div class="links"><a href="https://github.com/leeturner/hugo-progression">View on GitHub →</a><a href="/posts/hugo-progression-framework/">Read the post →</a>
+      <div class="links"><a href="/projects/hugo-progression-framework/">Project page →</a><a href="https://github.com/leeturner/hugo-progression">View on GitHub →</a><a href="/posts/hugo-progression-framework/">Read the post →</a>
       </div>
     </article>
     <article class="project" data-tags="kotlin testing">
       <div class="pills"><span>kotlin</span><span>testing</span>
       </div>
-      <h2>BlinkyTapeTestWatcher</h2>
+      <h2><a href="/projects/blinkytapetestwatcher/">BlinkyTapeTestWatcher</a></h2>
       <p>A Kotlin implementation of the JUnit 5 TestWatcher API that hooks your tests up to a BlinkyTape LED strip.</p>
-      <div class="links"><a href="https://github.com/leeturner/BlinkyTapeTestWatcher">View on GitHub →</a><a href="/posts/blinkytape-junit-testwatcher/">Read the post →</a>
-      </div>
-    </article>
-    <article class="project" data-tags="kotlin spring cli">
-      <div class="pills"><span>kotlin</span><span>spring</span><span>cli</span>
-      </div>
-      <h2>pinboard2markdown</h2>
-      <p>A command line tool written in Kotlin and Spring Boot that fetches bookmarks with a given tag from the pinboard.in API and outputs them as markdown. I use it to build my Geek Reads posts.</p>
-      <div class="links"><a href="https://github.com/leeturner/pinboard2markdown">View on GitHub →</a><a href="/tags/bookmarks/">Geek Reads posts →</a>
+      <div class="links"><a href="/projects/blinkytapetestwatcher/">Project page →</a><a href="https://github.com/leeturner/BlinkyTapeTestWatcher">View on GitHub →</a><a href="/posts/blinkytape-junit-testwatcher/">Read the post →</a>
       </div>
     </article>
   </div>
@@ -190,6 +182,6 @@
   </div>
 </footer>
 
-  <script src="/js/site.min.0c3660c2c5a1849e93416ec988abf5863fafc844f12a2f704bc038c2d8ae82a0.js" integrity="sha256-DDZgwsWhhJ6TQW7JiKv1hj&#43;vyETxKi9wS8A4wtiugqA=" defer></script>
+  <script src="/js/site.min.373292f461d4d2a7a600be3365fe40b067adf5890a053675a1760de6e7fc2f4b.js" integrity="sha256-NzKS9GHU0qemAL4zZf5AsGet9YkKBTZ1oXYN5uf8L0s=" defer></script>
 </body>
 </html>

@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wiremock-blns-extension · Lee Turner</title>
+<meta name="description" content="A WireMock extension that adds a naughtyString Handlebars helper, so templated responses can return strings from the Big List of Naughty Strings: SQL injection, …">
+<meta name="keywords" content="lee, turner, lee turner, hacking, software engineering, security, coding">
+<meta name="author" content="Lee Turner">
+<link rel="canonical" href="https://leeturner.me/projects/wiremock-blns-extension/">
+
+<meta property="og:site_name" content="Lee Turner">
+<meta property="og:title" content="wiremock-blns-extension · Lee Turner">
+<meta property="og:description" content="A WireMock extension that adds a naughtyString Handlebars helper, so templated responses can return strings from the Big List of Naughty Strings: SQL injection, …">
+<meta property="og:url" content="https://leeturner.me/projects/wiremock-blns-extension/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leeturner.me/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" href="https://leeturner.me/index.xml" title="Lee Turner">
+
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme') || localStorage.getItem('cleanwhite-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/main.min.74fd232717ea5d6f5b8fee44cc9076ab1071b61374d0b137ffccb645accc4ce8.css" integrity="sha256-dP0jJxfqXW9bj&#43;5EzJB2qxBxthN00LE3/8y2RazMTOg=">
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">Lee Turner<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/microblog/">Microblog</a>
+      <a href="/now/">Now</a>
+      <a href="/about/">About</a>
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="https://leeturner.tech">Resume</a>
+      <a href="/archive/">Archive</a>
+    </nav>
+    <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+  <main id="main">
+<div class="wrap">
+  <article class="project-page">
+    <header class="project-head">
+      <a class="back-link" href="/projects/">← All projects</a>
+      <div class="pills"><span>wiremock</span><span>testing</span>
+      </div>
+      <h1>wiremock-blns-extension</h1><p class="lede">A WireMock extension that adds a naughtyString Handlebars helper, so templated responses can return strings from the Big List of Naughty Strings: SQL injection, RTL text, zero-width characters, emoji and more. Works with embedded WireMock and the standalone JAR or Docker image.</p>
+      <div class="project-actions">
+        <a class="button-pill accent" href="https://github.com/leeturner/wiremock-blns-extension">View on GitHub</a>
+        <a class="button-pill" href="https://github.com/leeturner/wiremock-blns-extension/issues">Issues</a><a class="button-pill" href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-blns-extension">Maven Central</a>
+      </div>
+      <div class="badges"><a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-blns-extension"><img src="https://img.shields.io/maven-central/v/io.github.leeturner/wiremock-blns-extension" alt="Maven Central" loading="lazy"></a>
+      </div>
+    </header>
+    <div class="project-body has-toc">
+      <nav class="project-toc" aria-label="On this page">
+        <details open>
+          <summary>On this page</summary>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install">Install</a>
+      <ul>
+        <li><a href="#embedded-java--junit">Embedded (Java / JUnit)</a></li>
+        <li><a href="#standalone-jar">Standalone JAR</a></li>
+        <li><a href="#docker">Docker</a></li>
+      </ul>
+    </li>
+    <li><a href="#helper-reference">Helper reference</a>
+      <ul>
+        <li><a href="#json-bodies">JSON bodies</a></li>
+      </ul>
+    </li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#building">Building</a></li>
+    <li><a href="#licence">Licence</a></li>
+  </ul>
+</nav>
+        </details>
+      </nav>
+      <div class="prose">
+        <p>A <a href="https://wiremock.org">WireMock</a> extension that adds a <code>naughtyString</code> Handlebars
+helper, so templated responses can return strings from the
+<a href="https://github.com/minimaxir/big-list-of-naughty-strings">Big List of Naughty Strings</a>
+(BLNS): SQL injection, RTL text, zero-width characters, emoji, Zalgo text and more.
+Every client test that hits the stub then exercises those cases for free.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;method&#34;</span><span class="p">:</span> <span class="s2">&#34;GET&#34;</span><span class="p">,</span> <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;/user&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;response&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;headers&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;body&#34;</span><span class="p">:</span> <span class="s2">&#34;{ \&#34;name\&#34;: {{{toJson (naughtyString category=&#39;sql-injection&#39;)}}} }&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transformers&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;response-template&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>Targets <strong>WireMock 4.0.0-beta.41</strong> and runs on Java 17 or later.</li>
+<li>The list is bundled in the JAR. Nothing is downloaded at runtime.</li>
+</ul>
+<div class="callout callout-warning" role="note">
+  <p class="callout-title">Warning</p>
+  <p>These are real payloads. The XSS, SQL and command-injection strings reach
+whatever consumes the mock, including logs, databases and browsers. That is the
+point, so only point clients at these stubs in environments where that is safe.</p>
+</div><h2 id="install">Install</h2>
+<p>There are two artifacts. Each only works in its own setting, so pick the one that
+matches how you run WireMock. The latest <code>&lt;version&gt;</code> is on the Maven Central badge above.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Artifact</th>
+					<th>For</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>io.github.leeturner:wiremock-blns-extension</code></td>
+					<td>Embedded WireMock (<code>org.wiremock:wiremock</code>, JUnit)</td>
+			</tr>
+			<tr>
+					<td><code>io.github.leeturner:wiremock-blns-extension-standalone</code></td>
+					<td>The <code>wiremock-standalone</code> JAR and the Docker image</td>
+			</tr>
+	</tbody>
+</table>
+<p><code>wiremock-standalone</code> relocates Handlebars to <code>wiremock.com.github.jknack.handlebars</code>,
+so the standalone artifact is built against the relocated packages. The wrong one
+fails at runtime (the plain JAR in standalone WireMock throws <code>AbstractMethodError</code>).</p>
+<h3 id="embedded-java--junit">Embedded (Java / JUnit)</h3>
+<p>Gradle:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="n">testImplementation</span><span class="p">(</span><span class="s2">&#34;io.github.leeturner:wiremock-blns-extension:&lt;version&gt;&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>Maven:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>io.github.leeturner<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>wiremock-blns-extension<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span><span class="c">&lt;!-- version --&gt;</span><span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>The artifact has no dependencies of its own: it uses the WireMock already on your
+classpath. Register the extension:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RegisterExtension</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="n">WireMockExtension</span><span class="w"> </span><span class="n">wm</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">WireMockExtension</span><span class="p">.</span><span class="na">newInstance</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">options</span><span class="p">(</span><span class="n">wireMockConfig</span><span class="p">().</span><span class="na">dynamicPort</span><span class="p">().</span><span class="na">extensions</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BlnsExtension</span><span class="p">()))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Or let WireMock find it with <code>extensionScanningEnabled(true)</code>.</p>
+<h3 id="standalone-jar">Standalone JAR</h3>
+<p>Download <code>wiremock-blns-extension-standalone-&lt;version&gt;.jar</code> from Maven Central and
+put it on the classpath next to <code>wiremock-standalone</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">java -cp wiremock-standalone-4.0.0-beta.41.jar:wiremock-blns-extension-standalone-&lt;version&gt;.jar <span class="se">\
+</span></span></span><span class="line"><span class="cl">  wiremock.Run --root-dir path/to/stubs
+</span></span></code></pre></div><p>Standalone WireMock scans for extensions by default, so no <code>--extensions</code> flag is
+needed (unless you pass <code>--disable-extensions-scanning</code>).</p>
+<h3 id="docker">Docker</h3>
+<p>Mount the standalone JAR into <code>/var/wiremock/extensions/</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -p 8080:8080 <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/wiremock-blns-extension-standalone-&lt;version&gt;.jar:/var/wiremock/extensions/blns.jar&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/mappings:/home/wiremock/mappings&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  wiremock/wiremock:4.0.0-beta.41
+</span></span></code></pre></div><p>This is the same directory as in WireMock 3.x, and has been checked against
+<code>wiremock/wiremock:4.0.0-beta.41</code>.</p>
+<h2 id="helper-reference">Helper reference</h2>
+<p>Stubs need the <code>response-template</code> transformer (or global templating) as usual.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-handlebars" data-lang="handlebars"><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span><span class="cp">}}</span><span class="x">                                  </span><span class="c">{{!-- random, from the whole list --}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span> <span class="na">category</span><span class="o">=</span><span class="s1">&#39;Emoji&#39;</span><span class="cp">}}</span><span class="x">                 </span><span class="c">{{!-- random, from one category --}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span> <span class="na">category</span><span class="o">=</span><span class="s1">&#39;sql-injection&#39;</span><span class="cp">}}</span><span class="x">         </span><span class="c">{{!-- category given as a slug --}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span> <span class="k">in</span><span class="na">dex</span><span class="o">=</span><span class="m">42</span><span class="cp">}}</span><span class="x">                         </span><span class="c">{{!-- fixed entry from the whole list --}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span> <span class="na">category</span><span class="o">=</span><span class="s1">&#39;Emoji&#39;</span> <span class="k">in</span><span class="na">dex</span><span class="o">=</span><span class="m">0</span><span class="cp">}}</span><span class="x">         </span><span class="c">{{!-- fixed entry within a category --}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span> <span class="k">in</span><span class="na">dex</span><span class="o">=</span><span class="err">(</span><span class="nv">randomInt</span> <span class="na">lower</span><span class="o">=</span><span class="m">0</span> <span class="na">upper</span><span class="o">=</span><span class="m">10</span><span class="err">)</span><span class="cp">}}</span><span class="x">
+</span></span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>Parameter</th>
+					<th>Meaning</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>category</code></td>
+					<td>Limit the choice to one category. Matched case-insensitively, by heading (<code>SQL Injection</code>) or slug (<code>sql-injection</code>). See <a href="#categories">Categories</a>.</td>
+			</tr>
+			<tr>
+					<td><code>index</code></td>
+					<td>Return a fixed entry instead of a random one, counted from 0 within the whole list or within <code>category</code>. Use it to get the same string every time.</td>
+			</tr>
+	</tbody>
+</table>
+<p>With neither, the helper picks at random from all 516 strings.</p>
+<p>Bad input returns an error string, the same way WireMock&rsquo;s built-in helpers do:</p>
+<ul>
+<li>an unknown category gives <code>[ERROR: Unknown BLNS category 'x'. Known: reserved-strings, …]</code>;</li>
+<li>an <code>index</code> outside the range gives <code>[ERROR: BLNS index 600 is out of range 0-515]</code>.
+It does not wrap around, so a typo can&rsquo;t quietly return the wrong string.</li>
+</ul>
+<h3 id="json-bodies">JSON bodies</h3>
+<p>WireMock doesn&rsquo;t escape helper output, so a naughty string dropped straight into
+JSON will often break it (<code>&quot;</code>, <code>\</code>, control characters). Wrap the helper in WireMock&rsquo;s
+<code>toJson</code> helper, which adds the quotes and escaping, and leave the value unquoted:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;body&#34;</span><span class="err">:</span> <span class="s2">&#34;{ \&#34;name\&#34;: {{{toJson (naughtyString)}}} }&#34;</span>
+</span></span></code></pre></div><p>This is tested against every entry in the list: all 516 come back as valid JSON that
+parses to the original string.</p>
+<p>Use <code>body</code>, not <code>jsonBody</code>. Inside a <code>jsonBody</code> string value
+(<code>&quot;name&quot;: &quot;{{{toJson …}}}&quot;</code>) the quotes double up and the result is invalid JSON.</p>
+<h2 id="categories">Categories</h2>
+<p>From <code>blns.txt</code> at commit <a href="https://github.com/minimaxir/big-list-of-naughty-strings/blob/db33ec7b1d5d9616a88c76394b7d0897bd0b97eb/blns.txt"><code>db33ec7</code></a>.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Category</th>
+					<th>Slug</th>
+					<th style="text-align: right">Strings</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Reserved Strings</td>
+					<td><code>reserved-strings</code></td>
+					<td style="text-align: right">19</td>
+			</tr>
+			<tr>
+					<td>Numeric Strings</td>
+					<td><code>numeric-strings</code></td>
+					<td style="text-align: right">71</td>
+			</tr>
+			<tr>
+					<td>Special Characters</td>
+					<td><code>special-characters</code></td>
+					<td style="text-align: right">9</td>
+			</tr>
+			<tr>
+					<td>Unicode Symbols</td>
+					<td><code>unicode-symbols</code></td>
+					<td style="text-align: right">11</td>
+			</tr>
+			<tr>
+					<td>Unicode Subscript/Superscript/Accents</td>
+					<td><code>unicode-subscript-superscript-accents</code></td>
+					<td style="text-align: right">4</td>
+			</tr>
+			<tr>
+					<td>Quotation Marks</td>
+					<td><code>quotation-marks</code></td>
+					<td style="text-align: right">11</td>
+			</tr>
+			<tr>
+					<td>Two-Byte Characters</td>
+					<td><code>two-byte-characters</code></td>
+					<td style="text-align: right">10</td>
+			</tr>
+			<tr>
+					<td>Special Unicode Characters Union</td>
+					<td><code>special-unicode-characters-union</code></td>
+					<td style="text-align: right">1</td>
+			</tr>
+			<tr>
+					<td>Changing length when lowercased</td>
+					<td><code>changing-length-when-lowercased</code></td>
+					<td style="text-align: right">2</td>
+			</tr>
+			<tr>
+					<td>Japanese Emoticons</td>
+					<td><code>japanese-emoticons</code></td>
+					<td style="text-align: right">12</td>
+			</tr>
+			<tr>
+					<td>Emoji</td>
+					<td><code>emoji</code></td>
+					<td style="text-align: right">13</td>
+			</tr>
+			<tr>
+					<td>Unicode Numbers</td>
+					<td><code>unicode-numbers</code></td>
+					<td style="text-align: right">2</td>
+			</tr>
+			<tr>
+					<td>Right-To-Left Strings</td>
+					<td><code>right-to-left-strings</code></td>
+					<td style="text-align: right">7</td>
+			</tr>
+			<tr>
+					<td>Ogham Text</td>
+					<td><code>ogham-text</code></td>
+					<td style="text-align: right">2</td>
+			</tr>
+			<tr>
+					<td>Trick Unicode</td>
+					<td><code>trick-unicode</code></td>
+					<td style="text-align: right">5</td>
+			</tr>
+			<tr>
+					<td>Zalgo Text</td>
+					<td><code>zalgo-text</code></td>
+					<td style="text-align: right">5</td>
+			</tr>
+			<tr>
+					<td>Unicode Upsidedown</td>
+					<td><code>unicode-upsidedown</code></td>
+					<td style="text-align: right">2</td>
+			</tr>
+			<tr>
+					<td>Unicode font</td>
+					<td><code>unicode-font</code></td>
+					<td style="text-align: right">8</td>
+			</tr>
+			<tr>
+					<td>Script Injection</td>
+					<td><code>script-injection</code></td>
+					<td style="text-align: right">236</td>
+			</tr>
+			<tr>
+					<td>SQL Injection</td>
+					<td><code>sql-injection</code></td>
+					<td style="text-align: right">8</td>
+			</tr>
+			<tr>
+					<td>Server Code Injection</td>
+					<td><code>server-code-injection</code></td>
+					<td style="text-align: right">9</td>
+			</tr>
+			<tr>
+					<td>Command Injection (Ruby)</td>
+					<td><code>command-injection-ruby</code></td>
+					<td style="text-align: right">7</td>
+			</tr>
+			<tr>
+					<td>Unwanted Interpolation</td>
+					<td><code>unwanted-interpolation</code></td>
+					<td style="text-align: right">9</td>
+			</tr>
+			<tr>
+					<td>File Inclusion</td>
+					<td><code>file-inclusion</code></td>
+					<td style="text-align: right">2</td>
+			</tr>
+			<tr>
+					<td>Known CVEs and Vulnerabilities</td>
+					<td><code>known-cves-and-vulnerabilities</code></td>
+					<td style="text-align: right">4</td>
+			</tr>
+			<tr>
+					<td>MSDOS/Windows Special Filenames</td>
+					<td><code>msdos-windows-special-filenames</code></td>
+					<td style="text-align: right">15</td>
+			</tr>
+			<tr>
+					<td>Scunthorpe Problem</td>
+					<td><code>scunthorpe-problem</code></td>
+					<td style="text-align: right">22</td>
+			</tr>
+			<tr>
+					<td>Human injection</td>
+					<td><code>human-injection</code></td>
+					<td style="text-align: right">1</td>
+			</tr>
+			<tr>
+					<td>Terminal escape codes</td>
+					<td><code>terminal-escape-codes</code></td>
+					<td style="text-align: right">3</td>
+			</tr>
+			<tr>
+					<td>iOS Vulnerabilities</td>
+					<td><code>ios-vulnerabilities</code></td>
+					<td style="text-align: right">6</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="building">Building</h2>
+<p>Building needs JDK 25 (see <code>.sdkmanrc</code>); the JARs target Java 17.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./gradlew build                          <span class="c1"># tests plus the standalone smoke test</span>
+</span></span><span class="line"><span class="cl">./gradlew <span class="nb">test</span> smokeTest -PtestJava<span class="o">=</span><span class="m">17</span>   <span class="c1"># run the tests on a Java 17 JVM</span>
+</span></span><span class="line"><span class="cl">./gradlew shadowJar                      <span class="c1"># build/libs/wiremock-blns-extension-&lt;version&gt;-standalone.jar</span>
+</span></span></code></pre></div><p>Publishing a GitHub Release publishes both artifacts to Maven Central, with the
+version taken from the tag (<code>v1.2.3</code> → <code>1.2.3</code>).</p>
+<h2 id="licence">Licence</h2>
+<p>This extension is licensed under the <a href="https://github.com/leeturner/wiremock-blns-extension/blob/HEAD/LICENSE">Apache License 2.0</a>.</p>
+<p>The Big List of Naughty Strings is © Max Woolf and licensed under the MIT licence.
+A copy is bundled at
+<a href="https://github.com/leeturner/wiremock-blns-extension/blob/HEAD/src/main/resources/blns/LICENSE"><code>src/main/resources/blns/LICENSE</code></a> and ships
+inside both JARs.</p>
+<!-- src/main/resources/blns/blns.txt is vendored from minimaxir/big-list-of-naughty-strings
+     at commit db33ec7b1d5d9616a88c76394b7d0897bd0b97eb (MIT licence alongside it). -->
+
+      </div>
+    </div>
+  </article>
+</div>
+
+  </main><footer class="site-footer">
+  <div class="wrap">
+    <div class="social-links">
+      <a href="https://github.com/leeturner">GitHub</a>
+      <a href="https://hachyderm.io/@leeturner" rel="me">Mastodon</a>
+      <a href="https://bsky.app/profile/leeturner.bsky.social">Bluesky</a>
+      <a href="https://www.linkedin.com/in/turnerlee/">LinkedIn</a>
+      <a href="https://x.com/leeturner">X</a>
+      <a href="https://youtube.com/@leeturner">YouTube</a>
+      <a href="https://stackoverflow.com/users/11251979/lee-turner">Stack Overflow</a>
+      <a href="/index.xml">RSS</a>
+    </div>
+    <span>© 2026 Lee Turner · <a href="/privacy/">Privacy</a></span>
+  </div>
+</footer>
+
+  <script src="/js/site.min.373292f461d4d2a7a600be3365fe40b067adf5890a053675a1760de6e7fc2f4b.js" integrity="sha256-NzKS9GHU0qemAL4zZf5AsGet9YkKBTZ1oXYN5uf8L0s=" defer></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conway&#39;s Game of Life · Lee Turner</title>
+<meta name="description" content="A terminal based Game of Life written in Kotlin using Micronaut and functional programming with Arrow. The universe wraps around like a torus and can be …">
+<meta name="keywords" content="lee, turner, lee turner, hacking, software engineering, security, coding">
+<meta name="author" content="Lee Turner">
+<link rel="canonical" href="https://leeturner.me/projects/conways-game-of-life/">
+
+<meta property="og:site_name" content="Lee Turner">
+<meta property="og:title" content="Conway&#39;s Game of Life · Lee Turner">
+<meta property="og:description" content="A terminal based Game of Life written in Kotlin using Micronaut and functional programming with Arrow. The universe wraps around like a torus and can be …">
+<meta property="og:url" content="https://leeturner.me/projects/conways-game-of-life/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leeturner.me/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" href="https://leeturner.me/index.xml" title="Lee Turner">
+
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme') || localStorage.getItem('cleanwhite-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/main.min.74fd232717ea5d6f5b8fee44cc9076ab1071b61374d0b137ffccb645accc4ce8.css" integrity="sha256-dP0jJxfqXW9bj&#43;5EzJB2qxBxthN00LE3/8y2RazMTOg=">
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">Lee Turner<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/microblog/">Microblog</a>
+      <a href="/now/">Now</a>
+      <a href="/about/">About</a>
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="https://leeturner.tech">Resume</a>
+      <a href="/archive/">Archive</a>
+    </nav>
+    <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+  <main id="main">
+<div class="wrap">
+  <article class="project-page">
+    <header class="project-head">
+      <a class="back-link" href="/projects/">← All projects</a>
+      <div class="pills"><span>kotlin</span><span>micronaut</span>
+      </div>
+      <h1>Conway&#39;s Game of Life</h1><p class="lede">A terminal based Game of Life written in Kotlin using Micronaut and functional programming with Arrow. The universe wraps around like a torus and can be rendered in the terminal with ANSI colours or in a KorGE 2D window.</p>
+      <div class="project-actions">
+        <a class="button-pill accent" href="https://github.com/leeturner/conways-game-of-life-kotlin">View on GitHub</a>
+        <a class="button-pill" href="https://github.com/leeturner/conways-game-of-life-kotlin/issues">Issues</a>
+      </div>
+    </header>
+    <div class="project-body has-toc">
+      <nav class="project-toc" aria-label="On this page">
+        <details open>
+          <summary>On this page</summary>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a>
+      <ul>
+        <li><a href="#features">Features</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-rules">The Rules</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#technology-stack">Technology Stack</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#building">Building</a></li>
+    <li><a href="#running">Running</a>
+      <ul>
+        <li><a href="#using-gradle">Using Gradle</a></li>
+        <li><a href="#using-the-distribution">Using the Distribution</a></li>
+        <li><a href="#command-line-options">Command-Line Options</a></li>
+      </ul>
+    </li>
+    <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#code-quality">Code Quality</a></li>
+    <li><a href="#implementation-details">Implementation Details</a>
+      <ul>
+        <li><a href="#universe-representation">Universe Representation</a></li>
+        <li><a href="#tick-algorithm-optimization">Tick Algorithm Optimization</a></li>
+        <li><a href="#error-handling">Error Handling</a></li>
+      </ul>
+    </li>
+    <li><a href="#cicd">CI/CD</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#author">Author</a></li>
+  </ul>
+</nav>
+        </details>
+      </nav>
+      <div class="prose">
+        <p>A terminal-based implementation of <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway&rsquo;s Game of Life</a>
+written in Kotlin, using the Micronaut framework and functional programming with Arrow.</p>
+<h2 id="overview">Overview</h2>
+<p>This project implements the classic cellular automaton devised by mathematician John Conway. The simulation runs
+in your terminal with colorized output, displaying generations of cells evolving, according to simple rules that
+create complex and fascinating patterns.</p>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>Toroidal Universe</strong>: The grid wraps around like a torus - cells at edges interact with cells on opposite edges</li>
+<li><strong>Optimized Algorithm</strong>: Only checks alive cells and their neighbors instead of the entire grid for better performance</li>
+<li><strong>Terminal Rendering</strong>: Real-time visualization in your terminal with ANSI color support</li>
+<li><strong>KorGE Window Rendering</strong>: Optionally draw the universe in a <a href="https://korge.org/">KorGE</a> 2D window with <code>--renderer korge</code></li>
+<li><strong>Configurable Grid Size</strong>: Customize the universe dimensions with command-line options</li>
+<li><strong>Random Initial State</strong>: Generates random starting configurations for exploration</li>
+<li><strong>Functional Error Handling</strong>: Uses Arrow&rsquo;s <code>Either</code> type for robust error handling</li>
+</ul>
+<h2 id="the-rules">The Rules</h2>
+<p>Conway&rsquo;s Game of Life follows four simple rules:</p>
+<ol>
+<li><strong>Underpopulation</strong>: Any live cell with fewer than two live neighbours dies</li>
+<li><strong>Survival</strong>: Any live cell with two or three live neighbours lives on to the next generation</li>
+<li><strong>Overpopulation</strong>: Any live cell with more than three live neighbours dies</li>
+<li><strong>Reproduction</strong>: Any dead cell with exactly three live neighbours becomes a live cell</li>
+</ol>
+<h2 id="screenshots">Screenshots</h2>
+<p><img src="/projects/conways-game-of-life/cgolk.3b1da865ccc099d080a525ef6a36a4912cebf3650d6230bce1667426e803b020.gif" alt="Animated GIF of GOL" title="Animated Terminal GOL" loading="lazy"></p>
+<p><img src="/projects/conways-game-of-life/korge.1f5e39e8abce31783b778bbf80311ea6b1a68525f96606edf1a022fe607b1ce0.png" alt="Screenshot of the KorGE window" title="KorGE Window GOL" loading="lazy"></p>
+<h2 id="technology-stack">Technology Stack</h2>
+<ul>
+<li><strong>Language</strong>: Kotlin with JVM 25</li>
+<li><strong>Framework</strong>: Micronaut (for dependency injection and CLI)</li>
+<li><strong>CLI</strong>: Picocli (command-line interface)</li>
+<li><strong>Functional Programming</strong>: Arrow Core (for Either, functional error handling)</li>
+<li><strong>Build Tool</strong>: Gradle with Kotlin DSL</li>
+<li><strong>Testing</strong>: JUnit 5 with Strikt assertions</li>
+<li><strong>Code Quality</strong>: Detekt (static analysis) and Kotlinter (formatting)</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Java 25 or higher</li>
+<li>Gradle (wrapper included)</li>
+</ul>
+<h2 id="building">Building</h2>
+<p>Build the project using the Gradle wrapper:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew build
+</span></span></code></pre></div><p>This will:</p>
+<ul>
+<li>Compile the Kotlin source code</li>
+<li>Run all tests</li>
+<li>Run code quality checks (Detekt, Kotlinter)</li>
+<li>Create executable distributions</li>
+</ul>
+<h2 id="running">Running</h2>
+<h3 id="using-gradle">Using Gradle</h3>
+<p>Run with default settings (64x64 grid):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew run
+</span></span></code></pre></div><p>Run with custom grid size:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew run --args<span class="o">=</span><span class="s2">&#34;--grid-size 32&#34;</span>
+</span></span></code></pre></div><p>Run in a KorGE 2D window instead of the terminal:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew run --args<span class="o">=</span><span class="s2">&#34;--renderer korge&#34;</span>
+</span></span></code></pre></div><h3 id="using-the-distribution">Using the Distribution</h3>
+<p>After building, you can run the standalone application:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./build/distributions/golk/bin/golk
+</span></span></code></pre></div><p>Or with options:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./build/distributions/golk/bin/golk --grid-size <span class="m">100</span>
+</span></span></code></pre></div><h3 id="command-line-options">Command-Line Options</h3>
+<ul>
+<li><code>-g, --grid-size &lt;size&gt;</code>: Set the grid size, from 3 to 256 (default: 64)</li>
+<li><code>-r, --renderer &lt;terminal|korge&gt;</code>: Draw in the terminal or a KorGE window (default: terminal)</li>
+<li><code>-h, --help</code>: Show help message and exit</li>
+</ul>
+<h2 id="project-structure">Project Structure</h2>
+<pre tabindex="0"><code>src/
+├── main/kotlin/com/leeturner/cgol/
+│   ├── GameOfLifeCommand.kt         # CLI entry point and simulation runner
+│   ├── engine/
+│   │   └── Universe.kt              # Core game logic and rules
+│   └── ui/
+│       └── UniverseRenderer.kt      # Terminal rendering with ANSI colors
+└── test/kotlin/com/leeturner/cgol/
+    └── engine/
+        ├── UniverseCreationTests.kt # Tests for universe validation
+        └── UniverseRulesTests.kt    # Tests for Conway&#39;s rules and patterns
+</code></pre><h2 id="configuration">Configuration</h2>
+<p>The application can be configured via <code>src/main/resources/application.properties</code>:</p>
+<ul>
+<li><code>universe.renderer.alive-cell-color</code>: ANSI color code for alive cells (default: green)</li>
+<li><code>universe.renderer.dead-cell-color</code>: ANSI color code for dead cells (default: gray)</li>
+</ul>
+<p>Available ANSI color codes:</p>
+<ul>
+<li><code>\u001b[31m</code> - Red</li>
+<li><code>\u001b[32m</code> - Green</li>
+<li><code>\u001b[33m</code> - Yellow</li>
+<li><code>\u001b[34m</code> - Blue</li>
+<li><code>\u001b[35m</code> - Magenta</li>
+<li><code>\u001b[36m</code> - Cyan</li>
+<li><code>\u001b[90m</code> - Gray</li>
+<li><code>\u001b[91m</code> - Bright Red</li>
+<li><code>\u001b[92m</code> - Bright Green</li>
+<li><code>\u001b[94m</code> - Bright Blue</li>
+</ul>
+<h2 id="testing">Testing</h2>
+<p>Run all tests:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew <span class="nb">test</span>
+</span></span></code></pre></div><p>The test suite includes:</p>
+<ul>
+<li><strong>Rules Tests</strong>: Verification of all four Conway&rsquo;s Game of Life rules</li>
+<li><strong>Toroidal Universe Tests</strong>: Ensures proper wrapping behavior at grid edges</li>
+<li><strong>Still Life Patterns</strong>: Tests for stable patterns (block, bee-hive, tub)</li>
+<li><strong>Oscillator Patterns</strong>: Tests for repeating patterns (blinker, toad, beacon)</li>
+<li><strong>Universe Creation</strong>: Validation tests for grid size, coordinates, and initial state</li>
+</ul>
+<h2 id="code-quality">Code Quality</h2>
+<p>Run static analysis with Detekt:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew detekt
+</span></span></code></pre></div><p>Check code formatting with Kotlinter:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew lintKotlin
+</span></span></code></pre></div><p>Auto-format code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew formatKotlin
+</span></span></code></pre></div><h2 id="implementation-details">Implementation Details</h2>
+<h3 id="universe-representation">Universe Representation</h3>
+<p>The universe is represented as a <code>Set&lt;Coordinate&gt;</code> containing only alive cells. This sparse representation:</p>
+<ul>
+<li>Reduces memory usage for typical Game of Life patterns</li>
+<li>Speeds up the tick algorithm by avoiding checks of empty space</li>
+<li>Allows for efficient lookup of cell states</li>
+</ul>
+<h3 id="tick-algorithm-optimization">Tick Algorithm Optimization</h3>
+<p>Instead of checking all <code>gridSize × gridSize</code> cells each generation, the algorithm:</p>
+<ol>
+<li>Collects all alive cells</li>
+<li>Gathers all neighbors of alive cells</li>
+<li>Only evaluates rules for this combined set</li>
+<li>Typically processes far fewer cells than the full grid</li>
+</ol>
+<p>This optimization is particularly effective for sparse populations, which are common in Conway&rsquo;s Game of Life.</p>
+<h3 id="error-handling">Error Handling</h3>
+<p>The project uses functional error handling with Arrow&rsquo;s <code>Either</code> type:</p>
+<ul>
+<li><code>UniverseMinimumSizeError</code>: Grid size must be at least 3×3</li>
+<li><code>UniverseCoordinatesOutOfBoundsError</code>: Initial cells must be within grid bounds</li>
+<li><code>UniverseNoAliveCells</code>: Universe must have at least one alive cell</li>
+</ul>
+<h2 id="cicd">CI/CD</h2>
+<p>The project includes GitHub Actions workflows:</p>
+<ul>
+<li><strong>Build Workflow</strong>: Compiles and tests on every push/PR to main</li>
+<li><strong>Dependabot</strong>: Automated dependency updates and security alerts</li>
+</ul>
+<h2 id="license">License</h2>
+<p>This is a personal project for educational purposes.</p>
+<h2 id="author">Author</h2>
+<p>Created by Lee Turner</p>
+
+      </div>
+    </div>
+  </article>
+</div>
+
+  </main><footer class="site-footer">
+  <div class="wrap">
+    <div class="social-links">
+      <a href="https://github.com/leeturner">GitHub</a>
+      <a href="https://hachyderm.io/@leeturner" rel="me">Mastodon</a>
+      <a href="https://bsky.app/profile/leeturner.bsky.social">Bluesky</a>
+      <a href="https://www.linkedin.com/in/turnerlee/">LinkedIn</a>
+      <a href="https://x.com/leeturner">X</a>
+      <a href="https://youtube.com/@leeturner">YouTube</a>
+      <a href="https://stackoverflow.com/users/11251979/lee-turner">Stack Overflow</a>
+      <a href="/index.xml">RSS</a>
+    </div>
+    <span>© 2026 Lee Turner · <a href="/privacy/">Privacy</a></span>
+  </div>
+</footer>
+
+  <script src="/js/site.min.373292f461d4d2a7a600be3365fe40b067adf5890a053675a1760de6e7fc2f4b.js" integrity="sha256-NzKS9GHU0qemAL4zZf5AsGet9YkKBTZ1oXYN5uf8L0s=" defer></script>
+</body>
+</html>

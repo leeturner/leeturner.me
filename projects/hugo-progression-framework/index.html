@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hugo Progression Framework · Lee Turner</title>
+<meta name="description" content="A Hugo template that renders progression frameworks using the same data format as the Monzo progression framework.">
+<meta name="keywords" content="lee, turner, lee turner, hacking, software engineering, security, coding">
+<meta name="author" content="Lee Turner">
+<link rel="canonical" href="https://leeturner.me/projects/hugo-progression-framework/">
+
+<meta property="og:site_name" content="Lee Turner">
+<meta property="og:title" content="Hugo Progression Framework · Lee Turner">
+<meta property="og:description" content="A Hugo template that renders progression frameworks using the same data format as the Monzo progression framework.">
+<meta property="og:url" content="https://leeturner.me/projects/hugo-progression-framework/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leeturner.me/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" href="https://leeturner.me/index.xml" title="Lee Turner">
+
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme') || localStorage.getItem('cleanwhite-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/main.min.74fd232717ea5d6f5b8fee44cc9076ab1071b61374d0b137ffccb645accc4ce8.css" integrity="sha256-dP0jJxfqXW9bj&#43;5EzJB2qxBxthN00LE3/8y2RazMTOg=">
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">Lee Turner<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/microblog/">Microblog</a>
+      <a href="/now/">Now</a>
+      <a href="/about/">About</a>
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="https://leeturner.tech">Resume</a>
+      <a href="/archive/">Archive</a>
+    </nav>
+    <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+  <main id="main">
+<div class="wrap">
+  <article class="project-page">
+    <header class="project-head">
+      <a class="back-link" href="/projects/">← All projects</a>
+      <div class="pills"><span>hugo</span>
+      </div>
+      <h1>Hugo Progression Framework</h1><p class="lede">A Hugo template that renders progression frameworks using the same data format as the Monzo progression framework.</p>
+      <div class="project-actions">
+        <a class="button-pill accent" href="https://github.com/leeturner/hugo-progression">View on GitHub</a>
+        <a class="button-pill" href="https://github.com/leeturner/hugo-progression/issues">Issues</a><a class="button-pill" href="/posts/hugo-progression-framework/">Read the post</a>
+      </div>
+    </header>
+    <div class="project-body has-toc">
+      <nav class="project-toc" aria-label="On this page">
+        <details open>
+          <summary>On this page</summary>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-progression-frameworks-">What Are Progression Frameworks ?</a>
+      <ul>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-build-your-progression-framework-with-hugo-progression">How To Build Your Progression Framework With Hugo Progression</a>
+      <ul>
+        <li><a href="#1-installation">1) Installation</a></li>
+        <li><a href="#2-setup-your-framework-data--content">2) Setup Your Framework Data &amp; Content</a></li>
+        <li><a href="#3-nearly-finished">3) Nearly finished</a></li>
+      </ul>
+    </li>
+    <li><a href="#production">Production</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+  </ul>
+</nav>
+        </details>
+      </nav>
+      <div class="prose">
+        <p>Hugo Progression is a <a href="https://gohugo.io/">Hugo</a> template that can render progression frameworks using the same data format as the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
+<p><img src="/projects/hugo-progression-framework/hugo-progression-screenshot.84f0275559c54f56adecdb6ff3c2570b9ebc2d5989e63663e03d248c64213e2a.png" alt="Hugo Progression Screenshot" title="Hugo Progression Screenshot" loading="lazy"></p>
+<p>A full demo of this template (and the site contained within the <code>exampleSite</code> folder) can be found at the <a href="https://leeturner.github.io/hugo-progression-demo/">Hugo Progression Demo Site</a></p>
+<h2 id="what-are-progression-frameworks-">What Are Progression Frameworks ?</h2>
+<p>A progression framework (or ‘competency matrix’, ‘career ladder’, ‘career pathway’) is a tool to help people within an organisation understand where they currently are and how to progress and grow in their work.  It also helps an organisation map people&rsquo;s competencies (their skills and knowledge) to compensation (how they&rsquo;re rewarded for them financially).</p>
+<p>When done right, a tool like this helps employees to grow and hone their strengths, and helps managers ensure that their organisations are in good shape and their employees happy.</p>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><a href="https://monzo.com/blog/2019/01/07/progression">https://monzo.com/blog/2019/01/07/progression</a></li>
+<li><a href="https://github.com/monzo/progression-framework">https://github.com/monzo/progression-framework</a></li>
+<li><a href="https://www.progression.fyi/">https://www.progression.fyi/</a></li>
+</ul>
+<h2 id="how-to-build-your-progression-framework-with-hugo-progression">How To Build Your Progression Framework With Hugo Progression</h2>
+<p>Everything discussed here can be found in the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite"><code>exampleSite</code></a> folder within this repository.</p>
+<h3 id="1-installation">1) Installation</h3>
+<p>Navigate to your themes folder in your Hugo site and use the following commands:</p>
+<pre tabindex="0"><code>cd themes/
+git clone https://github.com/leeturner/hugo-progression.git
+</code></pre><p>If you don&rsquo;t want to clone the theme you can add it as a git submodule. Inside the folder of your Hugo site run:</p>
+<pre tabindex="0"><code>git submodule add https://github.com/leeturner/hugo-progression.git themes/hugo-progression
+</code></pre><p>For more information read the <a href="https://gohugo.io/overview/installing/">official setup guide</a> of Hugo.</p>
+<h3 id="2-setup-your-framework-data--content">2) Setup Your Framework Data &amp; Content</h3>
+<p>Due to some restrictions in what data <code>hugo</code> allows in the markdown front matter along with how you reference data files in <code>hugo</code>, an individual framework needs to consist of 3 things:</p>
+<ul>
+<li>a markdown page that contains the homepage of the framework</li>
+<li>a data <code>yml</code> file containing the content for each level of the framework</li>
+<li>a hugo html partial that links the above together.</li>
+</ul>
+<pre tabindex="0"><code>+-----------+       +------------+       +------------+          +-------------+
+| Markdown  |       |    html    |       |  data yml  |          | Individual  |
+|   file    |------&gt;|   partial  |------&gt;|    file    |     =    | Progression |
+|           |       |            |       |            |          |  Framework  |
++-----------+       +------------+       +------------+          +-------------+
+</code></pre><h4 id="21-create-your-framework-data-files">2.1) Create Your Framework Data Files</h4>
+<p>In this step we will create the <code>hugo</code> data file that contains the data for the different areas and levels for an individual framework.  These data files are <code>yml</code> and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">topics</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;communication&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;💬 Communication&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">criteria</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Provides regular status updates to their mentor/buddy&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Points out syntactical improvements in code reviews&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Writes PR descriptions that provide basic context for the change&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Seeks guidance from other engineers, rather than answers&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">criteria</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Proactively communicates to their team what they are working on, why, how it&#39;s going and what help they need&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Accepts feedback graciously&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Gives feedback to peers when asked&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">exampleCriteria</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">criteria</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Provides helpful and actionable feedback in code reviews in an empathetic manner&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span>- <span class="s2">&#34;Take a look at the levelling up your code reviews talk for some ideas&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">criteria</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Writes PR descriptions that provide context and provide rationale for significant decisions&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">examples</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span>- <span class="s2">&#34;I decided to X instead of Y here, I also considered Z but for these reasons I went with X&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;impact&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;💥 Impact&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">criteria</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Delivers assigned tasks, working with a more senior team member, and able to take PR feedback to improve their work&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">criteria</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Delivers assigned tasks that meet expected criteria&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Works for the team, focuses on tasks that contribute to team goals&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Tries to unblock themselves first before seeking help&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Manages their own time effectively, prioritises their workload well, on time for meetings, aware when blocking others and unblocks&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Helps the team, does what needs doing&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="s2">&#34;Breaks down small/medium problems into iterative steps&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>These framework data files need to be placed in the <code>data</code> folder for your <code>hugo</code> site.  They can be structured into sub-folders if you wish:</p>
+<pre tabindex="0"><code>data
+  frameworks
+    engineering
+      backend.yml
+      data.yml
+      mobile.yml
+      qualityanalyst.yml
+      web.yml
+    operations
+      opsindividualcontributor.yml
+      opsleadership.yml
+    generic.yml
+    marketing.yml
+    people.yml
+    product.yml
+</code></pre><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/data/frameworks">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<h4 id="22-create-the-markdown-page-with-front-matter--content-for-the-framework-homepage">2.2) Create The Markdown Page With Front Matter &amp; Content For The Framework Homepage</h4>
+<p>For any of the frameworks to appear in your <code>hugo</code> site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any <code>hugo</code> site, these markdown files live in the <code>content</code> folder.  The front matter can contain all the usual <code>hugo</code> fields along with a couple of special fields specific to <code>hugo-progression</code>.  See the example below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">🛠️ Backend Engineering Framework</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">linktitle</span><span class="p">:</span><span class="w"> </span><span class="l">🛠️ Backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Backend engineering progression framework</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">menu</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">main</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parent</span><span class="p">:</span><span class="w"> </span><span class="l">engineering</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">levels</span><span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">datafilepartial</span><span class="p">:</span><span class="w"> </span><span class="l">engineering/backend-partial.html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><p>The two fields that are specific to <code>hugo-progression</code> are <code>levels</code> and <code>datafilepartial</code>.  The <code>levels</code> field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework <code>yml</code> data file.  This will also determine how many levels are created in the menu when the site is generated:</p>
+<p><img src="/projects/hugo-progression-framework/hugo-progression-levels.b9639fe09192f4a77ad6f66c0260ba30ded3c1b467d2e34d888332838d147000.png" alt="Hugo Progression Levels" title="Hugo Progression Levels" loading="lazy"></p>
+<p>The <code>datafilepartial</code> field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step</p>
+<p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/content">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<h4 id="23-create-the-html-partial">2.3) Create The HTML Partial</h4>
+<p>Because <code>hugo</code> won&rsquo;t allow us to specify a data file in the front matter of a markdown file we have to create a simple <code>hugo</code> html partial file for each framework data file to get around this.  If you want to understand more about this restriction in <code>hugo</code> take a look at this article by <a href="https://michele.io/">Michele Titolo</a> which helped me understand how to work around it - <a href="https://michele.io/content-data-hugo/">https://michele.io/content-data-hugo/</a></p>
+<p>I have tried to take out all the common elements make sure the html partial files are as small as possible, and the below example is as small as I could get it.</p>
+<pre tabindex="0"><code class="language-gotemplate" data-lang="gotemplate">{{ $this_parent_index := .parent_index}}
+{{ range .site_data.frameworks.engineering.backend.topics }}
+{{ partial &#34;topic-by-level.html&#34; (dict &#34;context&#34; . &#34;parent_index&#34; $this_parent_index) }}
+{{ end }}
+</code></pre><p>As you can see, the one line that is specific to the data file is the <code>range</code> line:</p>
+<pre tabindex="0"><code class="language-gotemplate" data-lang="gotemplate">{{ range .site_data.frameworks.engineering.backend.topics }}
+</code></pre><p>This line will change for each of the html partial files but all the rest will stay the same.  The path to the <code>topics</code> effectively matches the folder structure you used when you created your data files. To keep things consistent I store my html partials in the same directory structure as my data files:</p>
+<pre tabindex="0"><code>layouts
+  partials
+    engineering
+      backend-partial.html
+      data-partial.html
+      mobile-partial.html
+      qualityanalyst-partial.html
+      web-partial.html
+    operations
+      opsindividualcontributor-partial.html
+      opsleadership-partial.html
+    generic-partial.html
+    marketing-partial.html
+    people-partial.html
+    product-partial.html
+</code></pre><p>Once you have created your html partial file that references the framework data file, make sure you are correctly referencing the html partial in your markdown file as in the example above:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">datafilepartial</span><span class="p">:</span><span class="w"> </span><span class="l">engineering/backend-partial.html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
+<h3 id="3-nearly-finished">3) Nearly finished</h3>
+<p>In order to see your site in action, run Hugo&rsquo;s built-in local server.</p>
+<p><code>$ hugo server</code></p>
+<p>Now enter <a href="http://localhost:1313/"><code>localhost:1313</code></a> in the address bar of your browser.</p>
+<h2 id="production">Production</h2>
+<p>To run in production, run <code>HUGO_ENV=production</code> before your build command. For example:</p>
+<pre tabindex="0"><code>HUGO_ENV=production hugo
+</code></pre><p>Note: The above command will not work on Windows. If you are running a Windows OS, use the below command:</p>
+<pre tabindex="0"><code>set HUGO_ENV=production
+hugo
+</code></pre><h2 id="contributing">Contributing</h2>
+<p>If you find a bug or have an idea for a feature, feel free to use the <a href="https://github.com/leeturner/hugo-progression/issues">issue tracker</a> to let me know.</p>
+<p>If you want to implement new features on the Hugo Progression template, please see the <a href="https://github.com/leeturner/hugo-progression/blob/main/TODO.md">TODO</a> file for ideas of where to start.</p>
+
+      </div>
+    </div>
+  </article>
+</div>
+
+  </main><footer class="site-footer">
+  <div class="wrap">
+    <div class="social-links">
+      <a href="https://github.com/leeturner">GitHub</a>
+      <a href="https://hachyderm.io/@leeturner" rel="me">Mastodon</a>
+      <a href="https://bsky.app/profile/leeturner.bsky.social">Bluesky</a>
+      <a href="https://www.linkedin.com/in/turnerlee/">LinkedIn</a>
+      <a href="https://x.com/leeturner">X</a>
+      <a href="https://youtube.com/@leeturner">YouTube</a>
+      <a href="https://stackoverflow.com/users/11251979/lee-turner">Stack Overflow</a>
+      <a href="/index.xml">RSS</a>
+    </div>
+    <span>© 2026 Lee Turner · <a href="/privacy/">Privacy</a></span>
+  </div>
+</footer>
+
+  <script src="/js/site.min.373292f461d4d2a7a600be3365fe40b067adf5890a053675a1760de6e7fc2f4b.js" integrity="sha256-NzKS9GHU0qemAL4zZf5AsGet9YkKBTZ1oXYN5uf8L0s=" defer></script>
+</body>
+</html>
