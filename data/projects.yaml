@@ -76,8 +76,8 @@
   tags: [kotlin, micronaut, testing]
   summary: >-
     A simple Kotlin and Micronaut service that receives callbacks, useful when testing APIs locally that send
-    them. It logs every POST or PUT it receives, has a simple web UI, and lets you define custom endpoints
-    with your own response code and payload.
+    them. It records every request sent to it, whatever the path or method, shows them in a live web UI and
+    lets you set the response code and payload.
 
 - name: image-term
   repo: leeturner/image-term
