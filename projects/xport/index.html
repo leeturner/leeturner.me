@@ -68,6 +68,8 @@
         <a class="button-pill accent" href="https://github.com/leeturner/xport">View on GitHub</a>
         <a class="button-pill" href="https://github.com/leeturner/xport/issues">Issues</a><a class="button-pill" href="/microblog/">See the microblog</a>
       </div>
+      <div class="badges"><a href="https://github.com/leeturner/xport/actions/workflows/build.yml"><img src="https://github.com/leeturner/xport/actions/workflows/build.yml/badge.svg" alt="Build" loading="lazy"></a><a href="https://github.com/leeturner/xport/blob/HEAD/LICENSE"><img src="https://img.shields.io/github/license/leeturner/xport" alt="Licence" loading="lazy"></a>
+      </div>
     </header>
     <div class="project-body has-toc">
       <nav class="project-toc" aria-label="On this page">
@@ -76,87 +78,87 @@
           <nav id="TableOfContents">
   <ul>
     <li><a href="#features">Features</a></li>
-    <li><a href="#installation">Installation</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#building-from-source">Building from Source</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a>
-      <ul>
-        <li><a href="#arguments">Arguments</a></li>
-        <li><a href="#options">Options</a></li>
-        <li><a href="#examples">Examples</a></li>
-      </ul>
-    </li>
-    <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#output-format">Output Format</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#install">Install</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="#output">Output</a></li>
+    <li><a href="#licence">Licence</a></li>
   </ul>
 </nav>
         </details>
       </nav>
       <div class="prose">
-        <p>Xport is a command-line tool built with Kotlin and Micronaut that processes Twitter data exports, converting them from
-JavaScript format to standard JSON and then to Hugo-compatible Markdown.</p>
+        <p>A command line tool, written in Kotlin and Micronaut, that converts an X/Twitter data export into Markdown files for
+<a href="https://gohugo.io/">Hugo</a>. Each tweet becomes its own file with its original timestamp, and its images and videos
+come along too. I used it to bring my old tweets over to the <a href="https://leeturner.me/microblog/">microblog on my site</a>.</p>
 <h2 id="features">Features</h2>
 <ul>
-<li>Converts Twitter archive data from JavaScript format to JSON</li>
-<li>Transforms tweets into Hugo-compatible Markdown files</li>
-<li>Preserves tweet media (images, videos)</li>
-<li>Maintains original tweet timestamps</li>
-<li>Provides verbose output option for detailed processing information</li>
+<li>Turns every tweet in the archive into a Hugo Markdown file with front matter</li>
+<li>Keeps the original timestamps, for both the file names and the post dates</li>
+<li>Copies images and videos from the archive and links them in each post</li>
+<li>Expands <code>t.co</code> short links back to the original URLs</li>
+<li>Optionally leaves out replies to other people&rsquo;s tweets</li>
 </ul>
-<h2 id="installation">Installation</h2>
-<h3 id="prerequisites">Prerequisites</h3>
+<h2 id="requirements">Requirements</h2>
 <ul>
-<li>Java 21 or higher</li>
-<li>Gradle (for building from source)</li>
+<li>Java 25 or later</li>
 </ul>
-<h3 id="building-from-source">Building from Source</h3>
-<ol>
-<li>
-<p>Clone the repository:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/yourusername/xport.git
+<h2 id="install">Install</h2>
+<p>There are no releases yet, so build it from source:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/leeturner/xport.git
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> xport
-</span></span></code></pre></div></li>
-<li>
-<p>Build the project:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew build
-</span></span></code></pre></div></li>
-<li>
-<p>Create a native executable (optional):</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew nativeCompile
-</span></span></code></pre></div></li>
-</ol>
+</span></span><span class="line"><span class="cl">./gradlew installDist
+</span></span></code></pre></div><p>This puts the <code>xport</code> command in <code>build/install/xport/bin</code>. To build a native executable instead, use
+<code>./gradlew nativeCompile</code> with GraalVM.</p>
 <h2 id="usage">Usage</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xport <span class="o">[</span>OPTIONS<span class="o">]</span> &lt;archive-directory&gt; &lt;output-directory&gt;
-</span></span></code></pre></div><h3 id="arguments">Arguments</h3>
-<ul>
-<li><code>&lt;archive-directory&gt;</code>: Path to the Twitter archive directory (containing the &ldquo;data&rdquo; folder)</li>
-<li><code>&lt;output-directory&gt;</code>: Path to the output directory (must exist and be empty)</li>
-</ul>
-<h3 id="options">Options</h3>
-<ul>
-<li><code>-a, --author</code>: Author name for generated markdown files</li>
-<li><code>-f, --filter-replies</code>: Filter out tweets that are replying to another tweet</li>
-<li><code>-m, --media-path</code>: Path to be appended to media URLs in generated markdown files</li>
-<li><code>-h, --help</code>: Show help message and exit</li>
-<li><code>-v, --verbose</code>: Enable verbose output</li>
-<li><code>-V, --version</code>: Show version information and exit</li>
-</ul>
-<h3 id="examples">Examples</h3>
-<p>Basic usage:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xport ~/Downloads/twitter-archive ~/Documents/my-tweets
-</span></span></code></pre></div><p>With verbose output:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xport -v ~/Downloads/twitter-archive ~/Documents/my-tweets
-</span></span></code></pre></div><p>Specifying an author and filtering out replies:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xport -a <span class="s2">&#34;John Doe&#34;</span> -f ~/Downloads/twitter-archive ~/Documents/my-tweets
-</span></span></code></pre></div><p>Setting a custom media path:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xport -m <span class="s2">&#34;/images/tweets&#34;</span> ~/Downloads/twitter-archive ~/Documents/my-tweets
-</span></span></code></pre></div><p>Using multiple options:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xport -v -a <span class="s2">&#34;John Doe&#34;</span> -m <span class="s2">&#34;/images/tweets&#34;</span> -f ~/Downloads/twitter-archive ~/Documents/my-tweets
-</span></span></code></pre></div><h2 id="how-it-works">How It Works</h2>
+</span></span></code></pre></div><table>
+	<thead>
+			<tr>
+					<th>Argument or option</th>
+					<th>Meaning</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>&lt;archive-directory&gt;</code></td>
+					<td>The unzipped Twitter archive, containing the <code>data</code> folder</td>
+			</tr>
+			<tr>
+					<td><code>&lt;output-directory&gt;</code></td>
+					<td>Where to write the Markdown. It must exist and be empty</td>
+			</tr>
+			<tr>
+					<td><code>-a, --author</code></td>
+					<td>Author name for the generated files</td>
+			</tr>
+			<tr>
+					<td><code>-f, --filter-replies</code></td>
+					<td>Leave out tweets that reply to another tweet</td>
+			</tr>
+			<tr>
+					<td><code>-m, --media-path</code></td>
+					<td>Path to put in front of media URLs in the generated files</td>
+			</tr>
+			<tr>
+					<td><code>-v, --verbose</code></td>
+					<td>Show what is being processed</td>
+			</tr>
+			<tr>
+					<td><code>-h, --help</code></td>
+					<td>Show help and exit</td>
+			</tr>
+			<tr>
+					<td><code>-V, --version</code></td>
+					<td>Show the version and exit</td>
+			</tr>
+	</tbody>
+</table>
+<p>For example, to convert an archive with your name as the author, without replies, and with media served from
+<code>/images/tweets</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xport -a <span class="s2">&#34;Lee Turner&#34;</span> -f -m <span class="s2">&#34;/images/tweets&#34;</span> ~/Downloads/twitter-archive ~/Documents/my-tweets
+</span></span></code></pre></div><h2 id="how-it-works">How it works</h2>
 <p>Xport processes your Twitter archive through a pipeline of tasks:</p>
 <ol>
 <li>Copies the tweet.js file from the archive</li>
@@ -173,23 +175,22 @@ JavaScript format to standard JSON and then to Hugo-compatible Markdown.</p>
 <li>Copies media files (images, videos) from the archive</li>
 <li>Cleans up temporary files</li>
 </ol>
-<p>The resulting Markdown files include Hugo front matter with the tweet&rsquo;s timestamp and content, making them ready to use
-with Hugo static site generator.</p>
-<h2 id="output-format">Output Format</h2>
+<p>The resulting Markdown files include Hugo front matter with the tweet&rsquo;s timestamp and content, ready to drop into a Hugo site.</p>
+<h2 id="output">Output</h2>
 <p>Each tweet is converted to a Markdown file with the following structure:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">YYYY-MM-DDTHH-MM</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l">YYYY-MM-DDTHH:MM:SS+0000</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l">Your Name </span><span class="w"> </span><span class="c"># Customizable with the -a, --author option</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l">Your Name </span><span class="w"> </span><span class="c"># Set with the -a, --author option</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">showtoc</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">comments</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Tweet content goes here
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">![](/path/to/media)  # Path prefix customizable with the -m, --media-path option
-</span></span></code></pre></div><h2 id="contributing">Contributing</h2>
-<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
+</span></span><span class="line"><span class="cl">![](/path/to/media)  # The path prefix is set with the -m, --media-path option
+</span></span></code></pre></div><h2 id="licence">Licence</h2>
+<p>Apache 2.0. See <a href="https://github.com/leeturner/xport/blob/HEAD/LICENSE">LICENSE</a>.</p>
 
       </div>
     </div>

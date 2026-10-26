@@ -68,6 +68,8 @@
         <a class="button-pill accent" href="https://github.com/leeturner/micronaut-cli-template">View on GitHub</a>
         <a class="button-pill" href="https://github.com/leeturner/micronaut-cli-template/issues">Issues</a>
       </div>
+      <div class="badges"><a href="https://github.com/leeturner/micronaut-cli-template/actions/workflows/build.yml"><img src="https://github.com/leeturner/micronaut-cli-template/actions/workflows/build.yml/badge.svg" alt="Build" loading="lazy"></a><a href="https://github.com/leeturner/micronaut-cli-template/blob/HEAD/LICENSE"><img src="https://img.shields.io/github/license/leeturner/micronaut-cli-template" alt="Licence" loading="lazy"></a>
+      </div>
     </header>
     <div class="project-body has-toc">
       <nav class="project-toc" aria-label="On this page">
@@ -75,89 +77,56 @@
           <summary>On this page</summary>
           <nav id="TableOfContents">
   <ul>
-    <li><a href="#features">Features</a>
-      <ul>
-        <li><a href="#build--dependency-management">Build &amp; Dependency Management</a></li>
-        <li><a href="#code-quality--linting">Code Quality &amp; Linting</a></li>
-        <li><a href="#libraries">Libraries</a></li>
-        <li><a href="#cicd--automation">CI/CD &amp; Automation</a></li>
-        <li><a href="#cli-framework">CLI Framework</a></li>
-      </ul>
-    </li>
-    <li><a href="#how-to-use-this-template">How to use this template</a></li>
-    <li><a href="#micronaut-documentation">Micronaut Documentation</a></li>
-    <li><a href="#feature-kapt-documentation">Feature kapt documentation</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#learn-more">Learn more</a></li>
+    <li><a href="#licence">Licence</a></li>
   </ul>
 </nav>
         </details>
       </nav>
       <div class="prose">
-        <p>A Kotlin-based Micronaut CLI application template with enhanced tooling and testing libraries.</p>
+        <p>A ready to go template for command line apps written in Kotlin with <a href="https://micronaut.io/">Micronaut</a> and
+<a href="https://picocli.info/">Picocli</a>. It starts from the standard Micronaut CLI application and adds the tooling and
+libraries I set up on every project, so a new tool can start with the interesting part.</p>
 <h2 id="features">Features</h2>
-<p>This template extends the base Micronaut CLI application with the following enhancements:</p>
-<h3 id="build--dependency-management">Build &amp; Dependency Management</h3>
 <ul>
-<li><strong>Gradle Version Catalogue</strong>: Centralized dependency management using <code>libs.versions.toml</code></li>
-<li><strong>Java 25</strong>: Modern Java runtime with toolchain support</li>
+<li>A Gradle version catalogue (<code>gradle/libs.versions.toml</code>) for every dependency and plugin</li>
+<li>Java 25 through a Gradle toolchain</li>
+<li><a href="https://github.com/jeremymailen/kotlinter-gradle">Kotlinter</a> for formatting and <a href="https://detekt.dev/">Detekt</a> for
+static analysis, with its own configuration</li>
+<li><a href="https://arrow-kt.io/">Arrow</a> for functional programming</li>
+<li><a href="https://strikt.io/">Strikt</a> for test assertions, including its Arrow support</li>
+<li>Commands that return proper exit codes</li>
+<li>A GitHub Actions build on every push and pull request to <code>main</code></li>
+<li>Daily Dependabot updates for Gradle dependencies, and dependency submission for security alerts</li>
 </ul>
-<h3 id="code-quality--linting">Code Quality &amp; Linting</h3>
+<h2 id="requirements">Requirements</h2>
 <ul>
-<li><strong>Kotlinter</strong>: Kotlin code formatter and linter following ktlint rules</li>
-<li><strong>Detekt</strong>: Static code analysis for Kotlin with custom configuration</li>
+<li>Java 25 or later</li>
 </ul>
-<h3 id="libraries">Libraries</h3>
+<h2 id="usage">Usage</h2>
+<p>Click <strong>Use this template</strong> on GitHub to create a new repository from it. Then make it your own:</p>
+<ol>
+<li>Change the project name in <code>settings.gradle.kts</code> and <code>src/main/resources/application.properties</code>.</li>
+<li>Rename the <code>com.example</code> package in <code>src/main</code> and <code>src/test</code>.</li>
+<li>Use the same package in <code>build.gradle.kts</code>: <code>group</code>, <code>mainClass</code> and the <code>micronaut</code> <code>annotations</code> setting.</li>
+<li>Rename or replace <code>DemoCommand</code>.</li>
+</ol>
+<p>The template builds and runs as it is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./gradlew build
+</span></span><span class="line"><span class="cl">./gradlew run --args<span class="o">=</span><span class="s2">&#34;--verbose&#34;</span>
+</span></span></code></pre></div><p><code>./gradlew build</code> also runs the tests, Kotlinter and Detekt. To fix formatting, run <code>./gradlew formatKotlin</code>.</p>
+<h2 id="learn-more">Learn more</h2>
 <ul>
-<li><strong>Arrow Core</strong>: Functional programming library for Kotlin, providing functional data types and utilities</li>
-<li><strong>Strikt</strong>: Modern assertion library for Kotlin tests with fluent API
-<ul>
-<li>Includes Arrow integration for functional type assertions</li>
+<li><a href="https://docs.micronaut.io/latest/guide/">Micronaut user guide</a></li>
+<li><a href="https://micronaut-projects.github.io/micronaut-picocli/latest/guide/">Micronaut Picocli guide</a></li>
+<li><a href="https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/">Micronaut Gradle plugin</a></li>
+<li><a href="https://docs.micronaut.io/latest/guide/#kapt">Micronaut Kotlin annotation processing (kapt)</a></li>
 </ul>
-</li>
-</ul>
-<h3 id="cicd--automation">CI/CD &amp; Automation</h3>
-<ul>
-<li><strong>GitHub Actions</strong>: Automated build workflow running on push and PR to main branch</li>
-<li><strong>Dependabot</strong>: Daily automated dependency updates for Gradle dependencies</li>
-<li><strong>Dependency Submission</strong>: Automated dependency graph generation for security alerts</li>
-</ul>
-<h3 id="cli-framework">CLI Framework</h3>
-<ul>
-<li><strong>Picocli</strong>: Command-line interface framework integrated with Micronaut</li>
-<li>Configured to return proper exit codes for command execution</li>
-</ul>
-<h2 id="how-to-use-this-template">How to use this template</h2>
-<p>Click on the &ldquo;Use this template&rdquo; button on the GitHub page to create a new project based on this template.</p>
-<p>Once you have created your project, you can update the following parts of the project
-to start developing your application:</p>
-<ul>
-<li>The project name in <code>settings.gradle.kts</code></li>
-<li>The project name in <code>application.properties</code></li>
-<li>Rename the package in the <code>src/main</code> and <code>src/test</code> directories</li>
-<li>Update to the same package name in <code>build.gradle.kts</code> (<code>group</code>, <code>mainClass</code>, <code>micronaut/annotations</code>)</li>
-<li>Delete or rename the source code as required</li>
-</ul>
-<h2 id="micronaut-documentation">Micronaut Documentation</h2>
-<ul>
-<li><a href="https://docs.micronaut.io/5.2.3/guide/index.html">User Guide</a></li>
-<li><a href="https://docs.micronaut.io/5.2.3/api/index.html">API Reference</a></li>
-<li><a href="https://docs.micronaut.io/5.2.3/guide/configurationreference.html">Configuration Reference</a></li>
-<li><a href="https://guides.micronaut.io/index.html">Micronaut Guides</a></li>
-</ul>
-<hr>
-<ul>
-<li><a href="https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/">Micronaut Gradle Plugin documentation</a></li>
-<li><a href="https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html">GraalVM Gradle Plugin documentation</a></li>
-<li><a href="https://gradleup.com/shadow/">Shadow Gradle Plugin</a></li>
-</ul>
-<h2 id="feature-kapt-documentation">Feature kapt documentation</h2>
-<ul>
-<li>
-<p><a href="https://docs.micronaut.io/snapshot/guide/#kapt">Micronaut Kotlin Annotation Processing (KAPT) documentation</a></p>
-</li>
-<li>
-<p><a href="https://kotlinlang.org/docs/kapt.html">https://kotlinlang.org/docs/kapt.html</a></p>
-</li>
-</ul>
+<h2 id="licence">Licence</h2>
+<p>Apache 2.0. See <a href="https://github.com/leeturner/micronaut-cli-template/blob/HEAD/LICENSE">LICENSE</a>.</p>
 
       </div>
     </div>

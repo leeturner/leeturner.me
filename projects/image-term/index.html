@@ -68,6 +68,8 @@
         <a class="button-pill accent" href="https://github.com/leeturner/image-term">View on GitHub</a>
         <a class="button-pill" href="https://github.com/leeturner/image-term/issues">Issues</a><a class="button-pill" href="/post/image-term-vlang/">Read the post</a>
       </div>
+      <div class="badges"><a href="https://github.com/leeturner/image-term/blob/HEAD/LICENSE"><img src="https://img.shields.io/github/license/leeturner/image-term" alt="Licence" loading="lazy"></a>
+      </div>
     </header>
     <div class="project-body has-toc">
       <nav class="project-toc" aria-label="On this page">
@@ -76,44 +78,43 @@
           <nav id="TableOfContents">
   <ul>
     <li><a href="#how-it-works">How it works</a></li>
-    <li><a href="#building">Building</a></li>
-    <li><a href="#usage">Usage</a>
-      <ul>
-        <li><a href="#supported-formats">Supported formats</a></li>
-      </ul>
-    </li>
-    <li><a href="#example">Example</a></li>
     <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#building">Building</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#licence">Licence</a></li>
   </ul>
 </nav>
         </details>
       </nav>
       <div class="prose">
-        <p>A terminal-based image viewer written in <a href="https://vlang.io/">V</a> that renders images as colored ASCII mosaics.
-Based on the blog post <a href="https://linyunliu.com/blogs/convert-an-image-into-colourful-ascii-art/">Convert an Image into Colourful Ascii Art</a>.</p>
-<p><img src="/projects/image-term/ascii-veasel.26e484301492649451789813fcf6e47b51b5667339146418773483c1a6c8a94e.png" alt="image-term" loading="lazy"></p>
+        <p>A terminal image viewer written in <a href="https://vlang.io/">V</a> that renders images as colourful ASCII mosaics. It&rsquo;s based
+on the blog post
+<a href="https://linyunliu.com/blogs/convert-an-image-into-colourful-ascii-art/">Convert an Image into Colourful Ascii Art</a>,
+and I wrote about building it in
+<a href="https://leeturner.me/post/image-term-vlang/">Convert an Image into Colourful Ascii Art - Vlang Edition</a>.</p>
+<p><img src="/projects/image-term/ascii-veasel.26e484301492649451789813fcf6e47b51b5667339146418773483c1a6c8a94e.png" alt="An image drawn in coloured characters in the terminal" loading="lazy"></p>
 <h2 id="how-it-works">How it works</h2>
-<p>image-term loads an image, resizes it to fit your terminal dimensions, and renders it using colored <code>@</code> characters.</p>
-<p>It automatically:</p>
+<p>image-term loads an image, resizes it to fit your terminal and draws it with coloured <code>@</code> characters. It:</p>
 <ul>
-<li>Detects terminal size and scales the image to fit</li>
-<li>Corrects for a terminal character aspect ratio (characters are taller than they are wide)</li>
-<li>Averages pixel colors within grid blocks for accurate color representation</li>
-<li>Supports grayscale, RGB, and RGBA images via <a href="https://github.com/nothings/stb">stb_image</a></li>
+<li>Detects the size of your terminal and scales the image to fit</li>
+<li>Corrects for the aspect ratio of terminal characters, which are taller than they are wide</li>
+<li>Averages the colours of the pixels within each block, so each character has the right colour</li>
+<li>Supports greyscale, RGB and RGBA images through <a href="https://github.com/nothings/stb">stb_image</a></li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>The <a href="https://vlang.io/">V compiler</a></li>
+<li>A terminal with true colour (24-bit) support</li>
 </ul>
 <h2 id="building">Building</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">v -o image-term .
 </span></span></code></pre></div><h2 id="usage">Usage</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./image-term &lt;image-path&gt;
-</span></span></code></pre></div><h3 id="supported-formats">Supported formats</h3>
-<p>Any format supported by stb_image: JPEG, PNG, BMP, GIF, PSD, TGA, HDR, PIC, PNM.</p>
-<h2 id="example">Example</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./image-term assets/54754230613_c896220d22_c.jpg
-</span></span></code></pre></div><h2 id="requirements">Requirements</h2>
-<ul>
-<li><a href="https://vlang.io/">V compiler</a></li>
-<li>A terminal with true color (24-bit) support</li>
-</ul>
+</span></span></code></pre></div><p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./image-term ~/Pictures/holiday.jpg
+</span></span></code></pre></div><p>It reads any format stb_image supports: JPEG, PNG, BMP, GIF, PSD, TGA, HDR, PIC and PNM.</p>
+<h2 id="licence">Licence</h2>
+<p>Apache 2.0. See <a href="https://github.com/leeturner/image-term/blob/HEAD/LICENSE">LICENSE</a>.</p>
 
       </div>
     </div>

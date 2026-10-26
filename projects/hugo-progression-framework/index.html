@@ -68,6 +68,8 @@
         <a class="button-pill accent" href="https://github.com/leeturner/hugo-progression">View on GitHub</a>
         <a class="button-pill" href="https://github.com/leeturner/hugo-progression/issues">Issues</a><a class="button-pill" href="/posts/hugo-progression-framework/">Read the post</a>
       </div>
+      <div class="badges"><a href="https://github.com/leeturner/hugo-progression/blob/HEAD/LICENSE"><img src="https://img.shields.io/github/license/leeturner/hugo-progression" alt="Licence" loading="lazy"></a>
+      </div>
     </header>
     <div class="project-body has-toc">
       <nav class="project-toc" aria-label="On this page">
@@ -75,20 +77,21 @@
           <summary>On this page</summary>
           <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-are-progression-frameworks-">What Are Progression Frameworks ?</a>
+    <li><a href="#what-are-progression-frameworks">What are progression frameworks?</a>
       <ul>
         <li><a href="#resources">Resources</a></li>
       </ul>
     </li>
-    <li><a href="#how-to-build-your-progression-framework-with-hugo-progression">How To Build Your Progression Framework With Hugo Progression</a>
+    <li><a href="#building-your-progression-framework">Building your progression framework</a>
       <ul>
-        <li><a href="#1-installation">1) Installation</a></li>
-        <li><a href="#2-setup-your-framework-data--content">2) Setup Your Framework Data &amp; Content</a></li>
-        <li><a href="#3-nearly-finished">3) Nearly finished</a></li>
+        <li><a href="#install-the-theme">Install the theme</a></li>
+        <li><a href="#set-up-your-frameworks-data-and-content">Set up your framework&rsquo;s data and content</a></li>
+        <li><a href="#try-it-out">Try it out</a></li>
       </ul>
     </li>
     <li><a href="#production">Production</a></li>
     <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#licence">Licence</a></li>
   </ul>
 </nav>
         </details>
@@ -97,7 +100,7 @@
         <p>Hugo Progression is a <a href="https://gohugo.io/">Hugo</a> template that can render progression frameworks using the same data format as the <a href="https://github.com/monzo/progression-framework">Monzo progression framework</a></p>
 <p><img src="/projects/hugo-progression-framework/hugo-progression-screenshot.84f0275559c54f56adecdb6ff3c2570b9ebc2d5989e63663e03d248c64213e2a.png" alt="Hugo Progression Screenshot" title="Hugo Progression Screenshot" loading="lazy"></p>
 <p>A full demo of this template (and the site contained within the <code>exampleSite</code> folder) can be found at the <a href="https://leeturner.github.io/hugo-progression-demo/">Hugo Progression Demo Site</a></p>
-<h2 id="what-are-progression-frameworks-">What Are Progression Frameworks ?</h2>
+<h2 id="what-are-progression-frameworks">What are progression frameworks?</h2>
 <p>A progression framework (or ‘competency matrix’, ‘career ladder’, ‘career pathway’) is a tool to help people within an organisation understand where they currently are and how to progress and grow in their work.  It also helps an organisation map people&rsquo;s competencies (their skills and knowledge) to compensation (how they&rsquo;re rewarded for them financially).</p>
 <p>When done right, a tool like this helps employees to grow and hone their strengths, and helps managers ensure that their organisations are in good shape and their employees happy.</p>
 <h3 id="resources">Resources</h3>
@@ -106,16 +109,15 @@
 <li><a href="https://github.com/monzo/progression-framework">https://github.com/monzo/progression-framework</a></li>
 <li><a href="https://www.progression.fyi/">https://www.progression.fyi/</a></li>
 </ul>
-<h2 id="how-to-build-your-progression-framework-with-hugo-progression">How To Build Your Progression Framework With Hugo Progression</h2>
+<h2 id="building-your-progression-framework">Building your progression framework</h2>
 <p>Everything discussed here can be found in the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite"><code>exampleSite</code></a> folder within this repository.</p>
-<h3 id="1-installation">1) Installation</h3>
-<p>Navigate to your themes folder in your Hugo site and use the following commands:</p>
-<pre tabindex="0"><code>cd themes/
-git clone https://github.com/leeturner/hugo-progression.git
-</code></pre><p>If you don&rsquo;t want to clone the theme you can add it as a git submodule. Inside the folder of your Hugo site run:</p>
+<h3 id="install-the-theme">Install the theme</h3>
+<p>Add the theme to your Hugo site as a git submodule:</p>
 <pre tabindex="0"><code>git submodule add https://github.com/leeturner/hugo-progression.git themes/hugo-progression
-</code></pre><p>For more information read the <a href="https://gohugo.io/overview/installing/">official setup guide</a> of Hugo.</p>
-<h3 id="2-setup-your-framework-data--content">2) Setup Your Framework Data &amp; Content</h3>
+</code></pre><p>Then set it as the theme in your site&rsquo;s configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;hugo-progression&#34;</span>
+</span></span></code></pre></div><p>See <a href="https://gohugo.io/getting-started/quick-start/">Hugo&rsquo;s quick start</a> if you&rsquo;re new to Hugo.</p>
+<h3 id="set-up-your-frameworks-data-and-content">Set up your framework&rsquo;s data and content</h3>
 <p>Due to some restrictions in what data <code>hugo</code> allows in the markdown front matter along with how you reference data files in <code>hugo</code>, an individual framework needs to consist of 3 things:</p>
 <ul>
 <li>a markdown page that contains the homepage of the framework</li>
@@ -127,7 +129,7 @@ git clone https://github.com/leeturner/hugo-progression.git
 |   file    |------&gt;|   partial  |------&gt;|    file    |     =    | Progression |
 |           |       |            |       |            |          |  Framework  |
 +-----------+       +------------+       +------------+          +-------------+
-</code></pre><h4 id="21-create-your-framework-data-files">2.1) Create Your Framework Data Files</h4>
+</code></pre><h4 id="create-the-framework-data-files">Create the framework data files</h4>
 <p>In this step we will create the <code>hugo</code> data file that contains the data for the different areas and levels for an individual framework.  These data files are <code>yml</code> and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">topics</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;communication&#34;</span><span class="w">
@@ -182,7 +184,7 @@ git clone https://github.com/leeturner/hugo-progression.git
     people.yml
     product.yml
 </code></pre><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/data/frameworks">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
-<h4 id="22-create-the-markdown-page-with-front-matter--content-for-the-framework-homepage">2.2) Create The Markdown Page With Front Matter &amp; Content For The Framework Homepage</h4>
+<h4 id="create-the-frameworks-home-page">Create the framework&rsquo;s home page</h4>
 <p>For any of the frameworks to appear in your <code>hugo</code> site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any <code>hugo</code> site, these markdown files live in the <code>content</code> folder.  The front matter can contain all the usual <code>hugo</code> fields along with a couple of special fields specific to <code>hugo-progression</code>.  See the example below:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">🛠️ Backend Engineering Framework</span><span class="w">
@@ -198,7 +200,7 @@ git clone https://github.com/leeturner/hugo-progression.git
 <p><img src="/projects/hugo-progression-framework/hugo-progression-levels.b9639fe09192f4a77ad6f66c0260ba30ded3c1b467d2e34d888332838d147000.png" alt="Hugo Progression Levels" title="Hugo Progression Levels" loading="lazy"></p>
 <p>The <code>datafilepartial</code> field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step</p>
 <p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/content">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
-<h4 id="23-create-the-html-partial">2.3) Create The HTML Partial</h4>
+<h4 id="create-the-html-partial">Create the HTML partial</h4>
 <p>Because <code>hugo</code> won&rsquo;t allow us to specify a data file in the front matter of a markdown file we have to create a simple <code>hugo</code> html partial file for each framework data file to get around this.  If you want to understand more about this restriction in <code>hugo</code> take a look at this article by <a href="https://michele.io/">Michele Titolo</a> which helped me understand how to work around it - <a href="https://michele.io/content-data-hugo/">https://michele.io/content-data-hugo/</a></p>
 <p>I have tried to take out all the common elements make sure the html partial files are as small as possible, and the below example is as small as I could get it.</p>
 <pre tabindex="0"><code class="language-gotemplate" data-lang="gotemplate">{{ $this_parent_index := .parent_index}}
@@ -228,19 +230,18 @@ git clone https://github.com/leeturner/hugo-progression.git
 </span></span></span><span class="line"><span class="cl"><span class="nt">datafilepartial</span><span class="p">:</span><span class="w"> </span><span class="l">engineering/backend-partial.html</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span></code></pre></div><p>See the <a href="https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials">examples in the <code>exampleSite</code></a> folder if you want to see more complete examples.</p>
-<h3 id="3-nearly-finished">3) Nearly finished</h3>
-<p>In order to see your site in action, run Hugo&rsquo;s built-in local server.</p>
-<p><code>$ hugo server</code></p>
-<p>Now enter <a href="http://localhost:1313/"><code>localhost:1313</code></a> in the address bar of your browser.</p>
+<h3 id="try-it-out">Try it out</h3>
+<p>Run Hugo&rsquo;s local server:</p>
+<pre tabindex="0"><code>hugo server
+</code></pre><p>Then open <a href="http://localhost:1313/"><code>localhost:1313</code></a> in your browser.</p>
 <h2 id="production">Production</h2>
-<p>To run in production, run <code>HUGO_ENV=production</code> before your build command. For example:</p>
-<pre tabindex="0"><code>HUGO_ENV=production hugo
-</code></pre><p>Note: The above command will not work on Windows. If you are running a Windows OS, use the below command:</p>
-<pre tabindex="0"><code>set HUGO_ENV=production
-hugo
+<p>Build the site for production with:</p>
+<pre tabindex="0"><code>hugo --environment production
 </code></pre><h2 id="contributing">Contributing</h2>
 <p>If you find a bug or have an idea for a feature, feel free to use the <a href="https://github.com/leeturner/hugo-progression/issues">issue tracker</a> to let me know.</p>
 <p>If you want to implement new features on the Hugo Progression template, please see the <a href="https://github.com/leeturner/hugo-progression/blob/main/TODO.md">TODO</a> file for ideas of where to start.</p>
+<h2 id="licence">Licence</h2>
+<p>MIT. See <a href="https://github.com/leeturner/hugo-progression/blob/HEAD/LICENSE">LICENSE</a>.</p>
 
       </div>
     </div>

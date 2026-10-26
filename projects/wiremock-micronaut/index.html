@@ -68,7 +68,7 @@
         <a class="button-pill accent" href="https://github.com/leeturner/wiremock-micronaut">View on GitHub</a>
         <a class="button-pill" href="https://github.com/leeturner/wiremock-micronaut/issues">Issues</a><a class="button-pill" href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-micronaut">Maven Central</a>
       </div>
-      <div class="badges"><a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-micronaut"><img src="https://img.shields.io/maven-central/v/io.github.leeturner/wiremock-micronaut" alt="Maven Central" loading="lazy"></a>
+      <div class="badges"><a href="https://central.sonatype.com/artifact/io.github.leeturner/wiremock-micronaut"><img src="https://img.shields.io/maven-central/v/io.github.leeturner/wiremock-micronaut" alt="Maven Central" loading="lazy"></a><a href="https://github.com/leeturner/wiremock-micronaut/actions/workflows/build.yml"><img src="https://github.com/leeturner/wiremock-micronaut/actions/workflows/build.yml/badge.svg" alt="Build" loading="lazy"></a><a href="https://github.com/leeturner/wiremock-micronaut/blob/HEAD/LICENSE"><img src="https://img.shields.io/github/license/leeturner/wiremock-micronaut" alt="Licence" loading="lazy"></a>
       </div>
     </header>
     <div class="project-body has-toc">
@@ -91,6 +91,8 @@
     <li><a href="#examples">Examples</a></li>
     <li><a href="#migrating-from-iogithubnahuel92wiremock-micronaut">Migrating from <code>io.github.nahuel92:wiremock-micronaut</code></a></li>
     <li><a href="#versioning">Versioning</a></li>
+    <li><a href="#building">Building</a></li>
+    <li><a href="#licence">Licence</a></li>
   </ul>
 </nav>
         </details>
@@ -432,6 +434,13 @@ client). Each test class shows one way to stub them:</p>
 </table>
 <h2 id="versioning">Versioning</h2>
 <p><code>0.x</code> while WireMock 4 is in beta. <code>1.0.0</code> will follow WireMock 4 GA.</p>
+<h2 id="building">Building</h2>
+<p>Building needs JDK 25 (see <code>.sdkmanrc</code>).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./gradlew build
+</span></span></code></pre></div><p>Publishing a GitHub Release publishes the library to Maven Central. Bug reports and ideas are welcome in
+<a href="https://github.com/leeturner/wiremock-micronaut/issues">issues</a>.</p>
+<h2 id="licence">Licence</h2>
+<p>Apache License 2.0. See <a href="https://github.com/leeturner/wiremock-micronaut/blob/HEAD/LICENSE">LICENSE</a>.</p>
 
       </div>
     </div>

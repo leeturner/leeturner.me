@@ -68,7 +68,7 @@
         <a class="button-pill accent" href="https://github.com/leeturner/micronaut-launch-tui">View on GitHub</a>
         <a class="button-pill" href="https://github.com/leeturner/micronaut-launch-tui/issues">Issues</a>
       </div>
-      <div class="badges"><a href="https://github.com/leeturner/micronaut-launch-tui/actions/workflows/build.yml"><img src="https://github.com/leeturner/micronaut-launch-tui/actions/workflows/build.yml/badge.svg" alt="Compile and Build" loading="lazy"></a>
+      <div class="badges"><a href="https://github.com/leeturner/micronaut-launch-tui/actions/workflows/build.yml"><img src="https://github.com/leeturner/micronaut-launch-tui/actions/workflows/build.yml/badge.svg" alt="Compile and Build" loading="lazy"></a><a href="https://github.com/leeturner/micronaut-launch-tui/blob/HEAD/LICENSE"><img src="https://img.shields.io/github/license/leeturner/micronaut-launch-tui" alt="Licence" loading="lazy"></a>
       </div>
     </header>
     <div class="project-body has-toc">
@@ -100,6 +100,7 @@
         <li><a href="#screenshots-1">Screenshots</a></li>
       </ul>
     </li>
+    <li><a href="#licence">Licence</a></li>
   </ul>
 </nav>
         </details>
@@ -208,15 +209,16 @@ shows all of the current screen&rsquo;s keys.</p>
 <code>GRAALVM_HOME</code> or <code>JAVA_HOME</code>). The binary is written to
 <code>build/native/nativeCompile/mtui</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew nativeCompile
-</span></span></code></pre></div><p>The work is planned in slices on the <a href="https://github.com/leeturner/micronaut-launch-tui/blob/HEAD/docs/roadmap.md">roadmap</a>, each with its
-own design in <a href="https://github.com/leeturner/micronaut-launch-tui/blob/HEAD/docs/superpowers/specs"><code>docs/superpowers/specs</code></a>.</p>
+</span></span></code></pre></div><p>What&rsquo;s planned next is on the <a href="https://github.com/leeturner/micronaut-launch-tui/blob/HEAD/docs/roadmap.md">roadmap</a>.</p>
 <h3 id="screenshots-1">Screenshots</h3>
 <p>The images in <code>docs/images</code> are made with <a href="https://github.com/charmbracelet/vhs">vhs</a>
 from the tapes in <code>docs/tapes</code>. They use the live Launch server, so they show
 whatever it offers on the day. To regenerate them, from the repo root:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew shadowJar
 </span></span><span class="line"><span class="cl"><span class="k">for</span> tape in docs/tapes/<span class="o">{</span>demo,form,picker,preview,help<span class="o">}</span>.tape<span class="p">;</span> <span class="k">do</span> vhs <span class="s2">&#34;</span><span class="nv">$tape</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">done</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="licence">Licence</h2>
+<p>Apache 2.0. See <a href="https://github.com/leeturner/micronaut-launch-tui/blob/HEAD/LICENSE">LICENSE</a>.</p>
+
       </div>
     </div>
   </article>

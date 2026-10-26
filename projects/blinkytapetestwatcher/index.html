@@ -69,12 +69,35 @@
         <a class="button-pill" href="https://github.com/leeturner/BlinkyTapeTestWatcher/issues">Issues</a><a class="button-pill" href="/posts/blinkytape-junit-testwatcher/">Read the post</a>
       </div>
     </header>
-    <div class="project-body">
+    <div class="project-body has-toc">
+      <nav class="project-toc" aria-label="On this page">
+        <details open>
+          <summary>On this page</summary>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#licence">Licence</a></li>
+  </ul>
+</nav>
+        </details>
+      </nav>
       <div class="prose">
-        <p>This repo demonstrates a <a href="https://junit.org/junit5/">Junit 5</a> <a href="https://junit.org/junit5/docs/5.5.1/api/org/junit/jupiter/api/extension/TestWatcher.html">TestWatcher API</a> implementation that hooks up your tests to a BlinkyTape LED strip.</p>
-<p><img src="/projects/blinkytapetestwatcher/junit-blinkytape.ae1fcb13fadbabd173ca984b671f44913ce49fa384b392508a5ba513c3a6779d.gif" alt="Junit TestWatcher API BlinkyTape" loading="lazy"></p>
+        <p>A Kotlin implementation of the <a href="https://junit.org/junit5/">JUnit 5</a>
+<a href="https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/extension/TestWatcher.html">TestWatcher API</a>
+that shows the result of your tests on a <a href="https://blinkinlabs.com/products/blinkytape">BlinkyTape</a> LED strip: green
+when everything passes, orange when tests were skipped and red when anything fails. I wrote about it in
+<a href="https://leeturner.me/posts/blinkytape-junit-testwatcher/">BlinkyTape JUnit TestWatcher API Implementation</a>.</p>
+<p><img src="/projects/blinkytapetestwatcher/junit-blinkytape.ae1fcb13fadbabd173ca984b671f44913ce49fa384b392508a5ba513c3a6779d.gif" alt="The BlinkyTape changing colour as the tests run" loading="lazy"></p>
 <h2 id="how-it-works">How it works</h2>
-<p>The <code>BlinkyTapeTestWatcher</code> class implements the TestWatcher API and simply tracks the success, failure or whether a test is disabled or not.  It also implements the <code>AfterAllCallback</code> interface allows us to override a method called <code>afterAll</code> that is executed when all the tests have finished.</p>
+<p><code>BlinkyTapeTestWatcher</code> implements the TestWatcher API to track whether each test passed, failed or was disabled. It
+also implements <code>AfterAllCallback</code>, so its <code>afterAll</code> method runs once every test has finished and lights the strip:</p>
+<ol>
+<li>If any test failed, the whole strip turns red.</li>
+<li>If none failed but some were disabled, it turns orange.</li>
+<li>If every test passed, it turns green.</li>
+</ol>
 <details>
   <summary>Click to see the BlinkyTapeTestWatcher implementation!</summary>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">BlinkyTapeTestWatcher</span> <span class="p">:</span> <span class="n">TestWatcher</span><span class="p">,</span> <span class="n">AfterAllCallback</span> <span class="p">{</span>
@@ -135,19 +158,29 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></details>
-<p>The <code>afterAll</code> method performs 3 checks:</p>
-<ol>
-<li>If any of the tests have failed it renders the BlinkyTape as all red</li>
-<li>If non of the tests have failed but there were disabled tests it renders the BlinkyTape as all orange</li>
-<li>If all of the tests pass then it renders the BlinkyTape as all green</li>
-</ol>
-<p>Most of the code for the actual BlinkyTape integration was taken from <a href="https://github.com/leeturner/night-fever">night-fever</a>.</p>
-<p>I am pretty sure that the use case for this is pretty limited :grinning: but if you wanted to give this a go, the repo has a few tests that you can play with:</p>
+<p>The code that talks to the BlinkyTape over its serial port comes from
+<a href="https://github.com/leeturner/night-fever">night-fever</a>.</p>
+<h2 id="requirements">Requirements</h2>
 <ul>
-<li><a href="https://github.com/leeturner/BlinkyTapeTestWatcher/blob/main/src/test/kotlin/AllSuccessButOneDisabledUnitTest.kt">AllSuccessButOneDisabledUnitTest.kt</a></li>
-<li><a href="https://github.com/leeturner/BlinkyTapeTestWatcher/blob/main/src/test/kotlin/AllSuccessUnitTest.kt">AllSuccessUnitTest.kt</a></li>
-<li><a href="https://github.com/leeturner/BlinkyTapeTestWatcher/blob/main/src/test/kotlin/OneFailedUnitTest.kt">OneFailedUnitTest.kt</a></li>
+<li>A BlinkyTape LED strip (60 LEDs) plugged in over USB</li>
+<li>Java 16 or later and Maven</li>
 </ul>
+<h2 id="usage">Usage</h2>
+<p>The serial port is set in <code>BlinkyTapeController</code>. It defaults to <code>/dev/tty.usbmodem1412201</code>, which is where the strip
+appeared on my Mac, so change it to match your machine. On macOS, <code>ls /dev/tty.usbmodem*</code> shows the port once the
+strip is plugged in.</p>
+<p>Then run the tests:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mvn <span class="nb">test</span>
+</span></span></code></pre></div><p>Each test class uses <code>@ExtendWith(BlinkyTapeTestWatcher::class)</code>, so you can try all three colours:</p>
+<ul>
+<li><a href="https://github.com/leeturner/BlinkyTapeTestWatcher/blob/HEAD/src/test/kotlin/AllSuccessUnitTest.kt">AllSuccessUnitTest.kt</a> turns the strip green</li>
+<li><a href="https://github.com/leeturner/BlinkyTapeTestWatcher/blob/HEAD/src/test/kotlin/AllSuccessButOneDisabledUnitTest.kt">AllSuccessButOneDisabledUnitTest.kt</a> turns it orange</li>
+<li><a href="https://github.com/leeturner/BlinkyTapeTestWatcher/blob/HEAD/src/test/kotlin/OneFailedUnitTest.kt">OneFailedUnitTest.kt</a> turns it red</li>
+</ul>
+<p>To use it in your own project, copy the <code>blinky</code> package into your tests, add the
+<a href="https://github.com/java-native/jssc">jSSC</a> dependency and annotate your test classes the same way.</p>
+<h2 id="licence">Licence</h2>
+<p>Apache 2.0. See <a href="https://github.com/leeturner/BlinkyTapeTestWatcher/blob/HEAD/LICENSE">LICENSE</a>.</p>
 
       </div>
     </div>

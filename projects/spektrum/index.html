@@ -68,6 +68,8 @@
         <a class="button-pill accent" href="https://github.com/leeturner/spektrum">View on GitHub</a>
         <a class="button-pill" href="https://github.com/leeturner/spektrum/issues">Issues</a>
       </div>
+      <div class="badges"><a href="https://github.com/leeturner/spektrum/actions/workflows/build.yml"><img src="https://github.com/leeturner/spektrum/actions/workflows/build.yml/badge.svg" alt="Build" loading="lazy"></a><a href="https://github.com/leeturner/spektrum/blob/HEAD/LICENSE"><img src="https://img.shields.io/github/license/leeturner/spektrum" alt="Licence" loading="lazy"></a>
+      </div>
     </header>
     <div class="project-body has-toc">
       <nav class="project-toc" aria-label="On this page">
@@ -75,51 +77,59 @@
           <summary>On this page</summary>
           <nav id="TableOfContents">
   <ul>
-    <li><a href="#features">Features</a></li>
+    <li><a href="#status">Status</a></li>
     <li><a href="#requirements">Requirements</a></li>
-    <li><a href="#building-the-project">Building the Project</a></li>
-    <li><a href="#technology-stack">Technology Stack</a></li>
-    <li><a href="#useful-links">Useful Links</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#built-with">Built with</a></li>
+    <li><a href="#useful-links">Useful links</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#licence">Licence</a></li>
   </ul>
 </nav>
         </details>
       </nav>
       <div class="prose">
-        <p>A modern ZX Spectrum emulator written in Kotlin, built using the Micronaut framework. This project aims to faithfully
-recreate the experience of the classic Sinclair ZX Spectrum home computer.</p>
-<h2 id="features">Features</h2>
+        <p>A Sinclair ZX Spectrum emulator written in Kotlin and Micronaut. The goal is to faithfully recreate the classic home
+computer, starting from its heart: the Zilog Z80 CPU.</p>
+<h2 id="status">Status</h2>
+<p>Spektrum is at a very early stage, and there&rsquo;s nothing to see on screen yet. So far it has:</p>
 <ul>
-<li><strong>CPU Emulation</strong>: Z80 CPU implementation with register management</li>
-<li><strong>Configurable Speed</strong>: Adjustable emulation speed settings</li>
-<li><strong>Command-Line Interface</strong>: Built with Micronaut and Picocli for easy interaction</li>
-<li><strong>Modern Architecture</strong>: Clean, testable Kotlin codebase with dependency injection</li>
+<li>The Z80 register set: the main and alternate register sets, flags, index registers, stack pointer and program
+counter</li>
+<li>An opcode decoder, built from a specification of each instruction&rsquo;s addressing mode and cycle count</li>
+<li>The first instructions: <code>ADC A,r</code> for each of the general purpose registers</li>
+<li>A command line entry point and a setting for the emulation speed</li>
 </ul>
+<p>Next up is the rest of the Z80 instruction set, then memory, the ULA and the display.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>Java 25 or higher</li>
-<li>Gradle (wrapper included)</li>
+<li>Java 25 or later</li>
 </ul>
-<h2 id="building-the-project">Building the Project</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./gradlew build
-</span></span></code></pre></div><h2 id="technology-stack">Technology Stack</h2>
+<h2 id="usage">Usage</h2>
+<p>Build and run it with Gradle:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./gradlew build
+</span></span><span class="line"><span class="cl">./gradlew run --args<span class="o">=</span><span class="s2">&#34;--verbose&#34;</span>
+</span></span></code></pre></div><p>For now this prints the banner and version. Most of the work happens in the tests, which run with <code>./gradlew test</code>.</p>
+<p>The emulation speed is set in <code>src/main/resources/application.properties</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">spektrum.speed.cpu</span><span class="o">=</span><span class="s">100</span>
+</span></span></code></pre></div><h2 id="built-with">Built with</h2>
 <ul>
-<li>Language: Kotlin</li>
-<li>Framework: Micronaut</li>
-<li>Build Tool: Gradle</li>
-<li>JVM: Java 25</li>
-<li>CLI: Picocli</li>
+<li><a href="https://kotlinlang.org/">Kotlin</a> and <a href="https://micronaut.io/">Micronaut</a></li>
+<li><a href="https://picocli.info/">Picocli</a> for the command line</li>
+<li>Gradle, with <a href="https://detekt.dev/">Detekt</a> and <a href="https://github.com/jeremymailen/kotlinter-gradle">Kotlinter</a></li>
 </ul>
-<h2 id="useful-links">Useful Links</h2>
+<h2 id="useful-links">Useful links</h2>
 <ul>
-<li>Online Z80 IDE - <a href="https://clrhome.org/asm/">https://clrhome.org/asm/</a></li>
-<li>Another Z80 Online IDE - <a href="https://ide.retrogamecoders.com/?platform=zx&amp;file=hello.asm">https://ide.retrogamecoders.com/?platform=zx&file=hello.asm</a></li>
-<li>Z80 CPU User Manual - <a href="https://www.zilog.com/docs/z80/um0080.pdf">https://www.zilog.com/docs/z80/um0080.pdf</a></li>
-<li>Programming The Z80 - Third edition - Rodnay Zaks - <a href="http://www.z80.info/zip/zaks_book.pdf">http://www.z80.info/zip/zaks_book.pdf</a></li>
-<li>How To Write a Computer Emulator by Marat Fayzullin - <a href="https://fms.komkon.org/EMUL8/HOWTO.html">https://fms.komkon.org/EMUL8/HOWTO.html</a></li>
+<li><a href="https://clrhome.org/asm/">Online Z80 IDE</a></li>
+<li><a href="https://ide.retrogamecoders.com/?platform=zx&amp;file=hello.asm">Another online Z80 IDE</a></li>
+<li><a href="https://www.zilog.com/docs/z80/um0080.pdf">Z80 CPU User Manual</a></li>
+<li><a href="http://www.z80.info/zip/zaks_book.pdf">Programming the Z80, third edition, by Rodnay Zaks</a></li>
+<li><a href="https://fms.komkon.org/EMUL8/HOWTO.html">How to Write a Computer Emulator, by Marat Fayzullin</a></li>
 </ul>
-<h2 id="acknowledgments">Acknowledgments</h2>
-<p>This emulator is a tribute to Sir Clive Sinclair and the Sinclair ZX Spectrum, which introduced a generation to computing.</p>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>Spektrum is a tribute to Sir Clive Sinclair and the ZX Spectrum, which introduced a generation to computing.</p>
+<h2 id="licence">Licence</h2>
+<p>Apache 2.0. See <a href="https://github.com/leeturner/spektrum/blob/HEAD/LICENSE">LICENSE</a>.</p>
 
       </div>
     </div>
