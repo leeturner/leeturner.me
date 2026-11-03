@@ -67,6 +67,7 @@
   <div class="filters" role="group" aria-label="Filter projects by tag" hidden>
     <button type="button" data-tag="all" aria-pressed="true">Everything</button>
     <button type="button" data-tag="kotlin" aria-pressed="false">kotlin</button>
+    <button type="button" data-tag="arrow" aria-pressed="false">arrow</button>
     <button type="button" data-tag="micronaut" aria-pressed="false">micronaut</button>
     <button type="button" data-tag="cli" aria-pressed="false">cli</button>
     <button type="button" data-tag="wiremock" aria-pressed="false">wiremock</button>
@@ -75,6 +76,14 @@
   </div>
 
   <div class="project-grid">
+    <article class="project" data-tags="kotlin arrow detekt">
+      <div class="pills"><span>kotlin</span><span>arrow</span><span>detekt</span>
+      </div>
+      <h2><a href="/projects/arrow-detekt-rules/">arrow-detekt-rules</a></h2>
+      <p>A detekt 2 rule set for Arrow code. It catches the mistakes that are easy to make with Either and Raise, like a catch-all that swallows a raise before it reaches the scope, an Either that is never bound, or a fold that just rebuilds an Either, and suggests the idiomatic Arrow alternative.</p>
+      <div class="links"><a href="/projects/arrow-detekt-rules/">Project page →</a><a href="https://github.com/leeturner/arrow-detekt-rules">View on GitHub →</a><a href="https://central.sonatype.com/artifact/io.github.leeturner/arrow-detekt-rules">Maven Central →</a>
+      </div>
+    </article>
     <article class="project" data-tags="kotlin micronaut cli">
       <div class="pills"><span>kotlin</span><span>micronaut</span><span>cli</span>
       </div>
@@ -107,8 +116,8 @@
       <div class="links"><a href="/projects/xport/">Project page →</a><a href="https://github.com/leeturner/xport">View on GitHub →</a><a href="/microblog/">See the microblog →</a>
       </div>
     </article>
-    <article class="project" data-tags="kotlin micronaut">
-      <div class="pills"><span>kotlin</span><span>micronaut</span>
+    <article class="project" data-tags="kotlin micronaut arrow">
+      <div class="pills"><span>kotlin</span><span>micronaut</span><span>arrow</span>
       </div>
       <h2><a href="/projects/conways-game-of-life/">Conway&#39;s Game of Life</a></h2>
       <p>A terminal based Game of Life written in Kotlin using Micronaut and functional programming with Arrow. The universe wraps around like a torus and can be rendered in the terminal with ANSI colours or in a KorGE 2D window.</p>

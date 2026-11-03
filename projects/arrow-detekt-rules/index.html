@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>arrow-detekt-rules · Lee Turner</title>
+<meta name="description" content="A detekt 2 rule set for Arrow code. It catches the mistakes that are easy to make with Either and Raise, like a catch-all that swallows a raise before it …">
+<meta name="keywords" content="lee, turner, lee turner, hacking, software engineering, security, coding">
+<meta name="author" content="Lee Turner">
+<link rel="canonical" href="https://leeturner.me/projects/arrow-detekt-rules/">
+
+<meta property="og:site_name" content="Lee Turner">
+<meta property="og:title" content="arrow-detekt-rules · Lee Turner">
+<meta property="og:description" content="A detekt 2 rule set for Arrow code. It catches the mistakes that are easy to make with Either and Raise, like a catch-all that swallows a raise before it …">
+<meta property="og:url" content="https://leeturner.me/projects/arrow-detekt-rules/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leeturner.me/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" href="https://leeturner.me/index.xml" title="Lee Turner">
+
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme') || localStorage.getItem('cleanwhite-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/main.min.74fd232717ea5d6f5b8fee44cc9076ab1071b61374d0b137ffccb645accc4ce8.css" integrity="sha256-dP0jJxfqXW9bj&#43;5EzJB2qxBxthN00LE3/8y2RazMTOg=">
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">Lee Turner<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/microblog/">Microblog</a>
+      <a href="/now/">Now</a>
+      <a href="/about/">About</a>
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="https://leeturner.tech">Resume</a>
+      <a href="/archive/">Archive</a>
+    </nav>
+    <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+  <main id="main">
+<div class="wrap">
+  <article class="project-page">
+    <header class="project-head">
+      <a class="back-link" href="/projects/">← All projects</a>
+      <div class="pills"><span>kotlin</span><span>arrow</span><span>detekt</span>
+      </div>
+      <h1>arrow-detekt-rules</h1><p class="lede">A detekt 2 rule set for Arrow code. It catches the mistakes that are easy to make with Either and Raise, like a catch-all that swallows a raise before it reaches the scope, an Either that is never bound, or a fold that just rebuilds an Either, and suggests the idiomatic Arrow alternative.</p>
+      <div class="project-actions">
+        <a class="button-pill accent" href="https://github.com/leeturner/arrow-detekt-rules">View on GitHub</a>
+        <a class="button-pill" href="https://github.com/leeturner/arrow-detekt-rules/issues">Issues</a><a class="button-pill" href="https://central.sonatype.com/artifact/io.github.leeturner/arrow-detekt-rules">Maven Central</a>
+      </div>
+      <div class="badges"><a href="https://central.sonatype.com/artifact/io.github.leeturner/arrow-detekt-rules"><img src="https://img.shields.io/maven-central/v/io.github.leeturner/arrow-detekt-rules" alt="Maven Central" loading="lazy"></a><a href="https://github.com/leeturner/arrow-detekt-rules/actions/workflows/build.yml"><img src="https://github.com/leeturner/arrow-detekt-rules/actions/workflows/build.yml/badge.svg" alt="Build" loading="lazy"></a><a href="https://github.com/leeturner/arrow-detekt-rules/blob/HEAD/LICENSE"><img src="https://img.shields.io/github/license/leeturner/arrow-detekt-rules" alt="Licence" loading="lazy"></a>
+      </div>
+    </header>
+    <div class="project-body has-toc">
+      <nav class="project-toc" aria-label="On this page">
+        <details open>
+          <summary>On this page</summary>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#compatibility">Compatibility</a></li>
+      </ul>
+    </li>
+    <li><a href="#rules">Rules</a>
+      <ul>
+        <li><a href="#nocatchallinraisescope"><code>NoCatchAllInRaiseScope</code></a></li>
+        <li><a href="#nofoldbackintoeither"><code>NoFoldBackIntoEither</code></a></li>
+        <li><a href="#nonestedeither"><code>NoNestedEither</code></a></li>
+        <li><a href="#nounboundeither"><code>NoUnboundEither</code></a></li>
+        <li><a href="#prefereithercatch"><code>PreferEitherCatch</code></a></li>
+        <li><a href="#useensure"><code>UseEnsure</code></a></li>
+        <li><a href="#useensurenotnull"><code>UseEnsureNotNull</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#development">Development</a>
+      <ul>
+        <li><a href="#adding-a-rule">Adding a rule</a></li>
+      </ul>
+    </li>
+    <li><a href="#licence">Licence</a></li>
+  </ul>
+</nav>
+        </details>
+      </nav>
+      <div class="prose">
+        <p>A <a href="https://detekt.dev">detekt</a> 2 rule set for <a href="https://arrow-kt.io">Arrow</a> code.</p>
+<h2 id="usage">Usage</h2>
+<p>Add it to the project&rsquo;s <code>build.gradle.kts</code>. It&rsquo;s on Maven Central, so <code>mavenCentral()</code> in <code>repositories</code> is enough:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="n">dependencies</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">detektPlugins</span><span class="p">(</span><span class="s2">&#34;io.github.leeturner:arrow-detekt-rules:&lt;version&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The latest <code>&lt;version&gt;</code> is on the Maven Central badge above.</p>
+<p>The rules need type resolution, so they run in <code>detektMain</code> / <code>detektTest</code>, not plain <code>detekt</code>.</p>
+<p>Every rule is active by default (the jar ships <code>config/config.yml</code>). To turn one off, add it to the project&rsquo;s detekt config:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">arrow</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">UseEnsure</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></div><h3 id="compatibility">Compatibility</h3>
+<p>Each release is built for one detekt version, since a rule set built against one detekt API may not load in another. Use the release that matches your detekt version.</p>
+<table>
+	<thead>
+			<tr>
+					<th>arrow-detekt-rules</th>
+					<th>detekt</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>0.1.0 – 0.3.0</td>
+					<td>2.0.0-alpha.6</td>
+			</tr>
+	</tbody>
+</table>
+<p>These releases are built with Kotlin 2.4.21 for Java 17 and later, and tested against Arrow 2.2 and 2.3.</p>
+<h2 id="rules">Rules</h2>
+<h3 id="nocatchallinraisescope"><code>NoCatchAllInRaiseScope</code></h3>
+<p>Flags <code>runCatching</code>, or a <code>catch</code> of <code>Exception</code>, <code>Throwable</code>, <code>CancellationException</code> or similar, wrapped around a call that raises into an outer Raise scope (<code>raise</code>, <code>bind</code>, <code>ensure</code>, &hellip;). The catch-all swallows Arrow&rsquo;s <code>RaiseCancellationException</code>, so the error never reaches the scope.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Flagged: runCatching catches the raise, so it never reaches either { }
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">user</span> <span class="p">=</span> <span class="n">runCatching</span> <span class="p">{</span> <span class="n">findUser</span><span class="p">(</span><span class="n">id</span><span class="p">).</span><span class="n">bind</span><span class="p">()</span> <span class="p">}.</span><span class="n">getOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ensureNotNull</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="p">{</span> <span class="n">UserMissing</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Fine: turn exceptions into errors at the edge, then bind
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">user</span> <span class="p">=</span> <span class="nc">Either</span><span class="p">.</span><span class="k">catch</span> <span class="p">{</span> <span class="n">repository</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="p">}.</span><span class="n">mapLeft</span><span class="p">(</span><span class="o">::</span><span class="n">LookupFailed</span><span class="p">).</span><span class="n">bind</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ensureNotNull</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="p">{</span> <span class="n">UserMissing</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Not flagged: narrow catches (<code>IOException</code>), catches that always rethrow the raise (<code>throw e</code>, <code>e.nonFatalOrThrow()</code>, <code>if (e is CancellationException) throw e</code>, <code>if (e is MyError) raise(e) else throw e</code>), <code>runCatching { ... }.getOrThrow()</code>, Raise scopes opened inside the catch-all, and raises in code that runs later rather than inside the <code>try</code>. When catch-alls nest, only the innermost one is reported.</p>
+<p>What counts as running later is a guess:</p>
+<ul>
+<li>A lambda passed as an argument is assumed to run during the call (<code>forEach</code>, <code>withContext</code>, <code>coroutineScope</code>, <code>transaction</code>), unless the call returns something that holds on to it: a <code>Sequence</code>, <code>Flow</code>, <code>Lazy</code> or function. So <code>asSequence().map { it.bind() }</code> and <code>lazy { raise(e) }</code> are not flagged. A lambda passed to a <code>crossinline</code> parameter gets the same guess, since the inline function may store it.</li>
+<li>Local functions, property getters and setters in local classes and objects, and lambdas stored in a <code>val</code> are treated as running later, even when they are called straight away inside the <code>try</code> (<code>val t = { raise(e) }; t()</code>).</li>
+<li>A non-inline helper that stores its lambda and returns something else is treated as running it now, so a raise inside it is flagged.</li>
+</ul>
+<h3 id="nofoldbackintoeither"><code>NoFoldBackIntoEither</code></h3>
+<p>Flags <code>fold</code> on an Either when one lambda ends by building a <code>Left</code> and the other a <code>Right</code>, and suggests <code>mapLeft</code> and <code>map</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Flagged: Use .mapLeft { LookupFailed(it) }.map { it.name } instead of .fold({ Left(LookupFailed(it)) }, { Right(it.name) }).
+</span></span></span><span class="line"><span class="cl"><span class="n">findUser</span><span class="p">(</span><span class="n">id</span><span class="p">).</span><span class="n">fold</span><span class="p">({</span> <span class="n">Left</span><span class="p">(</span><span class="n">LookupFailed</span><span class="p">(</span><span class="k">it</span><span class="p">))</span> <span class="p">},</span> <span class="p">{</span> <span class="n">Right</span><span class="p">(</span><span class="k">it</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Fine
+</span></span></span><span class="line"><span class="cl"><span class="n">findUser</span><span class="p">(</span><span class="n">id</span><span class="p">).</span><span class="n">mapLeft</span> <span class="p">{</span> <span class="n">LookupFailed</span><span class="p">(</span><span class="k">it</span><span class="p">)</span> <span class="p">}.</span><span class="n">map</span> <span class="p">{</span> <span class="k">it</span><span class="p">.</span><span class="n">name</span> <span class="p">}</span>
+</span></span></code></pre></div><p><code>Either.Left(...)</code> and <code>.left()</code> count too. A side that wraps its parameter unchanged (<code>{ Left(it) }</code>) is left out of the suggestion. Not flagged: a lambda that doesn&rsquo;t end in a <code>Left</code>/<code>Right</code> (a fold to a value, or a <code>flatMap</code>-style one returning another Either), both sides wrapped the same way (<code>{ Right(default) }, { Right(it) }</code> is a recover), named arguments, and a <code>fold</code> that isn&rsquo;t Either&rsquo;s.</p>
+<h3 id="nonestedeither"><code>NoNestedEither</code></h3>
+<p>Flags a property or function whose type, declared or inferred, is an Either inside an Either (<code>Either&lt;E, Either&lt;E, A&gt;&gt;</code>), which usually means a <code>map</code> that should be a <code>flatMap</code> or a missing <code>bind()</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Flagged: user has type Either&lt;E, Either&lt;E, String&gt;&gt;, an Either inside an Either. Use flatMap instead of map, or bind() the inner Either inside either { }.
+</span></span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="py">user</span> <span class="p">=</span> <span class="n">findId</span><span class="p">(</span><span class="n">name</span><span class="p">).</span><span class="n">map</span> <span class="p">{</span> <span class="n">findUser</span><span class="p">(</span><span class="k">it</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Fine
+</span></span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="py">user</span> <span class="p">=</span> <span class="n">findId</span><span class="p">(</span><span class="n">name</span><span class="p">).</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">findUser</span><span class="p">(</span><span class="k">it</span><span class="p">)</span> <span class="p">}</span>
+</span></span></code></pre></div><p><code>Either.Right&lt;Either&lt;...&gt;&gt;</code> and type aliases of Either count too. Not flagged: an Either on the left (<code>Either&lt;Either&lt;E, A&gt;, B&gt;</code>), an Either inside another type (<code>Either&lt;E, List&lt;Either&lt;E, A&gt;&gt;&gt;</code>), and nested Eithers that are never stored in a property or returned from a function, such as a lambda&rsquo;s result passed straight on.</p>
+<p>Sometimes the nesting is deliberate, for example to keep an error you cache (<code>Right(Left(e))</code>) apart from one you don&rsquo;t (<code>Left(e)</code>). Suppress the finding there with <code>@Suppress(&quot;NoNestedEither&quot;)</code>.</p>
+<h3 id="nounboundeither"><code>NoUnboundEither</code></h3>
+<p>Flags an Either, Option, Ior or Effect used as a statement while a Raise is in scope (inside <code>either { }</code>, <code>option { }</code>, a <code>Raise&lt;E&gt;</code> extension or a <code>context(_: Raise&lt;E&gt;)</code> function). The <code>bind()</code> is missing, so its error is silently dropped.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Flagged: The Either from findUser(id) is never bound, so its error is dropped. Use findUser(id).bind() instead.
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">findUser</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Fine
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">findUser</span><span class="p">(</span><span class="n">id</span><span class="p">).</span><span class="n">bind</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Statements in nested lambdas (<code>forEach { findUser(it) }</code>), local functions and <code>if</code>/<code>when</code> branches count too, and so does a statement ending in <code>onLeft { }</code>, which logs the error but still drops it, unless the <code>onLeft</code> lambda always ends in <code>raise</code>, <code>return</code> or <code>throw</code> (<code>x.onLeft { raise(it) }</code>), so the error can&rsquo;t get past it. Not flagged: values that are bound, stored, returned, passed on or handled (<code>getOrElse</code>, <code>fold</code>), a peek (<code>onRight</code>, <code>onLeft</code>, <code>onSome</code>, <code>onNone</code>) on a variable or parameter that is used again later (<code>r.onRight { log(it) }; r.bind()</code>), <code>kotlin.Result</code> (<code>runCatching { cleanup() }</code> on its own line is usually a deliberate discard), and anything outside a Raise scope. For that last case, see Kotlin&rsquo;s unused return value checker (<code>-Xreturn-value-checker</code>).</p>
+<h3 id="prefereithercatch"><code>PreferEitherCatch</code></h3>
+<p>Flags Arrow&rsquo;s <code>catch({ ... }) { ... }</code> when the handler only raises, and suggests <code>Either.catch</code> with <code>mapLeft</code>, which turns the exception into an error at the edge.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Flagged: Use Either.catch { ... }.mapLeft { LookupFailed(it) }.bind() instead of catch({ ... }) { raise(LookupFailed(it)) }.
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">catch</span><span class="p">({</span> <span class="n">repository</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="p">})</span> <span class="p">{</span> <span class="n">raise</span><span class="p">(</span><span class="n">LookupFailed</span><span class="p">(</span><span class="k">it</span><span class="p">))</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Fine
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nc">Either</span><span class="p">.</span><span class="k">catch</span> <span class="p">{</span> <span class="n">repository</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="p">}.</span><span class="n">mapLeft</span> <span class="p">{</span> <span class="n">LookupFailed</span><span class="p">(</span><span class="k">it</span><span class="p">)</span> <span class="p">}.</span><span class="n">bind</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Not flagged: a handler that does more than raise or returns a value, a <code>catch</code> that isn&rsquo;t Arrow&rsquo;s, and the reified <code>catch&lt;IOException, _&gt;</code> (or a handler typed <code>{ e: IOException -&gt; ... }</code>), whose equivalent is <code>Either.catchOrThrow</code> rather than <code>Either.catch</code>.</p>
+<h3 id="useensure"><code>UseEnsure</code></h3>
+<p>Flags an <code>if</code> whose only statement is Arrow&rsquo;s <code>raise</code>, and says what to write instead. It also flags an <code>if</code> with an <code>else</code> where one branch only raises, when the <code>if</code> is a statement (including the last line of a block or lambda), a <code>val</code>/<code>var</code> initializer or a <code>return</code> value. There the fix is <code>ensure</code> followed by the other branch.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Flagged: Use ensure(amount &lt;= limit) { OverLimit } instead of if (amount &gt; limit) raise(OverLimit).
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">amount</span> <span class="p">&gt;</span> <span class="n">limit</span><span class="p">)</span> <span class="n">raise</span><span class="p">(</span><span class="n">OverLimit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Flagged: Use ensure(id &gt;= 0) { BadId }, then the else branch, instead of if (id &lt; 0) raise(BadId) else ….
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">user</span> <span class="p">=</span> <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="p">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">raise</span><span class="p">(</span><span class="n">BadId</span><span class="p">)</span> <span class="k">else</span> <span class="n">load</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Fine
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ensure</span><span class="p">(</span><span class="n">amount</span> <span class="o">&lt;=</span> <span class="n">limit</span><span class="p">)</span> <span class="p">{</span> <span class="n">OverLimit</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ensure</span><span class="p">(</span><span class="n">id</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="n">BadId</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">user</span> <span class="p">=</span> <span class="n">load</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>If the <code>if</code> block holds a comment explaining the raise, move it above the <code>ensure</code> line so it isn&rsquo;t lost.</p>
+<p>The suggested condition is negated the simple way where it can be: <code>if (!ok)</code> gives <code>ensure(ok)</code>, <code>if (a == b)</code> gives <code>ensure(a != b)</code>, <code>if (n &gt; 0)</code> gives <code>ensure(n &lt;= 0)</code> (not for a <code>Double</code> or <code>Float</code>, where <code>!(a &gt; b)</code> isn&rsquo;t <code>a &lt;= b</code> when either is NaN), and the stdlib&rsquo;s <code>isEmpty</code>, <code>isNotEmpty</code>, <code>isBlank</code>, <code>isNotBlank</code>, <code>any</code> and <code>none</code> swap to their opposite (<code>if (ids.isEmpty())</code> gives <code>ensure(ids.isNotEmpty())</code>).</p>
+<p>An <code>&amp;&amp;</code> or <code>||</code> condition that would need negating (<code>if (a &amp;&amp; b) raise(e)</code>) isn&rsquo;t flagged, since <code>ensure(!(a &amp;&amp; b))</code> reads worse than the <code>if</code>. To flag it anyway:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">arrow</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">UseEnsure</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">reportCompoundConditions</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><p>Not flagged: an <code>if</code> with an <code>else</code> anywhere else (a function argument, after <code>?:</code>, an expression body), where moving the check above the line isn&rsquo;t a plain rewrite; both branches raising; one branch raising and the other throwing (<code>if (c) raise(e) else throw x</code>); an error that relies on a smart cast from the <code>if</code> (<code>if (e is MyError) raise(e)</code>), which doesn&rsquo;t reach <code>ensure</code>&rsquo;s lambda; a block that does more than raise; a <code>raise</code> that isn&rsquo;t Arrow&rsquo;s; and null checks (<code>if (x == null) raise(e)</code>, <code>if (x != null) … else raise(e)</code>), which <code>UseEnsureNotNull</code> covers.</p>
+<h3 id="useensurenotnull"><code>UseEnsureNotNull</code></h3>
+<p>Flags <code>if (x == null) raise(e)</code> (or <code>null == x</code>), and suggests <code>ensureNotNull(x) { e }</code>, which also smart-casts <code>x</code>. With an <code>else</code>, it also flags <code>if (x == null) raise(e) else …</code> and <code>if (x != null) … else raise(e)</code> in the same places as <code>UseEnsure</code>, and suggests <code>ensureNotNull</code> followed by the other branch. <code>x ?: raise(e)</code> is idiomatic Kotlin and isn&rsquo;t flagged.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Flagged: Use ensureNotNull(user) { UserMissing } instead of if (user == null) raise(UserMissing). It also smart-casts user to non-null.
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">user</span> <span class="o">==</span> <span class="k">null</span><span class="p">)</span> <span class="n">raise</span><span class="p">(</span><span class="n">UserMissing</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Fine
+</span></span></span><span class="line"><span class="cl"><span class="n">either</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ensureNotNull</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="p">{</span> <span class="n">UserMissing</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="development">Development</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./gradlew <span class="nb">test</span>
+</span></span></code></pre></div><p>To try a change in another project, keep the <code>detektPlugins</code> line from <a href="#usage">Usage</a> there and point Gradle at this checkout, which builds it and swaps it in for the published jar:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./gradlew detektMain --include-build ../path/to/arrow-detekt-rules
+</span></span></code></pre></div><p>After changing a rule, run <code>./gradlew --stop</code> in that project before re-running detekt. Its Gradle daemon keeps the plugin classes it loaded first, so it otherwise runs the old rule (and the old default config) even though the jar was rebuilt.</p>
+<h3 id="adding-a-rule">Adding a rule</h3>
+<ol>
+<li>Write the rule in <code>src/main/kotlin/io/github/leeturner/arrowdetekt/</code>, extending <code>Rule</code> and implementing <code>RequiresAnalysisApi</code>. Arrow rules need type resolution, so they run in <code>detektMain</code> / <code>detektTest</code> only.</li>
+<li>Register it in <code>ArrowRuleSetProvider.instance()</code>.</li>
+<li>Add it to <code>src/main/resources/config/config.yml</code> with <code>active: true</code>; every rule ships on by default. detekt merges this file into its defaults.</li>
+<li>Update <code>ArrowRuleSetProviderTest</code>, which pins the exact rule list and the default config.</li>
+<li>Test it the way <code>NoCatchAllInRaiseScopeTest</code> does: <code>lintWithContext(createEnvironment(), PRELUDE + snippet)</code>, with the shared <code>PRELUDE</code> from <code>Prelude.kt</code>. The test task sets <code>compile-test-snippets=true</code>, so every snippet must compile; otherwise unresolved Arrow calls make &ldquo;not flagged&rdquo; tests pass for the wrong reason. Arrow and kotlinx-coroutines are on the test classpath. Cover at least one flagged and one unflagged case, plus any false positives found in real code.</li>
+<li>Make the message say what to write instead, as stock detekt style rules do.</li>
+</ol>
+<p>To tell whether a call raises into a Raise scope, check the callee&rsquo;s declared receiver type, not the type of the value passed: inside <code>either { }</code>, the generic <code>T.runCatching</code> receives the Raise but doesn&rsquo;t raise. <code>raiseReceivers</code> in <code>Raise.kt</code> does this, and every rule that looks at raising calls uses it. To tell whether a Raise is in scope at all, as <code>NoUnboundEither</code> does, check <code>scopeContext(...).implicitValues</code> instead, which covers receivers, context parameters and nested lambdas. For an <code>if (...) raise(e)</code> rule, start from <code>ifRaise</code> in the same file, as <code>UseEnsure</code> and <code>UseEnsureNotNull</code> do; for any other statement that only raises, <code>raisedError</code>, as <code>PreferEitherCatch</code> does.</p>
+<p>The detekt 2 docs have no complete type-resolution rule example, so <code>NoCatchAllInRaiseScope</code> is the working reference. See also detekt&rsquo;s <a href="https://detekt.dev/docs/gettingstarted/type-resolution">type resolution docs</a> and <a href="https://detekt.dev/kdoc/detekt-api/dev.detekt.api/-requires-analysis-api/index.html"><code>RequiresAnalysisApi</code></a>.</p>
+<h2 id="licence">Licence</h2>
+<p>Apache License 2.0. See <a href="https://github.com/leeturner/arrow-detekt-rules/blob/HEAD/LICENSE">LICENSE</a>.</p>
+
+      </div>
+    </div>
+  </article>
+</div>
+
+  </main><footer class="site-footer">
+  <div class="wrap">
+    <div class="social-links">
+      <a href="https://github.com/leeturner">GitHub</a>
+      <a href="https://hachyderm.io/@leeturner" rel="me">Mastodon</a>
+      <a href="https://bsky.app/profile/leeturner.bsky.social">Bluesky</a>
+      <a href="https://www.linkedin.com/in/turnerlee/">LinkedIn</a>
+      <a href="https://x.com/leeturner">X</a>
+      <a href="https://youtube.com/@leeturner">YouTube</a>
+      <a href="https://stackoverflow.com/users/11251979/lee-turner">Stack Overflow</a>
+      <a href="/index.xml">RSS</a>
+    </div>
+    <span>© 2026 Lee Turner · <a href="/privacy/">Privacy</a></span>
+  </div>
+</footer>
+
+  <script src="/js/site.min.373292f461d4d2a7a600be3365fe40b067adf5890a053675a1760de6e7fc2f4b.js" integrity="sha256-NzKS9GHU0qemAL4zZf5AsGet9YkKBTZ1oXYN5uf8L0s=" defer></script>
+</body>
+</html>
