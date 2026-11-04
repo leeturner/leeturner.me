@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Wed, 28 Oct 2026 20:49:32 +0000</lastBuildDate>
+			<lastBuildDate>Tue, 03 Nov 2026 22:35:22 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/microblog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>2026-11-03T22-35</title>
+				<link>https://leeturner.me/microblog/2026-11-03t22-35/</link>
+				<pubDate>Tue, 03 Nov 2026 22:35:22 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-11-03t22-35/</guid>
+				<description>&lt;p&gt;I am a big fan of using Arrow in my Kotlin apps.  Over the past week I have been looking at how I can steer agents towards writing more idiomatic arrow code and to give them this feedback early on.&lt;/p&gt;&#xA;&lt;p&gt;Along with a few additions to my agents.md file, this all ended up as a new collection of Detekt rules - &lt;a href=&#34;https://leeturner.me/projects/arrow-detekt-rules/&#34;&gt;https://leeturner.me/projects/arrow-detekt-rules/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you use arrow and detekt, feel free to take a look and let me know what you think.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>2026-10-28T20-49</title>
 				<link>https://leeturner.me/microblog/2026-10-28t20-49/</link>
@@ -215,13 +222,6 @@
 				<pubDate>Sat, 16 Nov 2024 09:48:52 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-16t09-48/</guid>
 				<description>&lt;p&gt;The latest installment of Pairing With @duncanmcg  is great.  This series on Gradle is really good - &lt;a href=&#34;https://www.youtube.com/watch?v=7AxDwkRVkuA&#34;&gt;https://www.youtube.com/watch?v=7AxDwkRVkuA&lt;/a&gt;&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>2024-11-15T09:09</title>
-				<link>https://leeturner.me/microblog/2024-11-15t09-09/</link>
-				<pubDate>Fri, 15 Nov 2024 09:09:08 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-11-15t09-09/</guid>
-				<description>&lt;p&gt;WireMock are looking for a London Based Solutions Engineer to join our team. Come and join&#xA;us - &lt;a href=&#34;https://www.wiremock.io/careers/solutions-engineer&#34;&gt;https://www.wiremock.io/careers/solutions-engineer&lt;/a&gt;&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
