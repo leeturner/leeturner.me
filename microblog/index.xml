@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Tue, 03 Nov 2026 22:35:22 +0000</lastBuildDate>
+			<lastBuildDate>Tue, 17 Nov 2026 21:13:35 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/microblog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>2026-11-17T21-13</title>
+				<link>https://leeturner.me/microblog/2026-11-17t21-13/</link>
+				<pubDate>Tue, 17 Nov 2026 21:13:35 +0000</pubDate>
+				<guid>https://leeturner.me/microblog/2026-11-17t21-13/</guid>
+				<description>&lt;p&gt;Crazy to think this week marks 3 years at WireMock! 🎉 It&amp;rsquo;s been a busy year and we&amp;rsquo;ve shipped a lot since my last anniversary post, and things aren&amp;rsquo;t slowing down either. We&amp;rsquo;ve got some pretty cool stuff landing over the next few months, so stay tuned&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;We recently released Server-Sent Events mocking in WireMock, so obviously the only way to celebrate was a WireMock SSE-driven three.js firework display 🎆&lt;/p&gt;&#xA;&lt;p&gt;If you are building with SSE, you should definitely try this out&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>2026-11-03T22-35</title>
 				<link>https://leeturner.me/microblog/2026-11-03t22-35/</link>
@@ -215,13 +222,6 @@
 				<pubDate>Sat, 16 Nov 2024 09:49:08 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-16t09-49/</guid>
 				<description>&lt;p&gt;Enjoyed my usual installment of &lt;code&gt;Pairing With Duncan&lt;/code&gt;. This series on Gradle is really good&lt;/p&gt;&#xA;&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;&#x9;&#x9;&#x9;&lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/7AxDwkRVkuA?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;&#x9;&#x9;&lt;/div&gt;</description>
-			</item>
-			<item>
-				<title>2024-11-16T09-48</title>
-				<link>https://leeturner.me/microblog/2024-11-16t09-48/</link>
-				<pubDate>Sat, 16 Nov 2024 09:48:52 +0000</pubDate>
-				<guid>https://leeturner.me/microblog/2024-11-16t09-48/</guid>
-				<description>&lt;p&gt;The latest installment of Pairing With @duncanmcg  is great.  This series on Gradle is really good - &lt;a href=&#34;https://www.youtube.com/watch?v=7AxDwkRVkuA&#34;&gt;https://www.youtube.com/watch?v=7AxDwkRVkuA&lt;/a&gt;&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
