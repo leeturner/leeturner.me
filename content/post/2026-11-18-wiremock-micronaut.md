@@ -38,7 +38,7 @@ The annotations and attributes deliberately mirror [wiremock-spring-boot](https:
 
 ## Already using the nahuel92 library?
 
-If you have come across `io.github.nahuel92:wiremock-micronaut`, this is its replacement, and moving over is mostly a find and replace:
+If you're coming from `io.github.nahuel92:wiremock-micronaut`, moving over is mostly a find and replace:
 
 | Before | After |
 |---|---|
