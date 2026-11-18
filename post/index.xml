@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Mon, 16 Feb 2026 10:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Wed, 18 Nov 2026 15:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/post/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Introducing wiremock-micronaut</title>
+				<link>https://leeturner.me/post/wiremock-micronaut/</link>
+				<pubDate>Wed, 18 Nov 2026 15:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/post/wiremock-micronaut/</guid>
+				<description>&lt;p&gt;WireMock and Micronaut are two things I really like, so it was only a matter of time before the two came together :)&lt;/p&gt;&#xA;&lt;p&gt;Say hello to &lt;a href=&#34;https://leeturner.me/projects/wiremock-micronaut/&#34;&gt;wiremock-micronaut&lt;/a&gt;, a small library that makes testing HTTP clients in Micronaut 5 apps a whole lot nicer.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;&#xA;&lt;p&gt;Testing an HTTP client properly means standing up a WireMock server, getting its URL into your Micronaut config before the beans that need it are created, and then getting hold of the server in your test so you can stub things. None of that is hard on its own, but it is the same plumbing every time, and it is easy to get the ordering wrong.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Convert an Image into Colourful Ascii Art - Vlang Edition</title>
 				<link>https://leeturner.me/post/image-term-vlang/</link>

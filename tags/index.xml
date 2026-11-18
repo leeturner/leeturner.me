@@ -10,9 +10,44 @@
 		
 		
 		
-			<lastBuildDate>Mon, 16 Feb 2026 10:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Wed, 18 Nov 2026 15:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Java</title>
+				<link>https://leeturner.me/tags/java/</link>
+				<pubDate>Wed, 18 Nov 2026 15:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/tags/java/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Kotlin</title>
+				<link>https://leeturner.me/tags/kotlin/</link>
+				<pubDate>Wed, 18 Nov 2026 15:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/tags/kotlin/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Micronaut</title>
+				<link>https://leeturner.me/tags/micronaut/</link>
+				<pubDate>Wed, 18 Nov 2026 15:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/tags/micronaut/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Testing</title>
+				<link>https://leeturner.me/tags/testing/</link>
+				<pubDate>Wed, 18 Nov 2026 15:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/tags/testing/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Wiremock</title>
+				<link>https://leeturner.me/tags/wiremock/</link>
+				<pubDate>Wed, 18 Nov 2026 15:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/tags/wiremock/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Cli</title>
 				<link>https://leeturner.me/tags/cli/</link>
@@ -49,24 +84,10 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Wiremock</title>
-				<link>https://leeturner.me/tags/wiremock/</link>
-				<pubDate>Fri, 24 May 2024 10:00:00 +0000</pubDate>
-				<guid>https://leeturner.me/tags/wiremock/</guid>
-				<description></description>
-			</item>
-			<item>
 				<title>Controllers</title>
 				<link>https://leeturner.me/tags/controllers/</link>
 				<pubDate>Thu, 29 Jun 2023 18:00:00 +0000</pubDate>
 				<guid>https://leeturner.me/tags/controllers/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Micronaut</title>
-				<link>https://leeturner.me/tags/micronaut/</link>
-				<pubDate>Thu, 29 Jun 2023 18:00:00 +0000</pubDate>
-				<guid>https://leeturner.me/tags/micronaut/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -88,13 +109,6 @@
 				<link>https://leeturner.me/tags/jsoup/</link>
 				<pubDate>Mon, 26 Jun 2023 10:20:08 +0000</pubDate>
 				<guid>https://leeturner.me/tags/jsoup/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Kotlin</title>
-				<link>https://leeturner.me/tags/kotlin/</link>
-				<pubDate>Mon, 26 Jun 2023 10:20:08 +0000</pubDate>
-				<guid>https://leeturner.me/tags/kotlin/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -168,13 +182,6 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Testing</title>
-				<link>https://leeturner.me/tags/testing/</link>
-				<pubDate>Sun, 12 Sep 2021 10:20:08 +0000</pubDate>
-				<guid>https://leeturner.me/tags/testing/</guid>
-				<description></description>
-			</item>
-			<item>
 				<title>Framework</title>
 				<link>https://leeturner.me/tags/framework/</link>
 				<pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
@@ -214,13 +221,6 @@
 				<link>https://leeturner.me/tags/junit5/</link>
 				<pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
 				<guid>https://leeturner.me/tags/junit5/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Testwatcher</title>
-				<link>https://leeturner.me/tags/testwatcher/</link>
-				<pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-				<guid>https://leeturner.me/tags/testwatcher/</guid>
 				<description></description>
 			</item>
 	</channel>
