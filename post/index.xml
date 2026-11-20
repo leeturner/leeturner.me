@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Wed, 18 Nov 2026 15:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Fri, 20 Nov 2026 10:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/post/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>wiremock-blns-extension - Naughty Strings for WireMock</title>
+				<link>https://leeturner.me/post/wiremock-blns-extension/</link>
+				<pubDate>Fri, 20 Nov 2026 10:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/post/wiremock-blns-extension/</guid>
+				<description>&lt;p&gt;Most of the time when we mock an API we send back nice, well-behaved data. A name like &amp;ldquo;Alice&amp;rdquo;, an email that&amp;rsquo;s actually an email, a description with nothing weirder in it than a full stop. That&amp;rsquo;s fine for the happy path, but real APIs don&amp;rsquo;t always play nice, and plenty of bugs only show up when some unexpected string comes back from a downstream service.&lt;/p&gt;&#xA;&lt;p&gt;If you haven&amp;rsquo;t come across it, the &lt;a href=&#34;https://github.com/minimaxir/big-list-of-naughty-strings&#34;&gt;Big List of Naughty Strings&lt;/a&gt; (BLNS) is a collection of strings that are very likely to cause problems when used as input: SQL injection, RTL text, zero-width characters, emoji, Zalgo text and more.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Introducing wiremock-micronaut</title>
 				<link>https://leeturner.me/post/wiremock-micronaut/</link>

@@ -275,7 +275,7 @@ stubs in <code>message-mappings</code>, next to <code>mappings</code>:</p>
   message-mappings/live-setlist.json     # what to send when the trigger is hit
 </code></pre><p>An HTTP stub opens the stream:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span> <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;method&#34;</span><span class="p">:</span> <span class="s2">&#34;GET&#34;</span><span class="p">,</span> <span class="nt">&#34;urlPath&#34;</span><span class="p">:</span> <span class="s2">&#34;/gigs/radiohead-2026/live&#34;</span> <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;response&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nt">&#34;openSseChannel&#34;</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;response&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nt">&#34;openChannelOfType&#34;</span><span class="p">:</span> <span class="s2">&#34;sse&#34;</span> <span class="p">}</span> <span class="p">}</span>
 </span></span></code></pre></div><p>A message stub sends events to it when another stub (by <code>id</code>) is hit:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span> <span class="nt">&#34;trigger&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;http-stub&#34;</span><span class="p">,</span> <span class="nt">&#34;stubId&#34;</span><span class="p">:</span> <span class="s2">&#34;cccccccc-0000-4000-8000-000000000001&#34;</span> <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;actions&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;send&#34;</span><span class="p">,</span>
@@ -304,7 +304,7 @@ disconnected SSE channel stays listed until a send to it fails.</li>
 <li>To consume SSE with a Micronaut declarative client, use the Netty
 <code>io.micronaut:micronaut-http-client</code>. The JDK client does not support
 SSE.</li>
-<li>WebSockets work the same way, with <code>openWebsocketChannel</code> and
+<li>WebSockets work the same way, with <code>&quot;openChannelOfType&quot;: &quot;websocket&quot;</code> and
 <code>&quot;channelType&quot;: &quot;websocket&quot;</code>.</li>
 </ul>
 <h2 id="gotchas">Gotchas</h2>

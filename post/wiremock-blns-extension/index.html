@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wiremock-blns-extension - Naughty Strings for WireMock · Lee Turner</title>
+<meta name="description" content="Introducing wiremock-blns-extension, a WireMock extension that adds a naughtyString Handlebars helper backed by the Big List of Naughty Strings">
+<meta name="keywords" content="lee, turner, lee turner, hacking, software engineering, security, coding">
+<meta name="author" content="Lee Turner">
+<link rel="canonical" href="https://leeturner.me/post/wiremock-blns-extension/">
+
+<meta property="og:site_name" content="Lee Turner">
+<meta property="og:title" content="wiremock-blns-extension - Naughty Strings for WireMock · Lee Turner">
+<meta property="og:description" content="Introducing wiremock-blns-extension, a WireMock extension that adds a naughtyString Handlebars helper backed by the Big List of Naughty Strings">
+<meta property="og:url" content="https://leeturner.me/post/wiremock-blns-extension/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://leeturner.me/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" href="https://leeturner.me/index.xml" title="Lee Turner">
+
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme') || localStorage.getItem('cleanwhite-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/main.min.74fd232717ea5d6f5b8fee44cc9076ab1071b61374d0b137ffccb645accc4ce8.css" integrity="sha256-dP0jJxfqXW9bj&#43;5EzJB2qxBxthN00LE3/8y2RazMTOg=">
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a><header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">Lee Turner<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/microblog/">Microblog</a>
+      <a href="/now/">Now</a>
+      <a href="/about/">About</a>
+      <a href="/projects/">Projects</a>
+      <a href="https://leeturner.tech">Resume</a>
+      <a href="/archive/">Archive</a>
+    </nav>
+    <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+  <main id="main">
+<div class="wrap">
+  <article>
+    <header class="post-head">
+      <div class="pills"><a class="pill" href="/tags/wiremock/">wiremock</a><a class="pill" href="/tags/testing/">testing</a><a class="pill" href="/tags/appsec/">appsec</a><a class="pill" href="/tags/java/">java</a>
+      </div>
+      <h1>wiremock-blns-extension - Naughty Strings for WireMock</h1>
+      <p class="subtitle">Putting the Big List of Naughty Strings into your templated responses</p>
+      <div class="byline">
+        <img src="/img/avatar.jpg" alt="" width="36" height="36">
+        <span><strong>Lee Turner</strong> · <time datetime="2026-11-20">20 November 2026</time>
+ · 4 min read</span>
+      </div>
+    </header>
+    <details class="toc">
+      <summary>On this page</summary>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-it-does">What it does</a></li>
+    <li><a href="#picking-your-strings">Picking your strings</a></li>
+    <li><a href="#which-artifact-to-use">Which artifact to use?</a></li>
+    <li><a href="#tip-json-bodies">Tip: JSON bodies</a></li>
+    <li><a href="#a-word-of-warning">A word of warning</a></li>
+    <li><a href="#whats-next">What&rsquo;s next</a></li>
+  </ul>
+</nav>
+    </details>
+
+    <div class="prose">
+      <p>Most of the time when we mock an API we send back nice, well-behaved data. A name like &ldquo;Alice&rdquo;, an email that&rsquo;s actually an email, a description with nothing weirder in it than a full stop. That&rsquo;s fine for the happy path, but real APIs don&rsquo;t always play nice, and plenty of bugs only show up when some unexpected string comes back from a downstream service.</p>
+<p>If you haven&rsquo;t come across it, the <a href="https://github.com/minimaxir/big-list-of-naughty-strings">Big List of Naughty Strings</a> (BLNS) is a collection of strings that are very likely to cause problems when used as input: SQL injection, RTL text, zero-width characters, emoji, Zalgo text and more.</p>
+<p>So I built <a href="/projects/wiremock-blns-extension/">wiremock-blns-extension</a> :) Every client test that hits the stub then exercises those cases for free.</p>
+<h2 id="what-it-does">What it does</h2>
+<p>The extension adds a <code>naughtyString</code> Handlebars helper to WireMock&rsquo;s response templating. Drop it into a templated response and WireMock fills in a string from BLNS, so your client code has to cope with the kind of input that tends to break things.</p>
+<p>A few things worth knowing:</p>
+<ul>
+<li>The list has <strong>516 strings</strong> across <strong>30 categories</strong></li>
+<li>It is <strong>bundled in the JAR</strong>, so nothing is downloaded at runtime</li>
+<li>It targets <strong>WireMock 4.0.0-beta.41</strong> and runs on <strong>Java 17 or later</strong></li>
+</ul>
+<p>Here is a stub that returns a SQL injection string as the user&rsquo;s name:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;method&#34;</span><span class="p">:</span> <span class="s2">&#34;GET&#34;</span><span class="p">,</span> <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;/user&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;response&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;headers&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;body&#34;</span><span class="p">:</span> <span class="s2">&#34;{ \&#34;name\&#34;: {{{toJson (naughtyString category=&#39;sql-injection&#39;)}}} }&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transformers&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;response-template&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="picking-your-strings">Picking your strings</h2>
+<p>The helper takes two optional parameters, <code>category</code> and <code>index</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-handlebars" data-lang="handlebars"><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span><span class="cp">}}</span><span class="x">                                  </span><span class="c">{{!-- random, from the whole list --}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span> <span class="na">category</span><span class="o">=</span><span class="s1">&#39;Emoji&#39;</span><span class="cp">}}</span><span class="x">                 </span><span class="c">{{!-- random, from one category --}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span> <span class="na">category</span><span class="o">=</span><span class="s1">&#39;sql-injection&#39;</span><span class="cp">}}</span><span class="x">         </span><span class="c">{{!-- category given as a slug --}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span> <span class="k">in</span><span class="na">dex</span><span class="o">=</span><span class="m">42</span><span class="cp">}}</span><span class="x">                         </span><span class="c">{{!-- fixed entry from the whole list --}}</span><span class="x">
+</span></span></span><span class="line"><span class="cl"><span class="cp">{{</span><span class="nv">naughtyString</span> <span class="na">category</span><span class="o">=</span><span class="s1">&#39;Emoji&#39;</span> <span class="k">in</span><span class="na">dex</span><span class="o">=</span><span class="m">0</span><span class="cp">}}</span><span class="x">         </span><span class="c">{{!-- fixed entry within a category --}}</span><span class="x">
+</span></span></span></code></pre></div><ul>
+<li><strong><code>category</code></strong> limits the choice to one category, matched case-insensitively by heading (<code>SQL Injection</code>) or slug (<code>sql-injection</code>)</li>
+<li><strong><code>index</code></strong> returns a fixed entry instead of a random one, counted from 0 within the whole list or the category, which is handy when you want the same string every time</li>
+</ul>
+<p>An unknown category or an out-of-range index gives you an error string rather than quietly returning the wrong thing. The full category list is on the <a href="/projects/wiremock-blns-extension/">project page</a>.</p>
+<p>If you want to see it working end to end, my <a href="https://github.com/leeturner/wiremock-standalone-docker-example#big-list-of-naughty-strings-example">WireMock standalone Docker example</a> project has it wired up: <code>docker compose up</code>, then <code>GET /blns</code> returns a random naughty string from every category.</p>
+<h2 id="which-artifact-to-use">Which artifact to use?</h2>
+<p>There are <strong>two artifacts</strong>, and each only works in its own setting:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Artifact</th>
+					<th>For</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>io.github.leeturner:wiremock-blns-extension</code></td>
+					<td>Embedded WireMock (<code>org.wiremock:wiremock</code>, JUnit)</td>
+			</tr>
+			<tr>
+					<td><code>io.github.leeturner:wiremock-blns-extension-standalone</code></td>
+					<td>The <code>wiremock-standalone</code> JAR and the Docker image</td>
+			</tr>
+	</tbody>
+</table>
+<p><code>wiremock-standalone</code> relocates Handlebars, so the standalone artifact is built against the relocated packages. Use the wrong one and it fails at runtime: the plain JAR in standalone WireMock throws an <code>AbstractMethodError</code>. If you see that, check which artifact you picked.</p>
+<p>For embedded WireMock in JUnit, add the dependency (at the time of writing, the latest release is 0.1.0):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="n">testImplementation</span><span class="p">(</span><span class="s2">&#34;io.github.leeturner:wiremock-blns-extension:0.1.0&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>Then register the extension:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RegisterExtension</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="n">WireMockExtension</span><span class="w"> </span><span class="n">wm</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">WireMockExtension</span><span class="p">.</span><span class="na">newInstance</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">options</span><span class="p">(</span><span class="n">wireMockConfig</span><span class="p">().</span><span class="na">dynamicPort</span><span class="p">().</span><span class="na">extensions</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BlnsExtension</span><span class="p">()))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The standalone JAR and Docker setups are in the <a href="https://github.com/leeturner/wiremock-blns-extension">README</a> too. For Docker, you mount the standalone JAR into <code>/var/wiremock/extensions/</code>.</p>
+<h2 id="tip-json-bodies">Tip: JSON bodies</h2>
+<p>WireMock doesn&rsquo;t escape helper output, so a naughty string dropped straight into JSON will often break it. Wrap the helper in WireMock&rsquo;s <code>toJson</code> helper, which adds the quotes and escaping, and leave the value unquoted, as in the stub above. It is tested against every entry in the list: all 516 come back as valid JSON that parses to the original string.</p>
+<p>Use <code>body</code>, not <code>jsonBody</code>. Inside a <code>jsonBody</code> string value the quotes double up and you get invalid JSON.</p>
+<h2 id="a-word-of-warning">A word of warning</h2>
+<p>These are real payloads. The XSS, SQL and command-injection strings reach whatever consumes the mock, including logs, databases and browsers. That&rsquo;s the whole point, but only point clients at these stubs in environments where that is safe. You have been warned :)</p>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<p>This is version 0.1.0, so I&rsquo;d much rather hear how people actually use it than guess. If it finds a bug in your code, I&rsquo;d love to hear about it.</p>
+<p>There is more on the <a href="/projects/wiremock-blns-extension/">project page</a>, and the code is on <a href="https://github.com/leeturner/wiremock-blns-extension">GitHub</a>. Issues and PRs are very welcome.</p>
+
+    </div>
+<section class="comments" aria-labelledby="comments-title" id="comments">
+  <h2 id="comments-title">Comments</h2>
+  <div id="giscus"
+    data-repo="leeturner/leeturner.me"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxMDMwNTIxNzQ="
+    data-category="General"
+    data-category-id="DIC_kwDOBiRzjs4CXhC_"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-lang="en"
+    data-loading="lazy"></div>
+  <noscript><p class="muted">Comments are powered by GitHub Discussions and need JavaScript.</p></noscript>
+</section>
+
+  </article>
+  <nav class="keep-reading" aria-label="More posts">
+    <h2 class="eyebrow">Keep reading</h2>
+    <div class="grid">
+      <a href="/post/wiremock-micronaut/"><div class="meta">Older · <time datetime="2026-11-18">18 November 2026</time>
+</div><div class="title">Introducing wiremock-micronaut</div></a>
+    </div>
+  </nav>
+</div>
+
+  </main><footer class="site-footer">
+  <div class="wrap">
+    <div class="social-links">
+      <a href="https://github.com/leeturner">GitHub</a>
+      <a href="https://hachyderm.io/@leeturner" rel="me">Mastodon</a>
+      <a href="https://bsky.app/profile/leeturner.bsky.social">Bluesky</a>
+      <a href="https://www.linkedin.com/in/turnerlee/">LinkedIn</a>
+      <a href="https://x.com/leeturner">X</a>
+      <a href="https://youtube.com/@leeturner">YouTube</a>
+      <a href="https://stackoverflow.com/users/11251979/lee-turner">Stack Overflow</a>
+      <a href="/index.xml">RSS</a>
+    </div>
+    <span>© 2026 Lee Turner · <a href="/privacy/">Privacy</a></span>
+  </div>
+</footer>
+
+  <script src="/js/site.min.373292f461d4d2a7a600be3365fe40b067adf5890a053675a1760de6e7fc2f4b.js" integrity="sha256-NzKS9GHU0qemAL4zZf5AsGet9YkKBTZ1oXYN5uf8L0s=" defer></script>
+</body>
+</html>
