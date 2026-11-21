@@ -1,0 +1,8 @@
+{{- /*
+  GoatCounter tracking pixel for an RSS item, counted as /rss/<page path> so feed
+  reads stay separate from page views. Only in production builds.
+  Feed readers often fetch images when they sync, so treat these counts as rough.
+*/ -}}
+{{- if hugo.IsProduction -}}
+<img src="https://leeturner.goatcounter.com/count?p={{ printf "/rss%s" .RelPermalink | urlquery }}&t={{ printf "RSS: %s" .Title | urlquery }}" width="1" height="1" alt="">
+{{- end -}}
