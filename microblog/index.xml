@@ -18,210 +18,210 @@
 				<link>https://leeturner.me/microblog/2026-11-17t21-13/</link>
 				<pubDate>Tue, 17 Nov 2026 21:13:35 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-11-17t21-13/</guid>
-				<description>&lt;p&gt;Crazy to think this week marks 3 years at WireMock! 🎉 It&amp;rsquo;s been a busy year and we&amp;rsquo;ve shipped a lot since my last anniversary post, and things aren&amp;rsquo;t slowing down either. We&amp;rsquo;ve got some pretty cool stuff landing over the next few months, so stay tuned&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;We recently released Server-Sent Events mocking in WireMock, so obviously the only way to celebrate was a WireMock SSE-driven three.js firework display 🎆&lt;/p&gt;&#xA;&lt;p&gt;If you are building with SSE, you should definitely try this out&lt;/p&gt;</description>
+				<description>&lt;p&gt;Crazy to think this week marks 3 years at WireMock! 🎉 It&amp;rsquo;s been a busy year and we&amp;rsquo;ve shipped a lot since my last anniversary post, and things aren&amp;rsquo;t slowing down either. We&amp;rsquo;ve got some pretty cool stuff landing over the next few months, so stay tuned&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;We recently released Server-Sent Events mocking in WireMock, so obviously the only way to celebrate was a WireMock SSE-driven three.js firework display 🎆&lt;/p&gt;&#xA;&lt;p&gt;If you are building with SSE, you should definitely try this out&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-11-17t21-13%2F&amp;t=RSS%3A&amp;#43;2026-11-17T21-13&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-11-03T22-35</title>
 				<link>https://leeturner.me/microblog/2026-11-03t22-35/</link>
 				<pubDate>Tue, 03 Nov 2026 22:35:22 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-11-03t22-35/</guid>
-				<description>&lt;p&gt;I am a big fan of using Arrow in my Kotlin apps.  Over the past week I have been looking at how I can steer agents towards writing more idiomatic arrow code and to give them this feedback early on.&lt;/p&gt;&#xA;&lt;p&gt;Along with a few additions to my agents.md file, this all ended up as a new collection of Detekt rules - &lt;a href=&#34;https://leeturner.me/projects/arrow-detekt-rules/&#34;&gt;https://leeturner.me/projects/arrow-detekt-rules/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you use arrow and detekt, feel free to take a look and let me know what you think.&lt;/p&gt;</description>
+				<description>&lt;p&gt;I am a big fan of using Arrow in my Kotlin apps.  Over the past week I have been looking at how I can steer agents towards writing more idiomatic arrow code and to give them this feedback early on.&lt;/p&gt;&#xA;&lt;p&gt;Along with a few additions to my agents.md file, this all ended up as a new collection of Detekt rules - &lt;a href=&#34;https://leeturner.me/projects/arrow-detekt-rules/&#34;&gt;https://leeturner.me/projects/arrow-detekt-rules/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you use arrow and detekt, feel free to take a look and let me know what you think.&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-11-03t22-35%2F&amp;t=RSS%3A&amp;#43;2026-11-03T22-35&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-10-28T20-49</title>
 				<link>https://leeturner.me/microblog/2026-10-28t20-49/</link>
 				<pubDate>Wed, 28 Oct 2026 20:49:32 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-10-28t20-49/</guid>
-				<description>&lt;p&gt;Great to see Jetbrains IDEs using libghostty as the backend for their terminals&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.jetbrains.com/platform/2026/10/jetbrains-terminal-now-uses-ghostty/&#34;&gt;https://blog.jetbrains.com/platform/2026/10/jetbrains-terminal-now-uses-ghostty/&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;Great to see Jetbrains IDEs using libghostty as the backend for their terminals&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.jetbrains.com/platform/2026/10/jetbrains-terminal-now-uses-ghostty/&#34;&gt;https://blog.jetbrains.com/platform/2026/10/jetbrains-terminal-now-uses-ghostty/&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-10-28t20-49%2F&amp;t=RSS%3A&amp;#43;2026-10-28T20-49&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-10-25T20-34</title>
 				<link>https://leeturner.me/microblog/2026-10-25t20-34/</link>
 				<pubDate>Sun, 25 Oct 2026 20:34:08 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-10-25t20-34/</guid>
-				<description>&lt;p&gt;All &lt;a href=&#34;https://fosstodon.org/@micronaut&#34;&gt;@micronaut&lt;/a&gt; projects on &lt;a href=&#34;https://github.com/leeturner&#34;&gt;https://github.com/leeturner&lt;/a&gt; have been updated to the latest security release 5.2.3&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://micronaut.io/2026/10/20/micronaut-framework-5-2-3/&#34;&gt;https://micronaut.io/2026/10/20/micronaut-framework-5-2-3/&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;All &lt;a href=&#34;https://fosstodon.org/@micronaut&#34;&gt;@micronaut&lt;/a&gt; projects on &lt;a href=&#34;https://github.com/leeturner&#34;&gt;https://github.com/leeturner&lt;/a&gt; have been updated to the latest security release 5.2.3&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://micronaut.io/2026/10/20/micronaut-framework-5-2-3/&#34;&gt;https://micronaut.io/2026/10/20/micronaut-framework-5-2-3/&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-10-25t20-34%2F&amp;t=RSS%3A&amp;#43;2026-10-25T20-34&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-10-22T20-29</title>
 				<link>https://leeturner.me/microblog/2026-10-22t20-29/</link>
 				<pubDate>Thu, 22 Oct 2026 20:29:38 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-10-22t20-29/</guid>
-				<description>&lt;p&gt;Really enjoyed the social at the &lt;a href=&#34;https://mastodon.social/@tessl_io&#34;&gt;@tessl_io&lt;/a&gt; office tonight. Simon’s talk on the Tessl software factory was really interesting. Definitely interested in giving a try&lt;/p&gt;</description>
+				<description>&lt;p&gt;Really enjoyed the social at the &lt;a href=&#34;https://mastodon.social/@tessl_io&#34;&gt;@tessl_io&lt;/a&gt; office tonight. Simon’s talk on the Tessl software factory was really interesting. Definitely interested in giving a try&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-10-22t20-29%2F&amp;t=RSS%3A&amp;#43;2026-10-22T20-29&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-10-22T20-22</title>
 				<link>https://leeturner.me/microblog/2026-10-22t20-22/</link>
 				<pubDate>Thu, 22 Oct 2026 20:22:17 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-10-22t20-22/</guid>
-				<description>&lt;p&gt;RE: &lt;a href=&#34;https://mas.to/@tastapod/117485600577537491&#34;&gt;https://mas.to/@tastapod/117485600577537491&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Static sites FTW&lt;/p&gt;</description>
+				<description>&lt;p&gt;RE: &lt;a href=&#34;https://mas.to/@tastapod/117485600577537491&#34;&gt;https://mas.to/@tastapod/117485600577537491&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Static sites FTW&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-10-22t20-22%2F&amp;t=RSS%3A&amp;#43;2026-10-22T20-22&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-10-21T15-14</title>
 				<link>https://leeturner.me/microblog/2026-10-21t15-14/</link>
 				<pubDate>Wed, 21 Oct 2026 15:14:30 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-10-21t15-14/</guid>
-				<description>&lt;p&gt;&lt;a href=&#34;https://fosstodon.org/@wiremock&#34;&gt;@wiremock&lt;/a&gt;  WireMock OSS 4.0-beta.41 has been released.  This is largely just a dependency and bug fix release but worth updating all the same if you are running the beta releases.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/wiremock/wiremock/releases/tag/4.0.0-beta.41&#34;&gt;https://github.com/wiremock/wiremock/releases/tag/4.0.0-beta.41&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Everything is up on maven central if you want to update to the latest&lt;/p&gt;</description>
+				<description>&lt;p&gt;&lt;a href=&#34;https://fosstodon.org/@wiremock&#34;&gt;@wiremock&lt;/a&gt;  WireMock OSS 4.0-beta.41 has been released.  This is largely just a dependency and bug fix release but worth updating all the same if you are running the beta releases.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/wiremock/wiremock/releases/tag/4.0.0-beta.41&#34;&gt;https://github.com/wiremock/wiremock/releases/tag/4.0.0-beta.41&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Everything is up on maven central if you want to update to the latest&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-10-21t15-14%2F&amp;t=RSS%3A&amp;#43;2026-10-21T15-14&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-10-20T21-07</title>
 				<link>https://leeturner.me/microblog/2026-10-20t21-07/</link>
 				<pubDate>Tue, 20 Oct 2026 21:07:49 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-10-20t21-07/</guid>
-				<description>&lt;p&gt;The Big List Of Naughty Strings is a cool project.  It contains a list of &amp;lsquo;interesting&amp;rsquo; strings that you can use in your testing - thinkings like SQL injection, RTL text, zero-width characters, emoji, Zalgo text and more.  The project can be found here:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/minimaxir/big-list-of-naughty-strings&#34;&gt;https://github.com/minimaxir/big-list-of-naughty-strings&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I thought it might be interesting to wrap these up in a WireMock extension that adds a naughtyString Handlebars helper, so templated responses can return strings from the BLNS.  That extension can be found here:&lt;/p&gt;</description>
+				<description>&lt;p&gt;The Big List Of Naughty Strings is a cool project.  It contains a list of &amp;lsquo;interesting&amp;rsquo; strings that you can use in your testing - thinkings like SQL injection, RTL text, zero-width characters, emoji, Zalgo text and more.  The project can be found here:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/minimaxir/big-list-of-naughty-strings&#34;&gt;https://github.com/minimaxir/big-list-of-naughty-strings&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I thought it might be interesting to wrap these up in a WireMock extension that adds a naughtyString Handlebars helper, so templated responses can return strings from the BLNS.  That extension can be found here:&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-10-20t21-07%2F&amp;t=RSS%3A&amp;#43;2026-10-20T21-07&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-10-16T13-18</title>
 				<link>https://leeturner.me/microblog/2026-10-16t13-18/</link>
 				<pubDate>Fri, 16 Oct 2026 13:18:36 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-10-16t13-18/</guid>
-				<description>&lt;p&gt;I have been playing around building TUIs recently.  I have to say, TamboUI is an awesome  option if you are a JVM dev wanting to do something in this area.&lt;/p&gt;&#xA;&lt;p&gt;Micronaut Launch TUI - &lt;a href=&#34;https://github.com/leeturner/micronaut-launch-tui&#34;&gt;https://github.com/leeturner/micronaut-launch-tui&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;TamboUI - &lt;a href=&#34;https://tamboui.dev/&#34;&gt;https://tamboui.dev/&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;I have been playing around building TUIs recently.  I have to say, TamboUI is an awesome  option if you are a JVM dev wanting to do something in this area.&lt;/p&gt;&#xA;&lt;p&gt;Micronaut Launch TUI - &lt;a href=&#34;https://github.com/leeturner/micronaut-launch-tui&#34;&gt;https://github.com/leeturner/micronaut-launch-tui&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;TamboUI - &lt;a href=&#34;https://tamboui.dev/&#34;&gt;https://tamboui.dev/&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-10-16t13-18%2F&amp;t=RSS%3A&amp;#43;2026-10-16T13-18&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-10-10T18-33</title>
 				<link>https://leeturner.me/microblog/2026-10-10t18-33/</link>
 				<pubDate>Sat, 10 Oct 2026 18:33:28 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-10-10t18-33/</guid>
-				<description>&lt;p&gt;Last week I put together a little Micronaut Framework WireMock extension to allow WireMock to be easily used inside tests.  It uses the same annotations as the WireMock spring boot extension.  At the moment it only supports http-based WireMock services but it does support the latest Micronaut and the latest WireMock OSS 4 beta so you get all the messaging and SSE support in there.&lt;/p&gt;&#xA;&lt;p&gt;Along with that, I watched Faster Development with Java, Python, and Micronaut by Graeme Rocher and Thomas Wuerthinger from Devoxx Belgium.  I have never been much of a python dev but Pyronaut looks amazing and definitely worth a try. Link to the video below.&lt;/p&gt;</description>
+				<description>&lt;p&gt;Last week I put together a little Micronaut Framework WireMock extension to allow WireMock to be easily used inside tests.  It uses the same annotations as the WireMock spring boot extension.  At the moment it only supports http-based WireMock services but it does support the latest Micronaut and the latest WireMock OSS 4 beta so you get all the messaging and SSE support in there.&lt;/p&gt;&#xA;&lt;p&gt;Along with that, I watched Faster Development with Java, Python, and Micronaut by Graeme Rocher and Thomas Wuerthinger from Devoxx Belgium.  I have never been much of a python dev but Pyronaut looks amazing and definitely worth a try. Link to the video below.&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-10-10t18-33%2F&amp;t=RSS%3A&amp;#43;2026-10-10T18-33&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-09-27T16-52</title>
 				<link>https://leeturner.me/microblog/2026-09-27t16-52/</link>
 				<pubDate>Sun, 27 Sep 2026 16:52:00 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-09-27t16-52/</guid>
-				<description>&lt;p&gt;Last week beta 39 of WireMock OSS v4 dropped.  Along with the usual bug fixes and dependency updates, this release built on the messaging support already there to add support for Server Sent Events.  This now opens up a wide range of testing capabilities and we are already making good use of this internally on the WireMock eng team.  If you use SSE in your app I would love to hear what you think.  I have updated the WireMock OSS docker example I have with a simple train departure board demo.&lt;/p&gt;</description>
+				<description>&lt;p&gt;Last week beta 39 of WireMock OSS v4 dropped.  Along with the usual bug fixes and dependency updates, this release built on the messaging support already there to add support for Server Sent Events.  This now opens up a wide range of testing capabilities and we are already making good use of this internally on the WireMock eng team.  If you use SSE in your app I would love to hear what you think.  I have updated the WireMock OSS docker example I have with a simple train departure board demo.&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-09-27t16-52%2F&amp;t=RSS%3A&amp;#43;2026-09-27T16-52&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-05-21T06-02</title>
 				<link>https://leeturner.me/microblog/2026-05-21t06-02/</link>
 				<pubDate>Thu, 21 May 2026 06:02:53 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-05-21t06-02/</guid>
-				<description>&lt;p&gt;Looking forward to a great few days ahead&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://leeturner.me/img/mastodon/116611047336797170-1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;Looking forward to a great few days ahead&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://leeturner.me/img/mastodon/116611047336797170-1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-05-21t06-02%2F&amp;t=RSS%3A&amp;#43;2026-05-21T06-02&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2026-01-08T12-13</title>
 				<link>https://leeturner.me/microblog/2026-01-08t12-13/</link>
 				<pubDate>Thu, 08 Jan 2026 12:13:03 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2026-01-08t12-13/</guid>
-				<description>&lt;p&gt;Flights and accomodation booked for KotlinConf. Feels a little more real now :)&lt;/p&gt;</description>
+				<description>&lt;p&gt;Flights and accomodation booked for KotlinConf. Feels a little more real now :)&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2026-01-08t12-13%2F&amp;t=RSS%3A&amp;#43;2026-01-08T12-13&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-12-22T12-13</title>
 				<link>https://leeturner.me/microblog/2024-12-22t12-13/</link>
 				<pubDate>Sun, 22 Dec 2024 12:13:03 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-12-22t12-13/</guid>
-				<description>&lt;p&gt;The real skill is knowing when to stop decorating &lt;img src=&#34;https://leeturner.me/img/x//1870804742588539314-GfZu_tJWoAAINyA.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;The real skill is knowing when to stop decorating &lt;img src=&#34;https://leeturner.me/img/x//1870804742588539314-GfZu_tJWoAAINyA.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-12-22t12-13%2F&amp;t=RSS%3A&amp;#43;2024-12-22T12-13&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-12-18T14-37</title>
 				<link>https://leeturner.me/microblog/2024-12-18t14-37/</link>
 				<pubDate>Wed, 18 Dec 2024 14:37:37 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-12-18t14-37/</guid>
-				<description>&lt;p&gt;Nice to see the @intellijidea @wiremockorg  plugin updated to WireMock version 3.9.2.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://plugins.jetbrains.com/plugin/23695-wiremock&#34;&gt;https://plugins.jetbrains.com/plugin/23695-wiremock&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;Nice to see the @intellijidea @wiremockorg  plugin updated to WireMock version 3.9.2.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://plugins.jetbrains.com/plugin/23695-wiremock&#34;&gt;https://plugins.jetbrains.com/plugin/23695-wiremock&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-12-18t14-37%2F&amp;t=RSS%3A&amp;#43;2024-12-18T14-37&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-12-06T09-04</title>
 				<link>https://leeturner.me/microblog/2024-12-06t09-04/</link>
 				<pubDate>Fri, 06 Dec 2024 09:04:03 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-12-06t09-04/</guid>
-				<description>&lt;p&gt;Nice to get back home after a few days away to find my new #adventofcode t-shirt had been delivered &lt;img src=&#34;https://leeturner.me/img/x//1864958973096411420-GeGqTLxXsAAZHHP.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;Nice to get back home after a few days away to find my new #adventofcode t-shirt had been delivered &lt;img src=&#34;https://leeturner.me/img/x//1864958973096411420-GeGqTLxXsAAZHHP.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-12-06t09-04%2F&amp;t=RSS%3A&amp;#43;2024-12-06T09-04&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-12-05T09-39</title>
 				<link>https://leeturner.me/microblog/2024-12-05t09-39/</link>
 				<pubDate>Thu, 05 Dec 2024 09:39:15 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-12-05t09-39/</guid>
-				<description>&lt;p&gt;RT @wiremockorg: The WireMock team is excited to announce the release of WireMock version 3.10.0. This release includes a number of depende…&lt;/p&gt;</description>
+				<description>&lt;p&gt;RT @wiremockorg: The WireMock team is excited to announce the release of WireMock version 3.10.0. This release includes a number of depende…&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-12-05t09-39%2F&amp;t=RSS%3A&amp;#43;2024-12-05T09-39&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-12-04T16-32</title>
 				<link>https://leeturner.me/microblog/2024-12-04t16-32/</link>
 				<pubDate>Wed, 04 Dec 2024 16:32:16 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-12-04t16-32/</guid>
-				<description>&lt;p&gt;Really great to see so many people at the WireMock talk today 🙏 &lt;a href=&#34;https://x.com/wiremockorg/status/1864346019476992106&#34;&gt;https://x.com/wiremockorg/status/1864346019476992106&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;Really great to see so many people at the WireMock talk today 🙏 &lt;a href=&#34;https://x.com/wiremockorg/status/1864346019476992106&#34;&gt;https://x.com/wiremockorg/status/1864346019476992106&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-12-04t16-32%2F&amp;t=RSS%3A&amp;#43;2024-12-04T16-32&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-12-03T16-23</title>
 				<link>https://leeturner.me/microblog/2024-12-03t16-23/</link>
 				<pubDate>Tue, 03 Dec 2024 16:23:57 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-12-03t16-23/</guid>
-				<description>&lt;p&gt;RT @wiremockorg: Great to chat to so many of you this morning as APIDays Paris kicked off. Come by stand 18 and chat to the team. https://t…&lt;/p&gt;</description>
+				<description>&lt;p&gt;RT @wiremockorg: Great to chat to so many of you this morning as APIDays Paris kicked off. Come by stand 18 and chat to the team. https://t…&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-12-03t16-23%2F&amp;t=RSS%3A&amp;#43;2024-12-03T16-23&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-12-02T11-33</title>
 				<link>https://leeturner.me/microblog/2024-12-02t11-33/</link>
 				<pubDate>Mon, 02 Dec 2024 11:33:03 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-12-02t11-33/</guid>
-				<description>&lt;p&gt;See you in a few hours Paris #APIDays &lt;img src=&#34;https://leeturner.me/img/x//1863546922436350154-GdylD8hXUAAc5UK.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;See you in a few hours Paris #APIDays &lt;img src=&#34;https://leeturner.me/img/x//1863546922436350154-GdylD8hXUAAc5UK.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-12-02t11-33%2F&amp;t=RSS%3A&amp;#43;2024-12-02T11-33&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-12-01T12-22</title>
 				<link>https://leeturner.me/microblog/2024-12-01t12-22/</link>
 				<pubDate>Sun, 01 Dec 2024 12:22:02 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-12-01t12-22/</guid>
-				<description>&lt;p&gt;Always greatful for the nice gentle intoduction to the first day of #AdventOfCode . Solving these puzzles always reminds me of how good the standard library is in @kotlin&lt;/p&gt;</description>
+				<description>&lt;p&gt;Always greatful for the nice gentle intoduction to the first day of #AdventOfCode . Solving these puzzles always reminds me of how good the standard library is in @kotlin&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-12-01t12-22%2F&amp;t=RSS%3A&amp;#43;2024-12-01T12-22&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-12-01T09-59</title>
 				<link>https://leeturner.me/microblog/2024-12-01t09-59/</link>
 				<pubDate>Sun, 01 Dec 2024 09:59:23 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-12-01t09-59/</guid>
-				<description>&lt;p&gt;Myself and a few of the @wiremockorg  team will be in Paris next week at #APIDays&lt;/p&gt;&#xA;&lt;p&gt;It would be great to chat. Come by the WireMock stand and say hi.&lt;/p&gt;&#xA;&lt;p&gt;I will also be giving a talk on how to develop in parallel and ship earlier with OpenAPI and mocking.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.apidays.global/paris/&#34;&gt;https://www.apidays.global/paris/&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;Myself and a few of the @wiremockorg  team will be in Paris next week at #APIDays&lt;/p&gt;&#xA;&lt;p&gt;It would be great to chat. Come by the WireMock stand and say hi.&lt;/p&gt;&#xA;&lt;p&gt;I will also be giving a talk on how to develop in parallel and ship earlier with OpenAPI and mocking.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.apidays.global/paris/&#34;&gt;https://www.apidays.global/paris/&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-12-01t09-59%2F&amp;t=RSS%3A&amp;#43;2024-12-01T09-59&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-11-26T15-10</title>
 				<link>https://leeturner.me/microblog/2024-11-26t15-10/</link>
 				<pubDate>Tue, 26 Nov 2024 15:10:09 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-26t15-10/</guid>
-				<description>&lt;p&gt;Can’t believe that Adevnt of Code starts on Monday. Also great to see the Kotlin videos sheduled in already.&lt;/p&gt;&#xA;&lt;p&gt;If you can, be sure to sponsor or buy some merch for the Advent of Code. It is a huge effort to run this every year.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://adventofcode.com/&#34;&gt;https://adventofcode.com/&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.youtube.com/watch?v=r7nMRJ57QA0&#34;&gt;https://www.youtube.com/watch?v=r7nMRJ57QA0&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;Can’t believe that Adevnt of Code starts on Monday. Also great to see the Kotlin videos sheduled in already.&lt;/p&gt;&#xA;&lt;p&gt;If you can, be sure to sponsor or buy some merch for the Advent of Code. It is a huge effort to run this every year.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://adventofcode.com/&#34;&gt;https://adventofcode.com/&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.youtube.com/watch?v=r7nMRJ57QA0&#34;&gt;https://www.youtube.com/watch?v=r7nMRJ57QA0&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-11-26t15-10%2F&amp;t=RSS%3A&amp;#43;2024-11-26T15-10&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-11-26T14:47</title>
 				<link>https://leeturner.me/microblog/2024-11-26t14-47/</link>
 				<pubDate>Tue, 26 Nov 2024 14:47:08 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-26t14-47/</guid>
-				<description>&lt;p&gt;Can&amp;rsquo;t believe that &lt;a href=&#34;https://adventofcode.com/&#34;&gt;Adevnt of Code&lt;/a&gt; starts on Monday. Also great to see the Kotlin videos&#xA;sheduled in already.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ll be at a conference the first week of December so I&amp;rsquo;ll be playing catchup for the first few days.  If you can, be&#xA;sure to sponsor or buy some merch for the Advent of Code.  It is a huge effort to run this every year.&lt;/p&gt;&#xA;&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;&#x9;&#x9;&#x9;&lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/r7nMRJ57QA0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;&#x9;&#x9;&lt;/div&gt;</description>
+				<description>&lt;p&gt;Can&amp;rsquo;t believe that &lt;a href=&#34;https://adventofcode.com/&#34;&gt;Adevnt of Code&lt;/a&gt; starts on Monday. Also great to see the Kotlin videos&#xA;sheduled in already.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ll be at a conference the first week of December so I&amp;rsquo;ll be playing catchup for the first few days.  If you can, be&#xA;sure to sponsor or buy some merch for the Advent of Code.  It is a huge effort to run this every year.&lt;/p&gt;&#xA;&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;&#x9;&#x9;&#x9;&lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/r7nMRJ57QA0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;&#x9;&#x9;&lt;/div&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-11-26t14-47%2F&amp;t=RSS%3A&amp;#43;2024-11-26T14%3A47&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-11-19T22-35</title>
 				<link>https://leeturner.me/microblog/2024-11-19t22-35/</link>
 				<pubDate>Tue, 19 Nov 2024 22:35:58 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-19t22-35/</guid>
-				<description>&lt;p&gt;This is a great post on the current state of Kotlin Script.&lt;/p&gt;&#xA;&lt;p&gt;The section on the continued support for .main.kts files was music to my ears&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/&#34;&gt;https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;This is a great post on the current state of Kotlin Script.&lt;/p&gt;&#xA;&lt;p&gt;The section on the continued support for .main.kts files was music to my ears&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/&#34;&gt;https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-11-19t22-35%2F&amp;t=RSS%3A&amp;#43;2024-11-19T22-35&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-11-19T22:27</title>
 				<link>https://leeturner.me/microblog/2024-11-19t22-27/</link>
 				<pubDate>Tue, 19 Nov 2024 22:27:08 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-19t22-27/</guid>
-				<description>&lt;p&gt;This is a great post on the current state of Kotlin Script.  This section was music to my ears&lt;/p&gt;&#xA;&lt;p&gt;We will continue to develop the &lt;code&gt;.main.kts&lt;/code&gt; script type, which is already helpful for simple automation tasks. We have&#xA;plans to extend its functionality and streamline IDE support. Such scripts continue to be supported out of the box in&#xA;the Kotlin compiler and the Kotlin plugin for IntelliJ IDEA.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/&#34;&gt;https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;This is a great post on the current state of Kotlin Script.  This section was music to my ears&lt;/p&gt;&#xA;&lt;p&gt;We will continue to develop the &lt;code&gt;.main.kts&lt;/code&gt; script type, which is already helpful for simple automation tasks. We have&#xA;plans to extend its functionality and streamline IDE support. Such scripts continue to be supported out of the box in&#xA;the Kotlin compiler and the Kotlin plugin for IntelliJ IDEA.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/&#34;&gt;https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-11-19t22-27%2F&amp;t=RSS%3A&amp;#43;2024-11-19T22%3A27&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-11-19T11-19</title>
 				<link>https://leeturner.me/microblog/2024-11-19t11-19/</link>
 				<pubDate>Tue, 19 Nov 2024 11:19:42 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-19t11-19/</guid>
-				<description>&lt;p&gt;NeovimConf live starts today - &lt;a href=&#34;https://neovimconf.live/&#34;&gt;https://neovimconf.live/&lt;/a&gt;  Streamed live on Twitch - &lt;a href=&#34;http://twitch.tv/theprimeagen&#34;&gt;http://twitch.tv/theprimeagen&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;NeovimConf live starts today - &lt;a href=&#34;https://neovimconf.live/&#34;&gt;https://neovimconf.live/&lt;/a&gt;  Streamed live on Twitch - &lt;a href=&#34;http://twitch.tv/theprimeagen&#34;&gt;http://twitch.tv/theprimeagen&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-11-19t11-19%2F&amp;t=RSS%3A&amp;#43;2024-11-19T11-19&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-11-19T11:16</title>
 				<link>https://leeturner.me/microblog/2024-11-19t11-16/</link>
 				<pubDate>Tue, 19 Nov 2024 11:16:08 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-19t11-16/</guid>
-				<description>&lt;p&gt;NeovimConf live starts today - &lt;a href=&#34;https://neovimconf.live/&#34;&gt;https://neovimconf.live/&lt;/a&gt;  Streamed live on Twitch - &lt;a href=&#34;http://twitch.tv/theprimeagen&#34;&gt;http://twitch.tv/theprimeagen&lt;/a&gt;&lt;/p&gt;</description>
+				<description>&lt;p&gt;NeovimConf live starts today - &lt;a href=&#34;https://neovimconf.live/&#34;&gt;https://neovimconf.live/&lt;/a&gt;  Streamed live on Twitch - &lt;a href=&#34;http://twitch.tv/theprimeagen&#34;&gt;http://twitch.tv/theprimeagen&lt;/a&gt;&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-11-19t11-16%2F&amp;t=RSS%3A&amp;#43;2024-11-19T11%3A16&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-11-17T13:35</title>
 				<link>https://leeturner.me/microblog/2024-11-17t13-35/</link>
 				<pubDate>Sun, 17 Nov 2024 13:35:08 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-17t13-35/</guid>
-				<description>&lt;p&gt;It’s been a great week of live music. From Cigarettes After Sex live at the O2 to the amazing Cardinal Black at a local&#xA;venue in Brighton&lt;/p&gt;</description>
+				<description>&lt;p&gt;It’s been a great week of live music. From Cigarettes After Sex live at the O2 to the amazing Cardinal Black at a local&#xA;venue in Brighton&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-11-17t13-35%2F&amp;t=RSS%3A&amp;#43;2024-11-17T13%3A35&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 			<item>
 				<title>2024-11-16T09:49</title>
 				<link>https://leeturner.me/microblog/2024-11-16t09-49/</link>
 				<pubDate>Sat, 16 Nov 2024 09:49:08 +0000</pubDate>
 				<guid>https://leeturner.me/microblog/2024-11-16t09-49/</guid>
-				<description>&lt;p&gt;Enjoyed my usual installment of &lt;code&gt;Pairing With Duncan&lt;/code&gt;. This series on Gradle is really good&lt;/p&gt;&#xA;&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;&#x9;&#x9;&#x9;&lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/7AxDwkRVkuA?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;&#x9;&#x9;&lt;/div&gt;</description>
+				<description>&lt;p&gt;Enjoyed my usual installment of &lt;code&gt;Pairing With Duncan&lt;/code&gt;. This series on Gradle is really good&lt;/p&gt;&#xA;&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;&#x9;&#x9;&#x9;&lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/7AxDwkRVkuA?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;&#x9;&#x9;&lt;/div&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fmicroblog%2F2024-11-16t09-49%2F&amp;t=RSS%3A&amp;#43;2024-11-16T09%3A49&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
 			</item>
 	</channel>
 </rss>
