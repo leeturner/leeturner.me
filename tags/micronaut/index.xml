@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Wed, 18 Nov 2026 15:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Sat, 21 Nov 2026 10:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/tags/micronaut/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>mtui - A Terminal UI for Micronaut Launch</title>
+				<link>https://leeturner.me/post/micronaut-launch-tui/</link>
+				<pubDate>Sat, 21 Nov 2026 10:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/post/micronaut-launch-tui/</guid>
+				<description>&lt;p&gt;The hardest part of creating a Micronaut project is finding the right features: there are hundreds of them. Starting one usually means opening the browser, heading to Micronaut Launch, clicking through the options, downloading the zip, unzipping it and moving it to where you actually wanted it&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;You can skip the browser altogether with the &lt;a href=&#34;https://docs.micronaut.io/latest/guide/#cli&#34;&gt;Micronaut CLI&lt;/a&gt; and &lt;code&gt;mn create-app&lt;/code&gt;, but then you need to know the feature names up front. I wanted something in between: the browsing and searching you get on the website, without leaving the terminal.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Introducing wiremock-micronaut</title>
 				<link>https://leeturner.me/post/wiremock-micronaut/</link>

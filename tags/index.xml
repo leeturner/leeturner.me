@@ -10,9 +10,37 @@
 		
 		
 		
-			<lastBuildDate>Fri, 20 Nov 2026 10:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Sat, 21 Nov 2026 10:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Kotlin</title>
+				<link>https://leeturner.me/tags/kotlin/</link>
+				<pubDate>Sat, 21 Nov 2026 10:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/tags/kotlin/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Micronaut</title>
+				<link>https://leeturner.me/tags/micronaut/</link>
+				<pubDate>Sat, 21 Nov 2026 10:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/tags/micronaut/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tamboui</title>
+				<link>https://leeturner.me/tags/tamboui/</link>
+				<pubDate>Sat, 21 Nov 2026 10:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/tags/tamboui/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tui</title>
+				<link>https://leeturner.me/tags/tui/</link>
+				<pubDate>Sat, 21 Nov 2026 10:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/tags/tui/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Appsec</title>
 				<link>https://leeturner.me/tags/appsec/</link>
@@ -39,20 +67,6 @@
 				<link>https://leeturner.me/tags/wiremock/</link>
 				<pubDate>Fri, 20 Nov 2026 10:00:00 +0000</pubDate>
 				<guid>https://leeturner.me/tags/wiremock/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Kotlin</title>
-				<link>https://leeturner.me/tags/kotlin/</link>
-				<pubDate>Wed, 18 Nov 2026 15:00:00 +0000</pubDate>
-				<guid>https://leeturner.me/tags/kotlin/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Micronaut</title>
-				<link>https://leeturner.me/tags/micronaut/</link>
-				<pubDate>Wed, 18 Nov 2026 15:00:00 +0000</pubDate>
-				<guid>https://leeturner.me/tags/micronaut/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -207,20 +221,6 @@
 				<link>https://leeturner.me/tags/progression/</link>
 				<pubDate>Sat, 01 May 2021 10:20:08 +0000</pubDate>
 				<guid>https://leeturner.me/tags/progression/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Blinky</title>
-				<link>https://leeturner.me/tags/blinky/</link>
-				<pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-				<guid>https://leeturner.me/tags/blinky/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Blinkytape</title>
-				<link>https://leeturner.me/tags/blinkytape/</link>
-				<pubDate>Tue, 06 Apr 2021 10:20:08 +0000</pubDate>
-				<guid>https://leeturner.me/tags/blinkytape/</guid>
 				<description></description>
 			</item>
 	</channel>
