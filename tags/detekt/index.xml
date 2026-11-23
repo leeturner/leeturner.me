@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Detekt on Lee Turner</title>
+		<link>https://leeturner.me/tags/detekt/</link>
+		<description>Recent content in Detekt on Lee Turner</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 23 Nov 2026 10:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://leeturner.me/tags/detekt/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>arrow-detekt-rules - Catching Arrow Mistakes with detekt</title>
+				<link>https://leeturner.me/post/arrow-detekt-rules/</link>
+				<pubDate>Mon, 23 Nov 2026 10:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/post/arrow-detekt-rules/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://arrow-kt.io/&#34;&gt;Arrow&lt;/a&gt; makes typed errors with &lt;code&gt;Either&lt;/code&gt; and &lt;code&gt;Raise&lt;/code&gt; a joy to work with, and a lot clearer than throwing exceptions around. There is more than one way to write it, though, and I have a style I want to stick to, like using &lt;code&gt;ensure&lt;/code&gt; rather than an &lt;code&gt;if&lt;/code&gt; statement with a &lt;code&gt;raise&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;As more and more code is written by agents, I wanted them to get early, automated feedback on that style, rather than me spotting it in review. So I built &lt;a href=&#34;https://leeturner.me/projects/arrow-detekt-rules/&#34;&gt;arrow-detekt-rules&lt;/a&gt;, a &lt;a href=&#34;https://detekt.dev/&#34;&gt;detekt&lt;/a&gt; 2 rule set for Arrow code. It flags places where a standard construct, like an &lt;code&gt;if&lt;/code&gt; statement, has been used instead of the Arrow one, like &lt;code&gt;ensure&lt;/code&gt;, along with a few mistakes the compiler is perfectly happy with that are quietly wrong.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

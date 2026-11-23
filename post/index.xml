@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Sat, 21 Nov 2026 10:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Mon, 23 Nov 2026 10:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://leeturner.me/post/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>arrow-detekt-rules - Catching Arrow Mistakes with detekt</title>
+				<link>https://leeturner.me/post/arrow-detekt-rules/</link>
+				<pubDate>Mon, 23 Nov 2026 10:00:00 +0000</pubDate>
+				<guid>https://leeturner.me/post/arrow-detekt-rules/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://arrow-kt.io/&#34;&gt;Arrow&lt;/a&gt; makes typed errors with &lt;code&gt;Either&lt;/code&gt; and &lt;code&gt;Raise&lt;/code&gt; a joy to work with, and a lot clearer than throwing exceptions around. There is more than one way to write it, though, and I have a style I want to stick to, like using &lt;code&gt;ensure&lt;/code&gt; rather than an &lt;code&gt;if&lt;/code&gt; statement with a &lt;code&gt;raise&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;As more and more code is written by agents, I wanted them to get early, automated feedback on that style, rather than me spotting it in review. So I built &lt;a href=&#34;https://leeturner.me/projects/arrow-detekt-rules/&#34;&gt;arrow-detekt-rules&lt;/a&gt;, a &lt;a href=&#34;https://detekt.dev/&#34;&gt;detekt&lt;/a&gt; 2 rule set for Arrow code. It flags places where a standard construct, like an &lt;code&gt;if&lt;/code&gt; statement, has been used instead of the Arrow one, like &lt;code&gt;ensure&lt;/code&gt;, along with a few mistakes the compiler is perfectly happy with that are quietly wrong.&lt;/p&gt;&lt;img src=&#34;https://leeturner.goatcounter.com/count?p=%2Frss%2Fpost%2Farrow-detekt-rules%2F&amp;t=RSS%3A&amp;#43;arrow-detekt-rules&amp;#43;-&amp;#43;Catching&amp;#43;Arrow&amp;#43;Mistakes&amp;#43;with&amp;#43;detekt&#34; width=&#34;1&#34; height=&#34;1&#34; alt=&#34;&#34;&gt;</description>
+			</item>
 			<item>
 				<title>mtui - A Terminal UI for Micronaut Launch</title>
 				<link>https://leeturner.me/post/micronaut-launch-tui/</link>
